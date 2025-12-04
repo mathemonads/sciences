@@ -1,3 +1,3 @@
 # sciences
 
-science exercises
+minimum exercises

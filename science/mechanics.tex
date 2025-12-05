@@ -1,6 +1,8 @@
 
 \section{Theoretical Minimum}
 
+\subsection{Classical physics}
+
 \begin{answer}
 	Closed systems can actually exist if the collection of objects under investigation do not interact with anything outside of the system.
 
@@ -14,18 +16,33 @@
 	However, the failure to establish a system to be open does not suffice to definitively conclude the system is closed.
 \end{answer}
 
+% functions of states 
 \begin{answer}
-	If each of the six states in the six-state system $S = \left\{1, 2, 3, 4, 5, 6\right\}$ can evolve into any of the six states in $S$, then each law is given by a function $S \xrightarrow{f} S$ that maps each state to the result of its evolution and the space of all laws that are possible for $S$ is classified by the set $C$ defined below.
+	Consider a system consisting of six states $S = \left\{1, 2, 3, 4, 5, 6\right\}$.
+
+	A law is given by a function $S \xrightarrow{f} S$ that assigns each state in $S$ to the state that results from evolution under the law.
+
+	If any law is allowed, then the set of laws is given by the set of all functions from $S$ to $S$.
+
+	If a law must satisfy the conservation of information, then the set of laws that are possible for a six-state system can be classified by the set of functions
 	\begin{align}
-		C & = \left\{ f \mid \operatorname{domain} f = \operatorname{codomain} f = S \right\}
+		C & = \left\{ f : S \to S \mid \forall y \in S, \exists!\ x \in S. f(x) = y \right\},
 	\end{align}
-	The size $\left|C\right| = 6^6$ of $C$ is the number $6^6 = 46,656$ of such laws.
+	where each function has the property that each element in its codomain has a corresponding, unique element in the domain that is mapped to it and thus each such function in $C$ is a bijection.
+	The number of such laws, given by the size $\left|C\right| = 6!$ of $C$, is $6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720$.
+	This is because any function $S \xrightarrow{f} S$ in $C$ can be defined by sampling from the space $S$ of outcomes six times without replacement.
 \end{answer}
 
 \begin{answer}
-	Allowable dynamical laws include that given by the following equation. 
+	Consider the infinite system $\left\{\cdots, -1, 0, +1, +2, \cdots\right\}$.
+
+	Examples of dynamical laws that are allowable include those given by the following equations.
 	\begin{align}
-		N(n + 1) = N(n) + 1
+		N(n+1) = N(n) - 1 \qquad
+		N(n+1) = N(n) + 2 \qquad
+		N(n+1) = -1^{N(n)} N(n)
 	\end{align}
+	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
 
+\subsubsection{Spaces}

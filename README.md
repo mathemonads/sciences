@@ -1,4 +1,4 @@
 
 # sciences
 
-minimum exercises
+Theoretical Minimum exercises

@@ -1,0 +1,20 @@
+
+% sciences/science/assets/plot.tex
+
+\begin{tikzpicture}
+	\begin{axis}
+		\addplot[variable=t]{t^4 + 3*t^3 - 12*t^2 + t - 6  };
+		\addlegendentry{$t^4 + 3t^3 - 12t^2 + t - 6$}
+		\addplot[variable=t]{e^(t) + t * ln(t)};
+		\addlegendentry{$e^\alpha + \alpha \ln \alpha$}
+	\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[trig format=rad]
+		\addplot{sin(x) - cos(x)};
+		\addlegendentry{$\sin x - \cos x$}
+		\addplot{sin(x)^2 - cos(x)};
+		\addlegendentry{$\sin^2 x - \cos x$}
+	\end{axis}
+\end{tikzpicture}

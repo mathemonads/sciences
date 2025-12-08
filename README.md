@@ -1,4 +1,4 @@
 
 # sciences
 
-exercises from Theoretical Minimum
+exercises from book Theoretical Minimum

@@ -3,7 +3,7 @@
 
 \begin{subfigure}{0.32\textwidth}\centering
 	\begin{tikzpicture}
-		\begin{axis}[width=1\linewidth, legend pos=north east, legend style={font=\tiny}]
+		\begin{axis}[width=1.2\linewidth, legend style={font=\tiny, at={(0.5, 1.05)}, anchor=south}]
 			\addplot[variable=t]{t^4 + 3*t^3 - 12*t^2 + t - 6  };
 			\addlegendentry{$f(t) = t^4 + 3t^3 - 12t^2 + t - 6$}
 		\end{axis}
@@ -13,7 +13,7 @@
 \hfill
 \begin{subfigure}{0.32\textwidth}\centering
 	\begin{tikzpicture}
-		\begin{axis}[trig format=rad, width=1\linewidth, legend pos=north east, legend style={font=\tiny}]
+		\begin{axis}[trig format=rad, width=1.2\linewidth, legend style={font=\tiny, at={(0.5, 1.05)}, anchor=south}]
 			\addplot{sin(x) - cos(x)};
 			\addlegendentry{$g(x) = \sin x - \cos x$}
 			\addplot{sin(x)^2 - cos(x)};
@@ -25,7 +25,7 @@
 \hfill
 \begin{subfigure}{0.32\textwidth}\centering
 	\begin{tikzpicture}
-		\begin{axis}[width=1\linewidth, legend pos=north east, legend style={font=\tiny}]
+		\begin{axis}[width=1.2\linewidth, legend style={font=\tiny, at={(0.5, 1.05)}, anchor=south}]
 			\addplot[variable=\alpha]{e^(\alpha) + \alpha * ln(\alpha)};
 			\addlegendentry{$\theta(\alpha) = e^\alpha + \alpha \ln \alpha$}
 		\end{axis}

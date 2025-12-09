@@ -1,7 +1,7 @@
 
 \section{Theoretical Minimum}
 
-\subsection{Of classical physics}
+\subsection{Nature of classical physics}
 
 \begin{answer}
 	Closed systems can actually exist if the collection of objects under investigation do not interact with anything outside of the system.
@@ -45,13 +45,22 @@
 	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
 
-\subsubsection{Spaces, Trigonometry}
+\subsubsection{Spaces, Trigonometry, vectors}
 
 \begin{answer}
-	Some functions are plotted below.
+	Consider the functions $f,g,\theta,t$ defined below.
+	\begin{align}
+		f(t)           & = t^4 + 3t^3 - 12t^2 + t - 6   \\
+		g(x)           & = \sin x - \cos x              \\
+		\theta(\alpha) & = e^\alpha + \alpha \ln \alpha \\
+		t(x)           & = \sin^2x - \cos x
+	\end{align}
+
+	They are plotted in Figure \ref{fig:plot} above.
 	\begin{figure}
 		\input{assets/plot}
 		\caption{Plots of functions}
+		\label{fig:plot}
 	\end{figure}
 \end{answer}
 
@@ -74,6 +83,39 @@
 \begin{answer}
 	Let $\left(A_x = 2, A_y = -3, A_z = 1\right)$ and $\left(B_x=-4, B_y=-3, B_z=2\right)$.
 
-	The magnitude $\left|\vec{A}\right| = \sqrt{2^2 + (-3)^2 + 1^2}$ of $\vec{A}$ is $\left|\vec{A}\right| = \sqrt{4+9+1} = \sqrt{14}$.
+	The magnitude $\left|\vec{A}\right| = \sqrt{2^2 + (-3)^2 + 1^2}$ of $\vec{A}$ is $\left|\vec{A}\right| = \sqrt{4+9+1} = \sqrt{14}$, and the magnitude $\left|\vec{B}\right| = \sqrt{(-4)^2 + (-3)^2 + 2^2}$ of $\vec{B}$ is $\left|\vec{B}\right| = \sqrt{29}$.
+	The dot product $\vec{A} \cdot \vec{B} = 2(-4) + (-3)(-3) + 1(2)$ of $\vec{A}$ and $\vec{B}$ is $\vec{A} \cdot \vec{B} = 3$.
+	Since the angle $\theta$ between the two vectors satisfies $\vec{A} \cdot \vec{B} = \left|\vec{A}\right| \left|\vec{B}\right| \cos \theta$, it is given by $\dsp \theta = \cos^{-1} \frac{3}{\sqrt{406}}$ and approximated by $1.421$ radians.
+\end{answer}
+
+\begin{answer}
+	Consider the vectors $(1,1,1)$, $(2,-1,3)$, $(3,1,0)$, and $(-3,0,2)$.
+	The pair of orthogonal vectors is $\dots$.
+\end{answer}
+
+\subsection{Motion}
+
+\begin{answer}
+	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
+
+	The derivatives are given below.
+	\begin{align*}
+		\frac{df}{dt}           & = 4t^3 + 9t^2 - 24t + 1                \\
+		\frac{dg}{dx}           & = \cos x + \sin x                      \\
+		\frac{d\theta}{d\alpha} & = e^\alpha + 1 + \ln \alpha            \\
+		\frac{dt}{dx}           & = \left(2 \sin x\right)\cos x + \sin x
+	\end{align*}
+\end{answer}
+
+\begin{answer}
+	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
+
+	The second derivatives are given by $\dsp \frac{d^2f(t)}{dt^2} = 12t^2 + 18t - 24$, $\frac{d^2g(x)}{dx^2} = \cos x - \sin x$, $\frac{d^2\theta(\alpha)}{d\alpha^2} = e^\alpha + \frac{1}{\alpha}$, and $\frac{d^2t(x)}{dx^2} = -\left(2\sin x\right)\sin x + \left(2 \cos x\right)\cos x + \cos x$.
+\end{answer}
+
+\begin{answer}
+	Consider the functions $g,\theta,x$ defined by $g(t) = \sin t^2 - \cos t^2$, $\theta(\alpha) = e^{3 \alpha} + 3 \alpha \ln 3 \alpha$, and $x(t) = \sin^2 t^2 - \cos t^2$.
+
+	The chain rule yields $\frac{dg}{dt} = 2t \cos t^2 + 2t \sin t^2\dots$.
 \end{answer}
 

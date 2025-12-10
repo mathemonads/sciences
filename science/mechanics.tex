@@ -45,7 +45,7 @@
 	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
 
-\subsubsection{Spaces, Trigonometry, vectors}
+\subsubsection{Spaces, Trigonometry, and vectors}
 
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined below.
@@ -90,7 +90,11 @@
 
 \begin{answer}
 	Consider the vectors $(1,1,1)$, $(2,-1,3)$, $(3,1,0)$, and $(-3,0,2)$.
-	The pair of orthogonal vectors is $\dots$.
+	The only pair of orthogonal vectors is $\left\{(2,-1,3), (-3,0,2)\right\}$.
+\end{answer}
+
+\begin{answer}
+	The angle $\theta$ between two vectors that are orthogonal is $\frac{\pi}{2}$ radians.
 \end{answer}
 
 \subsection{Motion}
@@ -116,6 +120,17 @@
 \begin{answer}
 	Consider the functions $g,\theta,x$ defined by $g(t) = \sin t^2 - \cos t^2$, $\theta(\alpha) = e^{3 \alpha} + 3 \alpha \ln 3 \alpha$, and $x(t) = \sin^2 t^2 - \cos t^2$.
 
-	The chain rule yields $\frac{dg}{dt} = 2t \cos t^2 + 2t \sin t^2\dots$.
+	The chain rule yields $\frac{dg}{dt} = 2t \cos t^2 + 2t \sin t^2\dots$, $\frac{d\theta}{d\alpha} = 3e^{3\alpha} + 1 + 3\ln 3\alpha$, and $\frac{dx}{dt} = 4t\sin t^2 + 2t \sin t^2$.
+\end{answer}
+
+\begin{answer}
+	The sum rule is shown for any $f$ and $g$ below.
+	\begin{align*}
+		\frac{d(f+g)}{dt} & =
+		\lim_{\Delta t \to 0} \frac{\left(f(t+\Delta t)+g(t+\Delta t)\right)-\left(f(t)+g(t)\right)}{\Delta t}                                      \\
+		                  & = \lim_{\Delta t \to 0} \frac{\left(f(t+\Delta t)-f(t)\right)+\left(g(t+\Delta t)-g(t)\right)}{\Delta t}                \\
+		                  & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t)-f(t)}{\Delta t} + \lim_{\Delta t \to 0} \frac{g(t+\Delta t)-g(t)}{\Delta t} \\
+		                  & = \frac{df}{dt} + \frac{dg}{dt}
+	\end{align*}
 \end{answer}
 

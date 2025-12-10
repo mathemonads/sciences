@@ -1,5 +1,5 @@
 
 # sciences
 
-exercises from book on Theoretical Minimum
+exercises from Susskind book on Theoretical Minimum
 

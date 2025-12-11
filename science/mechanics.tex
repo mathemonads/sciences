@@ -45,7 +45,9 @@
 	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
 
-\subsubsection{Spaces, Trigonometry, and vectors}
+\subsubsection{Spaces, srigonometry, and vectors}
+
+\setcounter{answer}{0}
 
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined below.
@@ -94,7 +96,7 @@
 \end{answer}
 
 \begin{answer}
-	The angle $\theta$ between two vectors that are orthogonal is $\frac{\pi}{2}$ radians.
+	The angle $\theta$ between two vectors that are orthogonal is $\frac{\pi}{2}$ radians, so their dot product is $\cos \frac{\pi}{2} = 0$.
 \end{answer}
 
 \subsection{Motion}
@@ -114,7 +116,13 @@
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
-	The second derivatives are given by $\dsp \frac{d^2f(t)}{dt^2} = 12t^2 + 18t - 24$, $\frac{d^2g(x)}{dx^2} = \cos x - \sin x$, $\frac{d^2\theta(\alpha)}{d\alpha^2} = e^\alpha + \frac{1}{\alpha}$, and $\frac{d^2t(x)}{dx^2} = -\left(2\sin x\right)\sin x + \left(2 \cos x\right)\cos x + \cos x$.
+	The second derivatives are given below.
+	\begin{align*}
+		\frac{d^2f(t)}{dt^2}                & = 12t^2 + 18t - 24                                                   \\
+		\frac{d^2g(x)}{dx^2}                & = \cos x - \sin x                                                    \\
+		\frac{d^2\theta(\alpha)}{d\alpha^2} & = e^\alpha + \frac{1}{\alpha}                                        \\
+		\frac{d^2t(x)}{dx^2}                & = -\left(2\sin x\right)\sin x + \left(2 \cos x\right)\cos x + \cos x
+	\end{align*}
 \end{answer}
 
 \begin{answer}
@@ -132,5 +140,33 @@
 		                  & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t)-f(t)}{\Delta t} + \lim_{\Delta t \to 0} \frac{g(t+\Delta t)-g(t)}{\Delta t} \\
 		                  & = \frac{df}{dt} + \frac{dg}{dt}
 	\end{align*}
+	The product rule for any $f$ and $g$ is shown below.
+	\begin{align*}
+		f(t)\frac{d(g)}{dt} + g(t) \frac{d(f)}{dt}
+		 & = \lim_{\Delta t \to 0} f(t) \cdot \lim_{\Delta t \to 0} \frac{g(t+\Delta t)-g(t)}{\Delta t} + \lim_{\Delta t \to 0} g(t+\Delta t) \cdot \lim_{\Delta t \to 0} \frac{f(t+\Delta t) - f(t)}{\Delta t} \\
+		 & = \lim_{\Delta t \to 0} \frac{f(t)g(t+\Delta t) - f(t)g(t) + g(t+\Delta t)f(t+\Delta t) - g(t+\Delta t)f(t)}{\Delta t}                                                                               \\
+		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t)g(t+\Delta t) - f(t)g(t)}{\Delta t}
+		\frac{d\left(fg\right)}{dt}
+	\end{align*}
+	The chain rule for any $f$ and $g$ is shown below.
+	\begin{align*}
+		\frac{d\left(f(g(t))\right)}{dg(t)} \frac{d\left(g(t)\right)}{dt} & = \lim_{\Delta t \to 0} \frac{f\left(g(t)+(g(t+\Delta t) - g(t)) \right)-f\left(g(t)\right)}{g(t+\Delta t)-g(t)} \lim_{\Delta t \to 0} \frac{g(t+\Delta t) - g(t)}{\Delta t} \\
+		                                                                  & = \lim_{\Delta t \to 0} \frac{f\left(g(t+\Delta t)\right) - f\left(g(t)\right)}{\Delta t}                                                                                    \\
+		                                                                  & = \frac{d\left(f(g(t))\right)}{dt}
+	\end{align*}
+\end{answer}
+
+\begin{answer}
+	Recall the angle addition formula given below.
+	\begin{align}
+		\sin\left(\alpha + \beta\right) & = \sin \alpha \cos \beta + \cos \alpha \sin \beta                             \\
+		\cos\left(\alpha + \beta\right) & = \cos \alpha \cos \beta - \sin \alpha \sin \beta                             \\
+		\tan\left(\alpha - \beta\right) & = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \label{eqn:tan}
+	\end{align}
+	Let $D = \left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$.
+	Since any $x \in D$ satisfies $\frac{|x|}{|\sin x|} \geq 1$ and $\left|x\right| \leq \left|\tan x\right| \leq \frac{\left|\sin x\right|}{\left|\cos x\right|}$, it follows that $\left|\cos x\right| \leq \frac{\left|\sin x\right|}{\left|x\right|} \leq 1$.
+	It follows by the squeeze theorem that $\lim_{\Delta \to 0} \frac{\sin \Delta t}{\Delta t} = 1$.
+
+	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = 0 + 1 \cos t$.
 \end{answer}
 

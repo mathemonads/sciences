@@ -159,14 +159,49 @@
 \begin{answer}
 	Recall the angle addition formula given below.
 	\begin{align}
-		\sin\left(\alpha + \beta\right) & = \sin \alpha \cos \beta + \cos \alpha \sin \beta                             \\
-		\cos\left(\alpha + \beta\right) & = \cos \alpha \cos \beta - \sin \alpha \sin \beta                             \\
-		\tan\left(\alpha - \beta\right) & = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \label{eqn:tan}
+		\sin\left(\alpha + \beta\right) & = \sin \alpha \cos \beta + \cos \alpha \sin \beta \\
+		\cos\left(\alpha + \beta\right) & = \cos \alpha \cos \beta - \sin \alpha \sin \beta \\
+		% \tan\left(\alpha - \beta\right) & = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \label{eqn:tan}
 	\end{align}
-	Let $D = \left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$.
-	Since any $x \in D$ satisfies $\frac{|x|}{|\sin x|} \geq 1$ and $\left|x\right| \leq \left|\tan x\right| \leq \frac{\left|\sin x\right|}{\left|\cos x\right|}$, it follows that $\left|\cos x\right| \leq \frac{\left|\sin x\right|}{\left|x\right|} \leq 1$.
-	It follows by the squeeze theorem that $\lim_{\Delta \to 0} \frac{\sin \Delta t}{\Delta t} = 1$.
+	Let $D = \left[-\frac{\pi}{2}, +\frac{\pi}{2}\right] \setminus \left\{0\right\}$.
 
-	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = 0 + 1 \cos t$.
+	Recall that any $\theta \in D$ satisfies $\dsp \sin \theta < \theta < \tan \theta$.
+
+	Division by $\theta$ yields $\dsp \frac{\sin \theta}{\theta} < 1 < \frac{\tan \theta}{\theta}$ and multiplication by $\cos \theta$ yields $\cos \theta < \frac{\sin \theta}{\theta}$.
+	The squeeze theorem yields $\dsp \lim_{\theta \to 0} \cos \theta \leq \lim_{\theta \to 0} \frac{\sin \theta}{\theta} \leq \lim_{\theta \to 0} 1$ and thus $\dsp \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
+
+	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = 0 + 1 \cos t$ and
+	$\dsp \frac{d\left(\cos t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\cos t \cos \Delta t - \sin t \sin \Delta t\right) - \cos t}{\Delta t} = 0 - 1 \sin t$.
+
+	It follows from the definition of $e^t$ that $\dsp \frac{d\left(e^t\right)}{dt} = e^t$.
+
+	If $x = \ln t$ for $t>0$, then the derivative of $t = e^x$ satisfies the equations $\dsp 1 = \frac{dt}{dt} = \frac{d\left(e^{x(t)}\right)}{dt} = e^x \frac{dx}{dt}$ and $\dsp \frac{d\left(\ln t\right)}{dt} = \frac{dx}{dt} = \frac{1}{e^x} = \frac{1}{t}$.
+\end{answer}
+
+\begin{answer}
+	If the position of the particle is governed by $x(t) = \sin \omega t$, then the amount of time it takes for the oscillating particle to go through one full cycle of motion is $\dsp \frac{2 \pi}{\omega}$.
+\end{answer}
+
+\begin{answer}
+	Behold the following calculation.
+	\begin{align}
+		\begin{bmatrix}
+			\cos t \\
+			\sin t
+		\end{bmatrix}
+		\cdot
+		\begin{bmatrix}
+			-\sin t \\
+			\cos t
+		\end{bmatrix}
+		 & = (\cos t)(\sin t) + (-\sin t)(\cos t)
+		= 0
+	\end{align}
+\end{answer}
+
+\subsection{Calculus}
+
+\begin{answer}
+	The indefinite integral of $f(t) = t^4$ is $\dsp \int t^4 dt = \frac{t^5}{5} + c$.
 \end{answer}
 

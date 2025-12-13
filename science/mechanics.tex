@@ -183,25 +183,35 @@
 \end{answer}
 
 \begin{answer}
-	Behold the following calculation.
+	The dot product of the position and velocity vectors is given below.
 	\begin{align}
 		\begin{bmatrix}
-			\cos t \\
-			\sin t
+			R \cos \omega t \\
+			R \sin \omega t
 		\end{bmatrix}
 		\cdot
 		\begin{bmatrix}
-			-\sin t \\
-			\cos t
+			-R \omega \sin \omega t \\
+			R \omega \cos \omega t
 		\end{bmatrix}
-		 & = (\cos t)(\sin t) + (-\sin t)(\cos t)
-		= 0
+		= (R \sin \omega t)(R \omega \cos \omega t) - (R \cos \omega t)(R \omega \sin \omega t)
 	\end{align}
+	Since their dot product is $0$, the vectors are orthogonal.
 \end{answer}
 
-\subsection{Calculus}
+\begin{answer}
+	The position vector $\dsp \vec{r} = \left(\cos \omega t, e^{\omega t}\right)$ has velocity $\left(\omega \sin \omega t, \omega e^{\omega t}\right)$, acceleration $\left(-\omega^2 \cos \omega t, \omega^2 e^{\omega t}\right)$, and speed $\omega \sqrt{\sin^2 \omega t + e^{2 \omega t}}$.
+
+	The position vector $\dsp \vec{r} = \left(\cos(\omega t - \phi), \sin(\omega t - \phi)\right)$ has velocity $\dsp \left(\omega \sin(\omega t - \phi), -\omega \cos(\omega t - \phi)\right)$, acceleration $\dsp \left(-\omega^2 \cos(\omega t-\phi), -\omega^2\sin(\omega t-\phi)\right)$, and speed $\omega^2 \sin^2(\omega t - \phi) + \omega^2 \cos^2(\omega t - \phi) = \omega^2$.
+\end{answer}
+
+\subsubsection{Calculus}
 
 \begin{answer}
-	The indefinite integral of $f(t) = t^4$ is $\dsp \int t^4 dt = \frac{t^5}{5} + c$.
+	The indefinite integrals of $f_1(t) = t^4$, $f_2(t) = \cos t$, $f_3(t) = t^2 - 2$ are $\dsp \int t^4 ~dt = \frac{t^5}{5} + c$, $\dsp \int \cos t ~dt = \sin t + c$, and $\dsp \int t^2-2 ~dt = \frac{t^3}{3} - 2t + c$.
+\end{answer}
+
+\begin{answer}
+	The fundamental theorem of calculus yields $\dsp \int_0^T t^4 ~dt = \frac{T^5}{5} - 0$.
 \end{answer}
 

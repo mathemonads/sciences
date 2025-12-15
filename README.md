@@ -1,5 +1,5 @@
 
 # sciences
 
-exercises from book by Susskind & George Hrabovsky on Theoretical Minimum
+exercises from book by Leonard Susskind & George Hrabovsky on Theoretical Minimum
 

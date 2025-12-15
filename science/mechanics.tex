@@ -50,6 +50,7 @@
 \subsubsection{Spaces, srigonometry, and vectors}
 \setcounter{answer}{0}
 
+% tikzpicture 
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined below.
 	\begin{align}
@@ -229,7 +230,10 @@
 \end{answer}
 
 \begin{answer}
-	Calculation yields $\dsp \int_0^{\frac{\pi}{2}} x \cos x ~dx = \frac{\pi}{2}\sin \frac{\pi}{2} - \int_0^{\frac{\pi}{2}} \sin x ~dx$.
+	Calculating $\dsp \int_0^{\frac{\pi}{2}} x \cos x ~dx = \frac{\pi}{2}\sin \frac{\pi}{2} - \int_0^{\frac{\pi}{2}} \sin x ~dx$ yields the following integral.
+	\begin{align}
+		\int_0^{\frac{\pi}{2}} x \cos x = \frac{\pi}{2} \sin \frac{\pi}{2} - 1
+	\end{align}
 \end{answer}
 
 \subsection{Dynamics}
@@ -239,6 +243,31 @@
 \end{answer}
 
 \begin{answer}
-	Integration yields $\dsp \int_0^t \dot{v_z} = \int_0^t \frac{F_z}{m}$.
+	For a constant force $F_z$, integrating $\dsp \int_0^t \dot{v_z} = \int_0^t \frac{F_z}{m}$ yields the following equation.
+	\begin{align}
+		v_z(t) - v_z(0) & = \frac{F_z}{m}t
+	\end{align}
+\end{answer}
+
+\begin{answer}
+	Differentiating $\dsp z(t) = z_0 + v_z(0)t + \frac{F_z}{2m}t^2$ yields the following velocity.
+	\begin{align}
+		\frac{dz(t)}{dt} & = v_z(0) + \frac{F_z}{m}t
+	\end{align}
+\end{answer}
+
+\subsubsection{Partial differentiation}
+
+\begin{answer}
+	Consider the functions $V_1,V_2,V_3$ defined below.
+	\begin{align}
+		V_1(x,y) & = x^2 - y^2 - \sin xy     \\
+		V_2(x,y) & = \frac{x}{y} e^{x^2+y^2} \\
+		V_3(x,y) & = e^x \cos y
+	\end{align}
+	Behold.
+	\begin{align*}
+		\frac{\partial V_1}{\partial x} & = 2x - \cos xy &  & \frac{\partial V_1}{\partial y} = 2y - \cos xy &  & \frac{\partial^2 V_1}{\partial x \partial y} = 2 + \sin xy
+	\end{align*}
 \end{answer}
 

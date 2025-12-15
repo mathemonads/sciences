@@ -3,6 +3,7 @@
 
 \subsection{Nature of classical physics}
 
+% measurement
 \begin{answer}
 	Closed systems can actually exist if the collection of objects under investigation do not interact with anything outside of the system.
 
@@ -33,6 +34,7 @@
 	This is because any function $S \xrightarrow{f} S$ in $C$ can be defined by sampling from the space $S$ of outcomes six times without replacement.
 \end{answer}
 
+% bijection
 \begin{answer}
 	Consider the infinite system $\left\{\cdots, -1, 0, +1, +2, \cdots\right\}$.
 
@@ -219,15 +221,24 @@
 \end{answer}
 
 \begin{answer}
-	The fundamental theorem of calculus yields $\dsp \int_0^T t^4 ~dt = \frac{T^5}{5} - \frac{0^5}{5}$, $\dsp \int_0^T \cos t = \sin T - 0$, and $\dsp \int_0^T t^2-2 ~dt = \frac{T^3}{3} - 2T$.
+	The fundamental theorem of calculus yields $\dsp \int_0^T t^4 ~dt = \frac{T^5}{5} - \frac{0^5}{5}$, $\dsp \int_0^T \cos t = \sin T - \sin 0$, and $\dsp \int_0^T t^2-2 ~dt = \frac{T^3}{3} - 2T$.
 \end{answer}
 
 \begin{answer}
-	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$ has trajectory $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$.
+	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \cos t' ~dt'$ has trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
+\end{answer}
+
+\begin{answer}
+	Calculation yields $\dsp \int_0^{\frac{\pi}{2}} x \cos x ~dx = \frac{\pi}{2}\sin \frac{\pi}{2} - \int_0^{\frac{\pi}{2}} \sin x ~dx$.
 \end{answer}
 
 \subsection{Dynamics}
 
 \begin{answer}
-	Consider a force that varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$.
+	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{dx(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3} + c$ implies $c = \pi$.
 \end{answer}
+
+\begin{answer}
+	Integration yields $\dsp \int_0^t \dot{v_z} = \int_0^t \frac{F_z}{m}$.
+\end{answer}
+

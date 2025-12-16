@@ -68,6 +68,7 @@
 	\end{figure}
 \end{answer}
 
+% \vec{B} + (-\vec{B}) = 0
 \begin{answer}
 	The rule for vector subtraction is to add the augend add the result of reversing the direction of the addend.
 
@@ -77,6 +78,7 @@
 	\end{align}
 \end{answer}
 
+% calculate
 \begin{answer}
 	For any vector $\vec{A}$, the magnitude $\left| \vec{A} \right| = \sqrt{A_x^2 + A_y^2 + A_z^2}$ of $\vec{A}$ satisfies the following equations:
 	\begin{align}
@@ -250,24 +252,80 @@
 \end{answer}
 
 \begin{answer}
+	Consider a constant force on a body with a constant mass $m$.
+
 	Differentiating $\dsp z(t) = z_0 + v_z(0)t + \frac{F_z}{2m}t^2$ yields the following velocity.
+	\begin{align}\label{eqn:vel}
+		v_z(t) & = v_z(0) + \frac{F_z}{m}t
+	\end{align}
+	Differentiating Equation \eqref{eqn:vel} yields $\dsp \dot{v_z}(t) = \frac{F_z}{m}$.
+	This is the equation of motion for a constant force on a body with constant mass.
+\end{answer}
+
+\begin{answer}
+	The derivative of $\dsp x(t) = A \cos \omega t + B \sin \omega t$ is given below.
 	\begin{align}
-		\frac{dz(t)}{dt} & = v_z(0) + \frac{F_z}{m}t
+		\dot{x}(t) & = -\omega A \sin \omega t + \omega B \sin \omega t
 	\end{align}
 \end{answer}
 
 \subsubsection{Partial differentiation}
+\setcounter{answer}{0}
 
 \begin{answer}
 	Consider the functions $V_1,V_2,V_3$ defined below.
 	\begin{align}
-		V_1(x,y) & = x^2 - y^2 - \sin xy     \\
+		V_1(x,y) & = x^2 + y^2 - \sin xy     \\
 		V_2(x,y) & = \frac{x}{y} e^{x^2+y^2} \\
 		V_3(x,y) & = e^x \cos y
 	\end{align}
-	Behold.
+	The first derivatives are calculated below.
 	\begin{align*}
-		\frac{\partial V_1}{\partial x} & = 2x - \cos xy &  & \frac{\partial V_1}{\partial y} = 2y - \cos xy &  & \frac{\partial^2 V_1}{\partial x \partial y} = 2 + \sin xy
+		\frac{\partial V_1}{\partial x} & = 2x - \cos xy                                         & \frac{\partial V_1}{\partial y} & = 2y - \cos xy                              \\
+		\frac{\partial V_2}{\partial x} & = \left(\frac{2x^2}{y} + \frac{1}{y}\right)e^{x^2+y^2} & \frac{\partial V_2}{\partial y} & = \left(2x - \frac{1}{y} \right)e^{x^2+y^2} \\
+		\frac{\partial V_3}{\partial x} & = e^x \cos y                                           & \frac{\partial V_3}{\partial y} & = -e^x \sin y
 	\end{align*}
+	The second derivatives are given below.
+	\begin{align*}
+		\frac{\partial^2 V_1}{\partial x^2} & = 2 + \sin xy                                           & \frac{\partial^2 V_1}{\partial y^2}          & = 2 + \sin xy                                                      & \frac{\partial^2 V_1}{\partial x \partial y} & = \sin xy     \\
+		\frac{\partial^2 V_2}{\partial x^2} & = \left(\frac{4x^3}{y} + \frac{6x}{y}\right)e^{x^2+y^2} &
+		\frac{\partial V_2}{\partial y}     & = \left(4xy - 2 + \frac{1}{y^2}\right)e^{x^2+y^2}       & \frac{\partial^2 V_2}{\partial x \partial y} & = \left(4x^2+2 -\frac{2x^2}{y^2} - \frac{1}{y^2}\right)e^{x^2+y^2}                                                                \\
+		\frac{\partial^2 V_3}{\partial x^2} & = e^x \cos y                                            & \frac{\partial V_3}{\partial y}              & = - e^x \cos y                                                     & \frac{\partial^2 V_3}{\partial x \partial y} & = -e^x \sin y
+	\end{align*}
+\end{answer}
+
+\begin{answer}
+	The functions $F_1(x,y) = \sin x + \sin y$ and $F(x,y) = \cos x + \cos y$ have the first derivatives below.
+	\begin{align*}
+		\frac{\partial F_1}{\partial x} & = \cos x  & \frac{\partial F_1}{\partial y} & = \cos y  \\
+		\frac{\partial F_2}{\partial x} & = -\sin x & \frac{\partial F_2}{\partial y} & = -\sin y
+	\end{align*}
+
+	The Hessians are given below.
+	\begin{align*}
+		H_1(x,y) & =
+		\begin{pmatrix}
+			\frac{\partial^2 F_1}{\partial x^2}          & \frac{\partial^2 F_1}{\partial x \partial y} \\
+			\frac{\partial^2 F_1}{\partial y \partial x} & \frac{\partial^2 F_1}{\partial y^2}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			- \sin x & 0       \\
+			0        & -\sin y
+		\end{pmatrix}
+		\\
+		H_2(x,y) & =
+		\begin{pmatrix}
+			\frac{\partial^2 F_2}{\partial x^2}          & \frac{\partial^2 F_2}{\partial x \partial y} \\
+			\frac{\partial^2 F_2}{\partial y \partial x} & \frac{\partial^2 F_2}{\partial y^2}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			- \cos x & 0        \\
+			0        & - \cos y
+		\end{pmatrix}
+	\end{align*}
+	The determinant of $H_1$ is $\op{Det} H_1 = \frac{\partial^2 F_1}{\partial x^2} \frac{\partial^2 F_1}{\partial y^2} - \frac{\partial^2 F_1}{\partial y \partial x}\frac{\partial^2 F_1}{\partial x \partial y} = \sin x \sin y - 0 \cdot 0$.
+	The point $\dsp \left(\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is a saddle point of $F_1$.
 \end{answer}
 

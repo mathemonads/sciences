@@ -2,7 +2,7 @@
 */**.aux
 */**.bbl
 */**.bcf
-*/**.log
+**/*.log
 */**.pdf
 */**.xml
 */**.bak***
@@ -177,10 +177,6 @@ cython_debug/
 #.idea/
 
 # Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
 #  you could uncomment the following to ignore the entire vscode folder
 # .vscode/
-
-# PyPI configuration file
-.pypirc
 

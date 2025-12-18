@@ -166,9 +166,6 @@ venv.bak/
 # pytype static type analyzer
 .pytype/
 
-# Cython debug symbols
-cython_debug/
-
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
@@ -177,6 +174,5 @@ cython_debug/
 #.idea/
 
 # Visual Studio Code
-#  you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 

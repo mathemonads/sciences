@@ -86,6 +86,7 @@
 	\end{align}
 \end{answer}
 
+% calculate
 \begin{answer}
 	Let $\left(A_x = 2, A_y = -3, A_z = 1\right)$ and $\left(B_x=-4, B_y=-3, B_z=2\right)$.
 
@@ -94,6 +95,7 @@
 	Since the angle $\theta$ between the two vectors satisfies $\vec{A} \cdot \vec{B} = \left|\vec{A}\right| \left|\vec{B}\right| \cos \theta$, it is given by $\dsp \theta = \cos^{-1} \frac{3}{\sqrt{406}}$ and approximated by $1.421$ radians.
 \end{answer}
 
+% dot product
 \begin{answer}
 	Consider the vectors $(1,1,1)$, $(2,-1,3)$, $(3,1,0)$, and $(-3,0,2)$.
 	The only pair of orthogonal vectors is $\left\{(2,-1,3), (-3,0,2)\right\}$.
@@ -210,7 +212,7 @@
 	The position vector $\dsp \vec{r} = \left(c(t-\sin t), c(1-\cos t)\right)$ has velocity $\dsp \left(c - c\cos t, c + c\sin t\right)$, acceleration $\dsp \left(c\sin t, - c\cos t\right)$, and speed $\dsp 2c^2\left(1 - \cos t + 2c^2\sin t\right) + 1$.
 \end{answer}
 
-\subsubsection{Calculus}
+\subsubsection{Integral alculus}
 \setcounter{answer}{0}
 
 \begin{answer}
@@ -265,8 +267,10 @@
 \begin{answer}
 	The derivative of $\dsp x(t) = A \cos \omega t + B \sin \omega t$ is given below.
 	\begin{align}
-		\dot{x}(t) & = -\omega A \sin \omega t + \omega B \sin \omega t
+		\dot{x}(t) & = -\omega A \sin \omega t + \omega B \cos \omega t
 	\end{align}
+	The second derivative is $\ddot{x}(t) = -\omega^2 A \cos \omega t - \omega^2 B \sin \omega t = -\omega^2 x(t)$.
+	The initial position at time $t=0$ is $x(0) = A$, and the initial velocity at time $t=0$ is $B\omega$.
 \end{answer}
 
 \subsubsection{Partial differentiation}
@@ -301,7 +305,7 @@
 		\frac{\partial F_2}{\partial x} & = -\sin x & \frac{\partial F_2}{\partial y} & = -\sin y
 	\end{align*}
 
-	The Hessians are given below.
+	The Hessians are calculated below.
 	\begin{align*}
 		H_1(x,y) & =
 		\begin{pmatrix}
@@ -325,7 +329,62 @@
 			0        & - \cos y
 		\end{pmatrix}
 	\end{align*}
-	The determinant of $H_1$ is $\op{Det} H_1 = \frac{\partial^2 F_1}{\partial x^2} \frac{\partial^2 F_1}{\partial y^2} - \frac{\partial^2 F_1}{\partial y \partial x}\frac{\partial^2 F_1}{\partial x \partial y} = \sin x \sin y - 0 \cdot 0$.
-	The point $\dsp \left(\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is a saddle point of $F_1$.
+
+	The determinants are given below.
+	\begin{align*}
+		\op{Det} H_1 & = \frac{\partial^2 F_1}{\partial x^2} \frac{\partial^2 F_1}{\partial y^2} - \frac{\partial^2 F_1}{\partial y \partial x}\frac{\partial^2 F_1}{\partial x \partial y} = \sin x \sin y - 0 \cdot 0 \\
+		\op{Det} H_2 & = \frac{\partial^2 F_2}{\partial x^2} \frac{\partial^2 F_2}{\partial y^2} - \frac{\partial^2 F_2}{\partial y \partial x}\frac{\partial^2 F_2}{\partial x \partial y} = \cos x \cos y - 0
+	\end{align*}
+
+	The point $\dsp \left(\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is a saddle point of $F_1$ and it is not a stationary point of $F_2$.
+	The point $\dsp \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ is a saddle point of $F_1$ and it is not a stationary point of $F_2$.
+	The point $\dsp \left(-\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is not a stationary point of $F_2$ and we show it is a local minimum of $F_1$ below.
+	\begin{align}
+		\op{Tr} H_1 & = \frac{\partial^2 F_1}{\partial x^2} + \frac{\partial^2 F_1}{\partial y^2} = -\sin x - \sin y
+	\end{align}
+\end{answer}
+
+\subsection{Systems of more than one particle}
+
+There are no exercises in this lecture.
+
+\subsection{Energy}
+
+\begin{answer}
+	For a particle with a velocity $v(t)$ in one direction, the derivative of $v^2(t) = v(t)^2$ is calculated by the product rule below.
+	\begin{align}
+		\frac{dv^2}{dt} & = v \dot{v} + \dot{v} v
+	\end{align}
+	Therefore, the derivative is $\frac{dv^2}{dt} = 2 v \dot{v}$.
+\end{answer}
+
+\begin{answer}
+	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, in which the potential energy is $V = \frac{1}{2} k \left(x^2+y^2\right)$.
+	Observe $\dsp \nabla V = \begin{pmatrix} \frac{\partial V}{\partial x} & \frac{\partial V}{\partial y} \end{pmatrix} = \begin{pmatrix} kx & ky \end{pmatrix}$
+
+	The force $\dsp F = \begin{pmatrix} F_x \\ F_y \end{pmatrix}$ has components $F_x = -kx$ and $F_y = -ky$.
+	The equations of motion are given below.
+	\begin{align}
+		\begin{pmatrix}
+			x \\
+			y
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			r_0 \cos \left(\theta_0 + t\sqrt{\frac{k}{m}}\right) \\
+			r_0 \sin \left(\theta_0 + t\sqrt{\frac{k}{m}}\right)
+		\end{pmatrix}
+		 &
+		\begin{pmatrix}
+			\dot{x} \\
+			\dot{y}
+		\end{pmatrix}
+		 & = \sqrt{\frac{k}{m}}
+		\begin{pmatrix}
+			-r_0 \sin \left(\theta_0 + t\sqrt{\frac{k}{m}}\right) \\
+			r_0 \cos \left(\theta_0 + t\sqrt{\frac{k}{m}}\right)
+		\end{pmatrix}
+	\end{align}
+	This yields $\dsp m\ddot{x} = m\frac{-k}{m} r_0 \cos\left(\theta_0 + t\sqrt{\frac{k}{m}}\right) = -k x = F_x$ and $\dsp m\ddot{y} = F_y$.
 \end{answer}
 

@@ -97,16 +97,24 @@
 
 % dot product
 \begin{answer}
-	Consider the vectors $(1,1,1)$, $(2,-1,3)$, $(3,1,0)$, and $(-3,0,2)$.
+	Consider the vectors below.
+	\begin{align}
+		\left\{(1,1,1), (2,-1,3), (3,1,0), (-3,0,2)\right\}
+	\end{align}
 	The only pair of orthogonal vectors is $\left\{(2,-1,3), (-3,0,2)\right\}$.
 \end{answer}
 
+% orthogonal angle is pi/2
 \begin{answer}
-	The angle $\theta$ between two vectors that are orthogonal is $\frac{\pi}{2}$ radians, so their dot product is $\cos \frac{\pi}{2} = 0$.
+	The angle $\theta$ between two vectors that are orthogonal $\vec{A} \perp \vec{B}$ is $\frac{\pi}{2}$ radians, so their dot product is shown below.
+	\begin{align}
+		\vec{A} \cdot \vec{B} & = \left|\vec{A}\right| \left|\vec{B}\right| \cos \frac{\pi}{2} = 0
+	\end{align}
 \end{answer}
 
 \subsection{Motion}
 
+% calculate
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
@@ -359,32 +367,106 @@ There are no exercises in this lecture.
 \end{answer}
 
 \begin{answer}
-	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, in which the potential energy is $V = \frac{1}{2} k \left(x^2+y^2\right)$.
-	Observe $\dsp \nabla V = \begin{pmatrix} \frac{\partial V}{\partial x} & \frac{\partial V}{\partial y} \end{pmatrix} = \begin{pmatrix} kx & ky \end{pmatrix}$
+	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, in which the potential energy is $V = \frac{1}{2} k \left(x^2+y^2\right)$ and the initial data is given.
+	\begin{align*}
+		\vr_0
+		 & =
+		\begin{pmatrix}
+			x(0) \\
+			y(0)
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			x_0 \\
+			y_0
+		\end{pmatrix}
+		 &
+		\dot{\vr}_0 =
+		\begin{pmatrix}
+			\dot{x}(0) \\
+			\dot{y}(0)
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\dot{x}_0 \\
+			\dot{y}_0
+		\end{pmatrix}
+	\end{align*}
 
-	The force $\dsp F = \begin{pmatrix} F_x \\ F_y \end{pmatrix}$ has components $F_x = -kx$ and $F_y = -ky$.
-	The equations of motion are given below.
+	Observe $\dsp \nabla V = \begin{pmatrix} \frac{\partial V}{\partial x} \\ \frac{\partial V}{\partial y} \end{pmatrix} = \begin{pmatrix} kx \\ ky \end{pmatrix}$, and the force $\dsp F = \begin{pmatrix} F_x \\ F_y \end{pmatrix}$ has components $F_x = -kx$ and $F_y = -ky$.
+	The equations of motion are $m \ddot{x} = -kx$ and $m \ddot{y} = -ky$.
+	The solution is given in terms of $\dsp \omega = \sqrt{\frac{k}{m}}$ below.
 	\begin{align}
+		\vr
+		 & =
 		\begin{pmatrix}
 			x \\
 			y
 		\end{pmatrix}
-		 & =
+		= \phantom{-\omega^2}
 		\begin{pmatrix}
-			r_0 \cos \left(\theta_0 + t\sqrt{\frac{k}{m}}\right) \\
-			r_0 \sin \left(\theta_0 + t\sqrt{\frac{k}{m}}\right)
-		\end{pmatrix}
-		 &
+			x_0 \cos \omega t + \frac{\dot{x}_0}{\omega} \sin \omega t \\
+			y_0 \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
+		\end{pmatrix}  \\
+		\dot{\vr}
+		 & =
 		\begin{pmatrix}
 			\dot{x} \\
 			\dot{y}
 		\end{pmatrix}
-		 & = \sqrt{\frac{k}{m}}
+		=
+		\phantom{-} \omega
 		\begin{pmatrix}
-			-r_0 \sin \left(\theta_0 + t\sqrt{\frac{k}{m}}\right) \\
-			r_0 \cos \left(\theta_0 + t\sqrt{\frac{k}{m}}\right)
+			-x_0 \sin \omega t + \frac{\dot{x}_0}{\omega} \cos \omega t \\
+			-y_0 \sin \omega t + \frac{\dot{y}_0}{\omega} \cos \omega t
+		\end{pmatrix} \nonumber \\
+		\ddot{\vr}
+		 & =
+		\begin{pmatrix}
+			\ddot{x} \\
+			\ddot{y}
 		\end{pmatrix}
+		=
+		- \omega^2
+		\begin{pmatrix}
+			x_0 \cos \omega t +  \frac{\dot{x}_0}{\omega} \sin \omega t \\
+			y_0 \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
+		\end{pmatrix}
+		= - \frac{k}{m} \vr \nonumber
 	\end{align}
-	This yields $\dsp m\ddot{x} = m\frac{-k}{m} r_0 \cos\left(\theta_0 + t\sqrt{\frac{k}{m}}\right) = -k x = F_x$ and $\dsp m\ddot{y} = F_y$.
+	Observe it satisfies the equations and that the orbits have period $\dsp 2\pi \sqrt{\frac{m}{k}}$.
+
+	The orbit is an ellipse in the plane spanned by $\vr_0$ and $\dsp \mbf{b} = \frac{1}{\omega} \dot{\vr}_0$ which is centered at the origin and whose principal axes are along the eigenvectors of the matrix $\vr_0 \vr_0^\top + \mbf{b} \mbf{b}^\top$.
+	It is a circle if $\left|\dot{\vr}_0\right| = \omega \left|\vr_0\right|$ and $\vr_0 \cdot \dot{\vr}_0 = 0$.
+
+	It follows from the chain rule that $\dot{V} = \frac{2k}{2} \vr \cdot \dot{\vr}$ and from the equation of motion that $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr} = - k \vr \cdot \dot{\vr}$.
+	Addition yields $\dsp \dot{E} = \dot{T} + \dot{V} = 0$.
+	Thus, the total energy is conserved.
+\end{answer}
+
+\begin{answer}
+	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, with potential energy $\dsp V = \frac{k}{2(x^2+y^2)}$.
+
+	Let $r = \sqrt{x^2+y^2}$, $\vr = \begin{pmatrix} \cos \theta \\ \sin \theta \end{pmatrix}$, and $V' = \frac{dV}{dr} = -\frac{k}{r^3}$.
+
+	The chain rule yields the gradient below.
+	\begin{align*}
+		\nabla V & = \begin{pmatrix} \frac{\partial V}{\partial x} \\ \frac{\partial V}{\partial y}\end{pmatrix}
+		=
+		k
+		\begin{pmatrix}
+			-\frac{x}{(x^2+y^2)^2} \\
+			-\frac{y}{(x^2+y^2)^2}
+		\end{pmatrix}
+		         &
+		F        & = -\nabla V = k
+		\begin{pmatrix}
+			\frac{x}{(x^2+y^2)^2} \\
+			\frac{y}{(x^2+y^2)^2}
+		\end{pmatrix}
+		= \frac{\vr}{\left(\vr \cdot \vr\right)^2}
+		= - V'(r) \widehat{\vr}
+	\end{align*}
+	The equations of motion are $\dsp m \ddot{x} = k\frac{x}{(x^2+y^2)^2}$ and $\dsp m \ddot{y} = k \frac{y}{(x^2+y^2)^2}$.
 \end{answer}
 

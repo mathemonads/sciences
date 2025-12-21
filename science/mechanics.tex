@@ -127,6 +127,7 @@
 	\end{align*}
 \end{answer}
 
+% calculate
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
@@ -139,10 +140,16 @@
 	\end{align*}
 \end{answer}
 
+% chain rule
 \begin{answer}
 	Consider the functions $g,\theta,x$ defined by $g(t) = \sin t^2 - \cos t^2$, $\theta(\alpha) = e^{3 \alpha} + 3 \alpha \ln 3 \alpha$, and $x(t) = \sin^2 t^2 - \cos t^2$.
 
-	The chain rule yields $\frac{dg}{dt} = 2t \cos t^2 + 2t \sin t^2\dots$, $\frac{d\theta}{d\alpha} = 3e^{3\alpha} + 1 + 3\ln 3\alpha$, and $\frac{dx}{dt} = 4t\sin t^2 + 2t \sin t^2$.
+	The chain rule yields the following derivatives.
+	\begin{align*}
+		\frac{dg}{dt}           & = 2t \cos t^2 + 2t \sin t^2          \\
+		\frac{d\theta}{d\alpha} & = 3e^{3\alpha} + 3 + 3\ln 3\alpha    \\
+		\frac{dx}{dt}           & = 4t(\sin t^2)\cos t^2 + 2t \sin t^2
+	\end{align*}
 \end{answer}
 
 \begin{answer}
@@ -436,10 +443,10 @@ There are no exercises in this lecture.
 	\end{align}
 	Observe it satisfies the equations and that the orbits have period $\dsp 2\pi \sqrt{\frac{m}{k}}$.
 
-	The orbit is an ellipse in the plane spanned by $\vr_0$ and $\dsp \mbf{b} = \frac{1}{\omega} \dot{\vr}_0$ which is centered at the origin and whose principal axes are along the eigenvectors of the matrix $\vr_0 \vr_0^\top + \mbf{b} \mbf{b}^\top$.
+	The orbit is an ellipse centered at the origin whose principal axes are along the eigenvectors of the matrix $\vr_0 \vr_0^\top + \mbf{b} \mbf{b}^\top$.
 	It is a circle if $\left|\dot{\vr}_0\right| = \omega \left|\vr_0\right|$ and $\vr_0 \cdot \dot{\vr}_0 = 0$.
 
-	It follows from the chain rule that $\dot{V} = \frac{2k}{2} \vr \cdot \dot{\vr}$ and from the equation of motion that $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr} = - k \vr \cdot \dot{\vr}$.
+	Since $\dsp V = \frac{k}{2} \left|\vr\right|^2$, it follows from the chain rule that $\dot{V} = k \vr \cdot \dot{\vr}$ and from the equation of motion that $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr} = - k \vr \cdot \dot{\vr}$.
 	Addition yields $\dsp \dot{E} = \dot{T} + \dot{V} = 0$.
 	Thus, the total energy is conserved.
 \end{answer}
@@ -447,7 +454,7 @@ There are no exercises in this lecture.
 \begin{answer}
 	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, with potential energy $\dsp V = \frac{k}{2(x^2+y^2)}$.
 
-	Let $r = \sqrt{x^2+y^2}$, $\vr = \begin{pmatrix} \cos \theta \\ \sin \theta \end{pmatrix}$, and $V' = \frac{dV}{dr} = -\frac{k}{r^3}$.
+	Let $\vr = \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} r \cos \theta \\ r \sin \theta \end{pmatrix}$, $r = \left|\vr\right|$, $\dsp \widehat{\vr} = \frac{\vr}{r}$, and $\dsp V' = \frac{dV}{dr} = \frac{d}{dr}\left(\frac{k}{2r^2}\right) = \frac{-k}{r^{3}}$.
 
 	The chain rule yields the gradient below.
 	\begin{align*}
@@ -458,15 +465,35 @@ There are no exercises in this lecture.
 			-\frac{x}{(x^2+y^2)^2} \\
 			-\frac{y}{(x^2+y^2)^2}
 		\end{pmatrix}
+		= -\frac{k}{r^4} \vr
 		         &
 		F        & = -\nabla V = k
 		\begin{pmatrix}
 			\frac{x}{(x^2+y^2)^2} \\
 			\frac{y}{(x^2+y^2)^2}
 		\end{pmatrix}
-		= \frac{\vr}{\left(\vr \cdot \vr\right)^2}
+		= \frac{k}{r^4}\vr
 		= - V'(r) \widehat{\vr}
 	\end{align*}
 	The equations of motion are $\dsp m \ddot{x} = k\frac{x}{(x^2+y^2)^2}$ and $\dsp m \ddot{y} = k \frac{y}{(x^2+y^2)^2}$.
+	Let $\dsp \widehat{\vth} = \begin{pmatrix} - \sin \theta \\ \cos \theta \end{pmatrix}$.
+	Differentiation yields $\dot{\widehat{\vr}} = \dot{\theta} \widehat{\vth}$, $\dot{\widehat{\vth}} = - \dot{\theta} \widehat{\vr}$, $\dot{\vr} = r \dot{\theta} \widehat{\vth} + \dot{r} \widehat{\vr}$, and $\ddot{\vr} = \left(\ddot{r} - r \dot{\theta}^2\right) \widehat{\vr} + \left(r \ddot{\theta} + 2 \dot{r} \dot{\theta}\right) \widehat{\vth}$.
+	The equivalent equations of motion are $m\left(\ddot{r} - r\dot{\theta}^2\right) = F_r = \frac{k}{r^3}$ and $m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = F_\theta = 0$.
+
+	Let $\dsp L = mr^2 \dot{\theta}$, $\dsp T = \frac{m}{2}\left(\dot{\vr} \cdot \dot{\vr}\right)$, $\dsp u(\theta) = \frac{1}{r(\theta)}$, $\dsp r' = \frac{dr}{d\theta}$, and $\dsp r'' = \frac{d^2r}{d\theta^2}$.
+	Note $\dsp \dot{L} = mr^2\ddot{\theta} + 2mr\dot{r} \dot{\theta} = r F_\theta = 0$ and $\dsp \dot{\theta} = \frac{L}{mr^2}$.
+	Substitution yields $\dsp F_r = m\ddot{r} - \frac{L^2}{mr^3}$.
+	Observe that $\dsp u' = \frac{du}{d\theta} = \frac{-r'}{r^2}$ and $\dsp u'' = \frac{d^2u}{d\theta^2}$.
+	Then, $\dot{r} = -\frac{L}{m} u'$ and $\ddot{r} = - \frac{L^2}{m^2} u^2 u''$.
+	Since $\dsp F\!\left(\frac{1}{u}\right) = ku^3$, this yields $\dsp u'' + \alpha^2 u = 0$ where $\dsp \alpha = \sqrt{1 + \frac{mk}{L^2}}$.
+	The solution is given by $u(\theta) = A \cos\!\left(\alpha(\theta-\theta_0)\right)$ in terms of the initial data, and thus $\dsp r(\theta) = \frac{1}{A \cos\!\left(\alpha(\theta - \theta_0)\right)}$.
+
+	Let $E = T + V$.
+	Recall $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr}$ and observe that $\dsp \dot{E} = \dot{T} + \dot{V} = \dot{T} + \nabla V \cdot \dot{\vr} = \dot{\vr} \cdot \left(m\ddot{\vr} + \nabla V\right) = \dot{\vr} \cdot 0 = 0$.
+	Thus, total energy is conserved.
+
+	Assuming $r(t) = R$ for some constant $R$ and all $t$ yields $\dsp -mR \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
+	There are no elliptic orbits if $k \geq 0$.
+	If $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ for some constant $R$, then the orbit is circular with period $\frac{2 \pi}{\dot{\theta}} = 2 \pi R^2\sqrt{\frac{m}{-k}}$.
 \end{answer}
 

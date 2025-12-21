@@ -167,7 +167,7 @@
 		 & = \lim_{\Delta t \to 0} f(t) \cdot \lim_{\Delta t \to 0} \frac{g(t+\Delta t)-g(t)}{\Delta t} + \lim_{\Delta t \to 0} g(t+\Delta t) \cdot \lim_{\Delta t \to 0} \frac{f(t+\Delta t) - f(t)}{\Delta t} \\
 		 & = \lim_{\Delta t \to 0} \frac{f(t)g(t+\Delta t) - f(t)g(t) + g(t+\Delta t)f(t+\Delta t) - g(t+\Delta t)f(t)}{\Delta t}                                                                               \\
 		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t)g(t+\Delta t) - f(t)g(t)}{\Delta t}
-		\frac{d\left(fg\right)}{dt}
+		= \frac{d\left(fg\right)}{dt}
 	\end{align*}
 	The chain rule for any $f$ and $g$ is shown below.
 	\begin{align*}
@@ -182,7 +182,6 @@
 	\begin{align}
 		\sin\left(\alpha + \beta\right) & = \sin \alpha \cos \beta + \cos \alpha \sin \beta \\
 		\cos\left(\alpha + \beta\right) & = \cos \alpha \cos \beta - \sin \alpha \sin \beta \\
-		% \tan\left(\alpha - \beta\right) & = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta} \label{eqn:tan}
 	\end{align}
 	Let $D = \left[-\frac{\pi}{2}, +\frac{\pi}{2}\right] \setminus \left\{0\right\}$.
 
@@ -443,6 +442,7 @@ There are no exercises in this lecture.
 	\end{align}
 	Observe it satisfies the equations and that the orbits have period $\dsp 2\pi \sqrt{\frac{m}{k}}$.
 
+	Let $\dsp \vb = \frac{\vr_0}{\omega}$.
 	The orbit is an ellipse centered at the origin whose principal axes are along the eigenvectors of the matrix $\vr_0 \vr_0^\top + \mbf{b} \mbf{b}^\top$.
 	It is a circle if $\left|\dot{\vr}_0\right| = \omega \left|\vr_0\right|$ and $\vr_0 \cdot \dot{\vr}_0 = 0$.
 
@@ -494,6 +494,12 @@ There are no exercises in this lecture.
 
 	Assuming $r(t) = R$ for some constant $R$ and all $t$ yields $\dsp -mR \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
 	There are no elliptic orbits if $k \geq 0$.
-	If $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ for some constant $R$, then the orbit is circular with period $\frac{2 \pi}{\dot{\theta}} = 2 \pi R^2\sqrt{\frac{m}{-k}}$.
+	If $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ for some constant $R$, then the orbit is circular with a period $\frac{2 \pi}{\dot{\theta}} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ that depends on the radius $R$ of the circle.
+\end{answer}
+
+\subsection{of Action}
+
+\begin{answer}
+	A particle with position $x$ in one dimension has kinetic energy $\dsp T = \frac{m}{2}\left(\dot{x} \cdot \dot{x}\right)$, Lagrangian $L = T - V$, and acceleration $a = \ddot{x}$.
 \end{answer}
 

@@ -497,9 +497,20 @@ There are no exercises in this lecture.
 	If $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ for some constant $R$, then the orbit is circular with a period $\frac{2 \pi}{\dot{\theta}} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ that depends on the radius $R$ of the circle.
 \end{answer}
 
-\subsection{of Action}
+\subsection{Principle of action}
 
 \begin{answer}
-	A particle with position $x$ in one dimension has kinetic energy $\dsp T = \frac{m}{2}\left(\dot{x} \cdot \dot{x}\right)$, Lagrangian $L = T - V$, and acceleration $a = \ddot{x}$.
+	A particle with position $x$ in one dimension has kinetic energy $\dsp T = \frac{m}{2}\left(\dot{x} \cdot \dot{x}\right)$, potential energy $V$, force $\dsp F = - \nabla_x V$, Lagrangian $L = T - V$, and acceleration $a = \ddot{x}$.
+	Observe the equations below.
+	\begin{align}
+		\frac{d}{dt} \frac{\partial L}{\partial \dot{x}} - \frac{\partial L}{\partial x} = \frac{d}{dt} \frac{\partial}{\partial \dot{x}}\!\left(\frac{m}{2} \dot{x} \cdot \dot{x}\right) + \frac{\partial V}{\partial x}
+		= \frac{d}{dt}\!\left(m \dot{x}\right) - F
+		= m \ddot{x} - F
+	\end{align}
+	Therefore, the Euler-Lagrange equation $\frac{d}{dt} \frac{\partial L}{\partial \dot{x}} - \frac{\partial L}{\partial x}=0$ is equivalent to $F = ma$.
+\end{answer}
+
+\begin{answer}
+	Let $\left\{x_i\right\}_{i=1}^N$ be coordinates.
 \end{answer}
 

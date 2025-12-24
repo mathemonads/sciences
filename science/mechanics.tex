@@ -522,3 +522,14 @@ There are no exercises in this lecture.
 	For any $i$, the Euler-Lagrange equation $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{x_i}}\right) = \frac{\partial L}{\partial x_i}$ is therefore equivalent to $F_i = m_i \ddot{x_i}$.
 \end{answer}
 
+\begin{answer}
+	The position of a particle is given in George's coordinate frame by $X$ and $Y$.
+	Lenny's coordinate frame is rotating relative George's frame at an angular velocity $\omega$, and the particle is given in Lenny's coordinate frame by $x = X \cos \omega t + Y \sin \omega t$ and $y = -X \sin \omega t + Y \cos \omega t$.
+	Suppose the Lagrangian is given in Lenny's coordinate frame by $\dsp L = \frac{m}{2}\left(\dot{x}^2 + \dot{y}^2\right)$.
+	If the kinetic energy is $T = \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right)$ and the (velocity-dependent) effective potential energy is $V = -\frac{m \omega^2}{2}\left(X^2 + Y^2\right) - m \omega \left(\dot{X} Y - \dot{Y} X\right)$, then the Lagrangian is given in George's coordinate frame by $L = T - V$.
+	The Euler-Lagrange equations are $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{X}}\right) = \frac{\partial L}{\partial X}$ and $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{Y}}\right) = \frac{\partial L}{\partial Y}$.
+	To derive the equations of motion from the Lagrangian $L$, observe $\dsp \frac{\partial L}{\partial X} = - \frac{\partial V}{\partial X} = m\omega^2 X - m \omega \dot{Y}$ and $\dsp \frac{\partial L}{\partial Y} = - \frac{\partial V}{\partial Y} = m \omega^2 Y + m \omega \dot{X}$.
+	Since $\dsp \frac{\partial L}{\partial \dot{X}} = m \dot{X} + m \omega Y$ and $\dsp \frac{\partial L}{\partial \dot{Y}} = m \dot{Y} - m \omega X$, it follows that $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{X}}\right) = m\ddot{X} + m \omega \dot{Y}$ and $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{Y}}\right) = m \ddot{Y} - m \omega \dot{X}$.
+	The equations of motion are given in George's coordinate frame by $m\ddot{X} = m \omega^2 X - 2 m \omega \dot{Y}$ and $m \ddot{Y} = m \omega^2 Y + 2 m \omega \dot{X}$.
+\end{answer}
+

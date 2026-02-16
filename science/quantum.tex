@@ -2,6 +2,8 @@
 
 \section{Quantum Mechanics}
 
+\subsection{Experiment}
+
 % ket linearity
 \begin{answer}
 	\begin{enumerate}
@@ -20,6 +22,7 @@
 	\end{enumerate}
 \end{answer}
 
+% calculation
 \begin{answer}
 	To show the operation given for any natural number $n$ in terms of components by
 	\begin{align*}
@@ -36,7 +39,7 @@
 		\end{pmatrix}                                                                                                           \\
 		                  & = \beta_1^* \alpha_1 + \beta_2^* \alpha_2 + \cdots + \beta_{n-1}^* \alpha_{n-1} + \beta_n^* \alpha_n
 	\end{align*}
-	is an inner product, observe that it is linear
+	is an inner product, observe that it is sesquilinear
 	\begin{align*}
 		\bra{C} \{ \ket{A} + \ket{B} \} & = \sum_{k=1}^n \gamma_k^* \left(\alpha_k+\beta_k\right) = \sum_{i=1}^n \gamma_i^* \alpha_i + \sum_{j=1}^n \gamma_j^* \beta_j =
 		\braket{C \mid A} + \braket{C \mid B}.
@@ -48,10 +51,18 @@
 	since $\left(\alpha_k^* \beta_k\right)^* = \beta_k^* \alpha_k$ holds for all $k \leq n$.
 
 	Observe $\dsp \bra{B} \{ z \ket{A} \} = \sum_{k=1}^n \beta_k^* \left(z \alpha_k\right) = z \sum_{k=1}^n \beta_k^* \alpha_k = z \braket{B \mid A}$.
+	Conjugate-linearity in the first argument follows immediately from the definition.
 	Any ket-vector $\ket{A}$ satisfies $\dsp \braket{A \mid A} = \sum_{k=1}^n \alpha_k^* \alpha_k = \sum_{k=1}^n \left|\alpha_k\right|^2 \geq 0$, and the equation $\braket{A \mid A} = 0$ holds iff $\ket{A} = \ket{0}$.
 \end{answer}
 
+\subsection{State}
+
 \begin{answer}
-	The inner product of $\dsp \ket{r} = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$ and $\dsp \ket{l} = \frac{1}{\sqrt{2}} \ket{u} - \frac{1}{\sqrt{2}} \ket{d}$ is $\frac{1}{2} - \frac{1}{2} = 0$, since $\ket{u}$ and $\ket{d}$ are mutually orthonormal.
+	The inner product of the vectors $\dsp \ket{r} = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$ and $\dsp \ket{l} = \frac{1}{\sqrt{2}} \ket{u} - \frac{1}{\sqrt{2}} \ket{d}$ is $\frac{1}{2} - \frac{1}{2} = 0$, since $\ket{u}$ and $\ket{d}$ are mutually orthonormal.
+	Therefore, the vector $\ket{r}$ is orthogonal to $\ket{l}$.
+\end{answer}
+
+\begin{answer}
+	Let $\ket{i} = \frac{1}{\sqrt{2}} \ket{u} + \frac{i}{\sqrt{2}} \ket{d}$ and $\ket{o} = \frac{1}{\sqrt{2}} \ket{u} - \frac{i}{\sqrt{2}} \ket{d}$.
 \end{answer}
 

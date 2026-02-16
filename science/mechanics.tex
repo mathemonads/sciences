@@ -152,6 +152,7 @@
 	\end{align*}
 \end{answer}
 
+% multiplication by 1
 \begin{answer}
 	The sum rule is shown for any $f$ and $g$ below.
 	\begin{align*}
@@ -164,13 +165,14 @@
 	The product rule for any differentiable functions $f$ and $g$ is shown below.
 	\begin{align*}
 		\frac{d}{dt}\left(f(t) g(t)\right)
-		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t)g(t)}{\Delta t}                                                                                                              \\
-		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t) g(t) - f(t) g(t+\Delta t) + f(t) g(t+\Delta t)}{\Delta t}                                                                   \\
-		 & = \lim_{\Delta t \to 0} g(t+\Delta t) \frac{f(t+\Delta t) - f(t)}{\Delta t} + \lim_{\Delta t \to 0} f(t) \frac{g(t+\Delta t) - g(t)}{\Delta t}                                               \\
-		 & = \lim_{\Delta t \to 0} g(t + \Delta t) \lim_{\Delta t \to 0} \frac{f(t+\Delta t) - f(t)}{\Delta t} + \lim_{\Delta t \to 0} f(t) \lim_{\Delta t \to 0} \frac{g(t+\Delta t) - g(t)}{\Delta t} \\
+		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t)g(t)}{\Delta t}                                                                                                                                        \\
+		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t) g(t) - f(t) g(t+\Delta t) + f(t) g(t+\Delta t)}{\Delta t}                                                                                             \\
+		 & = \lim_{\Delta t \to 0} \left(g(t+\Delta t) \frac{f(t+\Delta t) - f(t)}{\Delta t}\right) + \lim_{\Delta t \to 0} f(t) \frac{g(t+\Delta t) - g(t)}{\Delta t}                                                            \\
+		 & = \lim_{\Delta t \to 0} \left(g(t+\Delta t) \frac{f(t+\Delta t) - f(t)}{\Delta t}\right) + \lim_{\Delta t \to 0} f(t) \lim_{\Delta t \to 0} \frac{g(t+\Delta t) - g(t)}{\Delta t}                                      \\
+		 & = \left(\lim_{\Delta t \to 0} g(t + \Delta t)\right) \left(\lim_{\Delta t \to 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}\right) + \lim_{\Delta t \to 0} f(t) \lim_{\Delta t \to 0} \frac{g(t+\Delta t) - g(t)}{\Delta t} \\
 		 & = g(t) \frac{d(f)}{dt} + f(t) \frac{d(g)}{dt}
 	\end{align*}
-	The chain rule for any $f$ and $g$ is shown below.
+	The chain rule for any $f$ and $g$ is trivial where $g$ is locally constant near $t$, and it is shown below in regions where there is a sufficiently small $\Delta t$ such that $g(t+\Delta t) \neq g(t)$.
 	\begin{align*}
 		\frac{d\left(f(g(t))\right)}{dt}
 		 & = \lim_{\Delta t \to 0} \left[ \frac{f\left(g(t+\Delta t)\right) - f\left(g(t)\right)}{\Delta t} \cdot \frac{g(t + \Delta t) - g(t)}{g(t + \Delta t) - g(t)} \right]                              \\
@@ -568,5 +570,16 @@ There are no exercises in this lecture.
 
 \begin{answer}
 	The temporal derivatives of $x_+ = \frac{x_1 + x_2}{2}$ and $x_- = \frac{x_1 - x_2}{2}$ are $\dot{x_+} = \frac{\dot{x_1} + \dot{x_2}}{2}$ and $\dot{x_-} = \frac{\dot{x_1} - \dot{x_2}}{2}$.
+	Expanding $T = m\left(\dot{x_+}^2 + \dot{x_-}^2\right)$ yields $T = m \left(\frac{\dot{x_1}^2 + 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2} + \frac{\dot{x_1}^2 - 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2}\right) = \frac{m}{2}\left(\dot{x_1}^2 + \dot{x_2}^2\right)$, which is the kinetic energy.
+\end{answer}
+
+\subsection{Symmetries and conservation laws}
+
+\begin{answer}
+	Consider the Lagrangian given by Equation \eqref{eqn:cent} below.
+	\begin{align}
+		L = \frac{1}{2}\left(\dot{q_1}^2 + \dot{q_2}^2\right) - V\p{q_1 - q_2}
+	\end{align}
+	The first Euler-Lagrange equation is given by $\dot{p_1} = -V'(q_1-q_2) \cdot \frac{\partial}{\partial q_1}\p{q_1-q_2} = - V'(q_1-q_2)$ and the second Euler-Lagrange equation is given by $\dot{p_2} = - V'(q_1-q_2) \cdot \frac{\partial}{\partial q_2}\p{q_1-q_2} = + V'(q_1-q_2)$.
 \end{answer}
 

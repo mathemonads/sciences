@@ -164,16 +164,18 @@
 	The product rule for any differentiable functions $f$ and $g$ is shown below.
 	\begin{align*}
 		\frac{d}{dt}\left(f(t) g(t)\right)
-		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t)g(t)}{\Delta t}                                                      \\
-		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t) g(t) - f(t) g(t+\Delta t) + f(t) g(t+\Delta t)}{\Delta t}           \\
-		 & = \lim_{\Delta t \to 0} \left[g(t+\Delta t)\frac{f(t+\Delta t) - f(t)}{\Delta t} + f(t) \frac{g(t+\Delta t) - g(t)}{\Delta t}\right] \\
+		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t)g(t)}{\Delta t}                                                                                                              \\
+		 & = \lim_{\Delta t \to 0} \frac{f(t+\Delta t) g(t+\Delta t) - f(t) g(t) - f(t) g(t+\Delta t) + f(t) g(t+\Delta t)}{\Delta t}                                                                   \\
+		 & = \lim_{\Delta t \to 0} g(t+\Delta t) \frac{f(t+\Delta t) - f(t)}{\Delta t} + \lim_{\Delta t \to 0} f(t) \frac{g(t+\Delta t) - g(t)}{\Delta t}                                               \\
+		 & = \lim_{\Delta t \to 0} g(t + \Delta t) \lim_{\Delta t \to 0} \frac{f(t+\Delta t) - f(t)}{\Delta t} + \lim_{\Delta t \to 0} f(t) \lim_{\Delta t \to 0} \frac{g(t+\Delta t) - g(t)}{\Delta t} \\
 		 & = g(t) \frac{d(f)}{dt} + f(t) \frac{d(g)}{dt}
 	\end{align*}
 	The chain rule for any $f$ and $g$ is shown below.
 	\begin{align*}
-		\frac{d\left(f(g(t))\right)}{dg(t)} \frac{d\left(g(t)\right)}{dt} & = \lim_{\Delta t \to 0} \frac{f\left(g(t)+(g(t+\Delta t) - g(t)) \right)-f\left(g(t)\right)}{g(t+\Delta t)-g(t)} \lim_{\Delta t \to 0} \frac{g(t+\Delta t) - g(t)}{\Delta t} \\
-		                                                                  & = \lim_{\Delta t \to 0} \frac{f\left(g(t+\Delta t)\right) - f\left(g(t)\right)}{\Delta t}                                                                                    \\
-		                                                                  & = \frac{d\left(f(g(t))\right)}{dt}
+		\frac{d\left(f(g(t))\right)}{dt}
+		 & = \lim_{\Delta t \to 0} \left[ \frac{f\left(g(t+\Delta t)\right) - f\left(g(t)\right)}{\Delta t} \cdot \frac{g(t + \Delta t) - g(t)}{g(t + \Delta t) - g(t)} \right]                              \\
+		 & = \left[\lim_{\Delta t \to 0} \frac{f\left(g(t+\Delta t)\right) - f\left(g(t)\right)}{g(t + \Delta t) - g(t)} \right] \left[\lim_{\Delta t \to 0 }\frac{g(t + \Delta t) - g(t)}{\Delta t} \right] \\
+		 & = \left[\frac{d\left(f(g)\right)}{dg}\right]_{g=g(t)} \frac{dg}{dt}
 	\end{align*}
 \end{answer}
 
@@ -187,9 +189,11 @@
 
 	Recall that any $\theta \in D$ satisfies $\dsp \sin \theta < \theta < \tan \theta$.
 
-	Division by $\theta$ yields $\dsp \frac{\sin \theta}{\theta} < 1 < \frac{\tan \theta}{\theta}$ and multiplication by $\cos \theta$ yields $\cos \theta < \frac{\sin \theta}{\theta}$.
-	The squeeze theorem yields $\dsp \lim_{\theta \to 0} \cos \theta \leq \lim_{\theta \to 0} \frac{\sin \theta}{\theta} \leq \lim_{\theta \to 0} 1$ and thus $\dsp \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
-	Observe $\dsp \lim_{\Delta t \to 0} \frac{\sin \Delta t}{\cos \Delta t + 1} = \frac{0}{2} = 0$ and $\dsp \lim_{\Delta t \to 0} \frac{\cos \Delta t - 1}{\Delta t} = \lim_{\Delta t \to 0} \left[- \frac{\sin \Delta t}{\Delta t} \frac{\sin \Delta t}{\cos \Delta t + 1}\right] = 0$.
+	Division by $\theta$ yields $\dsp \frac{\sin \theta}{\theta} < 1 < \frac{\tan \theta}{\theta}$ and multiplication by $\cos \theta$ yields $\cos \theta < \frac{\sin \theta}{\theta}$ since $\cos \theta > 0$ on $D$.
+	It follows from continuity of sine that $\dsp \lim_{\theta \to 0} \sin \theta = \sin 0 = 0$ and similarly that $\dsp \lim_{\theta \to 0} \cos \theta = \cos 0 = 1$.
+	Since $\dsp \cos \theta \leq \frac{\sin \theta}{\theta} < 1$, the squeeze theorem yields $\dsp \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
+	Since $\dsp \lim_{\Delta t \to 0} \cos \Delta t = 1$, it follows that $\dsp \lim_{\Delta t \to 0} \frac{\sin \Delta t}{\cos \Delta t + 1} = \frac{\lim_{\Delta t \to 0} \sin \Delta t}{\lim_{\Delta t \to 0} \left(\cos \Delta t + 1\right)} = \frac{0}{2} = 0$.
+	Since it also holds that $\dsp \lim_{\Delta t \to 0} \sin \Delta t = 0$, it also follows that $\dsp \lim_{\Delta t \to 0} \frac{\cos \Delta t - 1}{\Delta t} = \lim_{\Delta t \to 0} \left[- \frac{\sin \Delta t}{\Delta t} \frac{\sin \Delta t}{\cos \Delta t + 1}\right] = 0$.
 
 	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = \lim_{\Delta t \to 0} \left[(\frac{\cos \Delta t - 1}{\Delta t} \sin t + \frac{\sin \Delta t}{\Delta t} \cos t\right] = 0 \sin t + 1 \cos t$ and
 	$\dsp \frac{d\left(\cos t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\cos t \cos \Delta t - \sin t \sin \Delta t\right) - \cos t}{\Delta t} = 0 - 1 \sin t$.
@@ -207,9 +211,12 @@
 	\end{align}
 \end{answer}
 
+% calculation
 \begin{answer}
 	The dot product of the position and velocity vectors is given below.
 	\begin{align}
+		\vr \cdot \dot{vr}
+		 & =
 		\begin{bmatrix}
 			R \cos \omega t \\
 			R \sin \omega t
@@ -218,8 +225,9 @@
 		\begin{bmatrix}
 			-R \omega \sin \omega t \\
 			R \omega \cos \omega t
-		\end{bmatrix}
-		= (R \sin \omega t)(R \omega \cos \omega t) - (R \cos \omega t)(R \omega \sin \omega t)
+		\end{bmatrix} \nonumber \\
+		 & =
+		- (R \cos \omega t)(R \omega \sin \omega t) + (R \sin \omega t)(R \omega \cos \omega t)
 	\end{align}
 	Since their dot product is $0$, the vectors are orthogonal.
 \end{answer}
@@ -545,8 +553,16 @@ There are no exercises in this lecture.
 	The position of a particle is given in George's frame by polar coordinates $X = R \cos \theta$ and $Y = R \sin \theta$.
 	Its velocity is given in polar coordinates by $\dot{X} = \dot{R} \cos \theta - R \dot{\theta} \sin \theta$ and $\dot{Y} = \dot{R} \sin \theta + R \dot{\theta} \cos \theta$.
 	Substitution into Equation \eqref{eqn:L} yields George's Lagrangian below.
-	\begin{align}
+	\begin{align}\label{eqn:polarL}
 		L & =  \frac{m}{2}\left(\dot{R}^2 + R^2 \dot{\theta}^2\right) - \left(-\frac{m \omega^2}{2} R^2 + m \omega R^2 \dot{\theta}\right)
 	\end{align}
 	The equations of motion are then given by $m \ddot{R} = m R \dot{\theta}^2 + m \omega^2 R - 2 m \omega R \dot{\theta}$ and $2 m R \dot{R} \dot{\theta} + m R^2 \ddot{\theta} - 2 m \omega R \dot{R} = 0$.
 \end{answer}
+
+\begin{answer}
+	The position $\begin{pmatrix} r \\ \theta \end{pmatrix}$ of a pendulum with length $l$ must satisfy $r=l$ and $\dot{r} = 0$.
+	Pick coordinates so that the potential energy at $\theta=0$ is zero.
+	Its kinetic energy is given by $T = \frac{m}{2} l^2 \dot{\theta}^2$.
+	The height of the pendulum mass is given by $h = l - l \cos \theta$, its potential energy by $V = mgl\left(1 - \cos \theta\right)$, its Lagrangian by $L = T - V$, and its angular equation of motion by $m l^2 \ddot{\theta} + m g l \sin \theta = 0$.
+\end{answer}
+

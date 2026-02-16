@@ -1,0 +1,43 @@
+%!/usr/bin/env latex
+
+\begin{answer}
+	\begin{enumerate}
+		\item To show $\left\{\bra{A} + \bra{B}\right\} \ket{C} = \braket{A \mid C} + \braket{B \mid C}$, let $\ket{A}$ and $\ket{B}$ be ket-vectors whose bra-vectors are $\bra{A}$ and $\bra{B}$ respectively.
+
+		      There is a ket-vector $\ket{D} = \ket{A} + \ket{B}$.
+		      Its bra vector $\bra{D}$ is given by $\bra{D} = \bra{A} + \bra{B}$.
+		      Interchanging bras and kets yields the following.
+		      \begin{align}\label{eqn:interchange}
+			      \braket{D \mid C} = \braket{C \mid D}^* = \left(\braket{C \mid A} + \braket{C \mid B}\right)^* = \braket{C \mid A}^* + \braket{C \mid B}^*
+		      \end{align}
+		      The final equation follows from linearity of complex conjugation.
+		      Complex conjugation of each term in the right-hand expression in Equation \eqref{eqn:interchange} yields $\braket{D \mid C} = \braket{A \mid C} + \braket{B \mid C}$.
+		\item To show that the complex number $\braket{A \mid A}$ is a real number for any ket-vector $\ket{A}$, recall that interchanging bras and kets yields a complex number $\braket{A \mid A} = \braket{A \mid A}^*$ that is its own complex conjugate.
+		      It follows that its imaginary component is zero and thus that it is real.
+	\end{enumerate}
+\end{answer}
+
+\begin{answer}
+	To show the operation given for any natural number $n$ in terms of components by
+	\begin{align*}
+		\braket{B \mid A} & =
+		\begin{pmatrix}
+			\beta_1^* & \beta_2^* & \cdots & \beta_{n-1}^* & \beta_n^*
+		\end{pmatrix}
+		\begin{pmatrix}
+			\alpha_1     \\
+			\alpha_2     \\
+			\cdots         \\
+			\alpha_{n-1} \\
+			\alpha_n
+		\end{pmatrix}                                                                                                           \\
+		                  & = \beta_1^* \alpha_1 + \beta_2^* \alpha_2 + \cdots + \beta_{n-1}^* \alpha_{n-1} + \beta_n^* \alpha_n
+	\end{align*}
+	is an inner product, observe that it is linear
+	\begin{align*}
+		\bra{C} \{ \ket{A} + \ket{B} \} & = \sum_{k=1}^n \gamma_k^* \left(\alpha_k+\beta_k\right) = \sum_{i=1}^n \gamma_i^* \alpha_i + \sum_{j=1}^n \gamma_j^* \beta_j =
+		\braket{C \mid A} + \braket{C \mid B}.
+	\end{align*}
+	and that interchanging bras and kets yields $\braket{B \mid A} = \braket{A \mid B}^*$. 
+\end{answer}
+

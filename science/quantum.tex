@@ -2,7 +2,7 @@
 
 \section{Quantum Mechanics}
 
-\subsection{Experiment}
+\subsection{Systems and experiments}
 
 % ket linearity
 \begin{answer}
@@ -55,8 +55,9 @@
 	Any ket-vector $\ket{A}$ satisfies $\dsp \braket{A \mid A} = \sum_{k=1}^n \alpha_k^* \alpha_k = \sum_{k=1}^n \left|\alpha_k\right|^2 \geq 0$, and the equation $\braket{A \mid A} = 0$ holds iff $\ket{A} = \ket{0}$.
 \end{answer}
 
-\subsection{State}
+\subsection{Quantum state}
 
+% orthogonality of u and d
 \begin{answer}
 	The inner product of the vectors $\dsp \ket{r} = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$ and $\dsp \ket{l} = \frac{1}{\sqrt{2}} \ket{u} - \frac{1}{\sqrt{2}} \ket{d}$ is $\frac{1}{2} - \frac{1}{2} = 0$, since $\ket{u}$ and $\ket{d}$ are mutually orthonormal.
 	Therefore, the vector $\ket{r}$ is orthogonal to $\ket{l}$.
@@ -64,5 +65,34 @@
 
 \begin{answer}
 	Let $\ket{i} = \frac{1}{\sqrt{2}} \ket{u} + \frac{i}{\sqrt{2}} \ket{d}$ and $\ket{o} = \frac{1}{\sqrt{2}} \ket{u} - \frac{i}{\sqrt{2}} \ket{d}$.
+	Since $\ket{u}$ and $\ket{d}$ are mutually orthonormal, we obtain orthogonality as shown below.
+	\begin{align*}
+		\braket{i \mid o} & = \frac{1}{2} + \left(\frac{i}{\sqrt{2}}\right)^* \left(-\frac{i}{\sqrt{2}}\right) = 0
+	\end{align*}
+	By orthonormality, we also obtain the following equations.
+	\begin{align*}
+		\braket{o \mid u} \braket{u \mid o} & = \frac{1}{\sqrt{2}} \frac{1}{\sqrt{2}} = \frac{1}{2}                                     \\
+		\braket{o \mid d} \braket{d \mid o} & = \left(-\frac{i}{\sqrt{2}}\right)^* \cdot \left(-\frac{i}{\sqrt{2}}\right) = \frac{1}{2} \\
+		\braket{i \mid u} \braket{u \mid i} & = \frac{1}{\sqrt{2}} \frac{1}{\sqrt{2}} = \frac{1}{2}                                     \\
+		\braket{i \mid d} \braket{d \mid i} & = \left(\frac{i}{\sqrt{2}}\right)^* \left(\frac{i}{\sqrt{2}}\right) = \frac{1}{2}
+	\end{align*}
+	Similarly, we obtain the following equations.
+	\begin{align*}
+		\braket{o \mid r} \braket{r \mid o} & = \left(\frac{1}{2} + (-\frac{i}{\sqrt{2}})^* \frac{1}{\sqrt{2}}\right)\left(\frac{1}{2} + \frac{1}{\sqrt{2}}(-\frac{i}{\sqrt{2}}) \right) = \frac{1}{4} + \frac{-i^2}{4} = \frac{1}{2} \\
+		\braket{o \mid l} \braket{l \mid o} & = \left(\frac{1 + (-i)^*(-1)}{2}\right)\left(\frac{1 + (-1)(-i)}{2}\right) = \frac{1-i^2}{4} = \frac{1}{2}                                                                              \\
+		\braket{i \mid r} \braket{r \mid i} & = \frac{\left(1 -i\right)\left(1 + i\right)}{4} = \frac{1 - i^2}{4} = \frac{1}{2}                                                                                                       \\
+		\braket{i \mid l} \braket{l \mid i} & = \frac{\left(1 + i\right)\left(1 - i\right)}{4} = \frac{1 + 1}{4} = \frac{1}{2}
+	\end{align*}
+	Among pairs of orthogonal vectors $\ket{I}$ and $\ket{O}$ satisfying all of the eight equations shown above, the pair of orthogonal vectors $\ket{i}$ and $\ket{o}$ is not strictly unique.
+\end{answer}
+
+\begin{answer}
+	Let $\ket{i} = \alpha \ket{u} + \beta \ket{d}$ and $\ket{o} = \gamma \ket{u} + \delta \ket{d}$ be given in terms of unknown components $\alpha$, $\beta$, $\gamma$, and $\delta$.
+	\begin{enumerate}
+		\item Since $\braket{u \mid i} = \alpha$ and $\braket{i \mid u} = \alpha^*$, it follows that $\alpha^* \alpha = \braket{i \mid u} \braket{u \mid i} = \frac{1}{2}$.
+		      Since $\braket{d \mid i} = \beta$, it similarly follows that $\beta^* \beta = \braket{i \mid d} \braket{d \mid i} = \frac{1}{2}$.
+		      Since $\braket{u \mid o} = \gamma$ and $\braket{d \mid o} = \delta$, it follows that $\gamma^* \gamma = \braket{o \mid u} \braket{u \mid o} = \frac{1}{2}$ and that $\delta^* \delta = \braket{o \mid d} \braket{d \mid o} = \frac{1}{2}$.
+		\item Observe $\alpha^* \beta + \alpha \beta^* = 0$.
+	\end{enumerate}
 \end{answer}
 

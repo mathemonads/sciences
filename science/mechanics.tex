@@ -187,20 +187,20 @@
 		\sin\left(\alpha + \beta\right) & = \sin \alpha \cos \beta + \cos \alpha \sin \beta \\
 		\cos\left(\alpha + \beta\right) & = \cos \alpha \cos \beta - \sin \alpha \sin \beta \\
 	\end{align}
-	Let $D = \left(-\frac{\pi}{2}, +\frac{\pi}{2}\right) \setminus \left\{0\right\}$.
-
-	Recall that any $\theta \in D$ satisfies $\dsp \sin \theta < \theta < \tan \theta$.
-
+	Let $D_+ = \left(0, \frac{\pi}{2}\right)$, $D_- = \left(-\frac{\pi}{2}, 0\right)$, and $D = D_- \cup D_+$.
+	Recall that any $\theta \in D_+$ satisfies $\dsp \sin \theta < \theta < \tan \theta$.
 	Division by $\theta$ yields $\dsp \frac{\sin \theta}{\theta} < 1 < \frac{\tan \theta}{\theta}$ and multiplication by $\cos \theta$ yields $\cos \theta < \frac{\sin \theta}{\theta}$ since $\cos \theta > 0$ on $D$.
+	This yields the inequalities $\dsp \cos \theta \leq \frac{\sin \theta}{\theta} < 1$ on $D_+$.
+	The same inequality holds on $D_-$ and thus $D$.
 	It follows from continuity of sine that $\dsp \lim_{\theta \to 0} \sin \theta = \sin 0 = 0$ and similarly that $\dsp \lim_{\theta \to 0} \cos \theta = \cos 0 = 1$.
 	Since $\dsp \cos \theta \leq \frac{\sin \theta}{\theta} < 1$, the squeeze theorem yields $\dsp \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
 	Since $\dsp \lim_{\Delta t \to 0} \cos \Delta t = 1$, it follows that $\dsp \lim_{\Delta t \to 0} \frac{\sin \Delta t}{\cos \Delta t + 1} = \frac{\lim_{\Delta t \to 0} \sin \Delta t}{\lim_{\Delta t \to 0} \left(\cos \Delta t + 1\right)} = \frac{0}{2} = 0$.
 	Since it also holds that $\dsp \lim_{\Delta t \to 0} \sin \Delta t = 0$, it also follows that $\dsp \lim_{\Delta t \to 0} \frac{\cos \Delta t - 1}{\Delta t} = \lim_{\Delta t \to 0} \left[- \frac{\sin \Delta t}{\Delta t} \frac{\sin \Delta t}{\cos \Delta t + 1}\right] = 0$.
 
-	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = \lim_{\Delta t \to 0} \left[(\frac{\cos \Delta t - 1}{\Delta t} \sin t + \frac{\sin \Delta t}{\Delta t} \cos t\right] = 0 \sin t + 1 \cos t$ and
+	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = \lim_{\Delta t \to 0} \left[\frac{\cos \Delta t - 1}{\Delta t} \sin t + \frac{\sin \Delta t}{\Delta t} \cos t\right] = 0 \sin t + 1 \cos t$ and
 	$\dsp \frac{d\left(\cos t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\cos t \cos \Delta t - \sin t \sin \Delta t\right) - \cos t}{\Delta t} = 0 - 1 \sin t$.
 
-	It follows from the definition of $e^t$ that $\dsp \frac{d\left(e^t\right)}{dt} = e^t$.
+	It follows from the definition of $e^t$ in \cite[p. 34]{TM} that $\dsp \frac{d\left(e^t\right)}{dt} = e^t$.
 
 	If $x = \ln t$ for $t>0$, then the derivative of $t = e^x$ satisfies the equations $\dsp 1 = \frac{dt}{dt} = \frac{d\left(e^{x(t)}\right)}{dt} = e^x \frac{dx}{dt}$ and $\dsp \frac{d\left(\ln t\right)}{dt} = \frac{dx}{dt} = \frac{1}{e^x} = \frac{1}{t}$.
 \end{answer}
@@ -234,14 +234,15 @@
 	Since their dot product is $0$, the vectors are orthogonal.
 \end{answer}
 
+% calculate
 \begin{answer}
-	The position vector $\dsp \vec{r} = \left(\cos \omega t, e^{\omega t}\right)$ has velocity $\left(\omega \sin \omega t, \omega e^{\omega t}\right)$, acceleration $\left(-\omega^2 \cos \omega t, \omega^2 e^{\omega t}\right)$, and speed $\omega \sqrt{\sin^2 \omega t + e^{2 \omega t}}$.
-	The position vector $\dsp \vec{r} = \left(\cos(\omega t - \phi), \sin(\omega t - \phi)\right)$ has velocity $\dsp \left(\omega \sin(\omega t - \phi), -\omega \cos(\omega t - \phi)\right)$, acceleration $\dsp \left(-\omega^2 \cos(\omega t-\phi), -\omega^2\sin(\omega t-\phi)\right)$, and speed $\omega^2$.
-	The position vector $\dsp \left(c \cos^3 t, c \sin^3 t\right)$ has velocity $\dsp \left(-3c (\sin t)\cos^2 t, 3c(\cos t)\sin^2 t\right)$, acceleration $\dsp \left(6c (\cos t)\sin^2 t - 3c\cos^3 t, 6c (\sin t)\cos^2 t - 3c\sin^3 t\right)$, and speed $9c^2(\sin^2 t)(\cos^2 t)$.
-	The position vector $\dsp \vec{r} = \left(c(t-\sin t), c(1-\cos t)\right)$ has velocity $\dsp \left(c - c\cos t, c + c\sin t\right)$, acceleration $\dsp \left(c\sin t, - c\cos t\right)$, and speed $\dsp 2c^2\left(1 - \cos t + 2c^2\sin t\right) + 1$.
+	The position vector $\dsp \vec{r} = \left(\cos \omega t, e^{\omega t}\right)$ has velocity $\left(-\omega \sin \omega t, \omega e^{\omega t}\right)$, acceleration $\left(-\omega^2 \cos \omega t, \omega^2 e^{\omega t}\right)$, and speed $\omega \sqrt{\sin^2 \omega t + e^{2 \omega t}}$.
+	The position vector $\dsp \vec{r} = \left(\cos(\omega t - \phi), \sin(\omega t - \phi)\right)$ has velocity $\dsp \left(-\omega \sin(\omega t - \phi), \omega \cos(\omega t - \phi)\right)$, acceleration $\dsp \left(-\omega^2 \cos(\omega t-\phi), -\omega^2\sin(\omega t-\phi)\right)$, and speed $\omega$.
+	The position vector $\dsp \left(c \cos^3 t, c \sin^3 t\right)$ has velocity $\dsp \left(-3c (\sin t)\cos^2 t, 3c(\cos t)\sin^2 t\right)$, acceleration $\dsp \left(6c (\cos t)\sin^2 t - 3c\cos^3 t, 6c (\sin t)\cos^2 t - 3c\sin^3 t\right)$, and speed $3\left| c (\sin t)(\cos t) \right|$.
+	The position vector $\dsp \vec{r} = \left(c(t-\sin t), c(1-\cos t)\right)$ has velocity $\dsp \left(c - c\cos t, c\sin t\right)$, acceleration $\dsp \left(c\sin t,  c\cos t\right)$, and speed $\dsp c\sqrt{2(1- \cos t)}$.
 \end{answer}
 
-\subsubsection{Integral alculus}
+\subsubsection{Integral calculus}
 \setcounter{answer}{0}
 
 \begin{answer}
@@ -581,5 +582,10 @@ There are no exercises in this lecture.
 		L = \frac{1}{2}\left(\dot{q_1}^2 + \dot{q_2}^2\right) - V\p{q_1 - q_2}
 	\end{align}
 	The first Euler-Lagrange equation is given by $\dot{p_1} = -V'(q_1-q_2) \cdot \frac{\partial}{\partial q_1}\p{q_1-q_2} = - V'(q_1-q_2)$ and the second Euler-Lagrange equation is given by $\dot{p_2} = - V'(q_1-q_2) \cdot \frac{\partial}{\partial q_2}\p{q_1-q_2} = + V'(q_1-q_2)$.
+	The sign difference is due via the chain rule to the sign difference in the argument $q_1-q_2$ of $V$ in $L$.
+\end{answer}
+
+\begin{answer}
+	The sum of $b \dot{p_1} = -ab V'\p{a q_1 - b q_2}$ and $a \dot{p_2} = +ab V'\p{a q_1 - b q_2}$ is $b \dot{p_1} + a \dot{p_2} = 0$ and $b \dot{p_1} + a \dot{p_2} = \frac{d}{dt}\p{b p_1 + a p_2}$. 
 \end{answer}
 

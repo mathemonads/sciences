@@ -47,7 +47,7 @@
 	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
 
-\subsubsection{Spaces, srigonometry, and vectors}
+\subsubsection{Spaces, trigonometry, and vectors}
 \setcounter{answer}{0}
 
 % tikzpicture 
@@ -78,7 +78,7 @@
 	\end{align}
 \end{answer}
 
-% calculate
+% calculation
 \begin{answer}
 	For any vector $\vec{A}$, the magnitude $\left| \vec{A} \right| = \sqrt{A_x^2 + A_y^2 + A_z^2}$ of $\vec{A}$ satisfies the following equations:
 	\begin{align}
@@ -86,7 +86,7 @@
 	\end{align}
 \end{answer}
 
-% calculate
+% calculation
 \begin{answer}
 	Let $\left(A_x = 2, A_y = -3, A_z = 1\right)$ and $\left(B_x=-4, B_y=-3, B_z=2\right)$.
 
@@ -114,7 +114,7 @@
 
 \subsection{Motion}
 
-% calculate
+% calculation
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
@@ -127,7 +127,7 @@
 	\end{align*}
 \end{answer}
 
-% calculate
+% calculation
 \begin{answer}
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
@@ -181,6 +181,7 @@
 	\end{align*}
 \end{answer}
 
+% \theta < \tan \theta
 \begin{answer}
 	Recall the angle addition formula given below.
 	\begin{align}
@@ -189,20 +190,20 @@
 	\end{align}
 	Let $D_+ = \left(0, \frac{\pi}{2}\right)$, $D_- = \left(-\frac{\pi}{2}, 0\right)$, and $D = D_- \cup D_+$.
 	Recall that any $\theta \in D_+$ satisfies $\dsp \sin \theta < \theta < \tan \theta$.
-	Division by $\theta$ yields $\dsp \frac{\sin \theta}{\theta} < 1 < \frac{\tan \theta}{\theta}$ and multiplication by $\cos \theta$ yields $\cos \theta < \frac{\sin \theta}{\theta}$ since $\cos \theta > 0$ on $D$.
-	This yields the inequalities $\dsp \cos \theta \leq \frac{\sin \theta}{\theta} < 1$ on $D_+$.
-	The same inequality holds on $D_-$ and thus $D$.
+	Division by $\theta$ yields $\dsp \frac{\sin \theta}{\theta} < 1 < \frac{\tan \theta}{\theta}$ and multiplication by $\cos \theta$ yields $\cos \theta < \frac{\sin \theta}{\theta}$ since $\cos \theta > 0$ on $D_+$.
+	This yields the inequalities $\dsp \cos \theta < \frac{\sin \theta}{\theta} < 1$ on $D_+$.
+	If $\theta \in D_-$, then $u = - \theta$ satisfies $\frac{\sin \theta}{\theta} = \frac{\sin -u}{-u} = \frac{\sin u}{u}$ since sine is odd and $\cos\p{-u} = \cos\p{u}$ since cosine is even.
+	By symmetry, the same inequality holds on $D_-$ and thus $D$.
 	It follows from continuity of sine that $\dsp \lim_{\theta \to 0} \sin \theta = \sin 0 = 0$ and similarly that $\dsp \lim_{\theta \to 0} \cos \theta = \cos 0 = 1$.
-	Since $\dsp \cos \theta \leq \frac{\sin \theta}{\theta} < 1$, the squeeze theorem yields $\dsp \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
-	Since $\dsp \lim_{\Delta t \to 0} \cos \Delta t = 1$, it follows that $\dsp \lim_{\Delta t \to 0} \frac{\sin \Delta t}{\cos \Delta t + 1} = \frac{\lim_{\Delta t \to 0} \sin \Delta t}{\lim_{\Delta t \to 0} \left(\cos \Delta t + 1\right)} = \frac{0}{2} = 0$.
+	Since $\dsp \cos \theta < \frac{\sin \theta}{\theta} < 1$, the squeeze theorem yields $\dsp \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
+	Since $\dsp \lim_{\Delta t \to 0} \cos \Delta t = 1$ and $\dsp \lim_{\Delta t \to 0} \p{\cos \Delta t+1} = 2 \neq 0$, it follows that $\dsp \lim_{\Delta t \to 0} \frac{\sin \Delta t}{\cos \Delta t + 1} = \frac{\lim_{\Delta t \to 0} \sin \Delta t}{\lim_{\Delta t \to 0} \left(\cos \Delta t + 1\right)} = \frac{0}{2} = 0$.
 	Since it also holds that $\dsp \lim_{\Delta t \to 0} \sin \Delta t = 0$, it also follows that $\dsp \lim_{\Delta t \to 0} \frac{\cos \Delta t - 1}{\Delta t} = \lim_{\Delta t \to 0} \left[- \frac{\sin \Delta t}{\Delta t} \frac{\sin \Delta t}{\cos \Delta t + 1}\right] = 0$.
 
-	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = \lim_{\Delta t \to 0} \left[\frac{\cos \Delta t - 1}{\Delta t} \sin t + \frac{\sin \Delta t}{\Delta t} \cos t\right] = 0 \sin t + 1 \cos t$ and
-	$\dsp \frac{d\left(\cos t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\cos t \cos \Delta t - \sin t \sin \Delta t\right) - \cos t}{\Delta t} = 0 - 1 \sin t$.
+	Observe $\dsp \frac{d\left(\sin t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\sin t \cos \Delta t + \cos t \sin \Delta t\right) - \sin(t)}{\Delta t} = \lim_{\Delta t \to 0} \left[\frac{\cos \Delta t - 1}{\Delta t} \sin t + \frac{\sin \Delta t}{\Delta t} \cos t\right] = \cos t$ and $\dsp \frac{d\left(\cos t\right)}{dt} = \lim_{\Delta t \to 0} \frac{\left(\cos t \cos \Delta t - \sin t \sin \Delta t\right) - \cos t}{\Delta t} = - \sin t$.
 
 	It follows from the definition of $e^t$ in \cite[p. 34]{TM} that $\dsp \frac{d\left(e^t\right)}{dt} = e^t$.
 
-	If $x = \ln t$ for $t>0$, then the derivative of $t = e^x$ satisfies the equations $\dsp 1 = \frac{dt}{dt} = \frac{d\left(e^{x(t)}\right)}{dt} = e^x \frac{dx}{dt}$ and $\dsp \frac{d\left(\ln t\right)}{dt} = \frac{dx}{dt} = \frac{1}{e^x} = \frac{1}{t}$.
+	If $x = \ln t$ for $t>0$, then the derivative of $t = e^x$ satisfies the equations $\dsp 1 = \frac{dt}{dt} = \frac{d}{dt}\p{e^{x(t)}} = e^{x(t)} \frac{dx}{dt}$ and $\dsp \frac{d}{dt}\p{\ln t} = \frac{dx}{dt} = \frac{1}{e^{x(t)}} = \frac{1}{t}$.
 \end{answer}
 
 % 2 \pi = \omega \times period
@@ -234,7 +235,7 @@
 	Since their dot product is $0$, the vectors are orthogonal.
 \end{answer}
 
-% calculate
+% calculation
 \begin{answer}
 	The position vector $\dsp \vec{r} = \left(\cos \omega t, e^{\omega t}\right)$ has velocity $\left(-\omega \sin \omega t, \omega e^{\omega t}\right)$, acceleration $\left(-\omega^2 \cos \omega t, \omega^2 e^{\omega t}\right)$, and speed $\omega \sqrt{\sin^2 \omega t + e^{2 \omega t}}$.
 	The position vector $\dsp \vec{r} = \left(\cos(\omega t - \phi), \sin(\omega t - \phi)\right)$ has velocity $\dsp \left(-\omega \sin(\omega t - \phi), \omega \cos(\omega t - \phi)\right)$, acceleration $\dsp \left(-\omega^2 \cos(\omega t-\phi), -\omega^2\sin(\omega t-\phi)\right)$, and speed $\omega$.
@@ -245,6 +246,7 @@
 \subsubsection{Integral calculus}
 \setcounter{answer}{0}
 
+% linearity
 \begin{answer}
 	Consider the functions $f_1, f_2, f_3$ defined below.
 	\begin{align}
@@ -252,7 +254,8 @@
 		f_2(t) & = \cos t  \\
 		f_3(t) & = t^2 - 2
 	\end{align}
-	The indefinite integrals are $\dsp \int t^4 ~dt = \frac{t^5}{5} + c$, $\dsp \int \cos t ~dt = \sin t + c$, and finally $\dsp \int t^2-2 ~dt = \frac{t^3}{3} - 2t + c$.
+	The indefinite integrals of $f_1$ and $f_2$ are $\dsp \int t^4 ~dt = \frac{t^5}{5} + c$ and $\dsp \int \cos t ~dt = \sin t + c$.
+	Finally, linearity of the integral yields $\dsp \int (t^2 - 2) dt = \frac{t^3}{3} - 2t + c$.
 \end{answer}
 
 \begin{answer}
@@ -586,6 +589,9 @@ There are no exercises in this lecture.
 \end{answer}
 
 \begin{answer}
-	The sum of $b \dot{p_1} = -ab V'\p{a q_1 - b q_2}$ and $a \dot{p_2} = +ab V'\p{a q_1 - b q_2}$ is $b \dot{p_1} + a \dot{p_2} = 0$ and $b \dot{p_1} + a \dot{p_2} = \frac{d}{dt}\p{b p_1 + a p_2}$. 
+	Fix constants $a$ and $b$.
+	The sum of $b \dot{p_1} = -ab V'\p{a q_1 - b q_2}$ and $a \dot{p_2} = +ab V'\p{a q_1 - b q_2}$ is $b \dot{p_1} + a \dot{p_2} = 0$.
+	Since $a$ and $b$ are constant, it follows that $b \dot{p_1} + a \dot{p_2} = \frac{d}{dt}\p{b p_1 + a p_2}$.
+	Therefore, the quantity $b p_1 + a p_2$ is conserved.
 \end{answer}
 

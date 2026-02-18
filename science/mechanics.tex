@@ -4,7 +4,7 @@
 \subsection{Nature of classical physics}
 
 % measurement
-\begin{answer}
+\begin{answer}[Closed system]
 	Closed systems can actually exist if the collection of objects under investigation do not interact with anything outside of the system.
 
 	Consider the empty system $\emptyset$, an empty collection that contains no objects.
@@ -268,16 +268,17 @@
 	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ has trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
 \end{answer}
 
+% parts
 \begin{answer}
 	Calculating $\dsp \int_0^{\frac{\pi}{2}} x \cos x ~dx = \frac{\pi}{2}\sin \frac{\pi}{2} - \int_0^{\frac{\pi}{2}} \sin x ~dx$ yields the following integral.
 	\begin{align}
-		\int_0^{\frac{\pi}{2}} x \cos x = \frac{\pi}{2} \sin \frac{\pi}{2} - 1
+		\int_0^{\frac{\pi}{2}} \left(x \cos x\right) dx = \frac{\pi}{2} \sin \frac{\pi}{2} - 1
 	\end{align}
 \end{answer}
 
 \subsection{Dynamics}
 
-% power rule
+% power
 \begin{answer}
 	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{dx(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3m} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3m} + c$ implies $c = \pi$.
 \end{answer}
@@ -290,6 +291,7 @@
 	\end{align}
 \end{answer}
 
+% power
 \begin{answer}
 	Consider a constant force on a body with a constant mass $m$.
 
@@ -569,11 +571,17 @@ There are no exercises in this lecture.
 	The equations of motion are then given by $m \ddot{R} = m R \dot{\theta}^2 + m \omega^2 R - 2 m \omega R \dot{\theta}$ and $2 m R \dot{R} \dot{\theta} + m R^2 \ddot{\theta} - 2 m \omega R \dot{R} = 0$.
 \end{answer}
 
-\begin{answer}
+\begin{answer}[Pendulum]\label{ans:pendulum}
 	The position $\begin{pmatrix} r \\ \theta \end{pmatrix}$ of a pendulum with length $l$ and mass $m$ must satisfy the equations $r=l$ and $\dot{r} = 0$.
-	Pick coordinates so that the potential energy at $\theta=0$ is zero.
+	This allows the use of a single generalized coordinate $\theta$.
+	Pick it so that the potential energy at $\theta=0$ is zero.
 	Its kinetic energy is given by $T = \frac{m}{2} l^2 \dot{\theta}^2$.
-	The height of the pendulum mass is given by $h = l - l \cos \theta$, its potential energy by $V = mgl\left(1 - \cos \theta\right)$, its Lagrangian by $L = T - V$, and its angular equation of motion by $m l^2 \ddot{\theta} + m g l \sin \theta = 0$.
+	The height of the pendulum mass is given by $h = l - l \cos \theta$, and its potential energy by $V = mgl\left(1 - \cos \theta\right)$.
+	Thus, its Lagrangian by $L = T - V$ is given below.
+	\begin{align}\label{eqn:Lpend}
+		L & = \frac{m}{2} l^2 \dot{\theta}^2 - mgl\left(1 - \cos \theta\right)
+	\end{align}
+	Therefore, the angular equation of motion is given by $m l^2 \ddot{\theta} + m g l \sin \theta = 0$.
 \end{answer}
 
 \begin{answer}
@@ -584,8 +592,8 @@ There are no exercises in this lecture.
 \subsection{Symmetries and conservation laws}
 
 \begin{answer}
-	Consider the Lagrangian given by Equation \eqref{eqn:cent} below.
-	\begin{align}
+	Consider the Lagrangian given by Equation \eqref{eqn:Ldiff} below.
+	\begin{align}\label{eqn:Ldiff}
 		L = \frac{1}{2}\left(\dot{q_1}^2 + \dot{q_2}^2\right) - V\p{q_1 - q_2}
 	\end{align}
 	The first Euler-Lagrange equation is given by $\dot{p_1} = -V'(q_1-q_2) \cdot \frac{\partial}{\partial q_1}\p{q_1-q_2} = - V'(q_1-q_2)$ and the second Euler-Lagrange equation is given by $\dot{p_2} = - V'(q_1-q_2) \cdot \frac{\partial}{\partial q_2}\p{q_1-q_2} = + V'(q_1-q_2)$.
@@ -606,5 +614,21 @@ There are no exercises in this lecture.
 	Then, any potential of the form $V\p{a q_1 + b q_2}$ is invariant under the transformations $q_1 \to q_1 + b \delta$ and $q_2 \to q_2 - a \delta$.
 	The derivatives of $q_1$ and $q_2$ are invariant since the transformations are independent of time.
 	Thus, the kinetic energy and the Lagrangian are also invariant under the transformations of $q_1$ and $q_2$.
+\end{answer}
+
+\begin{answer}
+	Consider the Lagrangian defined below.
+	\begin{align}
+		L & = \frac{m}{2}\p{(\dot{x} + \dot{y} \delta)^2 + (\dot{y} - \dot{x} \delta)^2} - V\p{(x + y \delta)^2 + (y - x \delta)^2}
+	\end{align}
+	It satisfies $L = \frac{m}{2}\p{\dot{x}^2 + \dot{y}^2 + (\dot{y}^2 + \dot{x}^2)\delta^2} - V\p{x^2 + y^2 + (y^2 + x^2) \delta^2}$.
+	Therefore, the Lagrangian does not change to first order in $\delta$.
+\end{answer}
+
+\begin{answer}
+	To determine the equation of motion for a simple pendulum of length $l$ and mass $m$ swinging through an arc in the $x,y$ plane from an initial angle of $\theta_0$, recall the Lagrangian given in Equation \ref{eqn:Lpend}.
+	With the constraint $r=l$, the only generalized coordinate is $\theta$ and the Lagrangian depends explicitly on $\theta$.
+	Thus, the generalized coordinate $\theta$ is not cyclic and its conjugate momentum is not conserved.
+	The angular equation of motion is thus $m l^2 \ddot{\theta} + m g l \sin \theta = 0$ as obtained in Exercise \ref{ans:pendulum}.
 \end{answer}
 

@@ -111,6 +111,7 @@
 
 \subsection{Principles of quantum mechanics}
 
+% characteristic polynomial
 \begin{answer}
 	To show for any Hermitian operator $L$ on an $N$-dimensional complex vector space that an orthonormal basis of $N$ vectors can be constructed from the eigenvectors of $L$, consider the base case in which $N=0$.
 	Since $H = \left\{0\right\}$, the empty set is an orthonormal basis of $N$ vectors and the result follows.
@@ -121,11 +122,12 @@
 	By the fundamental theorem of algebra, the operator $L$ has at at least one eigenvalue $\lambda_n \in \C$.
 	Since $L$ is Hermitian, the eigenvalue $\lambda_n$ is real.
 	Let $\ket{\lambda_n} \in \p{H \setminus \{0\}}$ be an eigenvector of $\lambda_n$, $V_n = \op{span}\left\{\ket{\lambda_n}\right\}$, and $H_{n-1} = V_n^\perp$ be the orthogonal complement of $V_n$ in $H$.
-	If $\ket{A} \in H_{n-1}$, then it satisfies $\braket{\lambda_n \mid A} = 0$ and the Hermitian property of $L$ yields $\braket{\lambda_n \mid L A} = \lambda_n \braket{\lambda_n \mid A} = 0$.
+	Since $L \ket{\lambda_n} = \lambda_n \ket{\lambda_n}$, interchanging bras and kets yields $\bra{\lambda_n} L = \lambda_n \bra{\lambda_n}$ since $L$ is Hermitian and $\lambda_n$ is real.
+	If $\ket{A} \in H_{n-1}$ and hence $\braket{\lambda_n \mid A} = 0$, then it satisfies $\braket{\lambda_n \mid L A} = \lambda_n \braket{\lambda_n \mid A} = 0$.
 	Hence, $L\p{H_{n-1}} \subseteq H_{n-1}$.
 	Thus, the linear operator $L$ is defined on the $(N-1)$-dimensional complex vector space $H_{n-1}$ and it is Hermitian on $H_{n-1}$.
 	By the inductive hypothesis, an orthonormal basis $B_{n-1}$ can be constructed from the eigenvectors of $L$ on $H_{n-1}$.
-	Then, the union $\dsp B_{n-1} \cup \left\{\frac{1}{\|\ket{\lambda_n}\|} \ket{\lambda_n} \right\}$ is an orthonormal basis of $H$ consisting of eigenvectors of $L$.
+	Thus, the union $\dsp B_{n-1} \cup \left\{\frac{1}{\|\ket{\lambda_n}\|} \ket{\lambda_n} \right\}$ is an orthonormal basis of $H$ consisting of eigenvectors of $L$.
 	Therefore, the result follows by induction.
 \end{answer}
 
@@ -137,6 +139,18 @@
 		\sigma_z \begin{pmatrix} 0 \\ 1 \end{pmatrix} = - \begin{pmatrix} 0 \\ 1 \end{pmatrix}
 	\end{align}
 	It follows from the first equation above that $\p{\sigma_z}_{11} = 1$ and $\p{\sigma_z}_{21} = 0$.
-	It follows from the second equation that $\p{\sigma_z}_{12} = 0$.
+	It follows from the second equation that $\p{\sigma_z}_{12} = 0$ and $\p{\sigma_z}_{22} = -1$.
+\end{answer}
+
+\begin{answer}
+	Consider the linear operator given in some basis as follows.
+	\begin{align}
+		\sigma_n & =
+		\begin{pmatrix}
+			\cos \theta & \sin \theta  \\
+			\sin \theta & -\cos \theta
+		\end{pmatrix}
+	\end{align}
+	The characteristic polynomial $\det\p{\sigma_n - \lambda I} = \p{\cos \theta - \lambda}\p{- \cos \theta - \lambda} - \sin^2 \theta = \lambda^2 - 1^2$ yields eigenvalues $\lambda_1$ and $\lambda_2$.
 \end{answer}
 

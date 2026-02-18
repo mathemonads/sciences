@@ -65,7 +65,7 @@
 
 % components of bra are conjugated
 \begin{answer}
-	Let $r = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$, $\ket{i} = \frac{1}{\sqrt{2}} \ket{u} + \frac{i}{\sqrt{2}} \ket{d}$ and $\ket{o} = \frac{1}{\sqrt{2}} \ket{u} - \frac{i}{\sqrt{2}} \ket{d}$.
+	Let $\ket{r} = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$, $\ket{l} = \frac{1}{\sqrt{2}} \ket{u} - \frac{1}{\sqrt{2}} \ket{d}$, $\ket{i} = \frac{1}{\sqrt{2}} \ket{u} + \frac{i}{\sqrt{2}} \ket{d}$ and $\ket{o} = \frac{1}{\sqrt{2}} \ket{u} - \frac{i}{\sqrt{2}} \ket{d}$.
 	Since $\ket{u}$ and $\ket{d}$ are mutually orthonormal, we obtain orthogonality as shown below.
 	\begin{align*}
 		\braket{i \mid o} & = \frac{1}{2} + \left(\frac{i}{\sqrt{2}}\right)^* \left(-\frac{i}{\sqrt{2}}\right) = 0
@@ -87,6 +87,7 @@
 	Among pairs of orthogonal vectors satisfying all of the eight equations shown above, the pair of orthogonal vectors $\ket{i}$ and $\ket{o}$ is not strictly unique.
 \end{answer}
 
+% calculation
 \begin{answer}
 	Let $\ket{u}$ and $\ket{d}$ be an orthonormal basis of a single spin-$\frac{1}{2}$ system.
 	Let $\ket{i} = \alpha \ket{u} + \beta \ket{d}$ and $\ket{o} = \gamma \ket{u} + \delta \ket{d}$ be given in terms of unknown components $\alpha$, $\beta$, $\gamma$, and $\delta$.
@@ -101,12 +102,14 @@
 
 		      Since $\braket{r \mid i} = \frac{1}{\sqrt{2}} \left(\alpha + \beta\right)$ and $\braket{ i \mid r} = \frac{1}{\sqrt{2}}\left(\alpha^* + \beta^*\right)$, it follows that $\frac{1}{2} = \braket{i \mid r} \braket{r \mid i} = \frac{1}{2}\left(\alpha^* \alpha + \beta^* \beta + \alpha^* \beta + \alpha \beta^*\right)$ and thus that $\alpha^* \beta + \alpha \beta^* = 0$.
 		      Since $\braket{o \mid r} \braket{r \mid o} = \frac{1}{2}\left(\gamma^* \gamma + \delta^* \delta + \gamma^* \delta + \gamma \delta^*\right)$, it follows that $\gamma^* \delta + \gamma \delta^* = 0$.
-		\item Since $\left(\alpha^* \beta\right)^* = \alpha \beta^*$, the above result implies that $\alpha^* \beta$ is a pure imaginary number.
-		      Similarly, the number $\gamma^* \delta$ is pure imaginary.
+		\item Since $\left(\alpha^* \beta\right)^* = \alpha \beta^*$, the above result implies that $\alpha^* \beta$ is a pure imaginary number under the convention that $0$ is also pure imaginary.
+		      Similarly, the number $\gamma^* \delta$ is pure imaginary under the same convention.
 	\end{enumerate}
 	Since $\alpha^* \beta$ is pure imaginary, the coefficients $\alpha$ and $\beta$ cannot both be real.
-	Similarly, the coefficients$\gamma$ and $\delta$ cannot both be real.
+	Similarly, the coefficients $\gamma$ and $\delta$ cannot both be real.
 \end{answer}
+
+\subsection{Principles of quantum mechanics}
 
 \begin{answer}
 	To show for any Hermitian operator $L$ on an $N$-dimensional complex vector space that an orthonormal basis of $N$ vectors can be constructed from the eigenvectors of $L$, consider the base case in which $N=0$.
@@ -120,8 +123,20 @@
 	Let $\ket{\lambda_n} \in \p{H \setminus \{0\}}$ be an eigenvector of $\lambda_n$, $V_n = \op{span}\left\{\ket{\lambda_n}\right\}$, and $H_{n-1} = V_n^\perp$ be the orthogonal complement of $V_n$ in $H$.
 	If $\ket{A} \in H_{n-1}$, then it satisfies $\braket{\lambda_n \mid A} = 0$ and the Hermitian property of $L$ yields $\braket{\lambda_n \mid L A} = \lambda_n \braket{\lambda_n \mid A} = 0$.
 	Hence, $L\p{H_{n-1}} \subseteq H_{n-1}$.
-	Thus, the Hermitian operator $L$ is defined on the $(N-1)$-dimensional complex vector space $H_{n-1}$.
+	Thus, the linear operator $L$ is defined on the $(N-1)$-dimensional complex vector space $H_{n-1}$ and it is Hermitian on $H_{n-1}$.
 	By the inductive hypothesis, an orthonormal basis $B_{n-1}$ can be constructed from the eigenvectors of $L$ on $H_{n-1}$.
-	Then, the union $\dsp B_{n-1} \cup \left\{\frac{\ket{\lambda_n}}{\|\ket{\lambda_n}\|}\right\}$ is an orthonormal basis of $H$ consisting of eigenvectors of $L$.
+	Then, the union $\dsp B_{n-1} \cup \left\{\frac{1}{\|\ket{\lambda_n}\|} \ket{\lambda_n} \right\}$ is an orthonormal basis of $H$ consisting of eigenvectors of $L$.
+	Therefore, the result follows by induction.
+\end{answer}
+
+\begin{answer}
+	Let $\sigma_z$ be a linear operator satisfying the equations below.
+	\begin{align}
+		\sigma_z \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+		\begin{pmatrix} 1 \\ 0 \end{pmatrix} \\
+		\sigma_z \begin{pmatrix} 0 \\ 1 \end{pmatrix} = - \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+	\end{align}
+	It follows from the first equation above that $\p{\sigma_z}_{11} = 1$ and $\p{\sigma_z}_{21} = 0$.
+	It follows from the second equation that $\p{\sigma_z}_{12} = 0$.
 \end{answer}
 

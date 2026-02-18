@@ -258,12 +258,14 @@
 	Finally, linearity of the integral yields $\dsp \int (t^2 - 2) dt = \frac{t^3}{3} - 2t + c$.
 \end{answer}
 
+% direct integration
 \begin{answer}
-	The fundamental theorem of calculus yields $\dsp \int_0^T t^4 ~dt = \frac{T^5}{5} - \frac{0^5}{5}$, $\dsp \int_0^T \cos t = \sin T - \sin 0$, and $\dsp \int_0^T t^2-2 ~dt = \frac{T^3}{3} - 2T$.
+	The fundamental theorem of calculus yields $\dsp \int_0^T t^4 ~dt = \frac{T^5}{5} - \frac{0^5}{5}$, $\dsp \int_0^T \cos t ~dt= \sin T - \sin 0$, and $\dsp \int_0^T \p{t^2-2} dt = \frac{T^3}{3} - 2T$.
 \end{answer}
 
+% direct integration
 \begin{answer}
-	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \cos t' ~dt'$ has trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
+	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ has trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
 \end{answer}
 
 \begin{answer}
@@ -275,14 +277,16 @@
 
 \subsection{Dynamics}
 
+% power rule
 \begin{answer}
-	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{dx(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3} + c$ implies $c = \pi$.
+	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{dx(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3m} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3m} + c$ implies $c = \pi$.
 \end{answer}
 
+% fundamental theorem of calculus
 \begin{answer}
 	For a constant force $F_z$, integrating $\dsp \int_0^t \dot{v_z} = \int_0^t \frac{F_z}{m}$ yields the following equation.
 	\begin{align}
-		v_z(t) - v_z(0) & = \frac{F_z}{m}t
+		v_z(t) & = v_z(0) + \frac{F_z}{m}t
 	\end{align}
 \end{answer}
 
@@ -593,5 +597,14 @@ There are no exercises in this lecture.
 	The sum of $b \dot{p_1} = -ab V'\p{a q_1 - b q_2}$ and $a \dot{p_2} = +ab V'\p{a q_1 - b q_2}$ is $b \dot{p_1} + a \dot{p_2} = 0$.
 	Since $a$ and $b$ are constant, it follows that $b \dot{p_1} + a \dot{p_2} = \frac{d}{dt}\p{b p_1 + a p_2}$.
 	Therefore, the quantity $b p_1 + a p_2$ is conserved.
+\end{answer}
+
+\begin{answer}
+	Consider any constants $a$, $b$, and $\delta$.
+
+	Observe $a\left(q_1 + b\delta\right) + b\left(q_2 - a \delta\right) = a q_1 + b q_2$.
+	Then, any potential of the form $V\p{a q_1 + b q_2}$ is invariant under the transformations $q_1 \to q_1 + b \delta$ and $q_2 \to q_2 - a \delta$.
+	The derivatives of $q_1$ and $q_2$ are invariant since the transformations are independent of time.
+	Thus, the kinetic energy and the Lagrangian are also invariant under the transformations of $q_1$ and $q_2$.
 \end{answer}
 

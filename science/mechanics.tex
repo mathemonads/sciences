@@ -18,7 +18,7 @@
 \end{answer}
 
 % functions of states 
-\begin{answer}
+\begin{answer}[Number of laws]
 	Consider a system consisting of six states $S = \left\{1, 2, 3, 4, 5, 6\right\}$.
 
 	A law is given by a function $S \xrightarrow{f} S$ that assigns each state in $S$ to the state that results from evolution under the law.
@@ -35,7 +35,7 @@
 \end{answer}
 
 % bijection
-\begin{answer}
+\begin{answer}[Allowable laws]
 	Consider the infinite system $\left\{\cdots, -1, 0, +1, +2, \cdots\right\}$.
 
 	Examples of dynamical laws that are allowable include those given by the following equations.
@@ -51,7 +51,7 @@
 \setcounter{answer}{0}
 
 % tikzpicture 
-\begin{answer}
+\begin{answer}[Plots]
 	Consider the functions $f,g,\theta,t$ defined below.
 	\begin{align}
 		f(t)           & = t^4 + 3t^3 - 12t^2 + t - 6   \\
@@ -69,7 +69,7 @@
 \end{answer}
 
 % \vec{B} + (-\vec{B}) = 0
-\begin{answer}
+\begin{answer}[Vector subtraction]
 	The rule for vector subtraction is to add the augend add the result of reversing the direction of the addend.
 
 	Any vectors $\vec{A}$ and $\vec{B}$ satisfy the following equation.
@@ -79,7 +79,7 @@
 \end{answer}
 
 % calculation
-\begin{answer}
+\begin{answer}[Vector magnitude]
 	For any vector $\vec{A}$, the magnitude $\left| \vec{A} \right| = \sqrt{A_x^2 + A_y^2 + A_z^2}$ of $\vec{A}$ satisfies the following equations:
 	\begin{align}
 		\vec{A} \cdot \vec{A} & = A_x A_x + A_y A_y + A_z A_z & = \left| \vec{A} \right|^2.
@@ -303,37 +303,44 @@
 	This is the equation of motion for a constant force on a body with constant mass.
 \end{answer}
 
+% chain rule
 \begin{answer}
-	The derivative of $\dsp x(t) = A \cos \omega t + B \sin \omega t$ is given below.
+	The derivative of $\dsp x(t) = A \cos\p{\omega t} + B \sin\p{\omega t}$ is given below.
 	\begin{align}
-		\dot{x}(t) & = -\omega A \sin \omega t + \omega B \cos \omega t
+		\dot{x}(t) & = -\omega A \sin\p{\omega t} + \omega B \cos\p{\omega t}
 	\end{align}
-	The second derivative is $\ddot{x}(t) = -\omega^2 A \cos \omega t - \omega^2 B \sin \omega t = -\omega^2 x(t)$.
+	The second derivative is $\ddot{x}(t) = -\omega^2 A \cos\p{\omega t} - \omega^2 B \sin\p{\omega t} = -\omega^2 x(t)$.
 	The initial position at time $t=0$ is $x(0) = A$, and the initial velocity at time $t=0$ is $B\omega$.
 \end{answer}
 
 \subsubsection{Partial differentiation}
 \setcounter{answer}{0}
 
+% calculation
 \begin{answer}
 	Consider the functions $V_1,V_2,V_3$ defined below.
 	\begin{align}
-		V_1(x,y) & = x^2 + y^2 - \sin xy     \\
+		V_1(x,y) & = x^2 + y^2 - \sin\p{x y} \\
 		V_2(x,y) & = \frac{x}{y} e^{x^2+y^2} \\
 		V_3(x,y) & = e^x \cos y
 	\end{align}
 	The first derivatives are calculated below.
 	\begin{align*}
-		\frac{\partial V_1}{\partial x} & = 2x - \cos xy                                         & \frac{\partial V_1}{\partial y} & = 2y - \cos xy                              \\
-		\frac{\partial V_2}{\partial x} & = \left(\frac{2x^2}{y} + \frac{1}{y}\right)e^{x^2+y^2} & \frac{\partial V_2}{\partial y} & = \left(2x - \frac{1}{y} \right)e^{x^2+y^2} \\
+		\frac{\partial V_1}{\partial x} & = 2x - y \cos xy
+		                                & \frac{\partial V_1}{\partial y}                        & = 2y - x \cos xy                                                                \\
+		\frac{\partial V_2}{\partial x} & = \left(\frac{2x^2}{y} + \frac{1}{y}\right)e^{x^2+y^2} & \frac{\partial V_2}{\partial y} & = \left(2x - \frac{x}{y^2} \right)e^{x^2+y^2} \\
 		\frac{\partial V_3}{\partial x} & = e^x \cos y                                           & \frac{\partial V_3}{\partial y} & = -e^x \sin y
 	\end{align*}
 	The second derivatives are given below.
 	\begin{align*}
-		\frac{\partial^2 V_1}{\partial x^2} & = 2 + \sin xy                                           & \frac{\partial^2 V_1}{\partial y^2}          & = 2 + \sin xy                                                      & \frac{\partial^2 V_1}{\partial x \partial y} & = \sin xy     \\
-		\frac{\partial^2 V_2}{\partial x^2} & = \left(\frac{4x^3}{y} + \frac{6x}{y}\right)e^{x^2+y^2} &
-		\frac{\partial V_2}{\partial y}     & = \left(4xy - 2 + \frac{1}{y^2}\right)e^{x^2+y^2}       & \frac{\partial^2 V_2}{\partial x \partial y} & = \left(4x^2+2 -\frac{2x^2}{y^2} - \frac{1}{y^2}\right)e^{x^2+y^2}                                                                \\
-		\frac{\partial^2 V_3}{\partial x^2} & = e^x \cos y                                            & \frac{\partial V_3}{\partial y}              & = - e^x \cos y                                                     & \frac{\partial^2 V_3}{\partial x \partial y} & = -e^x \sin y
+		\frac{\partial^2 V_1}{\partial x^2} & = 2 + y^2 \sin xy
+		                                    & \frac{\partial^2 V_1}{\partial y^2}                     & = 2 + x^2\sin xy
+		                                    & \frac{\partial^2 V_1}{\partial x \partial y}            & = - \cos\p{x y} + xy \sin\p{x y}                                                                                                                                     \\
+		\frac{\partial^2 V_2}{\partial x^2} & = \left(\frac{4x^3}{y} + \frac{6x}{y}\right)e^{x^2+y^2}
+		                                    & \frac{\partial^2 V_2}{\partial y^2}                     & = \left(4xy - \frac{2x}{y} + \frac{2x}{y^3}\right)e^{x^2+y^2} & \frac{\partial^2 V_2}{\partial x \partial y} & = \left(4x^2+2 - \frac{1+2x^2}{y^2}\right)e^{x^2+y^2} \\
+		\frac{\partial^2 V_3}{\partial x^2} & = e^x \cos y
+		                                    & \frac{\partial^2 V_3}{\partial y^2}                     & = - e^x \cos y
+		                                    & \frac{\partial^2 V_3}{\partial x \partial y}            & = -e^x \sin y
 	\end{align*}
 \end{answer}
 
@@ -626,9 +633,14 @@ There are no exercises in this lecture.
 \end{answer}
 
 \begin{answer}
-	To determine the equation of motion for a simple pendulum of length $l$ and mass $m$ swinging through an arc in the $x,y$ plane from an initial angle of $\theta_0$, recall the Lagrangian given in Equation \ref{eqn:Lpend}.
+	To determine the equation of motion for a simple pendulum of length $l$ and mass $m$ swinging through an arc in the $x,y$ plane from an initial angle of $\theta_0$, recall the Lagrangian given in Equation \eqref{eqn:Lpend}.
 	With the constraint $r=l$, the only generalized coordinate is $\theta$ and the Lagrangian depends explicitly on $\theta$.
 	Thus, the generalized coordinate $\theta$ is not cyclic and its conjugate momentum is not conserved.
-	The angular equation of motion is thus $m l^2 \ddot{\theta} + m g l \sin \theta = 0$ as obtained in Exercise \ref{ans:pendulum}.
+	Dividing the equation of motion obtained in Exercise \ref{ans:pendulum} by the non-zero mass yields $l^2 \ddot{\theta} + g l \sin \theta = 0$.
+\end{answer}
+
+\begin{answer}
+	Consider a double pendulum. 
+	The first bob has kinetic energy $T_1 = \frac{\dot{\theta}^2}{2}$, the second bob has kinetic energy $T_2 = \frac{\dot{\theta}^2 + \p{\dot{\theta} + \dot{\alpha}}^2}{2} + \dot{\theta} \left(\dot{\theta} + \dot{\alpha}\right) \cos \alpha$, the potential energy in the absence of gravity is $V = 0$, and the Lagrangian in the absence of gravity is $L = T_1 + T_2$. 
 \end{answer}
 

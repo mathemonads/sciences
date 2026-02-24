@@ -1,9 +1,11 @@
 
 # sciences
 
-proposed solutions to exercises selected from the series on the Theoretical Minimum: What You Need to Know to Start Doing Physics
+proposed solutions to exercises selected from the series on the Theoretical Minimum: What You Need to Know to Start Doing Physics by
 
 # Mechanics
 
 # Quantum
+
+`quantum.tex`
 

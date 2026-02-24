@@ -5,7 +5,7 @@
 \subsection{Systems and experiments}
 
 % ket linearity
-\begin{answer}
+\begin{answer}[Inner product]
 	\begin{enumerate}
 		\item To show $\left\{\bra{A} + \bra{B}\right\} \ket{C} = \braket{A \mid C} + \braket{B \mid C}$, let $\ket{A}$ and $\ket{B}$ be ket-vectors whose bra-vectors are $\bra{A}$ and $\bra{B}$ respectively.
 
@@ -131,15 +131,33 @@
 	Therefore, the result follows by induction.
 \end{answer}
 
+% solution
 \begin{answer}
 	Let $\sigma_z$ be a linear operator satisfying the equations below.
-	\begin{align}
-		\sigma_z \begin{pmatrix} 1 \\ 0 \end{pmatrix} =
-		\begin{pmatrix} 1 \\ 0 \end{pmatrix} \\
-		\sigma_z \begin{pmatrix} 0 \\ 1 \end{pmatrix} = - \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+	\begin{align}\label{eqn:sz}
+		\sigma_z
+		\begin{pmatrix}
+			1 \\
+			0
+		\end{pmatrix}
+		=
+		\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+		\qquad
+		\sigma_z
+		\begin{pmatrix}
+			0 \\
+			1
+		\end{pmatrix}
+		= -
+		\begin{pmatrix}
+			0 \\
+			1
+		\end{pmatrix}
 	\end{align}
 	It follows from the first equation above that $\p{\sigma_z}_{11} = 1$ and $\p{\sigma_z}_{21} = 0$.
 	It follows from the second equation that $\p{\sigma_z}_{12} = 0$ and $\p{\sigma_z}_{22} = -1$.
+	By construction of $\sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$, it satisfies Equations \eqref{eqn:sz}.
+	It is the unique matrix satisfying them.
 \end{answer}
 
 \begin{answer}
@@ -151,6 +169,42 @@
 			\sin \theta & -\cos \theta
 		\end{pmatrix}
 	\end{align}
-	The characteristic polynomial $\det\p{\sigma_n - \lambda I} = \p{\cos \theta - \lambda}\p{- \cos \theta - \lambda} - \sin^2 \theta = \lambda^2 - 1^2$ yields eigenvalues $\lambda_1$ and $\lambda_2$.
+	The characteristic polynomial $\det\p{\sigma_n - \lambda I} = \p{\cos \theta - \lambda}\p{- \cos \theta - \lambda} - \sin^2 \theta = \lambda^2 - 1$ yields eigenvalues $\lambda_1 = 1$ and $\lambda_2 = -1$.
+	Assuming the eigenvector $\ket{\lambda_1}$ has the form $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha \\ \sin \alpha \end{pmatrix}$ yields the following equations.
+	\begin{align*}
+		\sigma_n \ket{\lambda_1} & =
+		\begin{pmatrix}
+			\cos \theta \cos \alpha + \sin \theta \sin \alpha \\
+			\sin \theta \cos \alpha - \cos \theta \sin \alpha
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\cos\p{\theta - \alpha} \\
+			\sin\p{\theta - \alpha}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\cos \alpha \\
+			\sin \alpha
+		\end{pmatrix}
+	\end{align*}
+	The above equation implies that $\alpha = \frac{\theta}{2} - \pi k$ for any integer $k$.
+	Choosing $k=0$ yields $\alpha = \frac{\theta}{2}$ and $\ket{\lambda_1} = \begin{pmatrix} \cos \frac{\theta}{2} \\ \sin \frac{\theta}{2} \end{pmatrix}$.
+	Setting $\sigma_n \ket{\lambda_2} = - \ket{\lambda_2} = \begin{pmatrix} \cos\p{\alpha+\pi} \\ \sin\p{\alpha + \pi}\end{pmatrix}$ yields $\theta - \alpha = \alpha + \pi + 2 \pi k$ for any integer $k$, and choosing $k=0$ yields $\ket{\lambda_2} = \begin{pmatrix} \cos\p{\frac{\theta-\pi}{2}} \\ \sin\p{\frac{\theta-\pi}{2}}\end{pmatrix}$.
+	It was sensible to assume a single parameter $\alpha$ since the two components of a normalized eigenvector are related by the constraint of unit length.
+\end{answer}
+
+\begin{answer}
+	Let $n_z = \cos \theta$, $n_x = \sin \theta \cos \phi$, and $n_y = \sin \theta \sin \phi$, and observe that $\sigma_n = \begin{pmatrix} n_z & \p{n_x - i n_y} \\ \p{n_x + i n_y} & - n_z \end{pmatrix}$ satisfies the following equation.
+	\begin{align}
+		\sigma_n & =
+		\begin{pmatrix}
+			\cos \theta              & e^{-i \phi} \sin \theta \\
+			e^{+ i \phi }\sin \theta & - \cos \theta
+		\end{pmatrix}
+	\end{align}
+	Calculation yields $\sigma_n \sigma_n = I$.
+	Thus, the roots of the characteristic polynomial $\det\p{\sigma_n - \lambda I}$ are $\lambda_1 = 1$ and $\lambda_2 = -1$.
+	Suppose $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha \\ e^{i \beta} \sin \alpha \end{pmatrix}$ solves $\sigma_n \ket{\lambda_1} = \lambda_1 \ket{\lambda_1}$.
 \end{answer}
 

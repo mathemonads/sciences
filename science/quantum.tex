@@ -6,6 +6,7 @@
 
 % ket linearity
 \begin{answer}[Inner product]
+	Consider any $\bra{A}$.
 	\begin{enumerate}
 		\item To show $\left\{\bra{A} + \bra{B}\right\} \ket{C} = \braket{A \mid C} + \braket{B \mid C}$, let $\ket{A}$ and $\ket{B}$ be ket-vectors whose bra-vectors are $\bra{A}$ and $\bra{B}$ respectively.
 
@@ -23,7 +24,7 @@
 \end{answer}
 
 % calculation
-\begin{answer}
+\begin{answer}[Component-wise inner product]
 	To show the operation given for any natural number $n$ in terms of components by
 	\begin{align*}
 		\braket{B \mid A} & =
@@ -58,13 +59,13 @@
 \subsection{Quantum state}
 
 % orthogonality of u and d
-\begin{answer}
+\begin{answer}[Orthogonality of $r$ and $l$]
 	The inner product of the vectors $\dsp \ket{r} = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$ and $\dsp \ket{l} = \frac{1}{\sqrt{2}} \ket{u} - \frac{1}{\sqrt{2}} \ket{d}$ is $\frac{1}{2} - \frac{1}{2} = 0$, since $\ket{u}$ and $\ket{d}$ are mutually orthonormal.
 	Therefore, the vector $\ket{r}$ is orthogonal to $\ket{l}$.
 \end{answer}
 
 % components of bra are conjugated
-\begin{answer}
+\begin{answer}[Orthonormality of $i$ and $o$]
 	Let $\ket{r} = \frac{1}{\sqrt{2}} \ket{u} + \frac{1}{\sqrt{2}} \ket{d}$, $\ket{l} = \frac{1}{\sqrt{2}} \ket{u} - \frac{1}{\sqrt{2}} \ket{d}$, $\ket{i} = \frac{1}{\sqrt{2}} \ket{u} + \frac{i}{\sqrt{2}} \ket{d}$ and $\ket{o} = \frac{1}{\sqrt{2}} \ket{u} - \frac{i}{\sqrt{2}} \ket{d}$.
 	Since $\ket{u}$ and $\ket{d}$ are mutually orthonormal, we obtain orthogonality as shown below.
 	\begin{align*}
@@ -160,6 +161,7 @@
 	It is the unique matrix satisfying them.
 \end{answer}
 
+% one parameter for each eigenvector 
 \begin{answer}
 	Consider the linear operator given in some basis as follows.
 	\begin{align}
@@ -170,41 +172,74 @@
 		\end{pmatrix}
 	\end{align}
 	The characteristic polynomial $\det\p{\sigma_n - \lambda I} = \p{\cos \theta - \lambda}\p{- \cos \theta - \lambda} - \sin^2 \theta = \lambda^2 - 1$ yields eigenvalues $\lambda_1 = 1$ and $\lambda_2 = -1$.
-	Assuming the eigenvector $\ket{\lambda_1}$ has the form $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha \\ \sin \alpha \end{pmatrix}$ yields the following equations.
-	\begin{align*}
-		\sigma_n \ket{\lambda_1} & =
+	Assuming the eigenvector $\ket{\lambda_1}$ has the form $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha \\ \sin \alpha \end{pmatrix}$ yields the equation $\sigma_n \ket{\lambda_1} = \lambda_1 \ket{\lambda_1}$, which is expanded below.
+	\begin{align}\label{eqn:eigen}
 		\begin{pmatrix}
 			\cos \theta \cos \alpha + \sin \theta \sin \alpha \\
 			\sin \theta \cos \alpha - \cos \theta \sin \alpha
 		\end{pmatrix}
-		=
+		 & =
+		\begin{pmatrix}
+			\cos \alpha \\
+			\sin \alpha
+		\end{pmatrix}
+	\end{align}
+	Since
+	$\sigma_n \ket{\lambda_1} = \begin{pmatrix}
+			\cos\p{\theta - \alpha} \\
+			\sin\p{\theta - \alpha}
+		\end{pmatrix}$,
+	solving the above equations for $\alpha$ yields $\alpha_1 = \frac{\theta}{2} - \pi k_1$ for integer $k_1 \in \Z$.
+	This yields an eigenvector $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha_1 \\ \sin \alpha_1 \end{pmatrix}$ determined by integer $k_1$.
+	Any integer $k_1$ determines such an eigenvector, and this choice affects only the sign.
+
+	Setting $\sigma_n \ket{\lambda_2} = - \ket{\lambda_2} = - \begin{pmatrix} \cos \alpha \\ \sin \alpha \end{pmatrix}$ and solving
+	$
 		\begin{pmatrix}
 			\cos\p{\theta - \alpha} \\
 			\sin\p{\theta - \alpha}
 		\end{pmatrix}
 		=
 		\begin{pmatrix}
-			\cos \alpha \\
-			\sin \alpha
+			- \cos \alpha \\
+			- \sin \alpha
 		\end{pmatrix}
-	\end{align*}
-	The above equation implies that $\alpha = \frac{\theta}{2} - \pi k$ for any integer $k$.
-	Choosing $k=0$ yields $\alpha = \frac{\theta}{2}$ and $\ket{\lambda_1} = \begin{pmatrix} \cos \frac{\theta}{2} \\ \sin \frac{\theta}{2} \end{pmatrix}$.
-	Setting $\sigma_n \ket{\lambda_2} = - \ket{\lambda_2} = \begin{pmatrix} \cos\p{\alpha+\pi} \\ \sin\p{\alpha + \pi}\end{pmatrix}$ yields $\theta - \alpha = \alpha + \pi + 2 \pi k$ for any integer $k$, and choosing $k=0$ yields $\ket{\lambda_2} = \begin{pmatrix} \cos\p{\frac{\theta-\pi}{2}} \\ \sin\p{\frac{\theta-\pi}{2}}\end{pmatrix}$.
+	$
+	yields $\alpha_2 = \frac{\theta - \pi}{2} - \pi k_2$ for each integer $k_2 \in \Z$, each of which determines an
+	eigenvector $\ket{\lambda_2} = \begin{pmatrix} \cos\p{\alpha_2} \\ \sin\p{\alpha_2} \end{pmatrix}$.
+	Any eigenvector of $\sigma_n$ is determined by some choice of integer $k_2$, and this choice controls only the sign of the eigenvector.
 	It was sensible to assume a single parameter $\alpha$ since the two components of a normalized eigenvector are related by the constraint of unit length.
 \end{answer}
 
 \begin{answer}
-	Let $n_z = \cos \theta$, $n_x = \sin \theta \cos \phi$, and $n_y = \sin \theta \sin \phi$, and observe that $\sigma_n = \begin{pmatrix} n_z & \p{n_x - i n_y} \\ \p{n_x + i n_y} & - n_z \end{pmatrix}$ satisfies the following equation.
-	\begin{align}
+	Let $n_z = \cos \theta$, $n_x = \sin \theta \cos \phi$, and $n_y = \sin \theta \sin \phi$, and observe that $\sigma_n = \begin{pmatrix} n_z & \p{n_x - i n_y} \\ \p{n_x + i n_y} & - n_z \end{pmatrix}$ is given below.
+	\begin{align*}
 		\sigma_n & =
 		\begin{pmatrix}
-			\cos \theta              & e^{-i \phi} \sin \theta \\
-			e^{+ i \phi }\sin \theta & - \cos \theta
+			\cos \theta             & e^{-i \phi} \sin \theta \\
+			e^{i \phi } \sin \theta & - \cos \theta
 		\end{pmatrix}
-	\end{align}
+	\end{align*}
 	Calculation yields $\sigma_n \sigma_n = I$.
 	Thus, the roots of the characteristic polynomial $\det\p{\sigma_n - \lambda I}$ are $\lambda_1 = 1$ and $\lambda_2 = -1$.
-	Suppose $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha \\ e^{i \beta} \sin \alpha \end{pmatrix}$ solves $\sigma_n \ket{\lambda_1} = \lambda_1 \ket{\lambda_1}$.
+	Suppose $\ket{\lambda_1} = \begin{pmatrix} \cos \alpha \\ e^{i \beta} \sin \alpha \end{pmatrix}$ solves the equation $\sigma_n \ket{\lambda_1} = \lambda_1 \ket{\lambda_1}$, which is expanded below.
+	\begin{align*}
+		\begin{pmatrix}
+			\cos \theta \cos \alpha + e^{i(\beta - \phi)} \sin \theta \sin \alpha \\
+			e^{i \phi} \sin \theta \cos \alpha - e^{i \beta} \cos \theta \sin \alpha
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\cos \alpha \\
+			e^{i \beta} \sin \alpha
+		\end{pmatrix}
+	\end{align*}
+	This yields $\beta = \phi + 2 \pi k_\beta$ for any integer $k_\beta \in \Z$, $\alpha = \frac{\theta}{2} + \pi k_\alpha$ for any integer $k_\alpha \in \Z$, and choosing $k_\alpha = k_\beta = 0$ yields $\ket{\lambda_1} = \begin{pmatrix} \cos \frac{\theta}{2} \\ e^{i \phi} \sin \frac{\theta}{2} \end{pmatrix}$.
+	Similarly, we obtain $\ket{\lambda_2} = \begin{pmatrix} \sin \frac{\theta}{2} \\ - e^{i \phi} \cos \frac{\theta}{2} \end{pmatrix}$.
+	Each eigenvector of $\sigma_n$ is unique up to a complex phase and normalization.
+\end{answer}
+
+\begin{answer}
+	Suppose that a spin is prepared so that $\sigma_m = +1$.
 \end{answer}
 

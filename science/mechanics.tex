@@ -87,7 +87,7 @@
 \end{answer}
 
 % calculation
-\begin{answer}
+\begin{answer}[Magnitudes]
 	Let $\left(A_x = 2, A_y = -3, A_z = 1\right)$ and $\left(B_x=-4, B_y=-3, B_z=2\right)$.
 
 	The magnitude $\left|\vec{A}\right| = \sqrt{2^2 + (-3)^2 + 1^2}$ of $\vec{A}$ is $\left|\vec{A}\right| = \sqrt{4+9+1} = \sqrt{14}$, and the magnitude $\left|\vec{B}\right| = \sqrt{(-4)^2 + (-3)^2 + 2^2}$ of $\vec{B}$ is $\left|\vec{B}\right| = \sqrt{29}$.
@@ -96,7 +96,7 @@
 \end{answer}
 
 % dot product
-\begin{answer}
+\begin{answer}[Orthogonality]
 	Consider the vectors below.
 	\begin{align}
 		\left\{(1,1,1), (2,-1,3), (3,1,0), (-3,0,2)\right\}
@@ -105,7 +105,7 @@
 \end{answer}
 
 % orthogonal angle is pi/2
-\begin{answer}
+\begin{answer}[Dot product of orthogonal vectors]
 	The angle $\theta$ between two vectors that are orthogonal $\vec{A} \perp \vec{B}$ is $\frac{\pi}{2}$ radians, so their dot product is shown below.
 	\begin{align}
 		\vec{A} \cdot \vec{B} & = \left|\vec{A}\right| \left|\vec{B}\right| \cos \frac{\pi}{2} = 0
@@ -115,7 +115,7 @@
 \subsection{Motion}
 
 % calculation
-\begin{answer}
+\begin{answer}[First derivatives]
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
 	The derivatives are given below.
@@ -128,7 +128,7 @@
 \end{answer}
 
 % calculation
-\begin{answer}
+\begin{answer}[Second derivatives]
 	Consider the functions $f,g,\theta,t$ defined by $f(t) = t^4 + 3t^3 - 12t^2 + t - 6$, $g(x) = \sin x - \cos x$, $\theta(\alpha) = e^\alpha + \alpha \ln \alpha$, and $t(x) = \sin^2x - \cos x$.
 
 	The second derivatives are given below.
@@ -141,7 +141,7 @@
 \end{answer}
 
 % chain rule
-\begin{answer}
+\begin{answer}[Chain rule]
 	Consider the functions $g,\theta,x$ defined by $g(t) = \sin t^2 - \cos t^2$, $\theta(\alpha) = e^{3 \alpha} + 3 \alpha \ln 3 \alpha$, and $x(t) = \sin^2 t^2 - \cos t^2$.
 
 	The chain rule yields the following derivatives.
@@ -182,7 +182,7 @@
 \end{answer}
 
 % \theta < \tan \theta
-\begin{answer}
+\begin{answer}[Trigonometry]
 	Recall the angle addition formula given below.
 	\begin{align}
 		\sin\left(\alpha + \beta\right) & = \sin \alpha \cos \beta + \cos \alpha \sin \beta \\
@@ -207,7 +207,7 @@
 \end{answer}
 
 % 2 \pi = \omega \times period
-\begin{answer}
+\begin{answer}[Period]
 	If the position of the particle is governed by $x(t) = \sin \omega t$, then the amount of time it takes for the oscillating particle to go through one full cycle of motion is given below.
 	\begin{align}
 		\frac{2 \pi}{\omega}
@@ -344,8 +344,9 @@
 	\end{align*}
 \end{answer}
 
+% test of second derivative
 \begin{answer}
-	The functions $F_1(x,y) = \sin x + \sin y$ and $F(x,y) = \cos x + \cos y$ have the first derivatives below.
+	The functions $F_1(x,y) = \sin x + \sin y$ and $F_2(x,y) = \cos x + \cos y$ have the first derivatives below.
 	\begin{align*}
 		\frac{\partial F_1}{\partial x} & = \cos x  & \frac{\partial F_1}{\partial y} & = \cos y  \\
 		\frac{\partial F_2}{\partial x} & = -\sin x & \frac{\partial F_2}{\partial y} & = -\sin y
@@ -378,16 +379,20 @@
 
 	The determinants are given below.
 	\begin{align*}
-		\op{Det} H_1 & = \frac{\partial^2 F_1}{\partial x^2} \frac{\partial^2 F_1}{\partial y^2} - \frac{\partial^2 F_1}{\partial y \partial x}\frac{\partial^2 F_1}{\partial x \partial y} = \sin x \sin y - 0 \cdot 0 \\
+		\op{Det} H_1 & = \frac{\partial^2 F_1}{\partial x^2} \frac{\partial^2 F_1}{\partial y^2} - \frac{\partial^2 F_1}{\partial y \partial x}\frac{\partial^2 F_1}{\partial x \partial y} = \sin x \sin y - 0 \\
 		\op{Det} H_2 & = \frac{\partial^2 F_2}{\partial x^2} \frac{\partial^2 F_2}{\partial y^2} - \frac{\partial^2 F_2}{\partial y \partial x}\frac{\partial^2 F_2}{\partial x \partial y} = \cos x \cos y - 0
 	\end{align*}
 
 	The point $\dsp \left(\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is a saddle point of $F_1$ and it is not a stationary point of $F_2$.
 	The point $\dsp \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ is a saddle point of $F_1$ and it is not a stationary point of $F_2$.
-	The point $\dsp \left(-\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is not a stationary point of $F_2$ and we show it is a local minimum of $F_1$ below.
+
+	The point $\dsp p = \left(-\frac{\pi}{2}, -\frac{\pi}{2}\right)$ is not a stationary point of $F_2$ since the gradient of $F_2$ does not vanish there.
+
+	The trace of $H_1$ is calculated below.
 	\begin{align}
-		\op{Tr} H_1 & = \frac{\partial^2 F_1}{\partial x^2} + \frac{\partial^2 F_1}{\partial y^2} = -\sin x - \sin y
+		\op{Tr} H_1 & = \frac{\partial^2 F_1}{\partial x^2} + \frac{\partial^2 F_1}{\partial y^2} = - \sin x - \sin y
 	\end{align}
+	The point $p$ is a stationary point of $F_1$ since $\nabla F_1(p) = \p{0, 0}$, and it is a local minimum of $F_1$ since $\det H_1\p{p}$ is positive and $\left[\Tr H_1\right]_p$ is positive.
 \end{answer}
 
 \subsection{Systems of more than one particle}
@@ -396,6 +401,7 @@ There are no exercises in this lecture.
 
 \subsection{Energy}
 
+% product rule
 \begin{answer}
 	For a particle with a velocity $v(t)$ in one direction, the derivative of $v^2(t) = v(t)^2$ is calculated by the product rule below.
 	\begin{align}
@@ -640,7 +646,21 @@ There are no exercises in this lecture.
 \end{answer}
 
 \begin{answer}
-	Consider a double pendulum. 
-	The first bob has kinetic energy $T_1 = \frac{\dot{\theta}^2}{2}$, the second bob has kinetic energy $T_2 = \frac{\dot{\theta}^2 + \p{\dot{\theta} + \dot{\alpha}}^2}{2} + \dot{\theta} \left(\dot{\theta} + \dot{\alpha}\right) \cos \alpha$, the potential energy in the absence of gravity is $V = 0$, and the Lagrangian in the absence of gravity is $L = T_1 + T_2$. 
+	Consider a double pendulum with unit masses $m_1 = m_2 = 1$ and unit lengths $l_1 = l_2 = 1$.
+	Let $\theta$ denote the angle of the first rod relative to vertical and $\alpha$ denote the angle of the second rod relative to the first rod.
+	The first bob has kinetic energy $T_1 = \frac{\dot{\theta}^2}{2}$, and the second bob has kinetic energy $T_2 = \frac{\dot{\theta}^2 + \p{\dot{\theta} + \dot{\alpha}}^2}{2} + \dot{\theta} \left(\dot{\theta} + \dot{\alpha}\right) \cos \alpha$.
+	In the absence of gravity, the potential energy is $V = 0$ and the Lagrangian $L = T_1 + T_2 - V$.
+	The conjugate momenta are $p_\theta = 3 \dot{\theta} + \dot{\alpha} + \p{2 \dot{\theta} + \dot{\alpha}} \cos \alpha$ and $p_\alpha = \dot{\theta} + \dot{\alpha} + \dot{\theta} \cos \alpha$.
+	Their temporal derivatives are given below.
+	\begin{align}
+		\dot{p_\theta} & = 3 \ddot{\theta} + \ddot{\alpha} + \p{2 \ddot{\theta} + \ddot{\alpha}} \cos \alpha - \dot{\alpha} \p{2 \dot{\theta} + \dot{\alpha}} \sin \alpha \label{eqn:ptheta} \\
+		\dot{p_\alpha} & = \ddot{\theta} + \ddot{\alpha} + \ddot{\theta} \cos \alpha - \dot{\theta} \dot{\alpha} \sin \alpha \label{eqn:palpha}
+	\end{align}
+	Since the potential energy is $V=0$ in the absence of gravity, the Euler-Lagrange equations are $\dot{p_\theta} = 0$ and $\dot{p_\alpha} = -\dot{\theta}\p{\dot{\theta} + \dot{\alpha}} \sin \alpha$.
+\end{answer}
+
+\begin{answer}
+	The (generalized) angular momentum for the double pendulum in the absence of gravity is given in terms of the conjugate momenta in Equations \eqref{eqn:ptheta}--\eqref{eqn:palpha} by $\dot{p_\theta} = 0$.
+	When there is no gravitational field, the angular momentum $p_\theta$ of the first rod is thus conserved.
 \end{answer}
 

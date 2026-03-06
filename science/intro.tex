@@ -1,20 +1,61 @@
-%!/usr/bin/env latex
+
+% sciences/science/intro.tex
 
 \setcounter{section}{-1}
 \section{Introduction}
 
+Solutions are given in Section \ref{sec:mechanics} for exercises selected from \cite{TM}.
+Common notation is reviewed in Section \ref{sec:notation}.
+
+\subsection{Notation}\label{sec:notation}
+
 Denote the totally ordered field of real numbers by
-\begin{align}
+\begin{align*}
 	\left\langle \R, \R \times \R \xrightarrow{+} \R, 0, \R \times \R \xrightarrow{\cdot} \R, 1, \leq \right\rangle
-\end{align}
+\end{align*}
 and the field of complex numbers as follows.
-\begin{align}
+\begin{align*}
 	\left\langle \C, \C \times \C \xrightarrow{+} \C, 0, \C \times \C \xrightarrow{\cdot} \C, 1 \right\rangle
+\end{align*}
+The field $\C$ of complex numbers carries the field involution $\C \xrightarrow{\overline{\bullet}} \C$ of complex conjugation.
+Let $\C \times \C \xrightarrow{\braket{\bullet \mid \star}} \C$ denote the standard complex inner product given by $\braket{z \mid w} = \overline{z} w$, which is linear in $w$.
+The subset $\R_{\geq 0} = [0, \infty)$ of non-negative real numbers forms a totally ordered commutative semiring with multiplicative identity $1$.
+Denote the totally ordered semiring of natural numbers as follows.
+\begin{align*}
+	\left\langle \N, \N \times \N \xrightarrow{+} \N, 0, \N \times \N \xrightarrow{\cdot} \N, 1, \leq \right\rangle
+\end{align*}
+For any natural $n \in \N$, denote the standard $n$-dimensional complex Hilbert space by
+\begin{align*}
+	\left\langle \C^n, \C^n \times \C^n \xrightarrow{+} \C^n, \vzero, \C \times \C^n \xrightarrow{\cdot} \C^n, \C^n \times \C^n \xrightarrow{\braket{\bullet \mid \star}} \C, \C^n \xrightarrow{\|\bullet\|} \R_{\geq 0} \right\rangle
+\end{align*}
+and the $n$-dimensional real Euclidean Hilbert space as follows.
+\begin{align*}
+	\left\langle \R^n, \R^n \times \R^n \xrightarrow{+} \R^n, \vzero, \R \times \R^n \xrightarrow{\cdot} \R^n, \R^n \times \R^n \xrightarrow{\cdot} \R, \R^n \xrightarrow{\|\bullet\|} \R_{\geq 0} \right\rangle
+\end{align*}
+Let $S^2 = \left\{\, \hat{n} \in \R^3 \mid \|\hat{n}\| = 1\right\}$ denote the $2$-dimensional unit sphere about the origin in $\R^3$ with.
+Denote the standard basis unit vectors in $\R^3$ as follows.
+\begin{align}\label{eqn:e}
+	x =
+	\begin{pmatrix}
+		1 \\ 0 \\ 0
+	\end{pmatrix}
+	\qquad y =
+	\begin{pmatrix}
+		0 \\ 1 \\ 0
+	\end{pmatrix}
+	\qquad z =
+	\begin{pmatrix}
+		0 \\ 0 \\ 1
+	\end{pmatrix}
 \end{align}
-The field $\C$ of complex numbers carries the involution $\C \xrightarrow{\overline{\bullet}} \C$ of complex conjugation and the complex inner product $\C \times \C \xrightarrow{\braket{\bullet \mid \star}} \C$ given by $\braket{z \mid w} = \overline{z} w$.
-Denote the totally ordered rig of natural numbers by $\left\langle \N, \N \times \N \xrightarrow{+} \N, 0, \N \times \N \xrightarrow{\cdot} \N, 1, \leq \right\rangle$.
-For any natural $n \in \N$, denote the real $n$-dimensional additive group as follows.
-\begin{align}
-	\left\langle \R^n, \R^n \times \R^n \xrightarrow{+} \R^n, \mbf{0} \right\rangle
-\end{align}
+They form an orthonormal basis $e = (x, y, z)$ of $\R^3$.
+For any vector $n \in \R^3$, denote its inner products with the standard basis vectors as follows.
+\begin{align*}
+	n_x = x \cdot n
+	\qquad
+	n_y = y \cdot n
+	\qquad
+	n_z = z \cdot n
+\end{align*}
+Any triple of real numbers $\begin{pmatrix} n_x \\ n_y \\ n_z\end{pmatrix}$ uniquely determines a vector $n \in \R^3$ satisfying the equations above and is called the coordinate vector of $n$ in the standard basis.
 

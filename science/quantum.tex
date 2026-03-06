@@ -1,6 +1,6 @@
 %!/usr/bin/env latex
 
-\section{Quantum Mechanics}
+\section{Quantum Mechanics}\label{sec:quantum}
 
 \subsection{Systems and experiments}
 
@@ -161,22 +161,7 @@
 	It is the unique matrix satisfying them.
 \end{answer}
 
-Let $S^2 = \left\{\hat{n} \in \R^3 \mid \|\hat{n}\| = 1\right\}$ be the $2$-dimensional Euclidean sphere in $\R^3$ and denote the standard orthonormal basis vectors as follows.
-\begin{align}
-	e_x =
-	\begin{pmatrix}
-		1 \\ 0 \\ 0
-	\end{pmatrix}
-	\qquad e_y =
-	\begin{pmatrix}
-		0 \\ 1 \\ 0
-	\end{pmatrix}
-	\qquad e_z =
-	\begin{pmatrix}
-		0 \\ 0 \\ 1
-	\end{pmatrix}
-\end{align}
-Denote their Pauli matrices as follows.
+Denote the standard Pauli matrices as follows.
 \begin{align}
 	\sigma_x =
 	\begin{pmatrix}
@@ -195,10 +180,31 @@ Denote their Pauli matrices as follows.
 	\end{pmatrix}
 \end{align}
 
-\begin{remark}
-	The transpose of $\sigma_z$ is given below.
+Their transpose are given below.
+\begin{align*}
+	\sigma_x^\T =
+	\begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+	\end{pmatrix}
+	\qquad
+	\sigma_y^\T =
+	\begin{pmatrix}
+		0  & i \\
+		-i & 0
+	\end{pmatrix}
+	\qquad
+	\sigma_z^\T =
+	\begin{pmatrix}
+		1 & 0  \\
+		0 & -1
+	\end{pmatrix}
+\end{align*}
+
+\begin{remark}[Conjugate transpose of Pauli matrix]
+	The conjugate transpose of $\sigma_z$ is given below.
 	\begin{align*}
-		\sigma_z^T =
+		\sigma_z^\dagger & =
 		\begin{pmatrix}
 			1 & 0  \\
 			0 & -1
@@ -206,7 +212,7 @@ Denote their Pauli matrices as follows.
 	\end{align*}
 \end{remark}
 
-Denote the standard orthonormal basis of $\R^3$ by $e = \langle e_x, e_y, e_z \rangle$ and the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
+Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
 For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e$ by $\begin{pmatrix} n_x \\ n_y \\ n_z \end{pmatrix} = n_x e_x + n_y e_y + n_z e_z $, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices weighed by $\hat{n}$.
 
 % one parameter for each eigenvector 

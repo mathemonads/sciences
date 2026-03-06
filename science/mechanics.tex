@@ -1,5 +1,5 @@
 
-\section{Mechanics}
+\section{Mechanics}\label{sec:mechanics}
 
 \subsection{Nature of classical physics}
 
@@ -259,18 +259,18 @@
 \end{answer}
 
 % direct integration
-\begin{answer}
+\begin{answer}[Fundamental theorem of calculus]
 	The fundamental theorem of calculus yields $\dsp \int_0^T t^4 ~dt = \frac{T^5}{5} - \frac{0^5}{5}$, $\dsp \int_0^T \cos t ~dt= \sin T - \sin 0$, and $\dsp \int_0^T \p{t^2-2} dt = \frac{T^3}{3} - 2T$.
 \end{answer}
 
 % direct integration
-\begin{answer}
+\begin{answer}[Trajectories of velocities]
 	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ has trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
 \end{answer}
 
 % parts
-\begin{answer}
-	Calculating $\dsp \int_0^{\frac{\pi}{2}} x \cos x ~dx = \frac{\pi}{2}\sin \frac{\pi}{2} - \int_0^{\frac{\pi}{2}} \sin x ~dx$ yields the following integral.
+\begin{answer}[Integration by parts]
+	Calculating $\dsp \int_0^{\frac{\pi}{2}} x \cos x ~dx = \frac{\pi}{2} \sin \frac{\pi}{2} - \int_0^{\frac{\pi}{2}} \sin x ~dx$ yields the following integral.
 	\begin{align}
 		\int_0^{\frac{\pi}{2}} \left(x \cos x\right) dx = \frac{\pi}{2} \sin \frac{\pi}{2} - 1
 	\end{align}
@@ -279,12 +279,12 @@
 \subsection{Dynamics}
 
 % power
-\begin{answer}
+\begin{answer}[Aristotle's Law of Motion]
 	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{dx(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3m} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3m} + c$ implies $c = \pi$.
 \end{answer}
 
 % fundamental theorem of calculus
-\begin{answer}
+\begin{answer}[Solving Newton's equation for velocity]
 	For a constant force $F_z$, integrating $\dsp \int_0^t \dot{v_z} = \int_0^t \frac{F_z}{m}$ yields the following equation.
 	\begin{align}
 		v_z(t) & = v_z(0) + \frac{F_z}{m}t
@@ -292,7 +292,7 @@
 \end{answer}
 
 % power
-\begin{answer}
+\begin{answer}[Solving Newton's equation for position]
 	Consider a constant force on a body with a constant mass $m$.
 
 	Differentiating $\dsp z(t) = z_0 + v_z(0)t + \frac{F_z}{2m}t^2$ yields the following velocity.
@@ -304,7 +304,7 @@
 \end{answer}
 
 % chain rule
-\begin{answer}
+\begin{answer}[Solution to harmonic oscillator]
 	The derivative of $\dsp x(t) = A \cos\p{\omega t} + B \sin\p{\omega t}$ is given below.
 	\begin{align}
 		\dot{x}(t) & = -\omega A \sin\p{\omega t} + \omega B \cos\p{\omega t}
@@ -546,27 +546,36 @@ There are no exercises in this lecture.
 
 \subsection{Principle of least action}
 
-\begin{answer}
-	A particle with position $x$ in one dimension has kinetic energy $\dsp T = \frac{m}{2}\left(\dot{x} \cdot \dot{x}\right)$, potential energy $V$, force $\dsp F = - \nabla_x V$, Lagrangian $L = T - V$, and acceleration $a = \ddot{x}$.
+% calculation
+\begin{answer}[Euler-Lagrange equation for a particle in one dimension]
+	Let $m$ be the constant mass of a particle with position $x$ in one dimension.
+	Suppose it is subject to a potential energy $V(x)$ that depends only on position and determines the force $F = - \frac{\partial V}{\partial x}$.
+
+	It has kinetic energy $\dsp T\p{\dot{x}} = \frac{m}{2} \dot{x}^2$, Lagrangian $L = T\p{\dot{x}} - V\p{x}$, acceleration $a = \ddot{x}$, and momentum $p = \frac{\partial L}{\partial \dot{x}}$ given by $p = m \dot{x}$.
 	Observe the equations below.
 	\begin{align}
-		\frac{d}{dt} \frac{\partial L}{\partial \dot{x}} - \frac{\partial L}{\partial x} = \frac{d}{dt} \frac{\partial}{\partial \dot{x}}\!\left(\frac{m}{2} \dot{x} \cdot \dot{x}\right) + \frac{\partial V}{\partial x}
-		= \frac{d}{dt}\!\left(m \dot{x}\right) - F
+		\frac{d}{dt} \frac{\partial L}{\partial \dot{x}} - \frac{\partial L}{\partial x}
+		= \frac{dp}{dt} + \frac{\partial V}{\partial x}
+		= m \frac{d}{dt}\p{\dot{x}} - F
 		= m \ddot{x} - F
 	\end{align}
-	Therefore, the Euler-Lagrange equation $\frac{d}{dt} \frac{\partial L}{\partial \dot{x}} - \frac{\partial L}{\partial x}=0$ is equivalent to $F = ma$.
+	For a single particle of constant mass in one dimension, the Euler-Lagrange equation $\frac{d}{dt} \frac{\partial L}{\partial \dot{x}} = \frac{\partial L}{\partial x}$ is therefore equivalent to Newton's equation $F = ma$ of motion.
 \end{answer}
 
-\begin{answer}
-	Let $X = \left\{x_i\right\}_{i=1}^N$ be coordinates, $\dsp T = \sum_{i=1}^N \frac{m_i}{2} \dot{x_i}^2$ be the kinetic energy, $V$ be the potential energy, $L = T - V$, and $\dsp F_i = - \frac{\partial V}{\partial x_i}$ for each $i$.
+% component-wise
+\begin{answer}[Euler-Lagrange equations]
+	Let there be $N \in \N$ particles moving in one dimension with coordinates $\p{x_i}_{i=1}^N$, potential energy $V$, and constant masses $\p{m_i}_{i=1}^N$.
 
-	For any $i$, observe the equations below.
+	Let $\dsp T = \sum_{i=1}^N \frac{m_i}{2} \dot{x_i}^2$ be the kinetic energy and $L = T - V$ be the Lagrangian.
+	Fix $i \in \left\{1, \dots, N\right\}$
+	Let $\dsp F_i = - \frac{\partial V}{\partial x_i}$ be the force and $p_i = \frac{\partial L}{\partial \dot{x}_i}$ be the momentum given by $\dsp p_i = \frac{\partial}{\partial \dot{x}_i}\p{\sum_{j=1}^N \frac{m_j}{2} \dot{x_j}^2}$.
+	Observe the equations below.
 	\begin{align}
-		\frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{x_i}}\right) - \frac{\partial L}{\partial x_i}
-		 & = \frac{d}{dt} \frac{\partial}{\partial \dot{x_i}}\!\left(\sum_{j=1}^N \frac{m_j}{2} \dot{x_j}^2\right) + \frac{\partial V}{\partial x_i}
+		\frac{d}{dt}\p{\frac{\partial L}{\partial \dot{x_i}}} - \frac{\partial L}{\partial x_i}
+		 & = \frac{d p_i}{dt} + \frac{\partial V}{\partial x_i}
 		= \frac{d}{dt}\!\left(m_i\dot{x_i}\right) - F_i = m_i\ddot{x_i} - F_i
 	\end{align}
-	For any $i$, the Euler-Lagrange equation $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{x_i}}\right) = \frac{\partial L}{\partial x_i}$ is therefore equivalent to $F_i = m_i \ddot{x_i}$.
+	Therefore, the Euler-Lagrange equation $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{x_i}}\right) = \frac{\partial L}{\partial x_i}$ is just another form of Newton's equation $F_i = m_i \ddot{x_i}$ of motion.
 \end{answer}
 
 \begin{answer}
@@ -659,7 +668,12 @@ There are no exercises in this lecture.
 	Let $\theta$ denote the angle of the first rod relative to vertical and $\alpha$ denote the angle of the second rod relative to the first rod.
 	The first bob has kinetic energy $T_1 = \frac{\dot{\theta}^2}{2}$, and the second bob has kinetic energy $T_2 = \frac{\dot{\theta}^2 + \p{\dot{\theta} + \dot{\alpha}}^2}{2} + \dot{\theta} \left(\dot{\theta} + \dot{\alpha}\right) \cos \alpha$.
 	In the absence of gravity, the potential energy is $V = 0$ and the Lagrangian $L = T_1 + T_2 - V$.
-	The conjugate momenta are $p_\theta = 3 \dot{\theta} + \dot{\alpha} + \p{2 \dot{\theta} + \dot{\alpha}} \cos \alpha$ and $p_\alpha = \dot{\theta} + \dot{\alpha} + \dot{\theta} \cos \alpha$.
+	The conjugate momenta are given below.
+	\begin{align}
+		p_\theta = 3 \dot{\theta} + \dot{\alpha} + \p{2 \dot{\theta} + \dot{\alpha}} \cos \alpha
+		\qquad
+		p_\alpha = \dot{\theta} + \dot{\alpha} + \dot{\theta} \cos \alpha
+	\end{align}
 	Their temporal derivatives are given below.
 	\begin{align}
 		\dot{p_\theta} & = 3 \ddot{\theta} + \ddot{\alpha} + \p{2 \ddot{\theta} + \ddot{\alpha}} \cos \alpha - \dot{\alpha} \p{2 \dot{\theta} + \dot{\alpha}} \sin \alpha \label{eqn:ptheta} \\
@@ -678,7 +692,23 @@ There are no exercises in this lecture.
 
 \subsection{Hamiltonian mechanics and time-translation invariance}
 
-\begin{answer}
-	Let $q = \p{k m}^{\frac{1}{4}} x$.
+\begin{answer}[Change of variables in Lagrangian of harmonic oscillator]
+	Let $L = \frac{m \dot{x}^2}{2} - \frac{k}{2} x^2$ be the Lagrangian and consider the change of variables below.
+	\begin{align}\label{eqn:qharm}
+		q = \p{k m}^{\frac{1}{4}} x
+		\qquad
+		\dot{q} = \p{k m}^{\frac{1}{4}} \dot{x}
+	\end{align}
+	Calculation yields $x = \frac{q}{\p{k m}^{\frac{1}{4}}}$, $\dot{x} = \frac{\dot{q}}{\p{k m}^{\frac{1}{4}}}$, and $\dsp L = \frac{m}{2} \p{\frac{\dot{q}}{\p{k m}^{\frac{1}{4}}}}^2 - \frac{k}{2} \p{\frac{q}{\p{k m}^{\frac{1}{4}}}}^2$
+	Let $\omega = \sqrt{\frac{k}{m}}$.
+	Then, the Lagrangian $\dsp L = \frac{m}{2 \sqrt{k m}} \dot{q}^2 - \frac{k}{2 \sqrt{k m}} q^2$ is given by the equation below.
+	\begin{align}\label{eqn:Lcharm}
+		L & = \frac{1}{2 \omega} \dot{q}^2 - \frac{\omega}{2} q^2
+	\end{align}
+\end{answer}
+
+\begin{answer}[Hamiltonian of harmonic oscillator]
+	The conjugate momentum $p$ of the Lagrangian in Equation \eqref{eqn:Lcharm} is given by $\frac{\partial L}{\partial \dot{q}} = \frac{1}{\omega} \dot{q}$, and multiplication yields $\dot{q} = \omega p$.
+	The Hamiltonian is $H = p \dot{q} - L$.
 \end{answer}
 

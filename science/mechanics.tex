@@ -345,7 +345,7 @@
 \end{answer}
 
 % test of second derivative
-\begin{answer}
+\begin{answer}[Stationary points]
 	The functions $F_1(x,y) = \sin x + \sin y$ and $F_2(x,y) = \cos x + \cos y$ have the first derivatives below.
 	\begin{align*}
 		\frac{\partial F_1}{\partial x} & = \cos x  & \frac{\partial F_1}{\partial y} & = \cos y  \\
@@ -397,12 +397,12 @@
 
 \subsection{Systems of more than one particle}
 
-There are no exercises in this lecture.
+There are no exercises in this lecture on systems of particles.
 
 \subsection{Energy}
 
 % product rule
-\begin{answer}
+\begin{answer}[Rate of change of kinetic energy]
 	For a particle with a velocity $v(t)$ in one direction, the derivative of $v^2(t) = v(t)^2$ is calculated by the product rule below.
 	\begin{align}
 		\frac{dv^2}{dt} & = v \dot{v} + \dot{v} v
@@ -583,7 +583,7 @@ There are no exercises in this lecture.
 	The position of a particle is given in George's coordinate frame by $X$ and $Y$.
 	Lenny's coordinate frame is rotating with angular velocity $\omega$ relative to George's frame, and the particle is given in Lenny's coordinate frame by $x = X \cos \omega t + Y \sin \omega t$ and $y = -X \sin \omega t + Y \cos \omega t$.
 	Suppose the Lagrangian is given in Lenny's coordinate frame by $\dsp L = \frac{m}{2}\left(\dot{x}^2 + \dot{y}^2\right)$.
-	If the kinetic energy is $T = \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right)$ and the (generalized velocity-dependent) effective potential energy is $V = -\frac{m \omega^2}{2}\left(X^2 + Y^2\right) - m \omega \left(\dot{X} Y - \dot{Y} X\right)$, then the Lagrangian is given in George's coordinate frame by the expansion of $L = T - V$ in Equation \eqref{eqn:L} below.
+	If the kinetic energy is $T = \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right)$ and the (generalized velocity-dependent) effective potential energy is $V = -\frac{m \omega^2}{2}\left(X^2 + Y^2\right) - m \omega \left(\dot{X} Y - \dot{Y} X\right)$, then the Lagrangian $L = T - V$ is given in George's coordinate frame by Equation \eqref{eqn:L} below.
 	\begin{align}\label{eqn:L}
 		L & =  \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right) - \left(-\frac{m \omega^2}{2}(X^2 + Y^2) - m \omega (\dot{X} Y - \dot{Y} X) \right)
 	\end{align}
@@ -593,7 +593,8 @@ There are no exercises in this lecture.
 	The equations of motion are given in George's coordinate frame by $m\ddot{X} = m \omega^2 X - 2 m \omega \dot{Y}$ and $m \ddot{Y} = m \omega^2 Y + 2 m \omega \dot{X}$.
 \end{answer}
 
-\begin{answer}
+% substitution
+\begin{answer}[Lagrangian under coordinate transformation]
 	The position of a particle is given in George's frame by polar coordinates $X = R \cos \theta$ and $Y = R \sin \theta$.
 	Its Cartesian velocity is given in polar coordinates by $\dot{X} = \dot{R} \cos \theta - R \dot{\theta} \sin \theta$ and $\dot{Y} = \dot{R} \sin \theta + R \dot{\theta} \cos \theta$.
 	Substitution into Equation \eqref{eqn:L} yields George's Lagrangian below.
@@ -713,5 +714,9 @@ There are no exercises in this lecture.
 	The Hamiltonian $H = p \dot{q} - L$ is given by $H = \frac{\omega}{2} p^2 + \frac{\omega}{2} q^2$.
 \end{answer}
 
-\subsection{Fluid}
+\subsection{The Phase Space Fluid and the Gibbs-Liouville Theorem}
+
+There are no exercises in this lecture on phase space.
+
+\subsection{Poisson brackets}
 

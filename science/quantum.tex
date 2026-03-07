@@ -203,7 +203,7 @@ Their transposes are given below.
 	\end{pmatrix}
 	= \sigma_z
 \end{align*}
-The Pauli operators $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_y$ is antisymmetric.
+The Pauli matrices $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_y$ is antisymmetric.
 
 \begin{remark}[Conjugate transposes of the Pauli matrices]
 	The conjugate transposes of the standard Pauli matrices are given below.
@@ -233,14 +233,65 @@ The Pauli operators $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma
 \end{remark}
 
 \begin{proposition}
-	The standard Pauli matrices satisfy the following equations.
+	The standard Pauli matrices satisfy the relations below.
 	\begin{align*}
+		\sigma_z \sigma_z =
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & 1
+		\end{pmatrix}
+		 & = I \qquad
 		\sigma_x \sigma_y =
 		\begin{pmatrix}
 			i & 0  \\
 			0 & -i
 		\end{pmatrix}
-		= i \sigma_z
+		= + i \sigma_z
+		\quad
+		\sigma_y \sigma_x =
+		\begin{pmatrix}
+			-i & 0 \\
+			0  & i
+		\end{pmatrix}
+		= -i \sigma_z  \\
+		\sigma_y \sigma_y =
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & 1
+		\end{pmatrix}
+		 & = I \qquad
+		\sigma_x \sigma_z =
+		\begin{pmatrix}
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix}
+		= - i \sigma_y
+		\quad
+		\sigma_z \sigma_x =
+		\begin{pmatrix}
+			0  & 1 \\
+			-1 & 0
+		\end{pmatrix}
+		= + i \sigma_y \\
+		\sigma_x \sigma_x =
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & 1
+		\end{pmatrix}
+		 & = I \qquad
+		\sigma_y \sigma_z =
+		\begin{pmatrix}
+			0 & i \\
+			i & 0
+		\end{pmatrix}
+		= + i \sigma_x
+		\quad
+		\sigma_z \sigma_y =
+		\begin{pmatrix}
+			0  & -i \\
+			-i & 0
+		\end{pmatrix}
+		= - i \sigma_x
 	\end{align*}
 \end{proposition}
 
@@ -331,13 +382,13 @@ For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
 
-\begin{remark}
+\begin{proposition}
 	For any rotation $r \in \op{SO}\p{3}$, there exists a unitary operator $R$ on spin-$\frac{1}{2}$ states such that any unit vector $\hat{n} \in \R^3$ satisfies
 	\begin{align}
 		R^\dagger \p{\sigma \cdot \hat{n}} R & = \sigma \cdot \p{r \cdot \hat{n}}
 	\end{align}
 	and any operator satisfying the above equation is either $R$ or $-R$.
-\end{remark}
+\end{proposition}
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
 
@@ -345,9 +396,9 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	Let $z \in \R^3$ be the usual basis vector.
 	Consider any other directions $m, n \in \R^3$.
 	Let $\hat{m}$ be the unit vector in the direction of $m$, $\hat{n}$ be the unit vector in the direction of $n$, and $\theta$ be the angle from $m$ to $n$ which thus satisfies $\cos \theta = \hat{m} \cdot \hat{n}$.
-	Let a spin be prepared so that $\sigma_m = +1$ and $\ket{m}$ be the eigenstate of $\sigma_m$ with eigenvalue $+1$.
-	Suppose the apparatus is rotated to the $\hat{n}$ direction and then measured.
-	There is an orthogonal rotation $r \in \op{SO}\p{3}$ defined by $r \hat{m} = z$ and a unitary rotation $R \ket{m} = \ket{u}$ associated to it.
+	Let a spin be prepared so that $\sigma_m = +1$ and $\ket{m^+}$ be the eigenstate of $\sigma_m$ with eigenvalue $+1$.
+	Suppose the apparatus is rotated to the $\hat{n}$ direction and then measured, and let $\ket{n^+}$ be the eigenstate of $\sigma_n$ with eigenvalue $+1$.
+	There is an orthogonal rotation $r \in \op{SO}\p{3}$ defined by $r \hat{m} = z$ and a unitary rotation $R \ket{m^+} = \ket{u}$ associated to it.
 	By invariance of the inner product in $\R^3$ under rotation, the angle from $r \hat{n}$ to $z$ is calculated below.
 	\begin{align}
 		z \cdot \p{r \hat{n}} & = \p{r \hat{m}} \cdot \p{r \hat{n}}
@@ -356,9 +407,9 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	\end{align}
 	It is equal to the angle $\theta$ from $m$ to $n$.
 	This yields the following equations.
-	The unitary rotation $R$ associated to $r$ satisfies $\braket{m \mid n} = \braket{R m \mid R n } = \braket{u \mid R n}$.
-	Thus, the previous exercise yields $\left|\braket{m \mid n}\right| = \cos \frac{\theta}{2}$.
-	Therefore, the probability of observing $+1$ is $\left|\braket{m \mid n}\right|^2 = \cos^2 \frac{\theta}{2}$.
+	The unitary rotation $R$ associated to $r$ satisfies $\braket{m^+ \mid n^+} = \braket{R \ket{m^+} \mid R \ket{n^+} } = \braket{u \mid R \ket{n^+} }$.
+	Thus, the previous exercise yields $\left|\braket{m^+ \mid n^+}\right| = \cos \frac{\theta}{2}$.
+	Therefore, the probability of observing $+1$ is $\left|\braket{m^+ \mid n^+}\right|^2 = \cos^2 \frac{\theta}{2}$.
 \end{answer}
 
 \subsection{Time and change}

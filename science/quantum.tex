@@ -180,40 +180,72 @@ Denote the standard Pauli matrices as follows.
 	\end{pmatrix}
 \end{align}
 
-Their transpose are given below.
+Their transposes are given below.
 \begin{align*}
-	\sigma_x^\T =
+	\trans{\sigma_x} =
 	\begin{pmatrix}
 		0 & 1 \\
 		1 & 0
 	\end{pmatrix}
+	= \sigma_x
 	\qquad
-	\sigma_y^\T =
+	\trans{\sigma_y} =
 	\begin{pmatrix}
 		0  & i \\
 		-i & 0
 	\end{pmatrix}
+	= - \sigma_y
 	\qquad
-	\sigma_z^\T =
+	\trans{\sigma_z} =
 	\begin{pmatrix}
 		1 & 0  \\
 		0 & -1
 	\end{pmatrix}
+	= \sigma_z
 \end{align*}
+The Pauli operators $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_y$ is antisymmetric.
 
-\begin{remark}[Conjugate transpose of Pauli matrix]
-	The conjugate transpose of $\sigma_z$ is given below.
+\begin{remark}[Conjugate transposes of the Pauli matrices]
+	The conjugate transposes of the standard Pauli matrices are given below.
 	\begin{align*}
-		\sigma_z^\dagger & =
+		\sigma_x^\dagger =
+		\begin{pmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pmatrix}
+		= \sigma_x
+		\qquad
+		\sigma_y^\dagger =
+		\begin{pmatrix}
+			0 & -i \\
+			i & 0
+		\end{pmatrix}
+		= \sigma_y
+		\qquad
+		\sigma_z^\dagger =
 		\begin{pmatrix}
 			1 & 0  \\
 			0 & -1
 		\end{pmatrix}
+		= \sigma_z
 	\end{align*}
+	Hence, they are Hermitian.
 \end{remark}
 
+\begin{proposition}
+	The standard Pauli matrices satisfy the following equations.
+	\begin{align*}
+		\sigma_x \sigma_y =
+		\begin{pmatrix}
+			i & 0  \\
+			0 & -i
+		\end{pmatrix}
+		= i \sigma_z
+	\end{align*}
+\end{proposition}
+
 Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
-For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e$ by $\begin{pmatrix} n_x \\ n_y \\ n_z \end{pmatrix} = n_x e_x + n_y e_y + n_z e_z $, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices weighed by $\hat{n}$.
+For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e$ by $\begin{pmatrix} n_x \\ n_y \\ n_z \end{pmatrix} = n_x x + n_y y + n_z z $, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices weighed by $\hat{n}$.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]

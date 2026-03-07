@@ -317,7 +317,7 @@
 \setcounter{answer}{0}
 
 % calculation
-\begin{answer}
+\begin{answer}[Partial differentiation]
 	Consider the functions $V_1,V_2,V_3$ defined below.
 	\begin{align}
 		V_1(x,y) & = x^2 + y^2 - \sin\p{x y} \\
@@ -578,11 +578,12 @@ There are no exercises in this lecture.
 	Therefore, the Euler-Lagrange equation $\dsp \frac{d}{dt}\!\left(\frac{\partial L}{\partial \dot{x_i}}\right) = \frac{\partial L}{\partial x_i}$ is just another form of Newton's equation $F_i = m_i \ddot{x_i}$ of motion.
 \end{answer}
 
+% substitution
 \begin{answer}
 	The position of a particle is given in George's coordinate frame by $X$ and $Y$.
-	Lenny's coordinate frame is rotating relative George's frame at an angular velocity $\omega$, and the particle is given in Lenny's coordinate frame by $x = X \cos \omega t + Y \sin \omega t$ and $y = -X \sin \omega t + Y \cos \omega t$.
+	Lenny's coordinate frame is rotating with angular velocity $\omega$ relative to George's frame, and the particle is given in Lenny's coordinate frame by $x = X \cos \omega t + Y \sin \omega t$ and $y = -X \sin \omega t + Y \cos \omega t$.
 	Suppose the Lagrangian is given in Lenny's coordinate frame by $\dsp L = \frac{m}{2}\left(\dot{x}^2 + \dot{y}^2\right)$.
-	If the kinetic energy is $T = \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right)$ and the (velocity-dependent) effective potential energy is $V = -\frac{m \omega^2}{2}\left(X^2 + Y^2\right) - m \omega \left(\dot{X} Y - \dot{Y} X\right)$, then the Lagrangian is given in George's coordinate frame by the expansion of $L = T - V$ in Equation \eqref{eqn:L} below.
+	If the kinetic energy is $T = \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right)$ and the (generalized velocity-dependent) effective potential energy is $V = -\frac{m \omega^2}{2}\left(X^2 + Y^2\right) - m \omega \left(\dot{X} Y - \dot{Y} X\right)$, then the Lagrangian is given in George's coordinate frame by the expansion of $L = T - V$ in Equation \eqref{eqn:L} below.
 	\begin{align}\label{eqn:L}
 		L & =  \frac{m}{2}\left(\dot{X}^2 + \dot{Y}^2\right) - \left(-\frac{m \omega^2}{2}(X^2 + Y^2) - m \omega (\dot{X} Y - \dot{Y} X) \right)
 	\end{align}
@@ -594,7 +595,7 @@ There are no exercises in this lecture.
 
 \begin{answer}
 	The position of a particle is given in George's frame by polar coordinates $X = R \cos \theta$ and $Y = R \sin \theta$.
-	Its velocity is given in polar coordinates by $\dot{X} = \dot{R} \cos \theta - R \dot{\theta} \sin \theta$ and $\dot{Y} = \dot{R} \sin \theta + R \dot{\theta} \cos \theta$.
+	Its Cartesian velocity is given in polar coordinates by $\dot{X} = \dot{R} \cos \theta - R \dot{\theta} \sin \theta$ and $\dot{Y} = \dot{R} \sin \theta + R \dot{\theta} \cos \theta$.
 	Substitution into Equation \eqref{eqn:L} yields George's Lagrangian below.
 	\begin{align}\label{eqn:polarL}
 		L & =  \frac{m}{2}\left(\dot{R}^2 + R^2 \dot{\theta}^2\right) - \left(-\frac{m \omega^2}{2} R^2 + m \omega R^2 \dot{\theta}\right)
@@ -709,6 +710,8 @@ There are no exercises in this lecture.
 
 \begin{answer}[Hamiltonian of harmonic oscillator]
 	The conjugate momentum $p$ of the Lagrangian in Equation \eqref{eqn:Lcharm} is given by $\frac{\partial L}{\partial \dot{q}} = \frac{1}{\omega} \dot{q}$, and multiplication yields $\dot{q} = \omega p$.
-	The Hamiltonian is $H = p \dot{q} - L$.
+	The Hamiltonian $H = p \dot{q} - L$ is given by $H = \frac{\omega}{2} p^2 + \frac{\omega}{2} q^2$.
 \end{answer}
+
+\subsection{Fluid}
 

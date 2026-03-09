@@ -411,7 +411,7 @@ There are no exercises in this lecture on systems of particles.
 \end{answer}
 
 % differentiation
-\begin{answer}
+\begin{answer}[Potential energy proportional to distance from the origin]
 	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, in which the potential energy is $V = \frac{1}{2} k \left(x^2+y^2\right)$ and the initial data is given.
 	\begin{align*}
 		\vr_0
@@ -599,27 +599,30 @@ There are no exercises in this lecture on systems of particles.
 	Its Cartesian velocity is given in polar coordinates by $\dot{X} = \dot{R} \cos \theta - R \dot{\theta} \sin \theta$ and $\dot{Y} = \dot{R} \sin \theta + R \dot{\theta} \cos \theta$.
 	Substitution into Equation \eqref{eqn:L} yields George's Lagrangian below.
 	\begin{align}\label{eqn:polarL}
-		L & =  \frac{m}{2}\left(\dot{R}^2 + R^2 \dot{\theta}^2\right) - \left(-\frac{m \omega^2}{2} R^2 + m \omega R^2 \dot{\theta}\right)
+		L & =  \frac{m}{2}\left(\dot{R}^2 + R^2 \dot{\theta}^2\right) + \frac{m \omega^2}{2} R^2 - m \omega R^2 \dot{\theta}
 	\end{align}
 	The equations of motion are then given by $m \ddot{R} = m R \dot{\theta}^2 + m \omega^2 R - 2 m \omega R \dot{\theta}$ and $2 m R \dot{R} \dot{\theta} + m R^2 \ddot{\theta} - 2 m \omega R \dot{R} = 0$.
 \end{answer}
 
-\begin{answer}[Pendulum]\label{ans:pendulum}
-	The position $\begin{pmatrix} r \\ \theta \end{pmatrix}$ of a pendulum with length $l$ and mass $m$ must satisfy the equations $r=l$ and $\dot{r} = 0$.
-	This allows the use of a single generalized coordinate $\theta$.
+% calculation
+\begin{answer}[Motion of pendulum with constant length]\label{ans:pendulum}
+	The position $\begin{pmatrix} r \\ \theta \end{pmatrix}$ of a pendulum with constant mass $m$ and length $l$ must satisfy the equations $r=l$ and $\dot{r} = 0$.
+	Let $\theta$ be the generalized coordinate.
 	Pick it so that the potential energy at $\theta=0$ is zero.
 	Its kinetic energy is given by $T = \frac{m}{2} l^2 \dot{\theta}^2$.
 	The height of the pendulum mass is given by $h = l - l \cos \theta$, and its potential energy by $V = mgl\left(1 - \cos \theta\right)$.
-	Thus, its Lagrangian by $L = T - V$ is given below.
+	Thus, its Lagrangian $L = T - V$ is given below.
 	\begin{align}\label{eqn:Lpend}
 		L & = \frac{m}{2} l^2 \dot{\theta}^2 - mgl\left(1 - \cos \theta\right)
 	\end{align}
+	Its partial derivatives are $\frac{\partial L}{\partial \dot{\theta}} = m l^2 \dot{\theta}$ and $\frac{\partial L}{\partial \theta} = - m g l \sin \theta$.
 	Therefore, the angular equation of motion is given by $m l^2 \ddot{\theta} + m g l \sin \theta = 0$.
 \end{answer}
 
+% calculation
 \begin{answer}
 	The temporal derivatives of $x_+ = \frac{x_1 + x_2}{2}$ and $x_- = \frac{x_1 - x_2}{2}$ are $\dot{x_+} = \frac{\dot{x_1} + \dot{x_2}}{2}$ and $\dot{x_-} = \frac{\dot{x_1} - \dot{x_2}}{2}$.
-	Expanding $T = m\left(\dot{x_+}^2 + \dot{x_-}^2\right)$ yields $T = m \left(\frac{\dot{x_1}^2 + 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2} + \frac{\dot{x_1}^2 - 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2}\right) = \frac{m}{2}\left(\dot{x_1}^2 + \dot{x_2}^2\right)$, which is the kinetic energy.
+	Calculating $m\left(\dot{x_+}^2 + \dot{x_-}^2\right)$ yields $T = m \left(\frac{\dot{x_1}^2 + 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2} + \frac{\dot{x_1}^2 - 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2}\right) = \frac{m}{2}\left(\dot{x_1}^2 + \dot{x_2}^2\right)$, which is the kinetic energy.
 \end{answer}
 
 \subsection{Symmetries and conservation laws}
@@ -714,9 +717,27 @@ There are no exercises in this lecture on systems of particles.
 	The Hamiltonian $H = p \dot{q} - L$ is given by $H = \frac{\omega}{2} p^2 + \frac{\omega}{2} q^2$.
 \end{answer}
 
-\subsection{The Phase Space Fluid and the Gibbs-Liouville Theorem}
+\subsection{The phase space fluid and the Gibbs-Liouville theorem}
 
 There are no exercises in this lecture on phase space.
 
-\subsection{Poisson brackets}
+\subsection{Poisson brackets, angular momentum, and symmetries}
+
+\begin{answer}[Partial differentation]
+	Let $q=(q_j)_{j=1}^n$ and $p=(p_j)_{j=1}^n$ be as before.
+	For any function $F(q, p)$ and positive $i \in \Z_+$ , the following holds.
+	\begin{align*}
+		\left\{F(q,p), p_i\right\}
+		 & =  \sum_{j=1}^n \p{\frac{\partial F}{\partial q_j} \frac{\partial p_i}{\partial p_j} - \frac{\partial F}{\partial p_j} \frac{\partial p_i}{\partial q_j}}
+		= \sum_{j=1}^n \frac{\partial F}{\partial q_j} \delta_{i,j}
+		= \frac{\partial F(q,p)}{\partial q_i}
+	\end{align*}
+	That is, the Poisson bracket with $p_i$ is partial differentiation with respect to $q_i$.
+\end{answer}
+
+\begin{answer}
+	Let $H = \frac{1}{2m} p^2 + V(q)$ and $F = - \frac{\partial V}{\partial q}$.
+	It follows from Hamilton's equations that $\dot{q} = \{q, H\} = \frac{\partial H}{\partial p} = \frac{1}{m}p$ and $\dot{p} = \{p, H\} = - \frac{\partial H}{\partial q} = - \frac{\partial V}{\partial q} = F$.
+\end{answer}
+
 

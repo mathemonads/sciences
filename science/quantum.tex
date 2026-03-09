@@ -296,7 +296,16 @@ The Pauli matrices $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_
 \end{proposition}
 
 Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
-For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e$ by $\begin{pmatrix} n_x \\ n_y \\ n_z \end{pmatrix} = n_x x + n_y y + n_z z $, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices weighed by $\hat{n}$.
+
+For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e$ by $\begin{pmatrix} n_x \\ n_y \\ n_z \end{pmatrix} = n_x x + n_y y + n_z z $, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices calculated below.
+\begin{align}\label{eqn:spin}
+	\sigma_n & =
+	\begin{pmatrix}
+		n_z             & \p{n_x - i n_y} \\
+		\p{n_x + i n_y} & - n_z
+	\end{pmatrix}
+\end{align}
+Let $\hat{n} \cdot \sigma = \sigma_n$.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -381,6 +390,21 @@ For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e
 	Similarly, we obtain $\ket{\lambda_2} = \begin{pmatrix} \sin \frac{\theta}{2} \\ - e^{i \phi} \cos \frac{\theta}{2} \end{pmatrix}$.
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
+
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_n$ satisfies the equations below.
+\begin{align*}
+	\sigma_n^2 & =
+	\begin{pmatrix}
+		n_z             & \p{n_x - i n_y} \\
+		\p{n_x + i n_y} & - n_z
+	\end{pmatrix}^2
+	=
+	\begin{pmatrix}
+		n_x^2 + n_y^2 + n_z^2 & 0                     \\
+		0                     & n_x^2 + n_y^2 + n_z^2
+	\end{pmatrix}
+	= I
+\end{align*}
 
 \begin{proposition}
 	For any rotation $r \in \op{SO}\p{3}$, there exists a unitary operator $R$ on spin-$\frac{1}{2}$ states such that any unit vector $\hat{n} \in \R^3$ satisfies

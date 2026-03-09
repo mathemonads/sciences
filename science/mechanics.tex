@@ -491,7 +491,7 @@ There are no exercises in this lecture on systems of particles.
 \end{answer}
 
 % chain rule
-\begin{answer}[Potential energy inversely proportional to the square of the distance]
+\begin{answer}[Potential energy inversely proportional to square of the distance]
 	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, with potential energy $\dsp V = \frac{k}{2(x^2+y^2)}$.
 
 	Let $\vr = \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} r \cos \theta \\ r \sin \theta \end{pmatrix}$, $r = \left|\vr\right|$, $\dsp \widehat{\vr} = \frac{\vr}{r}$, and $\dsp V' = \frac{dV}{dr} = \frac{d}{dr}\left(\frac{k}{2r^2}\right) = \frac{-k}{r^{3}}$.
@@ -673,7 +673,8 @@ There are no exercises in this lecture on systems of particles.
 	Dividing the equation of motion obtained in Exercise \ref{ans:pendulum} by the non-zero mass yields $l^2 \ddot{\theta} + g l \sin \theta = 0$.
 \end{answer}
 
-\begin{answer}
+% calculation
+\begin{answer}[Euler-Lagrange equations of double pendulum]
 	Consider a double pendulum with unit masses $m_1 = m_2 = 1$ and unit lengths $l_1 = l_2 = 1$.
 	Let $\theta$ denote the angle of the first rod relative to vertical and $\alpha$ denote the angle of the second rod relative to the first rod.
 	The first bob has kinetic energy $T_1 = \frac{\dot{\theta}^2}{2}$, and the second bob has kinetic energy $T_2 = \frac{\dot{\theta}^2 + \p{\dot{\theta} + \dot{\alpha}}^2}{2} + \dot{\theta} \left(\dot{\theta} + \dot{\alpha}\right) \cos \alpha$.
@@ -692,11 +693,12 @@ There are no exercises in this lecture on systems of particles.
 	Therefore, the Euler-Lagrange equations are $\dot{p_\theta} = 0$ and $\dot{p_\alpha} = -\dot{\theta}\p{\dot{\theta} + \dot{\alpha}} \sin \alpha$.
 \end{answer}
 
-\begin{answer}
+% Euler-Lagrange equations
+\begin{answer}[Conservation of angular momentum of double pendulum]
 	Recall that the angle $\theta$ of the first rod relative to vertical is a cyclic coordinate whereas the angle $\alpha$ of the second rod relative to the first rod is not a cyclic coordinate.
 	In the absence of gravity, the (generalized) angular momentum $p_\theta$ satisfies the conservation of angular momentum expressed by the equation $\dot{p_\theta} = 0$.
 	When there is no gravitational field, the angular momentum $p_\theta$ associated with the cyclic coordinate $\theta$ is thus conserved.
-	Since one of the terms in $L$ contains a factor of $\cos \alpha$, it follows that $\frac{\partial L}{\partial \alpha} \neq 0$ and thus $\dot{p_\alpha} \neq 0$.
+	Since one of the terms in $L$ contains a factor of $\cos \alpha$, it follows that $\frac{\partial L}{\partial \alpha}$ is not identically zero and thus that $\dot{p_\alpha}$ is not identically zero.
 	Therefore, the (generalized) momentum $p_\alpha$ is not conserved.
 \end{answer}
 
@@ -740,7 +742,7 @@ There are no exercises in this lecture on phase space.
 	That is, the Poisson bracket with $p_i$ is partial differentiation with respect to $q_i$.
 \end{answer}
 
-\begin{answer}[Derivation of Newtonian mechanics from Poisson formulation]
+\begin{answer}[Derivation of Newtonian mechanics from Poisson]
 	Let $H = \frac{1}{2m} p^2 + V(q)$, $F = - \frac{\partial V}{\partial q}$, and $a = \ddot{q}$.
 	It follows from Hamilton's equations that $\dot{q} = \{q, H\} = \frac{\partial H}{\partial p} = \frac{1}{m}p$ and $\dot{p} = \{p, H\} = - \frac{\partial H}{\partial q} = - \frac{\partial V}{\partial q} = F$.
 	Multiplication yields $m \dot{q} = p$ and differentiation yields the following equations.
@@ -761,7 +763,7 @@ There are no exercises in this lecture on phase space.
 	\end{align*}
 \end{answer}
 
-\subsection{Magnetism}
+\subsection{Electric and magnetic forces}
 
 \begin{answer}[Cross product]
 	Let $\vec{V}$ and $\vec{A}$ be vectors in $\R^3$.
@@ -780,6 +782,65 @@ There are no exercises in this lecture on phase space.
 	\begin{align*}
 		V_i A_j - V_j A_i & = \sum_{i'} \sum_{j'} \varepsilon_{k_0 i' j'} V_{i'} A_{j'} = \p{\vec{V} \times \vec{A}}_{k_0} = \sum_{k} \varepsilon_{k i j} \p{\vec{V} \times \vec{A}}_{k} \\
 		                  & = \sum_{k} \varepsilon_{i j k} \p{\vec{V} \times \vec{A}}_{k}
+	\end{align*}
+\end{answer}
+
+\begin{answer}[Curl of gradient]
+	Let $V$ be a scalar field with continuous second partial derivatives.
+	Its gradient is the vector field below.
+	\begin{align}
+		\vec{\nabla} V & =
+		\begin{pmatrix}
+			\frac{\partial V}{\partial x} \\
+			\frac{\partial V}{\partial y} \\
+			\frac{\partial V}{\partial z}
+		\end{pmatrix}
+	\end{align}
+	The curl $\vec{\nabla} \times \left[\vec{\nabla} V\right]$ is calculated below.
+	\begin{align*}
+		\vec{\nabla} \times \left[\vec{\nabla} V\right] & =
+		\begin{pmatrix}
+			\frac{\partial}{\partial y} \frac{\partial V}{\partial z} - \frac{\partial}{\partial z} \frac{\partial V}{\partial y} \\
+			\frac{\partial}{\partial z} \frac{\partial V}{\partial x} - \frac{\partial}{\partial x} \frac{\partial V}{\partial z} \\
+			\frac{\partial}{\partial x} \frac{\partial V}{\partial y} - \frac{\partial}{\partial y} \frac{\partial V}{\partial x}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\frac{\partial^2 V}{\partial y \partial z} - \frac{\partial^2 V}{\partial z \partial y} \\
+			\frac{\partial^2 V}{\partial z \partial x} - \frac{\partial^2 V}{\partial x \partial z} \\
+			\frac{\partial^2 V}{\partial x \partial y} - \frac{\partial^2 V}{\partial y \partial x}
+		\end{pmatrix}
+	\end{align*}
+	By equality of mixed partial derivatives, it follows that $\vec{\nabla} \times \left[\vec{\nabla} V\right] = \vzero$.
+	Therefore, the curl of a gradient is zero.
+\end{answer}
+
+\begin{answer}[Potential]
+	The magnetic vector potential $A = \trans{\p{0, bx, 0}}$ yields the magnetic field $B = \vec{\nabla} \times A$ calculated below.
+	\begin{align*}
+		\begin{pmatrix}
+			B_x \\
+			B_y \\
+			B_z
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			\frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} \\
+			\frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x} \\
+			\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y} \\
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			0 - 0 \\
+			0 - 0 \\
+			b - 0
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			0 \\
+			0 \\
+			b
+		\end{pmatrix}
 	\end{align*}
 \end{answer}
 

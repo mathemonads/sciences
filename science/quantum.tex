@@ -420,7 +420,14 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_n = \hat{n} \cdot \s
 \end{align*}
 and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \hat{n} \cdot \sigma}^k$ is given by $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
-\begin{proposition}
+\begin{lemma}[Product of spin operators]
+	For any unit vectors $\hat{m}$ and $\hat{n}$, the following equation holds.
+	\begin{align*}
+		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} (m_i \sigma_i)(n_j \sigma_j)
+	\end{align*}
+\end{lemma}
+
+\begin{theorem}
 	For any unit vector $\hat{n} \in S^2$ and angle $\theta \in \R$, the following hold:
 	\begin{enumerate}
 		\item there is a rotation $r_n^\theta$ of $\R^3$ about $\hat{n}$ by $\theta$; and
@@ -433,7 +440,7 @@ and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \s
 			      R_{n}^\theta\p{\sigma \cdot q}\p{R_n^\theta}^\dagger & = \sigma \cdot \p{r_n^\theta q} & \text{ for all } q \in \R^3.
 		      \end{align*}
 	\end{enumerate}
-\end{proposition}
+\end{theorem}
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
 
@@ -465,7 +472,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 \end{answer}
 
 \begin{answer}[Commutator of Hermitian operators]
-	Let $M$ and $L$ be Hermitian operators.
-	They satisfy $M^\dagger = M$ and $L^\dagger = L$.
+	Let $M$ and $L$ be Hermitian operators, hence satisfying $M^\dagger = M$ and $L^\dagger = L$.
+	Their commutator is given by $[M, L] = LM - ML$.
 \end{answer}
 

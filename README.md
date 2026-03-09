@@ -11,7 +11,7 @@ answers to exercises
 
 # Quantum
 
-answers to
+answers to exercises
 
 `quantum.tex`
 

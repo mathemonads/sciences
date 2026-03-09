@@ -6,7 +6,7 @@
 
 % ket linearity
 \begin{answer}[Inner product]
-	Consider any $\bra{A}$.
+	Consider any ket $\ket{C}$ and bra $\bra{A}$.
 	\begin{enumerate}
 		\item To show $\left\{\bra{A} + \bra{B}\right\} \ket{C} = \braket{A \mid C} + \braket{B \mid C}$, let $\ket{A}$ and $\ket{B}$ be ket-vectors whose bra-vectors are $\bra{A}$ and $\bra{B}$ respectively.
 
@@ -120,7 +120,7 @@
 
 	Let $L$ be a Hermitian operator on an $N$-dimensional complex vector space $H$.
 	Since $H$ is finite-dimensional over $\C$, the characteristic polynomial $p$ of $L$ has degree $N$.
-	By the fundamental theorem of algebra, the operator $L$ has at at least one eigenvalue $\lambda_n \in \C$.
+	By the fundamental theorem of algebra, the characteristic polynomial of $L$ has a root and hence $L$ has at at least one eigenvalue $\lambda_n \in \C$.
 	Since $L$ is Hermitian, the eigenvalue $\lambda_n$ is real.
 	Let $\ket{\lambda_n} \in \p{H \setminus \{0\}}$ be an eigenvector of $\lambda_n$, $V_n = \op{span}\left\{\ket{\lambda_n}\right\}$, and $H_{n-1} = V_n^\perp$ be the orthogonal complement of $V_n$ in $H$.
 	Since $L \ket{\lambda_n} = \lambda_n \ket{\lambda_n}$, interchanging bras and kets yields $\bra{\lambda_n} L = \lambda_n \bra{\lambda_n}$ since $L$ is Hermitian and $\lambda_n$ is real.
@@ -290,6 +290,7 @@ Hence, they are Hermitian.
 		\end{pmatrix}
 		= - i \sigma_y
 	\end{align*}
+	Any $i$ and $j$ in $\left\{x,y,z\right\}$ satisfy $\dsp \sigma_i \sigma_j = \delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k$.
 \end{remark}
 
 The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
@@ -308,7 +309,8 @@ The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z
 
 Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
 
-For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e$ by $\begin{pmatrix} n_x \\ n_y \\ n_z \end{pmatrix} = n_x x + n_y y + n_z z $, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices calculated below.
+Every unit vector $\hat{n} \in S^2$ can be expressed in the standard orthonormal basis by $\hat{n} = n_x x + n_y y + n_z z$ where the real coefficients satisfy $\overline{n_x} = n_x$, $\overline{n_y} = n_y$, $\overline{n_z} = n_z$, and $\overline{n_x} n_x + \overline{n_y} n_y + \overline{n_z} n_z = 1$.
+For any such vector $\hat{n}$, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices calculated below.
 \begin{align}\label{eqn:spin}
 	\sigma_n & =
 	\begin{pmatrix}
@@ -316,7 +318,7 @@ For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e
 		\p{n_x + i n_y} & - n_z
 	\end{pmatrix}
 \end{align}
-Define $S^2 \xrightarrow{\cdot} \Hermitian(\C^2)$ by $\hat{n} \cdot \sigma = \sigma_n$.
+Define $S^2 \xrightarrow{\cdot} \Herm{\C^2}$ by the assignment from any unit vector $\hat{n} \in S^2$ to the Hermitian operator $\hat{n} \cdot \sigma = \sigma_n$ defined by Equation \eqref{eqn:spin} above.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -457,11 +459,13 @@ The above proposition follows from the fact that Pauli matrices transform like o
 
 \subsection{Time and change}
 
+% U^\dagger U = I
 \begin{answer}[Conservation of overlaps]
 	If $U$ is a unitary that acts on state vectors $\ket{A}$ and $\ket{B}$, then the inner product of $\ket{C} = U \ket{A}$ and $\ket{D} = U \ket{B}$ satisfies $\braket{C \mid D} = \bra{A} U^\dagger U \ket{B} = \braket{A \mid B}$.
 \end{answer}
 
 \begin{answer}[Commutator of Hermitian operators]
 	Let $M$ and $L$ be Hermitian operators.
+	They satisfy $M^\dagger = M$ and $L^\dagger = L$.
 \end{answer}
 

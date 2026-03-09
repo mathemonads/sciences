@@ -42,7 +42,7 @@
 	\begin{align}
 		N(n+1) = N(n) - 1 \quad
 		N(n+1) = N(n) + 2 \quad
-		N(n+1) = -1^{N(n)} N(n)
+		N(n+1) = \p{-1}^{N(n)} N(n)
 	\end{align}
 	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
@@ -153,7 +153,7 @@
 \end{answer}
 
 % multiplication by 1
-\begin{answer}[Integration]
+\begin{answer}[Differentiation]
 	The sum rule is shown for any $f$ and $g$ below.
 	\begin{align*}
 		\frac{d(f+g)}{dt} & =
@@ -265,7 +265,7 @@
 
 % direct integration
 \begin{answer}[Trajectories of velocities]
-	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ has trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
+	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ have trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
 \end{answer}
 
 % parts
@@ -491,7 +491,7 @@ There are no exercises in this lecture on systems of particles.
 \end{answer}
 
 % chain rule
-\begin{answer}[Potential energy proportional to the inverse of the squared distance]
+\begin{answer}[Potential energy inversely proportional to the square of the distance]
 	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, with potential energy $\dsp V = \frac{k}{2(x^2+y^2)}$.
 
 	Let $\vr = \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} r \cos \theta \\ r \sin \theta \end{pmatrix}$, $r = \left|\vr\right|$, $\dsp \widehat{\vr} = \frac{\vr}{r}$, and $\dsp V' = \frac{dV}{dr} = \frac{d}{dr}\left(\frac{k}{2r^2}\right) = \frac{-k}{r^{3}}$.
@@ -646,7 +646,7 @@ There are no exercises in this lecture on systems of particles.
 \end{answer}
 
 % calculation
-\begin{answer}
+\begin{answer}[Invariance of Lagrangian under translation]
 	Consider any constants $a$, $b$, $\delta$, and a potential of the form $V\p{a q_1 + b q_2}$.
 
 	Observe $a\left(q_1 + b\delta\right) + b\left(q_2 - a \delta\right) = a q_1 + b q_2$.
@@ -655,17 +655,19 @@ There are no exercises in this lecture on systems of particles.
 	Thus, the kinetic energy and the Lagrangian are also invariant under the transformations of $q_1$ and $q_2$.
 \end{answer}
 
-\begin{answer}
+% calculation
+\begin{answer}[First-order invariance of Lagrangian under rotation]
 	Consider the Lagrangian defined below.
 	\begin{align}
 		L & = \frac{m}{2}\p{(\dot{x} + \dot{y} \delta)^2 + (\dot{y} - \dot{x} \delta)^2} - V\p{(x + y \delta)^2 + (y - x \delta)^2}
 	\end{align}
 	It satisfies $L = \frac{m}{2}\p{\dot{x}^2 + \dot{y}^2 + (\dot{y}^2 + \dot{x}^2)\delta^2} - V\p{x^2 + y^2 + (y^2 + x^2) \delta^2}$.
+
 	Therefore, the Lagrangian does not change to first order in $\delta$.
 \end{answer}
 
-\begin{answer}
-	To determine the equation of motion for a simple pendulum of length $l$ and mass $m$ swinging through an arc in the $x,y$ plane from an initial angle of $\theta_0$, recall the Lagrangian given in Equation \eqref{eqn:Lpend}.
+\begin{answer}[Equation of motion of pendulum]
+	To determine the equation of motion for a simple pendulum of constant mass $m \neq 0$ and length $l$ swinging through an arc in the $x,y$ plane from an initial angle of $\theta_0$, recall the Lagrangian given in Equation \eqref{eqn:Lpend}.
 	With the constraint $r=l$, the only generalized coordinate is $\theta$ and the Lagrangian depends explicitly on $\theta$.
 	Thus, the generalized coordinate $\theta$ is not cyclic and its conjugate momentum is not conserved.
 	Dividing the equation of motion obtained in Exercise \ref{ans:pendulum} by the non-zero mass yields $l^2 \ddot{\theta} + g l \sin \theta = 0$.
@@ -726,7 +728,7 @@ There are no exercises in this lecture on phase space.
 
 \subsection{Poisson brackets, angular momentum, and symmetries}
 
-\begin{answer}[Partial differentation]
+\begin{answer}[Partial differentiation]
 	Let $q=(q_j)_{j=1}^n$ and $p=(p_j)_{j=1}^n$ be as before.
 	For any function $F(q, p)$ and positive $i \in \Z_+$ , the following holds.
 	\begin{align}
@@ -761,13 +763,23 @@ There are no exercises in this lecture on phase space.
 
 \subsection{Magnetism}
 
-\begin{answer}
+\begin{answer}[Cross product]
 	Let $\vec{V}$ and $\vec{A}$ be vectors in $\R^3$.
 	Observe the equations below.
 	\begin{align*}
 		\sum_j \sum_k \varepsilon_{xjk} V_j A_k = V_y A_z - V_z A_y & = \p{\vec{V} \times \vec{A}}_x \\
 		\sum_j \sum_k \varepsilon_{yjk} V_j A_k = V_z A_x - V_x A_z & = \p{\vec{V} \times \vec{A}}_y \\
 		\sum_j \sum_k \varepsilon_{zjk} V_j A_k = V_x A_y - V_y A_x & = \p{\vec{V} \times \vec{A}}_z
+	\end{align*}
+	This yields the following equations.
+	\begin{align*}
+		\p{\vec{V} \times \vec{A}}_i & = \sum_j \sum_k \varepsilon_{ijk} V_j A_k \\
+		\p{\vec{V} \times \vec{A}}_k & = \sum_i \sum_j \varepsilon_{kij} V_i A_j
+	\end{align*}
+	For any cyclic permutation $\begin{pmatrix} i & j & k_0\end{pmatrix}$, the following equation holds.
+	\begin{align*}
+		V_i A_j - V_j A_i & = \sum_{i'} \sum_{j'} \varepsilon_{k_0 i' j'} V_{i'} A_{j'} = \p{\vec{V} \times \vec{A}}_{k_0} = \sum_{k} \varepsilon_{k i j} \p{\vec{V} \times \vec{A}}_{k} \\
+		                  & = \sum_{k} \varepsilon_{i j k} \p{\vec{V} \times \vec{A}}_{k}
 	\end{align*}
 \end{answer}
 

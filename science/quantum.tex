@@ -435,29 +435,33 @@ and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \s
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
 
-\begin{answer}[Spin along arbitrary direction after arbitrary measurement]
+% rotate m onto z
+\begin{answer}[Arbitrary spin after arbitrary measurement]
 	Let $z \in \R^3$ be the usual basis vector.
 	Consider any other directions $m, n \in \R^3$.
 	Let $\hat{m}$ be the unit vector in the direction of $m$, $\hat{n}$ be the unit vector in the direction of $n$, and $\theta$ be the angle from $m$ to $n$ which thus satisfies $\cos \theta = \hat{m} \cdot \hat{n}$.
 	Let a spin be prepared so that $\sigma_m = +1$ and $\ket{m^+}$ be the eigenstate of $\sigma_m$ with eigenvalue $+1$.
 	Suppose the apparatus is rotated to the $\hat{n}$ direction and then measured, and let $\ket{n^+}$ be the eigenstate of $\sigma_n$ with eigenvalue $+1$.
-	There is an orthogonal rotation $r \in \op{SO}\p{3}$ defined by $r \hat{m} = z$ and a unitary rotation $R \ket{m^+} = \ket{u}$ associated to it.
+	There is an orthogonal rotation $r \in \op{SO}\p{3}$ defined by $r \hat{m} = z$ and a unitary rotation $R$ with a phase $\phi$ satisfying $R \ket{m^+} = e^{i \phi}\ket{u}$.
 	By invariance of the inner product in $\R^3$ under rotation, the angle from $r \hat{n}$ to $z$ is calculated below.
 	\begin{align}
 		z \cdot \p{r \hat{n}} & = \p{r \hat{m}} \cdot \p{r \hat{n}}
 		= \hat{m} \cdot \hat{n}
 		= \cos \theta
 	\end{align}
-	It is equal to the angle $\theta$ from $m$ to $n$.
-	This yields the following equations.
-	The unitary rotation $R$ associated to $r$ satisfies $\braket{m^+ \mid n^+} = \braket{R \ket{m^+} \mid R \ket{n^+} } = \braket{u \mid R \ket{n^+} }$.
-	Thus, the previous exercise yields $\left|\braket{m^+ \mid n^+}\right| = \cos \frac{\theta}{2}$.
-	Therefore, the probability of observing $+1$ is $\left|\braket{m^+ \mid n^+}\right|^2 = \cos^2 \frac{\theta}{2}$.
+	That is, the angle between $r \hat{n}$ and $z$ is $\theta$.
+	Then, the unitary rotation $R$ associated to $r$ satisfies $\braket{n^+ \mid m^+} = \braket{R \ket{n^+} \mid R \ket{m^+} } = \braket{R \ket{n^+} \mid e^{i \phi} \ket{u} }$.
+	Thus, the previous exercise yields $\left|\braket{n^+ \mid m^+}\right| = \cos \frac{\theta}{2}$.
+	Therefore, the probability of observing $+1$ is $\left|\braket{n^+ \mid m^+}\right|^2 = \cos^2 \frac{\theta}{2}$.
 \end{answer}
 
 \subsection{Time and change}
 
-\begin{answer}[product]
-	If $U$ is a unitary that acts on state vectors $\ket{A}$ and $\ket{B}$, then the inner product of $\ket{C} = U \ket{A}$ and $\ket{D} = U \ket{B}$ is $\braket{C \mid D} = \braket{A \mid U^\dagger U B}$.
+\begin{answer}[Conservation of overlaps]
+	If $U$ is a unitary that acts on state vectors $\ket{A}$ and $\ket{B}$, then the inner product of $\ket{C} = U \ket{A}$ and $\ket{D} = U \ket{B}$ satisfies $\braket{C \mid D} = \bra{A} U^\dagger U \ket{B} = \braket{A \mid B}$.
+\end{answer}
+
+\begin{answer}[Commutator of Hermitian operators]
+	Let $M$ and $L$ be Hermitian operators.
 \end{answer}
 

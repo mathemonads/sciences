@@ -423,9 +423,15 @@ and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \s
 \begin{lemma}[Product of spin operators]
 	For any unit vectors $\hat{m}$ and $\hat{n}$, the following equation holds.
 	\begin{align*}
-		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} (m_i \sigma_i)(n_j \sigma_j)
+		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} m_i n_j \sigma_i \sigma_j
 	\end{align*}
 \end{lemma}
+\begin{proof}
+	The result is shown below.
+	\begin{align*}
+		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} (m_i \sigma_i)(n_j \sigma_j) = \sum_{ij} m_i n_j \sigma_i \sigma_j
+	\end{align*}
+\end{proof}
 
 \begin{theorem}
 	For any unit vector $\hat{n} \in S^2$ and angle $\theta \in \R$, the following hold:

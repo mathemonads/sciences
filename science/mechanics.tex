@@ -1,6 +1,8 @@
 
 \section{Mechanics}\label{sec:mechanics}
 
+\localtableofcontents
+
 \subsection{Nature of classical physics}
 
 % measurement
@@ -666,11 +668,12 @@ There are no exercises in this lecture on systems of particles.
 	Therefore, the Lagrangian does not change to first order in $\delta$.
 \end{answer}
 
+% ans:pendulum
 \begin{answer}[Equation of motion of pendulum]
-	To determine the equation of motion for a simple pendulum of constant mass $m \neq 0$ and length $l$ swinging through an arc in the $x,y$ plane from an initial angle of $\theta_0$, recall the Lagrangian given in Equation \eqref{eqn:Lpend}.
-	With the constraint $r=l$, the only generalized coordinate is $\theta$ and the Lagrangian depends explicitly on $\theta$.
-	Thus, the generalized coordinate $\theta$ is not cyclic and its conjugate momentum is not conserved.
-	Dividing the equation of motion obtained in Exercise \ref{ans:pendulum} by the non-zero mass yields $l^2 \ddot{\theta} + g l \sin \theta = 0$.
+	Consider a simple pendulum with mass $m \neq 0$ and length $l \neq 0$ that swings through an arc in the $x,y$ plane from an initial angle of $\theta_0$.
+	To determine the equation of motion, recall the Lagrangian given in Equation \eqref{eqn:Lpend}.
+	With the constraint $r=l$, the only generalized coordinate is $\theta$.
+	Dividing the equation of motion obtained in Exercise \ref{ans:pendulum} by the non-zero mass gives $l^2 \ddot{\theta} + g l \sin \theta = 0$.
 \end{answer}
 
 % calculation
@@ -704,6 +707,7 @@ There are no exercises in this lecture on systems of particles.
 
 \subsection{Hamiltonian mechanics and time-translation invariance}
 
+% solve for x
 \begin{answer}[Change of variables in Lagrangian of harmonic oscillator]
 	Let $L = \frac{m \dot{x}^2}{2} - \frac{k}{2} x^2$ be the Lagrangian and consider the change of variables below.
 	\begin{align}\label{eqn:qharm}
@@ -711,7 +715,7 @@ There are no exercises in this lecture on systems of particles.
 		\qquad
 		\dot{q} = \p{k m}^{\frac{1}{4}} \dot{x}
 	\end{align}
-	Calculation yields $x = \frac{q}{\p{k m}^{\frac{1}{4}}}$, $\dot{x} = \frac{\dot{q}}{\p{k m}^{\frac{1}{4}}}$, and $\dsp L = \frac{m}{2} \p{\frac{\dot{q}}{\p{k m}^{\frac{1}{4}}}}^2 - \frac{k}{2} \p{\frac{q}{\p{k m}^{\frac{1}{4}}}}^2$
+	Since $x = \frac{q}{\p{k m}^{\frac{1}{4}}}$, it follows that $\dot{x} = \frac{\dot{q}}{\p{k m}^{\frac{1}{4}}}$ and $\dsp L = \frac{m}{2} \p{\frac{\dot{q}}{\p{k m}^{\frac{1}{4}}}}^2 - \frac{k}{2} \p{\frac{q}{\p{k m}^{\frac{1}{4}}}}^2$.
 	Let $\omega = \sqrt{\frac{k}{m}}$.
 	Then, the Lagrangian $\dsp L = \frac{m}{2 \sqrt{k m}} \dot{q}^2 - \frac{k}{2 \sqrt{k m}} q^2$ is given by the equation below.
 	\begin{align}\label{eqn:Lcharm}
@@ -815,8 +819,8 @@ There are no exercises in this lecture on phase space.
 	Therefore, the curl of a gradient is zero.
 \end{answer}
 
-\begin{answer}[Potential]
-	The magnetic vector potential $A = \trans{\p{0, bx, 0}}$ yields the magnetic field $B = \vec{\nabla} \times A$ calculated below.
+\begin{answer}[Magnetic potential]
+	The magnetic vector potential $\vec{A} = \trans{\p{0, bx, 0}}$ yields the magnetic field $\vec{B} = \vec{\nabla} \times \vec{A}$ calculated below.
 	\begin{align*}
 		\begin{pmatrix}
 			B_x \\
@@ -842,5 +846,31 @@ There are no exercises in this lecture on phase space.
 			b
 		\end{pmatrix}
 	\end{align*}
+	The magnetic vector potential $\vec{A'} = \trans{\p{-b y, 0, 0}}$ yields the magnetic field calculated below.
+	\begin{align*}
+		\begin{pmatrix}
+			\frac{\partial A'_z}{\partial y} - \frac{\partial A'_y}{\partial z} \\
+			\frac{\partial A'_x}{\partial z} - \frac{\partial A'_z}{\partial x} \\
+			\frac{\partial A'_y}{\partial x} - \frac{\partial A'_x}{\partial y} \\
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			0 - 0 \\
+			0 - 0 \\
+			0 + b
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			0 \\
+			0 \\
+			b
+		\end{pmatrix}
+		= \vec{B}
+	\end{align*}
+	Since $\vec{A'} = \vec{A} + \trans{\p{-by, -bx, 0}}$, the scalar field $s = -bxy$ satisfies $\vec{A'} = \vec{A} + \vec{\nabla} s$.
+\end{answer}
+
+\begin{answer}[Newton]
+	The partial derivatives of $\dsp H = \sum_i \frac{1}{2m} \p{p_i - \frac{e}{c} A_i(x)}\p{p_i - \frac{e}{c} A_i(x)}$ are $\frac{\partial H}{\partial p_i} = \frac{1}{m} \p{p_i - \frac{e}{c} A_i(x)}$ and $\dsp \frac{\partial H}{\partial x_i} = \sum_{j} \frac{1}{m} \p{-\frac{e}{c} p_j + \frac{e^2}{c^2} A_j(x)} \frac{\partial A_j}{\partial x_i}$.
 \end{answer}
 

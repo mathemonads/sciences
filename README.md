@@ -9,9 +9,9 @@ answers to exercises
 
 `mechanics.tex`
 
-# Quantum
+## Quantum
 
-answers to exercises
+answers to exercises selected
 
 `quantum.tex`
 

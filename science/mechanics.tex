@@ -491,7 +491,7 @@ There are no exercises in this lecture on systems of particles.
 \end{answer}
 
 % chain rule
-\begin{answer}
+\begin{answer}[Potential energy proportional to the inverse of the square of distance]
 	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, with potential energy $\dsp V = \frac{k}{2(x^2+y^2)}$.
 
 	Let $\vr = \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} r \cos \theta \\ r \sin \theta \end{pmatrix}$, $r = \left|\vr\right|$, $\dsp \widehat{\vr} = \frac{\vr}{r}$, and $\dsp V' = \frac{dV}{dr} = \frac{d}{dr}\left(\frac{k}{2r^2}\right) = \frac{-k}{r^{3}}$.
@@ -627,15 +627,17 @@ There are no exercises in this lecture on systems of particles.
 
 \subsection{Symmetries and conservation laws}
 
+% chain rule
 \begin{answer}
 	Consider the Lagrangian given by Equation \eqref{eqn:Ldiff} below.
 	\begin{align}\label{eqn:Ldiff}
 		L = \frac{1}{2}\left(\dot{q_1}^2 + \dot{q_2}^2\right) - V\p{q_1 - q_2}
 	\end{align}
 	The first Euler-Lagrange equation is given by $\dot{p_1} = -V'(q_1-q_2) \cdot \frac{\partial}{\partial q_1}\p{q_1-q_2} = - V'(q_1-q_2)$ and the second Euler-Lagrange equation is given by $\dot{p_2} = - V'(q_1-q_2) \cdot \frac{\partial}{\partial q_2}\p{q_1-q_2} = + V'(q_1-q_2)$.
-	The sign difference is due via the chain rule to the sign difference in the argument $q_1-q_2$ of $V$ in $L$.
+	The sign difference is due, via the chain rule, to the sign difference in the argument $q_1-q_2$ of $V$ in $L$.
 \end{answer}
 
+% calculation
 \begin{answer}
 	Fix constants $a$ and $b$.
 	The sum of $b \dot{p_1} = -ab V'\p{a q_1 - b q_2}$ and $a \dot{p_2} = +ab V'\p{a q_1 - b q_2}$ is $b \dot{p_1} + a \dot{p_2} = 0$.
@@ -726,18 +728,21 @@ There are no exercises in this lecture on phase space.
 \begin{answer}[Partial differentation]
 	Let $q=(q_j)_{j=1}^n$ and $p=(p_j)_{j=1}^n$ be as before.
 	For any function $F(q, p)$ and positive $i \in \Z_+$ , the following holds.
-	\begin{align*}
+	\begin{align}
 		\left\{F(q,p), p_i\right\}
 		 & =  \sum_{j=1}^n \p{\frac{\partial F}{\partial q_j} \frac{\partial p_i}{\partial p_j} - \frac{\partial F}{\partial p_j} \frac{\partial p_i}{\partial q_j}}
 		= \sum_{j=1}^n \frac{\partial F}{\partial q_j} \delta_{i,j}
 		= \frac{\partial F(q,p)}{\partial q_i}
-	\end{align*}
+	\end{align}
 	That is, the Poisson bracket with $p_i$ is partial differentiation with respect to $q_i$.
 \end{answer}
 
-\begin{answer}
-	Let $H = \frac{1}{2m} p^2 + V(q)$ and $F = - \frac{\partial V}{\partial q}$.
+\begin{answer}[Derivation of Newtonian mechanics from Poisson formulation]
+	Let $H = \frac{1}{2m} p^2 + V(q)$, $F = - \frac{\partial V}{\partial q}$, and $a = \ddot{q}$.
 	It follows from Hamilton's equations that $\dot{q} = \{q, H\} = \frac{\partial H}{\partial p} = \frac{1}{m}p$ and $\dot{p} = \{p, H\} = - \frac{\partial H}{\partial q} = - \frac{\partial V}{\partial q} = F$.
+	Multiplication yields $m \dot{q} = p$ and differentiation yields the following equations.
+	\begin{align}
+		\dot{p} & = m \ddot{q} = ma = F
+	\end{align}
 \end{answer}
-
 

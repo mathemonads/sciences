@@ -203,36 +203,34 @@ Their transposes are given below.
 	\end{pmatrix}
 	= \sigma_z
 \end{align*}
-The Pauli matrices $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_y$ is antisymmetric.
+The standard Pauli matrices $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_y$ is antisymmetric.
 
-\begin{remark}[Conjugate transposes of the Pauli matrices]
-	The conjugate transposes of the standard Pauli matrices are given below.
-	\begin{align*}
-		\sigma_x^\dagger =
-		\begin{pmatrix}
-			0 & 1 \\
-			1 & 0
-		\end{pmatrix}
-		= \sigma_x
-		\qquad
-		\sigma_y^\dagger =
-		\begin{pmatrix}
-			0 & -i \\
-			i & 0
-		\end{pmatrix}
-		= \sigma_y
-		\qquad
-		\sigma_z^\dagger =
-		\begin{pmatrix}
-			1 & 0  \\
-			0 & -1
-		\end{pmatrix}
-		= \sigma_z
-	\end{align*}
-	Hence, they are Hermitian.
-\end{remark}
+Their conjugate transposes are given below.
+\begin{align*}
+	\sigma_x^\dagger =
+	\begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+	\end{pmatrix}
+	= \sigma_x
+	\qquad
+	\sigma_y^\dagger =
+	\begin{pmatrix}
+		0 & -i \\
+		i & 0
+	\end{pmatrix}
+	= \sigma_y
+	\qquad
+	\sigma_z^\dagger =
+	\begin{pmatrix}
+		1 & 0  \\
+		0 & -1
+	\end{pmatrix}
+	= \sigma_z
+\end{align*}
+Hence, they are Hermitian.
 
-\begin{proposition}
+\begin{remark}[Multiplication of the standard Pauli matrices]\label{rem:Pauli}
 	The standard Pauli matrices satisfy the relations below.
 	\begin{align*}
 		\sigma_z \sigma_z =
@@ -246,33 +244,14 @@ The Pauli matrices $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_
 			i & 0  \\
 			0 & -i
 		\end{pmatrix}
-		= + i \sigma_z
+		= i \sigma_z
 		\quad
 		\sigma_y \sigma_x =
 		\begin{pmatrix}
-			-i & 0 \\
-			0  & i
+			-i & \phantom{+} 0 \\
+			0  & \phantom{+} i
 		\end{pmatrix}
 		= -i \sigma_z  \\
-		\sigma_y \sigma_y =
-		\begin{pmatrix}
-			1 & 0 \\
-			0 & 1
-		\end{pmatrix}
-		 & = I \qquad
-		\sigma_x \sigma_z =
-		\begin{pmatrix}
-			0 & -1 \\
-			1 & 0
-		\end{pmatrix}
-		= - i \sigma_y
-		\quad
-		\sigma_z \sigma_x =
-		\begin{pmatrix}
-			0  & 1 \\
-			-1 & 0
-		\end{pmatrix}
-		= + i \sigma_y \\
 		\sigma_x \sigma_x =
 		\begin{pmatrix}
 			1 & 0 \\
@@ -281,19 +260,51 @@ The Pauli matrices $\sigma_x$ and $\sigma_z$ are hence symmetric, while $\sigma_
 		 & = I \qquad
 		\sigma_y \sigma_z =
 		\begin{pmatrix}
-			0 & i \\
-			i & 0
+			0 & \phantom{+} i \\
+			i & \phantom{+} 0
 		\end{pmatrix}
-		= + i \sigma_x
+		= i \sigma_x
 		\quad
 		\sigma_z \sigma_y =
 		\begin{pmatrix}
 			0  & -i \\
 			-i & 0
 		\end{pmatrix}
-		= - i \sigma_x
+		= - i \sigma_x \\
+		\sigma_y \sigma_y =
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & 1
+		\end{pmatrix}
+		 & = I \qquad
+		\sigma_z \sigma_x =
+		\begin{pmatrix}
+			0  & 1 \\
+			-1 & 0
+		\end{pmatrix}
+		= i \sigma_y \quad
+		\sigma_x \sigma_z =
+		\begin{pmatrix}
+			0 \phantom{+} & -1 \\
+			1 \phantom{+} & 0
+		\end{pmatrix}
+		= - i \sigma_y
+	\end{align*}
+\end{remark}
+
+The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
+
+\begin{proposition}[Commutators of standard Pauli matrices]
+	The standard Pauli matrices obey the relations below.
+	\begin{align*}
+		[\sigma_x, \sigma_y] = 2 i \sigma_z \qquad
+		[\sigma_y, \sigma_z] = 2 i \sigma_x \qquad
+		[\sigma_z, \sigma_x] = 2 i \sigma_y \qquad
 	\end{align*}
 \end{proposition}
+\begin{proof}
+	The result follows from Remark \ref{rem:Pauli}.
+\end{proof}
 
 Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
 
@@ -305,7 +316,7 @@ For any unit vector $\hat{n} \in S^2$ given in the standard orthonormal basis $e
 		\p{n_x + i n_y} & - n_z
 	\end{pmatrix}
 \end{align}
-Let $\hat{n} \cdot \sigma = \sigma_n$.
+Define $S^2 \xrightarrow{\cdot} \Hermitian(\C^2)$ by $\hat{n} \cdot \sigma = \sigma_n$.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -391,7 +402,7 @@ Let $\hat{n} \cdot \sigma = \sigma_n$.
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
 
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_n$ satisfies the equations below.
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_n = \hat{n} \cdot \sigma$ satisfies the equations
 \begin{align*}
 	\sigma_n^2 & =
 	\begin{pmatrix}
@@ -405,13 +416,21 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_n$ satisfies the equ
 	\end{pmatrix}
 	= I
 \end{align*}
+and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \hat{n} \cdot \sigma}^k$ is given by $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
 \begin{proposition}
-	For any rotation $r \in \op{SO}\p{3}$, there exists a unitary operator $R$ on spin-$\frac{1}{2}$ states such that any unit vector $\hat{n} \in \R^3$ satisfies
-	\begin{align}
-		R^\dagger \p{\sigma \cdot \hat{n}} R & = \sigma \cdot \p{r \cdot \hat{n}}
-	\end{align}
-	and any operator satisfying the above equation is either $R$ or $-R$.
+	For any unit vector $\hat{n} \in S^2$ and angle $\theta \in \R$, the following hold:
+	\begin{enumerate}
+		\item there is a rotation $r_n^\theta$ of $\R^3$ about $\hat{n}$ by $\theta$; and
+		\item the unitary operator $\dsp R_{n}^\theta = \exp\p{-i \frac{\theta}{2} \hat{n} \cdot \sigma}$ given by
+		      \begin{align*}
+			      \p{\cosh \frac{-i \theta}{2}} I + \p{\sinh \frac{-i \theta}{2}} \hat{n} \cdot \sigma = \p{\cos \frac{\theta}{2}} I - i \p{\sin \frac{\theta}{2}} \hat{n} \cdot \sigma
+		      \end{align*}
+		      satisfies the following condition:
+		      \begin{align*}
+			      R_{n}^\theta\p{\sigma \cdot q}\p{R_n^\theta}^\dagger & = \sigma \cdot \p{r_n^\theta q} & \text{ for all } q \in \R^3.
+		      \end{align*}
+	\end{enumerate}
 \end{proposition}
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.

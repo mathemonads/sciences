@@ -1,6 +1,8 @@
 
 \section{Mechanics}\label{sec:mechanics}
 
+Solutions are proposed in this section to all of the exercises in \cite{TM}.
+
 \localtableofcontents
 
 \subsection{Nature of classical physics}
@@ -412,9 +414,11 @@ There are no exercises in this lecture on systems of particles.
 	Therefore, the derivative is $\frac{dv^2}{dt} = 2 v \dot{v}$.
 \end{answer}
 
+Recall that the standard basis of the Euclidean plane consists of two vectors.
+
 % differentiation
 \begin{answer}[Potential energy proportional to distance from the origin]
-	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, in which the potential energy is $V = \frac{1}{2} k \left(x^2+y^2\right)$ and the initial data is given.
+	Consider a particle with mass $m$ in the Euclidean plane $\R^2 = \op{span} \left\langle \vx, \mbf{y} \right\rangle$ with potential energy $V = \frac{1}{2} k \left(x^2+y^2\right)$ and the initial data given below.
 	\begin{align*}
 		\vr_0
 		 & =
@@ -749,24 +753,28 @@ There are no exercises in this lecture on phase space.
 	That is, the Poisson bracket with $p_i$ is partial differentiation with respect to $q_i$.
 \end{answer}
 
-\begin{answer}[Derivation of Newtonian mechanics from Poisson]
-	Let $H = \frac{1}{2m} p^2 + V(q)$, $F = - \frac{\partial V}{\partial q}$, and $a = \ddot{q}$.
-	It follows from Hamilton's equations that $\dot{q} = \{q, H\} = \frac{\partial H}{\partial p} = \frac{1}{m}p$ and $\dot{p} = \{p, H\} = - \frac{\partial H}{\partial q} = - \frac{\partial V}{\partial q} = F$.
-	Multiplication yields $m \dot{q} = p$ and differentiation yields the following equations.
-	\begin{align}
-		\dot{p} & = m \ddot{q} = ma = F
-	\end{align}
+% anti-symmetry 
+\begin{answer}[Poisson formulation of Newtonian mechanics]
+	Let $m > 0$, $H = \frac{1}{2m} p^2 + V(q)$, $F = - \frac{\partial V}{\partial q}$, and $a = \ddot{q}$.
+
+	Hamilton's equations are $\dot{q} = \left\{q, H\right\}$ and $\dot{p} = \left\{p, H\right\}$.
+	The axioms of the Poisson bracket yield $\dot{q} = - \left\{H, q\right\} = - \left(-\frac{\partial H}{\partial p}\right)$ and $\dot{p} = - \frac{\partial H}{\partial q}$.
+	Calculation yields $\dot{q} = \frac{1}{m} p$ and $\dot{p} = - \frac{\partial H}{\partial q} = - \frac{\partial V}{\partial q} = F$.
+	The first equation yields $p = m \dot{q}$ and hence $\dot{p} = m \ddot{q} = ma$.
+	Substitution into the second equation yields $F = ma$.
+	Therefore, Hamilton's equations yield Newton's equations of motion.
 \end{answer}
 
+% product
 \begin{answer}[Poisson bracket with angular momentum]
 	By the axioms of the Poisson bracket, the Poisson bracket $\left\{x, L_z\right\} = \left\{x, x p_y\right\} + \left\{x, - y p_x \right\}$ can be calculated as follows.
 	\begin{align}
 		\left\{x, L_z\right\} & = \p{\left\{x, x\right\} p_y  + x \left\{x, p_y\right\}} + \p{-\left\{x, y\right\}p_x - y \left\{x, p_x\right\}} = 0 - y = - y
 	\end{align}
-	The Poisson brackets $\left\{y, L_z\right\} = \p{p_y \{y, x\} + x \{y, p_y\}} + \p{-p_x \{y, y\} - y \{y, p_x\}}$ and $\left\{z, L_z\right\} = \p{0 p_y + x 0} - \p{0 p_x - y 0}$ are similarly calculated below.
+	The Poisson brackets $\left\{y, L_z\right\} = \p{\{y, x\} p_y + x \{y, p_y\}} - \p{ \{y, y\} p_x + y \{y, p_x\}}$ and $\left\{z, L_z\right\} = \p{0 p_y + x 0} - \p{0 p_x + y 0}$ are similarly calculated below.
 	\begin{align*}
-		\left\{y, L_z\right\} & = \p{0 + 1 x} + \p{0 + 0} = x \\
-		\left\{z, L_z\right\} & = \p{0 + 0} + \p{0 + 0} = 0
+		\left\{y, L_z\right\} & = \p{0 + 1 x} - \p{0 + 0} = x \\
+		\left\{z, L_z\right\} & = \p{0 + 0} - \p{0 + 0} = 0
 	\end{align*}
 \end{answer}
 
@@ -899,16 +907,29 @@ There are no exercises in this lecture on phase space.
 \end{answer}
 
 \begin{answer}[Motion in a uniform magnetic field]
-	Consider the equations below.
+	For any constant mass $m \neq 0$ and charge $e \in \R$, consider the equations below.
 	\begin{align}
 		a_y & = - \frac{e b}{m c} v_x \label{eqn:magy}           \\
 		a_x & = \phantom{+} \frac{e b}{m c} v_y \label{eqn:magx}
 	\end{align}
 	Let $\omega = \frac{e b}{m c}$.
-	To show the solution to the above equations in the $(x,y)$ plane is a circular orbit with the center of the orbit at any point $\vr_0 = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix}$ in the plane, consider the trajectory $\vr(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$ given for any constant phase $\phi$ and non-negative $v_0 \geq 0$ by $\begin{pmatrix} x(t) \\ y(t) \end{pmatrix} = \begin{pmatrix} x_0 + \frac{v_0}{\omega} \cos\p{\omega t + \phi} \\ y_0 + \frac{v_0}{\omega} \sin\p{\omega t + \phi} \end{pmatrix}$.
-	The velocity $\vec{v}(t) = \dot{\vr}(t)$ is given by $\dot{\vr}(t) = \begin{pmatrix} - v_0 \sin\p{\omega t + \phi} \\ \phantom{+} v_0 \cos\p{\omega t + \phi} \end{pmatrix}$, and the acceleration $\begin{pmatrix} a_x \\ a_y \end{pmatrix} = \dot{\vec{v}}(t)$ is given by $\dot{\vec{v}}(t) = \begin{pmatrix} - \omega v_0 \cos\p{\omega t + \phi} \\ - \omega v_0 \sin\p{\omega t + \phi} \end{pmatrix}$.
-	It satisfies Equations \eqref{eqn:magy}-\eqref{eqn:magx}.
-	Since the squared norm $\|\vr(t) - \vr_0\|^2 = \p{\frac{v_0}{\omega}}^2 \cos^2\p{\omega t + \phi} + \p{\frac{v_0}{\omega}}^2 \sin^2\p{\omega t + \phi}$ is the constant $\p{\frac{v_0}{\omega}}^2$, the solution is given in position space by a circular orbit with center $\vr_0$.
+	If $\omega = 0$, then any initial position $\vr_0 = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix}$ and velocity $\vv = \begin{pmatrix} v_x \\ v_y \end{pmatrix}$ yields a trajectory $\vr_0 + t \vv$ of uniform linear motion with constant velocity $\vv$ that solves Equations \eqref{eqn:magy}-\eqref{eqn:magx}; if $\vv$ is zero, then the trajectory can be seen as a degenerate circle with radius zero.
+	Fix $\omega \neq 0$.
+
+	To show that the motion in the $(x,y)$ plane is a circular orbit whose center may be any point $\vr_0 = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix}$ in the plane, consider the trajectory $\vr(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$ given for any constant phase $\phi$ and non-negative $v_0 \geq 0$ as follows.
+	\begin{align*}
+		\begin{pmatrix}
+			x(t) \\
+			y(t)
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			x_0 + \frac{v_0}{\omega} \cos\p{\omega t + \phi} \\
+			y_0 - \frac{v_0}{\omega} \sin\p{\omega t + \phi}
+		\end{pmatrix}
+	\end{align*}
+	The velocity $\vec{v}(t) = \dot{\vr}(t)$ is given by $\dot{\vr}(t) = \begin{pmatrix} - v_0 \sin\p{\omega t + \phi} \\ - v_0 \cos\p{\omega t + \phi} \end{pmatrix}$, and the acceleration $\begin{pmatrix} a_x \\ a_y \end{pmatrix} = \dot{\vec{v}}(t)$ given by $\dot{\vec{v}}(t) = \begin{pmatrix} - \omega v_0 \cos\p{\omega t + \phi} \\ \phantom{+} \omega v_0 \sin\p{\omega t + \phi} \end{pmatrix}$ satisfies Equations \eqref{eqn:magy}-\eqref{eqn:magx}.
+	Since the squared norm $\|\vr(t) - \vr_0\|^2 = \p{\frac{v_0}{\omega}}^2 \cos^2\p{\omega t + \phi} + \p{\frac{v_0}{\omega}}^2 \sin^2\p{\omega t + \phi}$ is the constant $\p{\frac{v_0}{\omega}}^2$, the solution is given in position space by a circular orbit with center $\vr_0$ and radius $\frac{v_0}{\left|\omega\right|}$.
 	If $v_0 = 0$, then the radius of this degenerate circle is zero.
 \end{answer}
 

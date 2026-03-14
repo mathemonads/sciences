@@ -290,7 +290,7 @@ Hence, they are Hermitian.
 		\end{pmatrix}
 		= - i \sigma_y
 	\end{align*}
-	Any $i$ and $j$ in $\left\{x,y,z\right\}$ satisfy $\dsp \sigma_i \sigma_j = \delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k$.
+	For any $i$ and $j$ in $\left\{x,y,z\right\}$, the standard Pauli matrices satisfy $\dsp \sigma_i \sigma_j = \delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k$.
 \end{remark}
 
 The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
@@ -309,16 +309,31 @@ The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z
 
 Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
 
-Every unit vector $\hat{n} \in S^2$ can be expressed in the standard orthonormal basis by $\hat{n} = n_x x + n_y y + n_z z$ where the real coefficients satisfy $\overline{n_x} = n_x$, $\overline{n_y} = n_y$, $\overline{n_z} = n_z$, and $\overline{n_x} n_x + \overline{n_y} n_y + \overline{n_z} n_z = 1$.
-For any such vector $\hat{n}$, let $\sigma_n = n_x \sigma_x + n_y \sigma_y + n_z \sigma_z$ be the linear combination of Pauli matrices calculated below.
-\begin{align}\label{eqn:spin}
-	\sigma_n & =
+For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in the direction of $\vec{n}$}
+\begin{equation}\label{eqn:Pauli}
+	n_x \sigma_x + n_y \sigma_y + n_z \sigma_z
+	=
 	\begin{pmatrix}
 		n_z             & \p{n_x - i n_y} \\
 		\p{n_x + i n_y} & - n_z
 	\end{pmatrix}
-\end{align}
-Define $S^2 \xrightarrow{\cdot} \Herm{\C^2}$ by the assignment from any unit vector $\hat{n} \in S^2$ to the Hermitian operator $\hat{n} \cdot \sigma = \sigma_n$ defined by Equation \eqref{eqn:spin} above.
+\end{equation}
+by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \sigma$.
+The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real.
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is shown to be unitary below.
+\begin{align*}
+	\sigma_{\hat{n}}^2 & =
+	\begin{pmatrix}
+		\hat{n}_z                   & \p{\hat{n}_x - i \hat{n}_y} \\
+		\p{\hat{n}_x + i \hat{n}_y} & - \hat{n}_z
+	\end{pmatrix}^2
+	=
+	\begin{pmatrix}
+		\hat{n}_x^2 + \hat{n}_y^2 + \hat{n}_z^2 & 0                                       \\
+		0                                       & \hat{n}_x^2 + \hat{n}_y^2 + \hat{n}_z^2
+	\end{pmatrix}
+	= I
+\end{align*}
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -404,33 +419,20 @@ Define $S^2 \xrightarrow{\cdot} \Herm{\C^2}$ by the assignment from any unit vec
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
 
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_n = \hat{n} \cdot \sigma$ satisfies the equations
-\begin{align*}
-	\sigma_n^2 & =
-	\begin{pmatrix}
-		n_z             & \p{n_x - i n_y} \\
-		\p{n_x + i n_y} & - n_z
-	\end{pmatrix}^2
-	=
-	\begin{pmatrix}
-		n_x^2 + n_y^2 + n_z^2 & 0                     \\
-		0                     & n_x^2 + n_y^2 + n_z^2
-	\end{pmatrix}
-	= I
-\end{align*}
-and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \hat{n} \cdot \sigma}^k$ is given by $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
+For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall the exponential $\dsp \exp\p{z \vec{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \vec{n} \cdot \sigma}^k$; any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
-\begin{lemma}[Product of spin operators]
-	For any unit vectors $\hat{m}$ and $\hat{n}$, the following equation holds.
+\begin{lemma}[Product of Pauli operators]
+	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
-		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma)
-		= \sum_{ij} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k}
+		(\vec{m} \cdot \sigma)(\vec{n} \cdot \sigma)
+		= \sum_{i, j} m_i n_j \delta_{ij} I + i \sum_{i, j} m_i n_j \sum_k \varepsilon_{ijk} \sigma_k
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	The value $(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} (m_i \sigma_i)(n_j \sigma_j) = \sum_{ij} m_i n_j \sigma_i \sigma_j$ is given by Remark \ref{rem:Pauli} below.
+	The value $\dsp (\vec{m} \cdot \sigma)(\vec{n} \cdot \sigma) = \sum_{i,j} (m_i \sigma_i)(n_j \sigma_j) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is given by Remark \ref{rem:Pauli} below.
 	\begin{align*}
-		\sum_{ij} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k}
+		\sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k}
+		= \sum_{i, j} m_i n_j \delta_{ij} I + i \sum_{i, j} m_i n_j \sum_k \varepsilon_{ijk} \sigma_k
 	\end{align*}
 \end{proof}
 

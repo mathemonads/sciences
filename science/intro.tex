@@ -4,7 +4,7 @@
 \setcounter{section}{-1}
 \section{Introduction}
 
-Solutions are given in Sections \ref{sec:mechanics}-\ref{sec:quantum} for exercises selected from \cite{TM, QM}, respectively.
+Solutions are proposed in Sections \ref{sec:mechanics}-\ref{sec:quantum} for exercises selected from \cite{TM, QM}.
 Common notation is reviewed in Section \ref{sec:notation}.
 
 \subsection{Notation}\label{sec:notation}
@@ -34,30 +34,51 @@ and the $n$-dimensional real Euclidean Hilbert space as follows.
 \end{align*}
 Let $\Z_+$ be the totally ordered semigroup of positive integers.
 
-Let $S^2 = \left\{\, \hat{n} \in \R^3 \mid \|\hat{n}\| = 1\right\}$ denote the $2$-dimensional unit sphere about the origin in $\R^3$.
+\subsubsection{Euclidean plane}
+The Euclidean plane is the $2$-dimensional real Euclidean Hilbert space $\R^2$.
+Denote its standard basis unit vectors as follows.
+\begin{align}\label{eqn:e2}
+	\vx =
+	\begin{pmatrix}
+		1 \\ 0
+	\end{pmatrix}
+	\qquad
+	\mbf{y} =
+	\begin{pmatrix}
+		0 \\ 1
+	\end{pmatrix}
+\end{align}
+They form an ordered, orthonormal basis of the Euclidean plane $\R^2$.
+
+\subsubsection{Euclidean space}
 Denote the standard basis unit vectors in $\R^3$ as follows.
 \begin{align}\label{eqn:e}
-	x =
+	\vx =
 	\begin{pmatrix}
 		1 \\ 0 \\ 0
 	\end{pmatrix}
-	\qquad y =
+	\qquad \mbf{y} =
 	\begin{pmatrix}
 		0 \\ 1 \\ 0
 	\end{pmatrix}
-	\qquad z =
+	\qquad \mbf{z} =
 	\begin{pmatrix}
 		0 \\ 0 \\ 1
 	\end{pmatrix}
 \end{align}
-They form an orthonormal basis $e = (x, y, z)$ of $\R^3$.
-For any vector $n \in \R^3$, denote its inner products with the standard basis vectors as follows.
+They form an orthonormal basis $e = (\vx, \mbf{y}, \mbf{z})$ of $\R^3$.
+For any vector $\vec{n} \in \R^3$, denote its inner products with the standard basis vectors as follows.
 \begin{align*}
-	n_x = x \cdot n
+	n_x = \vx \cdot \vec{n}
 	\qquad
-	n_y = y \cdot n
+	n_y = \mbf{y} \cdot \vec{n}
 	\qquad
-	n_z = z \cdot n
+	n_z = \mbf{z} \cdot \vec{n}
 \end{align*}
-Any triple of real numbers $\begin{pmatrix} n_x \\ n_y \\ n_z\end{pmatrix}$ uniquely determines the coordinate vector $n \in \R^3$ satisfying the above equations.
+Any triple of real numbers $\begin{pmatrix} n_x \\ n_y \\ n_z\end{pmatrix}$ uniquely determines the coordinate vector $\vec{n} \in \R^3$ satisfying the above equations.
+Let $S^2 = \left\{\, \hat{n} \in \R^3 \mid \|\hat{n}\| = 1\right\}$ denote the $2$-dimensional unit sphere about the origin in $\R^3$.
+
+\subsubsection{Outline}
+
+In what follows, each section herein corresponds to a book whose exercises are attempted and each subsection corresponds to a lecture from the corresponding book.
 

@@ -493,7 +493,7 @@ There are no exercises in this lecture on systems of particles.
 \end{answer}
 
 % chain rule
-\begin{answer}[Potential energy inversely proportional to square of the distance]
+\begin{answer}[Potential energy proportional to inverse squared distance]
 	Consider a particle with mass $m$ in two dimensions, $x$ and $y$, with potential energy $\dsp V = \frac{k}{2(x^2+y^2)}$.
 
 	Let $\vr = \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} r \cos \theta \\ r \sin \theta \end{pmatrix}$, $r = \left|\vr\right|$, $\dsp \widehat{\vr} = \frac{\vr}{r}$, and $\dsp V' = \frac{dV}{dr} = \frac{d}{dr}\left(\frac{k}{2r^2}\right) = \frac{-k}{r^{3}}$.
@@ -723,9 +723,11 @@ There are no exercises in this lecture on systems of particles.
 	\end{align}
 \end{answer}
 
+% solve for \dot{q}
 \begin{answer}[Hamiltonian of harmonic oscillator]
-	The conjugate momentum $p$ of the Lagrangian in Equation \eqref{eqn:Lcharm} is given by $\frac{\partial L}{\partial \dot{q}} = \frac{1}{\omega} \dot{q}$, and multiplication yields $\dot{q} = \omega p$.
-	The Hamiltonian $H = p \dot{q} - L$ is given by $H = \frac{\omega}{2} p^2 + \frac{\omega}{2} q^2$.
+	The conjugate momentum $p$ associated with the Lagrangian in Equation \eqref{eqn:Lcharm} is given by $\frac{\partial L}{\partial \dot{q}} = \frac{1}{\omega} \dot{q}$.
+	Solving for $\dot{q}$ yields $\dot{q} = \omega p$.
+	The Hamiltonian $H = p \dot{q} - L$ is therefore given by $H = \frac{\omega}{2} p^2 + \frac{\omega}{2} q^2$.
 \end{answer}
 
 \subsection{The phase space fluid and the Gibbs-Liouville theorem}
@@ -734,9 +736,10 @@ There are no exercises in this lecture on phase space.
 
 \subsection{Poisson brackets, angular momentum, and symmetries}
 
+% definition
 \begin{answer}[Partial differentiation]
 	Let $q=(q_j)_{j=1}^n$ and $p=(p_j)_{j=1}^n$ be as before.
-	For any function $F(q, p)$ and positive $i \in \Z_+$ , the following holds.
+	For any function $F(q, p)$ and index $i \in \left\{1, \dots, n\right\}$, the following holds.
 	\begin{align}
 		\left\{F(q,p), p_i\right\}
 		 & =  \sum_{j=1}^n \p{\frac{\partial F}{\partial q_j} \frac{\partial p_i}{\partial p_j} - \frac{\partial F}{\partial p_j} \frac{\partial p_i}{\partial q_j}}
@@ -870,7 +873,42 @@ There are no exercises in this lecture on phase space.
 	Since $\vec{A'} = \vec{A} + \trans{\p{-by, -bx, 0}}$, the scalar field $s = -bxy$ satisfies $\vec{A'} = \vec{A} + \vec{\nabla} s$.
 \end{answer}
 
-\begin{answer}[Newton]
-	The partial derivatives of $\dsp H = \sum_i \frac{1}{2m} \p{p_i - \frac{e}{c} A_i(x)}\p{p_i - \frac{e}{c} A_i(x)}$ are $\frac{\partial H}{\partial p_i} = \frac{1}{m} \p{p_i - \frac{e}{c} A_i(x)}$ and $\dsp \frac{\partial H}{\partial x_i} = \sum_{j} \frac{1}{m} \p{-\frac{e}{c} p_j + \frac{e^2}{c^2} A_j(x)} \frac{\partial A_j}{\partial x_i}$.
+\begin{answer}[Derivation of Newton-Lorentz equation]
+	Consider the Hamiltonian given below.
+	\begin{align}
+		H & = \sum_i \frac{1}{2m} \p{p_i - \frac{e}{c} A_i(x)}\p{p_i - \frac{e}{c} A_i(x)}
+	\end{align}
+	Its partial derivatives are calculated below.
+	\begin{align*}
+		\frac{\partial H}{\partial p_i} = \frac{1}{m} \p{p_i - \frac{e}{c} A_i(x)}
+		\qquad
+		\frac{\partial H}{\partial x_i} = \sum_{j} \frac{1}{m} \p{-\frac{e}{c} p_j + \frac{e^2}{c^2} A_j(x)} \frac{\partial A_j}{\partial x_i}
+	\end{align*}
+	Hamilton's equations of motion $\dot{x}_i = \frac{\partial H}{\partial p_i}$ and $\dot{p}_i = - \frac{\partial H}{\partial x_i}$ yield the following equations.
+	\begin{align*}
+		p_i = m\dot{x}_i + \frac{e}{c} A_i(x)
+		\qquad
+		\dot{p}_i = \frac{e}{c} \sum_{j} \frac{1}{m} \p{p_j - \frac{e}{c} A_j(x)} \frac{\partial A_j}{\partial x_i}
+	\end{align*}
+	Substitution yields $\dsp \dot{p}_i = \frac{e}{c} \sum_j \dot{x}_j \frac{\partial A_j}{\partial x_i}$, while differentiation with the chain rule yields $\dsp \dot{p}_i = m \ddot{x}_i + \frac{e}{c} \sum_{j} \dot{x}_j \frac{\partial A_i}{\partial x_j}$.
+	Subtraction yields $m \ddot{x}_i = \frac{e}{c} \sum_j \dot{x}_j \p{\frac{\partial A_j}{\partial x_i} - \frac{\partial A_i}{\partial x_j}}$.
+	Let $\vec{v} = \dot{\vx}$, $\vec{a} = \ddot{\vx}$, and $\vec{B}$ be the magnetic field with vector potential $A$ given by $\dsp B_i = \sum_j \sum_k \varepsilon_{ijk} \frac{\partial A_k}{\partial x_j}$.
+	Then, $\dsp m \ddot{x}_i = \frac{e}{c} \sum_j \sum_k \varepsilon_{ijk} \dot{x}_j B_k = \frac{e}{c} \p{\dot{\vx} \times B}_i$.
+
+	Therefore, the Hamiltonian yields the Newton-Lorentz equation $m \vec{a} = \frac{e}{c} \vec{v} \times \vec{B}$.
+\end{answer}
+
+\begin{answer}[Motion in a uniform magnetic field]
+	Consider the equations below.
+	\begin{align}
+		a_y & = - \frac{e b}{m c} v_x \label{eqn:magy}           \\
+		a_x & = \phantom{+} \frac{e b}{m c} v_y \label{eqn:magx}
+	\end{align}
+	Let $\omega = \frac{e b}{m c}$.
+	To show the solution to the above equations in the $(x,y)$ plane is a circular orbit with the center of the orbit at any point $\vr_0 = \begin{pmatrix} x_0 \\ y_0 \end{pmatrix}$ in the plane, consider the trajectory $\vr(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$ given for any constant phase $\phi$ and non-negative $v_0 \geq 0$ by $\begin{pmatrix} x(t) \\ y(t) \end{pmatrix} = \begin{pmatrix} x_0 + \frac{v_0}{\omega} \cos\p{\omega t + \phi} \\ y_0 + \frac{v_0}{\omega} \sin\p{\omega t + \phi} \end{pmatrix}$.
+	The velocity $\vec{v}(t) = \dot{\vr}(t)$ is given by $\dot{\vr}(t) = \begin{pmatrix} - v_0 \sin\p{\omega t + \phi} \\ \phantom{+} v_0 \cos\p{\omega t + \phi} \end{pmatrix}$, and the acceleration $\begin{pmatrix} a_x \\ a_y \end{pmatrix} = \dot{\vec{v}}(t)$ is given by $\dot{\vec{v}}(t) = \begin{pmatrix} - \omega v_0 \cos\p{\omega t + \phi} \\ - \omega v_0 \sin\p{\omega t + \phi} \end{pmatrix}$.
+	It satisfies Equations \eqref{eqn:magy}-\eqref{eqn:magx}.
+	Since the squared norm $\|\vr(t) - \vr_0\|^2 = \p{\frac{v_0}{\omega}}^2 \cos^2\p{\omega t + \phi} + \p{\frac{v_0}{\omega}}^2 \sin^2\p{\omega t + \phi}$ is the constant $\p{\frac{v_0}{\omega}}^2$, the solution is given in position space by a circular orbit with center $\vr_0$.
+	If $v_0 = 0$, then the radius of this degenerate circle is zero.
 \end{answer}
 

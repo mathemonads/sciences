@@ -423,13 +423,14 @@ and, for any complex $z \in \C$, the exponential $\dsp \exp\p{z \hat{n} \cdot \s
 \begin{lemma}[Product of spin operators]
 	For any unit vectors $\hat{m}$ and $\hat{n}$, the following equation holds.
 	\begin{align*}
-		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} m_i n_j \sigma_i \sigma_j
+		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma)
+		= \sum_{ij} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k}
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	The result is shown below.
+	The value $(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} (m_i \sigma_i)(n_j \sigma_j) = \sum_{ij} m_i n_j \sigma_i \sigma_j$ is given by Remark \ref{rem:Pauli} below.
 	\begin{align*}
-		(\hat{m} \cdot \sigma)(\hat{n} \cdot \sigma) = \sum_{ij} (m_i \sigma_i)(n_j \sigma_j) = \sum_{ij} m_i n_j \sigma_i \sigma_j
+		\sum_{ij} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k}
 	\end{align*}
 \end{proof}
 

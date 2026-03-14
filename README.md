@@ -5,7 +5,7 @@ proposed solutions to exercises selected from the series on the *Theoretical Min
 
 # Mechanics
 
-answers to exercises
+answers to the exercises
 
 `mechanics.tex`
 

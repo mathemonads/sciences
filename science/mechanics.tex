@@ -22,7 +22,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 \end{answer}
 
 % functions of states 
-\begin{answer}[Number of laws]
+\begin{answer}[Six-state system laws]
 	Consider a system consisting of six states $S = \left\{1, 2, 3, 4, 5, 6\right\}$.
 
 	A law is given by a function $S \xrightarrow{f} S$ that assigns each state in $S$ to the state that results from evolution under the law.
@@ -31,7 +31,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 	If a law must satisfy the conservation of information, then the set of laws that are possible for a six-state system can be classified by the set of functions
 	\begin{align}
-		C & = \left\{ f : S \to S \mid \forall y \in S, \exists!\ x \in S. f(x) = y \right\},
+		C & = \left\{ f : S \to S \mid \forall y \in S, \exists!\ x \in S. f(x) = y \right\}
 	\end{align}
 	where each function has the property that each element in its codomain has a corresponding, unique element in the domain that is mapped to it and thus each such function in $C$ is a bijection.
 	The number of such laws, given by the size $\left|C\right| = 6!$ of $C$, is $6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720$.
@@ -414,84 +414,77 @@ There are no exercises in this lecture on systems of particles.
 	Therefore, the derivative is $\frac{dv^2}{dt} = 2 v \dot{v}$.
 \end{answer}
 
-Recall that the standard basis of the Euclidean plane consists of two vectors.
-
 % differentiation
-\begin{answer}[Potential energy proportional to distance from the origin]
-	Consider a particle with mass $m$ in the Euclidean plane $\R^2 = \op{span} \left\langle \vx, \mbf{y} \right\rangle$ with potential energy $V = \frac{1}{2} k \left(x^2+y^2\right)$ and the initial data given below.
+\begin{answer}[Potential energy proportional to the square of the distance]
+	Consider a particle with mass $m$ in the Cartesian plane with potential energy defined at any point $\vr = \begin{bmatrix} x \\ y \end{bmatrix}$ by $V\p{\vr} = \frac{1}{2} k \left(x^2+y^2\right)$ and the initial data denoted as follows.
 	\begin{align*}
 		\vr_0
-		 & =
-		\begin{pmatrix}
-			x(0) \\
-			y(0)
-		\end{pmatrix}
-		=
-		\begin{pmatrix}
+		            & =
+		\begin{bmatrix}
 			x_0 \\
 			y_0
-		\end{pmatrix}
-		 &
-		\dot{\vr}_0 =
-		\begin{pmatrix}
-			\dot{x}(0) \\
-			\dot{y}(0)
-		\end{pmatrix}
-		=
-		\begin{pmatrix}
+		\end{bmatrix}
+		            &
+		\dot{\vr}_0 & =
+		\begin{bmatrix}
 			\dot{x}_0 \\
 			\dot{y}_0
-		\end{pmatrix}
+		\end{bmatrix}
 	\end{align*}
-
-	Observe $\dsp \nabla V = \begin{pmatrix} \frac{\partial V}{\partial x} \\ \frac{\partial V}{\partial y} \end{pmatrix} = \begin{pmatrix} kx \\ ky \end{pmatrix}$, and the force $\dsp F = \begin{pmatrix} F_x \\ F_y \end{pmatrix}$ has components $F_x = -kx$ and $F_y = -ky$.
-	The equations of motion are $m \ddot{x} = -kx$ and $m \ddot{y} = -ky$.
-	The solution is given in terms of $\dsp \omega = \sqrt{\frac{k}{m}}$ below.
-	\begin{align}
-		\vr
-		 & =
-		\begin{pmatrix}
+	The force $F = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
+	The equation of motion $m \ddot{\vr} = - k \vr$ is expressed in components below.
+	\begin{align}\label{eqn:square}
+		m \ddot{x} & = -kx
+		           &
+		m \ddot{y} & = -ky
+	\end{align}
+	The solution $\vr =
+		\begin{bmatrix}
 			x \\
 			y
-		\end{pmatrix}
-		= \phantom{-\omega^2}
-		\begin{pmatrix}
+		\end{bmatrix}$
+	is proposed in terms of $\dsp \omega = \sqrt{\frac{k}{m}}$ below.
+	\begin{align*}
+		\vr & =
+		\begin{bmatrix}
 			x_0 \cos \omega t + \frac{\dot{x}_0}{\omega} \sin \omega t \\
 			y_0 \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
-		\end{pmatrix} \\
-		\dot{\vr}
-		 & =
-		\begin{pmatrix}
+		\end{bmatrix}
+	\end{align*}
+	Its derivatives $\dot{\vr} =
+		\begin{bmatrix}
 			\dot{x} \\
 			\dot{y}
-		\end{pmatrix}
-		=
-		\phantom{- \omega}
-		\begin{pmatrix}
-			-x_0 \omega \sin \omega t + \dot{x}_0 \cos \omega t \\
-			-y_0 \omega \sin \omega t + \dot{y}_0 \cos \omega t
-		\end{pmatrix} \nonumber                        \\
-		\ddot{\vr}
-		 & =
-		\begin{pmatrix}
+		\end{bmatrix}$
+	and $\ddot{\vr} =
+		\begin{bmatrix}
 			\ddot{x} \\
 			\ddot{y}
-		\end{pmatrix}
-		=
-		- \omega^2
-		\begin{pmatrix}
+		\end{bmatrix}$
+	are calculated below.
+	\begin{align*}
+		\dot{\vr}
+		 & =
+		\begin{bmatrix}
+			-x_0 \omega \sin \omega t + \dot{x}_0 \cos \omega t \\
+			-y_0 \omega \sin \omega t + \dot{y}_0 \cos \omega t
+		\end{bmatrix}
+		\\
+		\ddot{\vr}
+		 & = - \omega^2
+		\begin{bmatrix}
 			x_0 \cos \omega t +  \frac{\dot{x}_0}{\omega} \sin \omega t \\
 			y_0 \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
-		\end{pmatrix}
-		= - \frac{k}{m} \vr \nonumber
-	\end{align}
-	Observe it satisfies the equations and that the orbits have period $\dsp 2\pi \sqrt{\frac{m}{k}}$.
+		\end{bmatrix}
+		= - \frac{k}{m} \vr
+	\end{align*}
+	They satisfy Equation \eqref{eqn:square} and the motion has period $2 \pi \sqrt{\frac{m}{k}}$.
 
 	Let $\dsp \vb = \frac{1}{\omega} \dot{\vr}_0$.
-	The orbit is an ellipse centered at the origin whose principal axes are along the eigenvectors of the matrix $\vr_0 \vr_0^\top + \vb \vb^\top$.
-	It is a circle if $\left|\dot{\vr}_0\right| = \omega \left|\vr_0\right|$ and $\vr_0 \cdot \dot{\vr}_0 = 0$.
+	The orbit is an ellipse centered at the origin whose principal axes are along the eigenvectors of the matrix $\vr_0 \trans{\vr_0} + \vb \trans{\vb}$.
+	It is a circle if $\left\|\dot{\vr}_0\right\| = \omega \left\|\vr_0\right\|$ and $\vr_0 \cdot \dot{\vr}_0 = 0$.
 
-	Since $\dsp V = \frac{k}{2} \left|\vr\right|^2$, it follows from the chain rule that $\dot{V} = k \vr \cdot \dot{\vr}$ and from the equation of motion that $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr} = - k \vr \cdot \dot{\vr}$.
+	Since $\dsp V = \frac{k}{2} \left\|\vr\right\|^2$, it follows from the chain rule that $\dot{V} = k \vr \cdot \dot{\vr}$ and from the equation of motion that $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr} = - k \vr \cdot \dot{\vr}$.
 	Addition yields $\dsp \dot{E} = \dot{T} + \dot{V} = 0$.
 	Thus, the total energy is conserved.
 \end{answer}
@@ -767,7 +760,7 @@ There are no exercises in this lecture on phase space.
 
 % product
 \begin{answer}[Poisson bracket with angular momentum]
-	By the axioms of the Poisson bracket, the Poisson bracket $\left\{x, L_z\right\} = \left\{x, x p_y\right\} + \left\{x, - y p_x \right\}$ can be calculated as follows.
+	It follows from the Poisson bracket axiom of linearity that $\left\{x, L_z\right\} = \left\{x, x p_y\right\} + \left\{x, - y p_x \right\}$ and from the axiom of products that the following hold.
 	\begin{align}
 		\left\{x, L_z\right\} & = \p{\left\{x, x\right\} p_y  + x \left\{x, p_y\right\}} + \p{-\left\{x, y\right\}p_x - y \left\{x, p_x\right\}} = 0 - y = - y
 	\end{align}
@@ -782,22 +775,24 @@ There are no exercises in this lecture on phase space.
 
 \begin{answer}[Cross product]
 	Let $\vec{V}$ and $\vec{A}$ be vectors in $\R^3$.
-	Observe the equations below.
+	Let $I = \left\{x, y, z\right\}$.
+	Observe the following calculations.
 	\begin{align*}
-		\sum_j \sum_k \varepsilon_{xjk} V_j A_k = V_y A_z - V_z A_y & = \p{\vec{V} \times \vec{A}}_x \\
-		\sum_j \sum_k \varepsilon_{yjk} V_j A_k = V_z A_x - V_x A_z & = \p{\vec{V} \times \vec{A}}_y \\
-		\sum_j \sum_k \varepsilon_{zjk} V_j A_k = V_x A_y - V_y A_x & = \p{\vec{V} \times \vec{A}}_z
+		\sum_{j \in I} \sum_{k \in I} \varepsilon_{xjk} V_j A_k = V_y A_z - V_z A_y & = \p{\vec{V} \times \vec{A}}_x \\
+		\sum_{j \in I} \sum_{k \in I} \varepsilon_{yjk} V_j A_k = V_z A_x - V_x A_z & = \p{\vec{V} \times \vec{A}}_y \\
+		\sum_{j \in I} \sum_{k \in I} \varepsilon_{zjk} V_j A_k = V_x A_y - V_y A_x & = \p{\vec{V} \times \vec{A}}_z
 	\end{align*}
-	This yields the following equations.
+	The above equations are captured below.
 	\begin{align*}
-		\p{\vec{V} \times \vec{A}}_i & = \sum_j \sum_k \varepsilon_{ijk} V_j A_k \\
-		\p{\vec{V} \times \vec{A}}_k & = \sum_i \sum_j \varepsilon_{kij} V_i A_j
+		\p{\vec{V} \times \vec{A}}_i & = \sum_{j \in I} \sum_{k \in I} \varepsilon_{ijk} V_j A_k \\
 	\end{align*}
-	For any cyclic permutation $\begin{pmatrix} i & j & k_0\end{pmatrix}$, the following equation holds.
+	If $\left(i, j, k\right)$ is cyclic permutation of $\left(x, y, z\right)$, then the following equations hold.
 	\begin{align*}
-		V_i A_j - V_j A_i & = \sum_{i'} \sum_{j'} \varepsilon_{k_0 i' j'} V_{i'} A_{j'} = \p{\vec{V} \times \vec{A}}_{k_0} = \sum_{k} \varepsilon_{k i j} \p{\vec{V} \times \vec{A}}_{k} \\
-		                  & = \sum_{k} \varepsilon_{i j k} \p{\vec{V} \times \vec{A}}_{k}
+		V_i A_j - V_j A_i & = \left(\vec{V} \times \vec{A}\right)_k
+		                  &
+		V_j A_i - V_i A_j & = - \left(\vec{V} \times \vec{A}\right)_k
 	\end{align*}
+	For any $i$ and $j$, the above equations therefore yield $V_i A_j - V_j A_i = \sum_k \varepsilon_{ijk} \left(\vec{V} \times \vec{A}\right)_k$.
 \end{answer}
 
 \begin{answer}[Curl of gradient]

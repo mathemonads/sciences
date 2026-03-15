@@ -424,15 +424,14 @@ For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall the exponent
 \begin{lemma}[Product of Pauli operators]
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
-		(\vec{m} \cdot \sigma)(\vec{n} \cdot \sigma)
-		= \sum_{i, j} m_i n_j \delta_{ij} I + i \sum_{i, j} m_i n_j \sum_k \varepsilon_{ijk} \sigma_k
+		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & =
+		\sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	The value $\dsp (\vec{m} \cdot \sigma)(\vec{n} \cdot \sigma) = \sum_{i,j} (m_i \sigma_i)(n_j \sigma_j) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is given by Remark \ref{rem:Pauli} below.
+	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
 	\begin{align*}
-		\sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k}
-		= \sum_{i, j} m_i n_j \delta_{ij} I + i \sum_{i, j} m_i n_j \sum_k \varepsilon_{ijk} \sigma_k
+		S = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
 \end{proof}
 
@@ -477,11 +476,20 @@ The above proposition follows from the fact that Pauli matrices transform like o
 
 % U^\dagger U = I
 \begin{answer}[Conservation of overlaps]
-	If $U$ is a unitary that acts on state vectors $\ket{A}$ and $\ket{B}$, then the inner product of $\ket{C} = U \ket{A}$ and $\ket{D} = U \ket{B}$ satisfies $\braket{C \mid D} = \bra{A} U^\dagger U \ket{B} = \braket{A \mid B}$.
+	If $U$ is a unitary that acts on state vectors $\ket{A}$ and $\ket{B}$, then the inner product of $\ket{C} = U \ket{A}$ and $\ket{D} = U \ket{B}$ satisfies $\braket{C \mid D} = \bra{A} U^\dagger U \ket{B} = \braket{A \mid I B} = \braket{A \mid B}$.
 \end{answer}
 
 \begin{answer}[Commutator of Hermitian operators]
 	Let $M$ and $L$ be Hermitian operators, hence satisfying $M^\dagger = M$ and $L^\dagger = L$.
-	Their commutator is given by $[M, L] = LM - ML$.
+
+	Their commutator $[M, L] = M L - L M$ satisfies $i [M, L] = i M L - i L M$ and $[M, L]^\dagger = L^\dagger M^\dagger - M^\dagger L^\dagger = L M - M L = - [M, L]$.
+	Thus, the commutator $[M, L]$ is Hermitian if and only if it is zero.
+
+	The Hermitian conjugate $\left(i[M, L]\right)^\dagger = -i L^\dagger M^\dagger + i M^\dagger L^\dagger = -i L M + i M L$ satisfies $\left(i [M, L]\right)^\dagger = i [M, L]$.
+	Therefore, the operator $i [M, L]$ is Hermitian.
+\end{answer}
+
+\begin{answer}
+	The units of Planck's constant are Joules second.
 \end{answer}
 

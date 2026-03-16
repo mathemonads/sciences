@@ -222,7 +222,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 \begin{answer}[Orthogonality of sinusoidal position and velocity]
 	The dot product of the position and velocity vectors is given below.
 	\begin{align}
-		\vr \cdot \dot{vr}
+		\vr \cdot \dot{\vr}
 		 & =
 		\begin{bmatrix}
 			R \cos \omega t \\
@@ -446,8 +446,10 @@ There are no exercises in this lecture on systems of particles.
 		 & = - \omega^2 \left(\vr_0 \cos \omega t + \vb \sin \omega t\right)
 		= - \frac{k}{m} \vr
 	\end{align*}
-	Suppose $\vr_0$ and $\vb$ are linearly independent.
-	They satisfy the equations of motion and the motion is periodic with period $2 \pi \sqrt{\frac{m}{k}}$.
+	The trajectory satisfies the equations of motion and the motion is periodic with period $2 \pi \sqrt{\frac{m}{k}}$.
+	If $\vr_0$ and $\vb$ are linearly dependent, then the orbit is a line segment.
+	Suppose they are linearly independent.
+
 	The orbit defined by Equation \eqref{eqn:square} is the image of the unit circle under the linear map whose columns are $\vr_0$ and $\vb$.
 	Hence, it is an ellipse centered at the origin.
 	It is a circle if $\left\|\vv_0\right\| = \omega \left\|\vr_0\right\|$ and $\vr_0 \cdot \vv_0 = 0$.
@@ -456,10 +458,18 @@ There are no exercises in this lecture on systems of particles.
 	Therefore, the total energy is conserved.
 \end{answer}
 
-\begin{remark}[Tangent vectors of polar basis]
+\begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
 	Any differentiable curve $\vr(t)$ can be given by $\vr(t) = \begin{pmatrix} r(t) \cos \theta(t) \\ r(t) \sin \theta(t) \end{pmatrix}$ in terms of the \emph{radial function $r(t)$} and \emph{angular function $\theta(t)$}.
 	For any $t$ with $\vr(t) \neq \vzero$, the \emph{unit radial vector} $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$ satisfies $\dot{\widehat{\vr}} = \dot{\theta} \widehat{\vth}$ and the unit vector $\widehat{\vth}$ perpendicular to $\widehat{\vr}$ satisfies $\dot{\widehat{\vth}} = - \dot{\theta} \widehat{\vr}$.
 \end{remark}
+
+\begin{proposition}
+	Given any differentiable curve $\vr$ and $t$ such that $\vr(t) \neq \vzero$, the velocity is given by
+	$\dot{\vr}(t) = r(t) \dot{\theta}(t) \widehat{\vth}(t) + \dot{r}(t) \widehat{\vr}(t)$.
+\end{proposition}
+\begin{proof}
+	The result follows from Remark \ref{rem:polar} and the product rule.
+\end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
@@ -485,13 +495,13 @@ There are no exercises in this lecture on systems of particles.
 		\end{pmatrix}
 		= \frac{k}{r^4}\vr
 	\end{align*}
-	The equation of motion $m \ddot{r} = \frac{k}{r^4} \vr$ is expressed in components below.
+	The equation of motion $m \ddot{\vr} = \frac{k}{r^4} \vr$ is expressed in components below.
 	\begin{align*}
 		m \ddot{x} & = k\frac{x}{(x^2+y^2)^2}
 		           &
 		m \ddot{y} & = k \frac{y}{(x^2+y^2)^2}
 	\end{align*}
-	Observe $\dot{\vr} = r \dot{\theta} \widehat{\vth} + \dot{r} \widehat{\vr}$ and $\ddot{\vr} = \left(\ddot{r} - r \dot{\theta}^2\right) \widehat{\vr} + \left(r \ddot{\theta} + 2 \dot{r} \dot{\theta}\right) \widehat{\vth}$.
+	Observe $\ddot{\vr} = \left(\ddot{r} - r \dot{\theta}^2\right) \widehat{\vr} + \left(r \ddot{\theta} + 2 \dot{r} \dot{\theta}\right) \widehat{\vth}$.
 	The equivalent equations of motion are $m\left(\ddot{r} - r\dot{\theta}^2\right) = F_r = \frac{k}{r^3}$ and $m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = F_\theta = 0$.
 
 	Let $\dsp L = mr^2 \dot{\theta}$, $\dsp T = \frac{m}{2}\left(\dot{\vr} \cdot \dot{\vr}\right)$, $\dsp u(\theta) = \frac{1}{r(\theta)}$, $\dsp r' = \frac{dr}{d\theta}$, and $\dsp r'' = \frac{d^2r}{d\theta^2}$.
@@ -856,6 +866,7 @@ There are no exercises in this lecture on phase space.
 	Therefore, $\vec{A'} = \vec{A} + \vec{\nabla} s$.
 \end{answer}
 
+% chain rule
 \begin{answer}[Derivation of Newton-Lorentz equation]
 	Consider the Hamiltonian given below.
 	\begin{align}
@@ -875,8 +886,8 @@ There are no exercises in this lecture on phase space.
 	\end{align*}
 	Substitution yields $\dsp \dot{p}_i = \frac{e}{c} \sum_j \dot{x}_j \frac{\partial A_j}{\partial x_i}$, while differentiation with the chain rule yields $\dsp \dot{p}_i = m \ddot{x}_i + \frac{e}{c} \sum_{j} \dot{x}_j \frac{\partial A_i}{\partial x_j}$.
 	Subtraction yields $m \ddot{x}_i = \frac{e}{c} \sum_j \dot{x}_j \p{\frac{\partial A_j}{\partial x_i} - \frac{\partial A_i}{\partial x_j}}$.
-	Let $\vec{v} = \dot{\vx}$, $\vec{a} = \ddot{\vx}$, and $\vec{B}$ be the magnetic field with vector potential $A$ given by $\dsp B_i = \sum_j \sum_k \varepsilon_{ijk} \frac{\partial A_k}{\partial x_j}$.
-	Then, $\dsp m \ddot{x}_i = \frac{e}{c} \sum_j \sum_k \varepsilon_{ijk} \dot{x}_j B_k = \frac{e}{c} \p{\dot{\vx} \times B}_i$.
+	Let $\vec{v} = \dot{\vx}$, $\vec{a} = \ddot{\vx}$, and $\vec{B}$ be the magnetic field with vector potential $\vec{A}$ given by $\dsp B_i = \sum_j \sum_k \varepsilon_{ijk} \frac{\partial A_k}{\partial x_j}$.
+	Then, $\dsp m \ddot{x}_i = \frac{e}{c} \sum_j \sum_k \varepsilon_{ijk} \dot{x}_j B_k = \frac{e}{c} \p{\dot{\vx} \times \vec{B}}_i$.
 
 	Therefore, the Hamiltonian yields the Newton-Lorentz equation $m \vec{a} = \frac{e}{c} \vec{v} \times \vec{B}$.
 \end{answer}
@@ -908,5 +919,20 @@ There are no exercises in this lecture on phase space.
 	If $v_0 = 0$, then the radius of this degenerate circle is zero.
 \end{answer}
 
-\subsection{Forces and orbits}
+\subsection{Central forces and planetary orbits}
+
+\begin{answer}[Acceleration of an object moving in a circular orbit]
+	Recall that the acceleration of an object moving in a circular orbit $\vr(t) = \begin{bmatrix} r \cos \omega t \\ r \sin \omega t \end{bmatrix}$ is given below.
+	\begin{align}
+		\va(t) & =
+		\omega^2
+		\begin{bmatrix}
+			- r \cos \omega t \\
+			- r \sin \omega t
+		\end{bmatrix}
+		=
+		-\omega^2 \vr(t)
+	\end{align}
+	Therefore, the magnitude $a = \left\|\va\right\|$ of the acceleration is $a = \omega^2 r$.
+\end{answer}
 

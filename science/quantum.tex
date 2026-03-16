@@ -298,17 +298,6 @@ Hence, they are Hermitian.
 
 The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
 
-\begin{proposition}[Commutators of standard Pauli matrices]
-	The standard Pauli matrices obey the relations below.
-	\begin{align*}
-		[\sigma_y, \sigma_z] = 2 i \sigma_x \qquad
-		[\sigma_z, \sigma_x] = 2 i \sigma_y \qquad
-	\end{align*}
-\end{proposition}
-\begin{proof}
-	The result follows from Remark \ref{rem:Pauli}.
-\end{proof}
-
 Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
 
 For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in the direction of $\vec{n}$}
@@ -421,21 +410,24 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
 
-For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall the exponential $\dsp \exp\p{z \vec{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \vec{n} \cdot \sigma}^k$; any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
+For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p{z \vec{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \vec{n} \cdot \sigma}^k$.
 
-\begin{lemma}[Product of Pauli operators]
+\begin{proposition}[Product of Pauli operators]
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
 		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & =
-		\sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
+		\sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
 	\end{align*}
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
 	\begin{align*}
 		S = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
+	This yields $\dsp \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$.
 \end{proof}
+
+Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
 \begin{theorem}
 	For any unit vector $\hat{n} \in S^2$ and angle $\theta \in \R$, the following hold:
@@ -492,6 +484,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	Therefore, the operator $i [M, L]$ is Hermitian.
 \end{answer}
 
+% Planck units are energy x time
 \begin{answer}[Units of commutator]
 	Let $L$ denote a Lagrangian and $E = \left|L\right|$ denote the unit of $L$.
 	Recall for any generalized coordinate $q$ that the unit of its derivative $\dot{q} = \frac{dq}{dt}$ with respect to time is $\left|\dot{q}\right| = \frac{|q|}{|t|}$, that the unit of its conjugate momentum $p = \frac{\partial L}{\partial \dot{q}}$ is $|p| = \frac{E}{|q|/|t|}$, and that the unit of the reduced Planck constant $\hbar$ is $\left|\hbar\right| = E |t|$.
@@ -504,9 +497,17 @@ The above proposition follows from the fact that Pauli matrices transform like o
 \end{answer}
 
 \begin{answer}[Commutation relations]
-	The following equation holds.
+	By Remark \ref{rem:Pauli}, the following equations hold.
 	\begin{align*}
 		[\sigma_x, \sigma_y] & = 2 i \sigma_z \qquad
+		                     &
+		[\sigma_y, \sigma_z] & = 2 i \sigma_x \qquad
+		                     &
+		[\sigma_z, \sigma_x] & = 2 i \sigma_y \qquad
 	\end{align*}
+\end{answer}
+
+\begin{answer}
+	For any unit $3$-vector $\hat{n}$, consider the operator $H = \frac{\hbar \omega}{2} \sigma \cdot \hat{n}$.
 \end{answer}
 

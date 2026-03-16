@@ -290,7 +290,10 @@ Hence, they are Hermitian.
 		\end{pmatrix}
 		= - i \sigma_y
 	\end{align*}
-	For any $i$ and $j$ in $\left\{x,y,z\right\}$, the standard Pauli matrices satisfy $\dsp \sigma_i \sigma_j = \delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k$.
+	For any $i$ and $j$ in $\left\{x,y,z\right\}$, the standard Pauli matrices thus satisfy the equation below.
+	\begin{align*}
+		\sigma_i \sigma_j & = \delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k
+	\end{align*}
 \end{remark}
 
 The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
@@ -298,7 +301,6 @@ The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z
 \begin{proposition}[Commutators of standard Pauli matrices]
 	The standard Pauli matrices obey the relations below.
 	\begin{align*}
-		[\sigma_x, \sigma_y] = 2 i \sigma_z \qquad
 		[\sigma_y, \sigma_z] = 2 i \sigma_x \qquad
 		[\sigma_z, \sigma_x] = 2 i \sigma_y \qquad
 	\end{align*}
@@ -479,17 +481,32 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	If $U$ is a unitary that acts on state vectors $\ket{A}$ and $\ket{B}$, then the inner product of $\ket{C} = U \ket{A}$ and $\ket{D} = U \ket{B}$ satisfies $\braket{C \mid D} = \bra{A} U^\dagger U \ket{B} = \braket{A \mid I B} = \braket{A \mid B}$.
 \end{answer}
 
+% Hermitian conjugation
 \begin{answer}[Commutator of Hermitian operators]
 	Let $M$ and $L$ be Hermitian operators, hence satisfying $M^\dagger = M$ and $L^\dagger = L$.
 
 	Their commutator $[M, L] = M L - L M$ satisfies $i [M, L] = i M L - i L M$ and $[M, L]^\dagger = L^\dagger M^\dagger - M^\dagger L^\dagger = L M - M L = - [M, L]$.
 	Thus, the commutator $[M, L]$ is Hermitian if and only if it is zero.
 
-	The Hermitian conjugate $\left(i[M, L]\right)^\dagger = -i L^\dagger M^\dagger + i M^\dagger L^\dagger = -i L M + i M L$ satisfies $\left(i [M, L]\right)^\dagger = i [M, L]$.
+	The Hermitian conjugate $\left(i[M, L]\right)^\dagger = -i \left([M, L]\right)^\dagger$ satisfies $\left(i [M, L]\right)^\dagger = i [M, L]$.
 	Therefore, the operator $i [M, L]$ is Hermitian.
 \end{answer}
 
-\begin{answer}
-	The units of Planck's constant are Joules second.
+\begin{answer}[Units of commutator]
+	Let $L$ denote a Lagrangian and $E = \left|L\right|$ denote the unit of $L$.
+	Recall for any generalized coordinate $q$ that the unit of its derivative $\dot{q} = \frac{dq}{dt}$ with respect to time is $\left|\dot{q}\right| = \frac{|q|}{|t|}$, that the unit of its conjugate momentum $p = \frac{\partial L}{\partial \dot{q}}$ is $|p| = \frac{E}{|q|/|t|}$, and that the unit of the reduced Planck constant $\hbar$ is $\left|\hbar\right| = E |t|$.
+	The units of $i \hbar \left\{F, G\right\}$ are calculated below.
+	\begin{align}
+		\left|i \hbar \{F, G\}\right| & = E |t| \frac{|F| |G|}{|q|} \frac{|q|/|t|}{E} = |F| |G|
+	\end{align}
+	The units of the commutator $\left[F, G\right]$ are $\left|[F, G]\right| = |F| |G| = \left|i \hbar \{F, G\}\right|$.
+	The factor of $\hbar$ is necessary for dimensional consistency since $\left|[F,G]\right| \neq \left|i \{F, G\}\right|$.
+\end{answer}
+
+\begin{answer}[Commutation relations]
+	The following equation holds.
+	\begin{align*}
+		[\sigma_x, \sigma_y] & = 2 i \sigma_z \qquad
+	\end{align*}
 \end{answer}
 

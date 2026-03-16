@@ -36,7 +36,7 @@ Let $\Z_+$ be the totally ordered semigroup of positive integers.
 
 \subsubsection{Euclidean plane}
 The Euclidean plane is the $2$-dimensional real Euclidean vector space $\R^2$ equipped with the standard Euclidean dot product.
-The (ordered, orthonormal) Cartesian basis $e = \left[\vx, \vy\right]$ consists of the unit vectors given below.
+The (ordered, orthonormal) Cartesian basis $e = \left(\vx, \vy\right)$ consists of the unit vectors given below.
 \begin{align*}
 	\vx & =
 	\begin{bmatrix}
@@ -64,6 +64,7 @@ If $\vr \neq \vzero$, a polar angle of $\vr$ is a real number $\theta \in \R$ sa
 	y & = r \sin \theta
 \end{align*}
 Any two polar angles of $\vr$ differ by an integer multiple of $2 \pi$.
+The vector $\vth$ perpendicular to $\vr = \begin{pmatrix} r \cos \theta \\ r \sin \theta \end{pmatrix}$ with $\left\|\vth\right\| = \left\|\vr\right\|$ is given by $\vth = \begin{pmatrix} - r \sin \theta \\ r \cos \theta \end{pmatrix}$.
 Denote the unit vector in the direction of $\vr$ by $\hat{\vr} = \frac{1}{r} \vr$.
 
 Associated with any $\vr \in \left(\R^2 \setminus \left\{\vzero\right\}\right)$ is the (ordered, orthonormal) polar basis $\left(\hat{\vr}, \hat{\vth}\right)$ consisting of unit vectors given in terms of any polar angle $\theta$ of $\vr$ as follows.
@@ -80,6 +81,14 @@ Associated with any $\vr \in \left(\R^2 \setminus \left\{\vzero\right\}\right)$ 
 		\phantom{+} \cos \theta
 	\end{bmatrix}
 \end{align*}
+Their derivatives with respect to the polar angle $\theta$ are given below.
+\begin{align*}
+	\frac{\partial \hat{\vr}}{\partial \theta}  & = \hat{\vth}
+	                                            &
+	\frac{\partial \hat{\vth}}{\partial \theta} & = - \hat{\vr}
+\end{align*}
+The position of the polar coordinates $(r, \theta)$ is $\vr = r \hat{\vr}$.
+
 While round brackets are often used for $\R^2$ and other vector spaces, square brackets are used to denote vectors in $\R^2$ and their matrices.
 
 \subsubsection{Euclidean space}

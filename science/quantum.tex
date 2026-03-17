@@ -415,8 +415,8 @@ For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p
 \begin{proposition}[Product of Pauli operators]
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
-		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & =
-		\sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
+		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & = \left(
+		\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
 	\end{align*}
 \end{proposition}
 \begin{proof}
@@ -424,12 +424,12 @@ For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p
 	\begin{align*}
 		S = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
-	This yields $\dsp \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$.
+	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$.
 \end{proof}
 
 Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
-\begin{theorem}
+\begin{lemma}
 	For any unit vector $\hat{n} \in S^2$ and angle $\theta \in \R$, the following hold:
 	\begin{enumerate}
 		\item there is a rotation $r_n^\theta$ of $\R^3$ about $\hat{n}$ by $\theta$; and
@@ -442,13 +442,13 @@ Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z
 			      R_{n}^\theta\p{\sigma \cdot q}\p{R_n^\theta}^\dagger & = \sigma \cdot \p{r_n^\theta q} & \text{ for all } q \in \R^3.
 		      \end{align*}
 	\end{enumerate}
-\end{theorem}
+\end{lemma}
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
 
 % rotate m onto z
 \begin{answer}[Arbitrary spin after arbitrary measurement]
-	Let $z \in \R^3$ be the usual basis vector.
+	Let $z \in \R^3$ be the usual $z$-axis basis vector.
 	Consider any other directions $m, n \in \R^3$.
 	Let $\hat{m}$ be the unit vector in the direction of $m$, $\hat{n}$ be the unit vector in the direction of $n$, and $\theta$ be the angle from $m$ to $n$ which thus satisfies $\cos \theta = \hat{m} \cdot \hat{n}$.
 	Let a spin be prepared so that $\sigma_m = +1$ and $\ket{m^+}$ be the eigenstate of $\sigma_m$ with eigenvalue $+1$.
@@ -487,7 +487,8 @@ The above proposition follows from the fact that Pauli matrices transform like o
 % Planck units are energy x time
 \begin{answer}[Units of commutator]
 	Let $L$ denote a Lagrangian and $E = \left|L\right|$ denote the unit of $L$.
-	Recall for any generalized coordinate $q$ that the unit of its derivative $\dot{q} = \frac{dq}{dt}$ with respect to time is $\left|\dot{q}\right| = \frac{|q|}{|t|}$, that the unit of its conjugate momentum $p = \frac{\partial L}{\partial \dot{q}}$ is $|p| = \frac{E}{|q|/|t|}$, and that the unit of the reduced Planck constant $\hbar$ is $\left|\hbar\right| = E |t|$.
+	Recall for any generalized coordinate $q$ that the unit of its derivative $\dot{q} = \frac{dq}{dt}$ with respect to time is $\left|\dot{q}\right| = \frac{|q|}{|t|}$.
+	Recall that the unit of its conjugate momentum $p = \frac{\partial L}{\partial \dot{q}}$ is $|p| = \frac{E}{|q|/|t|}$, and that the unit of the reduced Planck constant $\hbar$ is $\left|\hbar\right| = E |t|$.
 	The units of $i \hbar \left\{F, G\right\}$ are calculated below.
 	\begin{align}
 		\left|i \hbar \{F, G\}\right| & = E |t| \frac{|F| |G|}{|q|} \frac{|q|/|t|}{E} = |F| |G|
@@ -496,6 +497,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	The factor of $\hbar$ is necessary for dimensional consistency since $\left|[F,G]\right| \neq \left|i \{F, G\}\right|$.
 \end{answer}
 
+% cases
 \begin{answer}[Commutation relations]
 	By Remark \ref{rem:Pauli}, the following equations hold.
 	\begin{align*}
@@ -508,6 +510,28 @@ The above proposition follows from the fact that Pauli matrices transform like o
 \end{answer}
 
 \begin{answer}
-	For any unit $3$-vector $\hat{n}$, consider the operator $H = \frac{\hbar \omega}{2} \sigma \cdot \hat{n}$.
+	For any unit $3$-vector $\hat{n}$, the energy eigenvectors of the operator $H = \frac{\hbar \omega}{2} \sigma \cdot \hat{n}$ are calculated by solving the time-independent Schrodinger equation $H \ket{E} = E \ket{E}$ using spherical coordinates for $\hat{n} = \left(\sin \theta \cos \phi, \sin \theta \sin \phi, \cos \theta\right)$.
+	Let $w = \frac{\hbar \omega}{2}$.
+	Since the eigenvalues of $\sigma_n = \sigma \cdot \hat{n}$ are $+1$ and $-1$, it follows that the eigenvalues of $\bH$ are $+w$ and $-w$.
+	The eigenvectors of $\sigma_n$ are given below.
+	\begin{align*}
+		\ket{n^+} & =
+		\begin{pmatrix}
+			\cos \frac{\theta}{2} \\
+			e^{i \phi} \sin \frac{\theta}{2}
+		\end{pmatrix}
+		          &
+		\ket{n^-} & =
+		\begin{pmatrix}
+			- e^{-i \phi} \sin \frac{\theta}{2} \\
+			\cos \frac{\theta}{2}
+		\end{pmatrix}
+	\end{align*}
+	They are also the eigenvectors of $\bH$ with eigenvalues $+w$ and $-w$, respectively.
+\end{answer}
+
+\begin{answer}
+	Let $\bH = \frac{\omega \hbar}{2} \sigma_z$, and suppose the initial state is given as $\ket{u}$.
+	The eigenvalues are solutions to the time-independent Schrodinger equation $\bH \ket{E} = E \ket{E}$.
 \end{answer}
 

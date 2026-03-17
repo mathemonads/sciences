@@ -74,7 +74,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 % \vec{B} + (-\vec{B}) = 0
 \begin{answer}[Vector subtraction]
-	The rule for vector subtraction is to add the augend add the result of reversing the direction of the addend.
+	The rule for vector subtraction is to add the augend and the result of reversing the direction of the addend.
 
 	Any vectors $\vec{A}$ and $\vec{B}$ satisfy the following equation.
 	\begin{align}
@@ -241,10 +241,10 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 % calculation
 \begin{answer}[Acceleration]
-	The position vector $\dsp \vec{r} = \left(\cos \omega t, e^{\omega t}\right)$ has velocity $\left(-\omega \sin \omega t, \omega e^{\omega t}\right)$, acceleration $\left(-\omega^2 \cos \omega t, \omega^2 e^{\omega t}\right)$, and speed $\omega \sqrt{\sin^2 \omega t + e^{2 \omega t}}$.
-	The position vector $\dsp \vec{r} = \left(\cos(\omega t - \phi), \sin(\omega t - \phi)\right)$ has velocity $\dsp \left(-\omega \sin(\omega t - \phi), \omega \cos(\omega t - \phi)\right)$, acceleration $\dsp \left(-\omega^2 \cos(\omega t-\phi), -\omega^2\sin(\omega t-\phi)\right)$, and speed $\omega$.
+	The position vector $\dsp \vr = \left(\cos \omega t, e^{\omega t}\right)$ has velocity $\left(-\omega \sin \omega t, \omega e^{\omega t}\right)$, acceleration $\left(-\omega^2 \cos \omega t, \omega^2 e^{\omega t}\right)$, and speed $\omega \sqrt{\sin^2 \omega t + e^{2 \omega t}}$.
+	The position vector $\dsp \vr = \left(\cos(\omega t - \phi), \sin(\omega t - \phi)\right)$ has velocity $\dsp \left(-\omega \sin(\omega t - \phi), \omega \cos(\omega t - \phi)\right)$, acceleration $\dsp \left(-\omega^2 \cos(\omega t-\phi), -\omega^2\sin(\omega t-\phi)\right)$, and speed $\omega$.
 	The position vector $\dsp \left(c \cos^3 t, c \sin^3 t\right)$ has velocity $\dsp \left(-3c (\sin t)\cos^2 t, 3c(\cos t)\sin^2 t\right)$, acceleration $\dsp \left(6c (\cos t)\sin^2 t - 3c\cos^3 t, 6c (\sin t)\cos^2 t - 3c\sin^3 t\right)$, and speed $3\left| c (\sin t)(\cos t) \right|$.
-	The position vector $\dsp \vec{r} = \left(c(t-\sin t), c(1-\cos t)\right)$ has velocity $\dsp \left(c - c\cos t, c\sin t\right)$, acceleration $\dsp \left(c\sin t,  c\cos t\right)$, and speed $\dsp c\sqrt{2(1- \cos t)}$.
+	The position vector $\dsp \vr = \left(c(t-\sin t), c(1-\cos t)\right)$ has velocity $\dsp \left(c - c\cos t, c\sin t\right)$, acceleration $\dsp \left(c\sin t,  c\cos t\right)$, and speed $\dsp c\sqrt{2(1- \cos t)}$.
 \end{answer}
 
 \subsubsection{Integral calculus}
@@ -284,7 +284,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 % power
 \begin{answer}[Aristotle's Law of Motion]
-	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{dx(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3m} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3m} + c$ implies $c = \pi$.
+	If a force varies with time according to $F = 2t^2$ and with initial condition $x(0) = \pi$ at time $0$, then Aristotle's law of motion $\dsp \int \frac{d x(t)}{dt}~dt = \int \frac{F(t)}{m}~dt$ yields $\dsp x(t) = \frac{2t^3}{3m} + c$ where $\dsp \pi = \frac{2\cdot 0^3}{3m} + c$ implies $c = \pi$.
 \end{answer}
 
 % fundamental theorem of calculus
@@ -401,38 +401,44 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 \subsection{Systems of more than one particle}
 
-There are no exercises in this lecture on systems of particles.
+There are no exercises in this lecture concerning systems of particles.
+
+\begin{definition}[Radius]
+	For any curve $\vr(t)$ in a Hilbert space, its \emph{radial function} is $r(t) = \left\|\vr(t)\right\|$.
+	It is also called the \emph{radius}.
+\end{definition}
+
+\paragraph{Angle} On any interval where a differentiable curve $\vr(t)$ in the Euclidean plane does not intersect the origin, there is a function $\theta(t)$ such that $\vr(t) = \begin{pmatrix} r(t) \cos \theta(t) \\ r(t) \sin \theta(t) \end{pmatrix}$.
 
 \subsection{Energy}
 
-% product rule
+% chain rule
 \begin{answer}[Rate of change of kinetic energy]
-	For a particle with a velocity $v(t)$ in one direction, the derivative of $v^2(t) = v(t)^2$ is calculated by the product rule below.
+	For a particle with velocity $\vv(t)$, the derivative of $\vv^2(t) = \vv(t) \cdot \vv(t)$ is calculated by the product rule below.
 	\begin{align}
-		\frac{dv^2}{dt} & = v \dot{v} + \dot{v} v
+		\frac{d \vv^2(t)}{dt} & = \vv(t) \cdot \frac{d \vv(t)}{dt} + \frac{d \vv(t)}{dt} \cdot \vv(t)
 	\end{align}
-	Therefore, the derivative is $\frac{dv^2}{dt} = 2 v \dot{v}$.
+	Therefore, $\frac{d \vv^2(t)}{dt} = 2 \vv(t) \cdot \dot{\vv}(t)$.
 \end{answer}
+
+\begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
+	For any $t$ with $\vr(t) \neq \vzero$, the \emph{unit radial vector} $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$ satisfies $\dot{\widehat{\vr}}(t) = \dot{\theta}(t) \widehat{\vth}(t)$ and the unit vector $\widehat{\vth}(t)$ perpendicular to $\widehat{\vr}(t)$ satisfies $\dot{\widehat{\vth}}(t) = - \dot{\theta}(t) \widehat{\vr}(t)$.
+\end{remark}
 
 % differentiation
 \begin{answer}[Potential energy proportional to the square of the distance]
-	Consider a particle with mass $m$ in the Cartesian plane with potential energy defined at any point $\vr = \begin{bmatrix} x \\ y \end{bmatrix}$ by $V\p{\vr} = \frac{1}{2} k \left(x^2+y^2\right)$, an initial position $\vr_0 =
+	Consider a particle with mass $m$ in the Cartesian plane with potential energy defined at any point $\vr = \begin{bmatrix} x \\ y \end{bmatrix}$ by $V\p{\vr} = \frac{1}{2} k \left(x^2+y^2\right)$, initial position $\vr_0 =
 		\begin{bmatrix}
 			x_0 \\
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
-	If $\vr = \vv_0 = \vzero$, then the trajectory of the particle is stationary.
+	If $\vr_0 = \vv_0 = \vzero$, then the trajectory of the particle is stationary.
 	Suppose at least one is not zero.
 	The kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
 
-	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$ and the force $\bF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
-	The equation of motion $m \ddot{\vr} = - k \vr$ is expressed in components below.
-	\begin{align*}
-		m \ddot{x} & = -kx
-		           &
-		m \ddot{y} & = -ky
-	\end{align*}
-	Let $\omega = \sqrt{\frac{k}{m}}$ and $\vb = \frac{1}{\omega} \vv_0$ below.
+	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\bF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
+	The equation of motion $m \ddot{\vr} = - k \vr$ is expressed in components $m \ddot{x} = -kx$ and $m \ddot{y} = -ky$.
+	Let $\omega = \sqrt{\frac{k}{m}}$ and $\vb = \frac{1}{\omega} \vv_0$.
 	Consider the following trajectory.
 	\begin{align}\label{eqn:square}
 		\vr(t) & = \vr_0 \cos \omega t + \vb \sin \omega t
@@ -446,24 +452,18 @@ There are no exercises in this lecture on systems of particles.
 		 & = - \omega^2 \left(\vr_0 \cos \omega t + \vb \sin \omega t\right)
 		= - \frac{k}{m} \vr
 	\end{align*}
-	The trajectory satisfies the equations of motion and the motion is periodic with period $2 \pi \sqrt{\frac{m}{k}}$.
-	If $\vr_0$ and $\vb$ are linearly dependent, then the orbit is a line segment.
-	Suppose they are linearly independent.
-
+	The trajectory satisfies the equations of motion.
+	The motion is periodic with angular frequency $\omega$ and period $2 \pi \sqrt{\frac{m}{k}}$.
 	The orbit defined by Equation \eqref{eqn:square} is the image of the unit circle under the linear map whose columns are $\vr_0$ and $\vb$.
-	Hence, it is an ellipse centered at the origin.
-	It is a circle if $\left\|\vv_0\right\| = \omega \left\|\vr_0\right\|$ and $\vr_0 \cdot \vv_0 = 0$.
+	If $\vr_0$ and $\vb$ are linearly dependent, then the orbit is a line segment.
+	Otherwise, the orbit is an ellipse centered at the origin.
+	In the latter case, it is a circle if $\left\|\vv_0\right\| = \omega \left\|\vr_0\right\|$ and $\vr_0 \cdot \vv_0 = 0$.
 
 	Since $\dot{V} = k \vr \cdot \dot{\vr}$ and $\dot{T} = m \dot{\vr} \cdot \ddot{\vr}$, it follows from the equations of motion that $\dot{T} = -k \dot{\vr} \cdot \vr = - \dot{V}$ and thus that the derivative of the total energy $E = T + V$ with respect to time is zero.
 	Therefore, the total energy is conserved.
 \end{answer}
 
-\begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	Any differentiable curve $\vr(t)$ can be given by $\vr(t) = \begin{pmatrix} r(t) \cos \theta(t) \\ r(t) \sin \theta(t) \end{pmatrix}$ in terms of the \emph{radial function $r(t)$} and \emph{angular function $\theta(t)$}.
-	For any $t$ with $\vr(t) \neq \vzero$, the \emph{unit radial vector} $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$ satisfies $\dot{\widehat{\vr}} = \dot{\theta} \widehat{\vth}$ and the unit vector $\widehat{\vth}$ perpendicular to $\widehat{\vr}$ satisfies $\dot{\widehat{\vth}} = - \dot{\theta} \widehat{\vr}$.
-\end{remark}
-
-\begin{proposition}
+\begin{proposition}[Velocity]
 	Given any differentiable curve $\vr$ and $t$ such that $\vr(t) \neq \vzero$, the velocity is given by
 	$\dot{\vr}(t) = r(t) \dot{\theta}(t) \widehat{\vth}(t) + \dot{r}(t) \widehat{\vr}(t)$.
 \end{proposition}
@@ -892,6 +892,7 @@ There are no exercises in this lecture on phase space.
 	Therefore, the Hamiltonian yields the Newton-Lorentz equation $m \vec{a} = \frac{e}{c} \vec{v} \times \vec{B}$.
 \end{answer}
 
+% sinusoid
 \begin{answer}[Motion in a uniform magnetic field]
 	For any constant mass $m \neq 0$ and charge $e \in \R$, consider the equations below.
 	\begin{align}
@@ -935,4 +936,12 @@ There are no exercises in this lecture on phase space.
 	\end{align}
 	Therefore, the magnitude $a = \left\|\va\right\|$ of the acceleration is $a = \omega^2 r$.
 \end{answer}
+
+\subsection*{Sciences}
+
+Recall that the values of a Lagrangian $L$ are expressed in units of energy.
+
+\begin{remark}[Units of generalized velocity]
+	For any generalized coordinate $q$, the temporal derivative $\dot{q} = \frac{dq}{dt}$ has units $\left[\dot{q}\right] = \frac{\left[q\right]}{\left[t\right]}$.
+\end{remark}
 

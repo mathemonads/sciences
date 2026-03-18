@@ -403,12 +403,24 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 There are no exercises in this lecture concerning systems of particles.
 
-\begin{definition}[Radius]
-	For any curve $\vr(t)$ in a Hilbert space, its \emph{radial function} is $r(t) = \left\|\vr(t)\right\|$.
-	It is also called the \emph{radius}.
+Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the additive identity.
+
+\paragraph{Mathematical sciences} Consider a vector space with norm $\left\|\bullet\right\|$.
+
+For a curve $\vr(t)$ in such a space, its \emph{radial function} is its distance from the origin defined by $r(t) = \left\|\vr(t)\right\|$.
+
+\begin{definition}[Angular curve, tangential curve]
+	For a nonvanishing curve $\vr(t)$ in a normed vector space with radial function $r(t)$, its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
+	For a nonvanishing curve in the Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a differentiable curve $\theta(t)$ for which any point $\theta(t_0)$ is a polar angle of $\vr(t_0)$.
+	For any angular curve $\theta(t)$, the \emph{tangential curve} is the curve $\vth(t)$ such that $\vth(t_0)$ is perpendicular to $\vr(t_0)$ with the standard orientation and norm $\left\|\vth(t_0)\right\| = \left\|\vr(t_0)\right\|$; the \emph{tangential unit curve} is the unit curve $\widehat{\vth}(t)$ associated with the tangential curve.
 \end{definition}
 
-\paragraph{Angle} On any interval where a differentiable curve $\vr(t)$ in the Euclidean plane does not intersect the origin, there is a function $\theta(t)$ such that $\vr(t) = \begin{pmatrix} r(t) \cos \theta(t) \\ r(t) \sin \theta(t) \end{pmatrix}$.
+Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
+If $\vr(t)$ is nonvanishing, then there is an angular curve for it.
+
+\begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
+	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane and any angular function $\theta(t)$, the unit curve of $\vr(t)$ satisfies $\dot{\widehat{\vr}}(t) = \dot{\theta}(t) \widehat{\vth}(t)$ and the tangential unit curve $\widehat{\vth}(t)$ satisfies $\dot{\widehat{\vth}}(t) = - \dot{\theta}(t) \widehat{\vr}(t)$.
+\end{remark}
 
 \subsection{Energy}
 
@@ -418,12 +430,9 @@ There are no exercises in this lecture concerning systems of particles.
 	\begin{align}
 		\frac{d \vv^2(t)}{dt} & = \vv(t) \cdot \frac{d \vv(t)}{dt} + \frac{d \vv(t)}{dt} \cdot \vv(t)
 	\end{align}
-	Therefore, $\frac{d \vv^2(t)}{dt} = 2 \vv(t) \cdot \dot{\vv}(t)$.
+	Thus, $\frac{d \vv^2(t)}{dt} = 2 \vv(t) \cdot \dot{\vv}(t)$.
+	It follows for a particle with velocity $v(t)$ in one dimension that $\frac{d v^2(t)}{dt} = 2 v(t) \cdot \dot{v}(t)$.
 \end{answer}
-
-\begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	For any $t$ with $\vr(t) \neq \vzero$, the \emph{unit radial vector} $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$ satisfies $\dot{\widehat{\vr}}(t) = \dot{\theta}(t) \widehat{\vth}(t)$ and the unit vector $\widehat{\vth}(t)$ perpendicular to $\widehat{\vr}(t)$ satisfies $\dot{\widehat{\vth}}(t) = - \dot{\theta}(t) \widehat{\vr}(t)$.
-\end{remark}
 
 % differentiation
 \begin{answer}[Potential energy proportional to the square of the distance]
@@ -432,7 +441,7 @@ There are no exercises in this lecture concerning systems of particles.
 			x_0 \\
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
-	If $\vr_0 = \vv_0 = \vzero$, then the trajectory of the particle is stationary.
+	If $\vr_0 = \vv_0 = \vzero$, then the particle remains at rest at the origin.
 	Suppose at least one is not zero.
 	The kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
 
@@ -464,7 +473,7 @@ There are no exercises in this lecture concerning systems of particles.
 \end{answer}
 
 \begin{proposition}[Velocity]
-	Given any differentiable curve $\vr$ and $t$ such that $\vr(t) \neq \vzero$, the velocity is given by
+	For any differentiable curve $\vr$ and $t$ such that $\vr(t) \neq \vzero$, the velocity is given by
 	$\dot{\vr}(t) = r(t) \dot{\theta}(t) \widehat{\vth}(t) + \dot{r}(t) \widehat{\vr}(t)$.
 \end{proposition}
 \begin{proof}
@@ -510,6 +519,7 @@ There are no exercises in this lecture concerning systems of particles.
 	Observe that $\dsp u' = \frac{du}{d\theta} = \frac{-r'}{r^2}$ and $\dsp u'' = \frac{d^2u}{d\theta^2}$.
 	Then, $\dot{r} = -\frac{L}{m} u'$ and $\ddot{r} = - \frac{L^2}{m^2} u^2 u''$.
 	This yields $F_r = - \frac{L^2}{m} u^2 u'' - \frac{L^2}{m} u^3 = -\frac{L^2}{m} u^2 \left(u'' + u\right)$ and $F_r = \frac{k}{r^3} = ku^3$.
+	Suppose $L \neq 0$.
 	Equating them yields $\dsp u'' + \alpha^2 u = 0$ where $\dsp \alpha = \sqrt{1 + \frac{mk}{L^2}}$.
 	If $\alpha^2 = 0$, then $u = A(\theta-\theta_0)$ and the trajectories are not closed.
 	If $\alpha^2 < 0$ and $\beta >0$ satisfies $\alpha = i \beta$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
@@ -530,6 +540,8 @@ There are no exercises in this lecture concerning systems of particles.
 \end{answer}
 
 \subsection{Principle of least action}
+
+Recall that the values of a Lagrangian $L$ are expressed in units $\left[L\right]$ of energy.
 
 % calculation
 \begin{answer}[Euler-Lagrange equation for a particle in one dimension]
@@ -606,7 +618,7 @@ There are no exercises in this lecture concerning systems of particles.
 
 % calculation
 \begin{answer}[Kinetic energy under change of coordinates]
-	The temporal derivatives of $x_+ = \frac{x_1 + x_2}{2}$ and $x_- = \frac{x_1 - x_2}{2}$ are $\dot{x_+} = \frac{\dot{x_1} + \dot{x_2}}{2}$ and $\dot{x_-} = \frac{\dot{x_1} - \dot{x_2}}{2}$.
+	The time derivatives of $x_+ = \frac{x_1 + x_2}{2}$ and $x_- = \frac{x_1 - x_2}{2}$ are $\dot{x_+} = \frac{\dot{x_1} + \dot{x_2}}{2}$ and $\dot{x_-} = \frac{\dot{x_1} - \dot{x_2}}{2}$.
 	Calculating $m\left(\dot{x_+}^2 + \dot{x_-}^2\right)$ yields $T = m \left(\frac{\dot{x_1}^2 + 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2} + \frac{\dot{x_1}^2 - 2\dot{x_1}\dot{x_2} + \dot{x_2}^2}{2^2}\right) = \frac{m}{2}\left(\dot{x_1}^2 + \dot{x_2}^2\right)$, which is the kinetic energy.
 \end{answer}
 
@@ -922,6 +934,7 @@ There are no exercises in this lecture on phase space.
 
 \subsection{Central forces and planetary orbits}
 
+% norm
 \begin{answer}[Acceleration of an object moving in a circular orbit]
 	Recall that the acceleration of an object moving in a circular orbit $\vr(t) = \begin{bmatrix} r \cos \omega t \\ r \sin \omega t \end{bmatrix}$ is given below.
 	\begin{align}
@@ -934,14 +947,19 @@ There are no exercises in this lecture on phase space.
 		=
 		-\omega^2 \vr(t)
 	\end{align}
-	Therefore, the magnitude $a = \left\|\va\right\|$ of the acceleration is $a = \omega^2 r$.
+	Therefore, the norm $a = \left\|\va\right\|$ of the acceleration is $a = \omega^2 r$.
 \end{answer}
 
 \subsection*{Sciences}
 
-Recall that the values of a Lagrangian $L$ are expressed in units of energy.
+For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}$ has units $\left[\dot{q}\right] = \frac{\left[q\right]}{\left[t\right]}$ and its reciprocal $\frac{1}{\dot{q}}$ (where defined) has units $\left[\frac{1}{\dot{q}}\right] = \frac{\left[t\right]}{\left[q\right]}$.
 
-\begin{remark}[Units of generalized velocity]
-	For any generalized coordinate $q$, the temporal derivative $\dot{q} = \frac{dq}{dt}$ has units $\left[\dot{q}\right] = \frac{\left[q\right]}{\left[t\right]}$.
-\end{remark}
+\subsubsection*{Units}
+
+\begin{lemma}[Units of canonical momentum]
+	For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\frac{\left[E\right]\left[t\right]}{\left[q\right]}$.
+\end{lemma}
+\begin{proof}
+	The result follows from the definition of the partial derivative.
+\end{proof}
 

@@ -415,16 +415,19 @@ For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p
 \begin{proposition}[Product of Pauli operators]
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
-		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & = \left(
-		\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
+		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & =
+		\left(\vec{m} \cdot \vec{n}\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
 	\end{align*}
 \end{proposition}
 \begin{proof}
 	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
 	\begin{align*}
-		S = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
+		S & = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
-	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$.
+	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and the result below.
+	\begin{align*}
+		S & = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\vec{m} \cdot \vec{n}\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
+	\end{align*}
 \end{proof}
 
 Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
@@ -509,8 +512,12 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	\end{align*}
 \end{answer}
 
-\begin{answer}
-	For any unit $3$-vector $\hat{n}$, the energy eigenvectors of the operator $H = \frac{\hbar \omega}{2} \sigma \cdot \hat{n}$ are calculated by solving the time-independent Schrodinger equation $H \ket{E} = E \ket{E}$ using spherical coordinates for $\hat{n} = \left(\sin \theta \cos \phi, \sin \theta \sin \phi, \cos \theta\right)$.
+% \sigma_n
+\begin{answer}[Energy eigenvalues]
+	For any unit $3$-vector $\hat{n}$, the energy eigenvectors of the operator $H = \frac{\hbar \omega}{2} \sigma \cdot \hat{n}$ are calculated by solving the time-independent Schr\"{o}dinger equation $H \ket{E} = E \ket{E}$ using spherical coordinates as follows.
+	\begin{align}
+		\hat{n} & = \left(\sin \theta \cos \phi, \sin \theta \sin \phi, \cos \theta\right)
+	\end{align}
 	Let $w = \frac{\hbar \omega}{2}$.
 	Since the eigenvalues of $\sigma_n = \sigma \cdot \hat{n}$ are $+1$ and $-1$, it follows that the eigenvalues of $\bH$ are $+w$ and $-w$.
 	The eigenvectors of $\sigma_n$ are given below.
@@ -530,8 +537,31 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	They are also the eigenvectors of $\bH$ with eigenvalues $+w$ and $-w$, respectively.
 \end{answer}
 
-\begin{answer}
-	Let $\bH = \frac{\omega \hbar}{2} \sigma_z$, and suppose the initial state is given as $\ket{u}$.
-	The eigenvalues are solutions to the time-independent Schrodinger equation $\bH \ket{E} = E \ket{E}$.
+\begin{answer}[Schr\"{o}dinger's axial ket]
+	Let $\bH = \frac{\omega \hbar}{2} \sigma_z$, and suppose the initial state is given as the $+1$ eigenstate $\ket{\Psi(0)} = \ket{u}$ of $\sigma_z$.
+	Let $w = \frac{\omega \hbar}{2}$.
+	Solving the time-independent Schr\"{o}dinger equation $\bH \ket{E} = E \ket{E}$ yields the eigenvectors $\ket{E_+} = \ket{u}$ and $\ket{E_-} = \ket{d}$ with eigenvalues $+w$ and $-w$.
+	The initial coefficients are $\alpha_+(0) = \braket{E_+ \mid \Psi(0)} = 1$ and $\alpha_-(0) = \braket{E_- \mid \Psi(0)} = 0$.
+	The initial state can be expressed in terms of the eigenvectors and initial coefficients by $\ket{\Psi(0)} = \alpha_+(0) \ket{E_+} + \alpha_-(0) \ket{E_-}$.
+	The state at time $t$ is then given by $\ket{\Psi(t)} = \alpha_+(t) \ket{E_+} + \alpha_-(t) \ket{E_-} = \alpha_+(0) \exp\p{-\frac{i}{\hbar} E_+ t} \ket{E_+} + \alpha_-(0) \exp\p{-\frac{i}{\hbar} E_- t} \ket{E_-}$.
+	Therefore, the state is given by $\ket{\Psi(t)} = \alpha_+(0) \exp\p{-\frac{i}{\hbar} w t} \ket{u}$.
+\end{answer}
+
+\subsection{Uncertainty and time dependence}
+
+If an operator annihilates every member of a basis, then it annihilates ever vector in the vector space since it can be written in terms of the basis vectors.
+
+Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}$ that Hermiticity $\mL^\dagger = \mL$ implies $\alpha^* = \alpha$, $\delta^* = \delta$ and $\gamma^* = \beta$.
+
+\begin{answer}[Mathematical interlude on complete sets of commuting variables]
+	Any $2 \times 2$ Hermitian matrix $\mL$ has the form
+	\begin{align}
+		\mL & =
+		\begin{pmatrix}
+			s   & w \\
+			w^* & r
+		\end{pmatrix}
+	\end{align}
+	for complex $w \in \C$ and real numbers $s, r \in \R$.
 \end{answer}
 

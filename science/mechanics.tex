@@ -218,6 +218,8 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 	\end{align}
 \end{answer}
 
+Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivative $\dot{\vr}(t)$ with respect to time.
+
 % calculation
 \begin{answer}[Orthogonality of sinusoidal position and velocity]
 	The dot product of the position and velocity vectors is given below.
@@ -403,11 +405,11 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 There are no exercises in this lecture concerning systems of particles.
 
-Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the additive identity.
+Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Mathematical sciences} Consider a vector space with norm $\left\|\bullet\right\|$.
+\paragraph{Pure and applied mathematics} Consider a vector space with identity $\vzero$ under addition.
 
-For a curve $\vr(t)$ in such a space, its \emph{radial function} is its distance from the origin defined by $r(t) = \left\|\vr(t)\right\|$.
+For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is its distance from the origin defined by $r(t) = \left\|\vr(t)\right\|$.
 
 \begin{definition}[Angular curve, tangential curve]
 	For a nonvanishing curve $\vr(t)$ in a normed vector space with radial function $r(t)$, its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
@@ -416,11 +418,13 @@ For a curve $\vr(t)$ in such a space, its \emph{radial function} is its distance
 \end{definition}
 
 Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
-If $\vr(t)$ is nonvanishing, then there is an angular curve for it.
+If $\vr(t)$ is nonvanishing, then there exists an angular curve for it but it is not unique.
 
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane and any angular function $\theta(t)$, the unit curve of $\vr(t)$ satisfies $\dot{\widehat{\vr}}(t) = \dot{\theta}(t) \widehat{\vth}(t)$ and the tangential unit curve $\widehat{\vth}(t)$ satisfies $\dot{\widehat{\vth}}(t) = - \dot{\theta}(t) \widehat{\vr}(t)$.
+	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane and any angular function $\theta(t)$, the unit curves of $\vr(t)$ and $\vth(t)$ satisfy $\dot{\widehat{\vr}}(t) = \dot{\theta}(t) \widehat{\vth}(t)$ and $\dot{\widehat{\vth}}(t) = - \dot{\theta}(t) \widehat{\vr}(t)$.
 \end{remark}
+
+For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr(t) \neq \vzero$, the product rule yields $\dot{\vr}(t) = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)$ and the above remark yields $\dot{\vr}(t) = r(t) \dot{\theta}(t) \widehat{\vth}(t) + \dot{r}(t) \widehat{\vr}(t)$.
 
 \subsection{Energy}
 
@@ -472,20 +476,18 @@ If $\vr(t)$ is nonvanishing, then there is an angular curve for it.
 	Therefore, the total energy is conserved.
 \end{answer}
 
-\begin{proposition}[Velocity]
-	For any differentiable curve $\vr$ and $t$ such that $\vr(t) \neq \vzero$, the velocity is given by
-	$\dot{\vr}(t) = r(t) \dot{\theta}(t) \widehat{\vth}(t) + \dot{r}(t) \widehat{\vr}(t)$.
+\begin{proposition}\label{prop:potential}
+	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the potential energy is $V\p{\vr} = - \frac{k}{r^2}$.
 \end{proposition}
 \begin{proof}
-	The result follows from Remark \ref{rem:polar} and the product rule.
+	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$ and the potential is given by $V\p{\vr} = \frac{k}{2 r^2}$.
 \end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
-	Consider a particle with mass $m$ in the Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V = \frac{k}{2(x^2+y^2)}$.
+	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V = \frac{k}{2(x^2+y^2)}$.
 
-	It is given in terms of the radial coordinate $r = \sqrt{\vr \cdot \vr}$ by $V = \frac{k}{2 r^2}$.
-	The power rule yields $\frac{dV}{dr} = \frac{-k}{r^{3}}$.
+	By Proposition \ref{prop:potential}, it is given in terms of the radial coordinate $r = \sqrt{\vr \cdot \vr}$ by $V = \frac{k}{2 r^2}$.
 	The chain rule yields the gradient below.
 	\begin{align*}
 		\nabla V & = \begin{pmatrix} \frac{\partial V}{\partial x} \\ \frac{\partial V}{\partial y}\end{pmatrix}
@@ -702,6 +704,8 @@ Recall that the values of a Lagrangian $L$ are expressed in units $\left[L\right
 
 \subsection{Hamiltonian mechanics and time-translation invariance}
 
+For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}$ has units $\left[\dot{q}\right] = \frac{\left[q\right]}{\left[t\right]}$ and its reciprocal $\frac{1}{\dot{q}}$ (where defined) has units $\left[\frac{1}{\dot{q}}\right] = \frac{\left[t\right]}{\left[q\right]}$.
+
 % solve for x
 \begin{answer}[Change of variables in Lagrangian of harmonic oscillator]
 	Let $L = \frac{m \dot{x}^2}{2} - \frac{k}{2} x^2$ be the Lagrangian and consider the change of variables below.
@@ -906,7 +910,7 @@ There are no exercises in this lecture on phase space.
 
 % sinusoid
 \begin{answer}[Motion in a uniform magnetic field]
-	For any constant mass $m \neq 0$ and charge $e \in \R$, consider the equations below.
+	For any constant mass $m > 0$ and charge $e \in \R$, consider the equations below.
 	\begin{align}
 		a_y & = - \frac{e b}{m c} v_x \label{eqn:magy}           \\
 		a_x & = \phantom{+} \frac{e b}{m c} v_y \label{eqn:magx}
@@ -950,16 +954,17 @@ There are no exercises in this lecture on phase space.
 	Therefore, the norm $a = \left\|\va\right\|$ of the acceleration is $a = \omega^2 r$.
 \end{answer}
 
-\subsection*{Sciences}
+\section*{Interlude on the mathematical sciences}
+\addcontentsline{toc}{section}{Interlude on the mathematical sciences}
 
-For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}$ has units $\left[\dot{q}\right] = \frac{\left[q\right]}{\left[t\right]}$ and its reciprocal $\frac{1}{\dot{q}}$ (where defined) has units $\left[\frac{1}{\dot{q}}\right] = \frac{\left[t\right]}{\left[q\right]}$.
+For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\dsp \frac{\left[E\right]}{\left[\frac{dq}{dt}\right]} = \frac{\left[E\right]\left[t\right]}{\left[q\right]}$.
 
-\subsubsection*{Units}
+\subsection*{Units}
 
-\begin{lemma}[Units of canonical momentum]
-	For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\frac{\left[E\right]\left[t\right]}{\left[q\right]}$.
+\begin{lemma}[Units of derivative of function on phase space]
+	For any function $F(q, p)$ of a generalized coordinate $q$ and momentum $p$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left[\frac{\partial F(q,p)}{\partial q}\right] = \frac{\left[F\right]}{\left[q\right]}$.
 \end{lemma}
 \begin{proof}
-	The result follows from the definition of the partial derivative.
+	The result follows from the limit definition of the partial derivative.
 \end{proof}
 

@@ -310,6 +310,22 @@ For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in
 	\end{pmatrix}
 \end{equation}
 by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \sigma$.
+
+\begin{proposition}[Product of Pauli operators]
+	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
+	\begin{align*}
+		\left(\vec{m} \cdot \sigma\right) (\vec{n} \cdot \sigma) & =
+		\left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
+	\begin{align*}
+		S & = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
+	\end{align*}
+	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma$.
+\end{proof}
+
 The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real.
 For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is shown to be unitary below.
 \begin{align*}
@@ -411,24 +427,6 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 \end{answer}
 
 For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p{z \vec{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \vec{n} \cdot \sigma}^k$.
-
-\begin{proposition}[Product of Pauli operators]
-	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
-	\begin{align*}
-		(\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) & =
-		\left(\vec{m} \cdot \vec{n}\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
-	\end{align*}
-\end{proposition}
-\begin{proof}
-	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
-	\begin{align*}
-		S & = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
-	\end{align*}
-	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and the result below.
-	\begin{align*}
-		S & = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\vec{m} \cdot \vec{n}\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k
-	\end{align*}
-\end{proof}
 
 Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
@@ -537,31 +535,64 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	They are also the eigenvectors of $\bH$ with eigenvalues $+w$ and $-w$, respectively.
 \end{answer}
 
-\begin{answer}[Schr\"{o}dinger's axial ket]
-	Let $\bH = \frac{\omega \hbar}{2} \sigma_z$, and suppose the initial state is given as the $+1$ eigenstate $\ket{\Psi(0)} = \ket{u}$ of $\sigma_z$.
+% recipe
+\begin{answer}[Schr\"{o}dinger's ket for axis]
+	Let $\dsp \bH = \frac{\omega \hbar}{2} \sigma_z$.
+
+	Suppose the initial state is given as the $+1$ eigenstate $\ket{\Psi(0)} = \ket{u}$ of $\sigma_z$.
 	Let $w = \frac{\omega \hbar}{2}$.
 	Solving the time-independent Schr\"{o}dinger equation $\bH \ket{E} = E \ket{E}$ yields the eigenvectors $\ket{E_+} = \ket{u}$ and $\ket{E_-} = \ket{d}$ with eigenvalues $+w$ and $-w$.
 	The initial coefficients are $\alpha_+(0) = \braket{E_+ \mid \Psi(0)} = 1$ and $\alpha_-(0) = \braket{E_- \mid \Psi(0)} = 0$.
 	The initial state can be expressed in terms of the eigenvectors and initial coefficients by $\ket{\Psi(0)} = \alpha_+(0) \ket{E_+} + \alpha_-(0) \ket{E_-}$.
 	The state at time $t$ is then given by $\ket{\Psi(t)} = \alpha_+(t) \ket{E_+} + \alpha_-(t) \ket{E_-} = \alpha_+(0) \exp\p{-\frac{i}{\hbar} E_+ t} \ket{E_+} + \alpha_-(0) \exp\p{-\frac{i}{\hbar} E_- t} \ket{E_-}$.
-	Therefore, the state is given by $\ket{\Psi(t)} = \alpha_+(0) \exp\p{-\frac{i}{\hbar} w t} \ket{u}$.
+	Since $\alpha_+(0) = 1$, the state is therefore given by $\ket{\Psi(t)} = \exp\p{-\frac{i}{2} \omega t} \ket{u}$.
 \end{answer}
 
 \subsection{Uncertainty and time dependence}
 
-If an operator annihilates every member of a basis, then it annihilates ever vector in the vector space since it can be written in terms of the basis vectors.
+If an operator annihilates every member of a basis, then it annihilates every vector in the vector space since it can be written in terms of the basis vectors.
 
-Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}$ that Hermiticity $\mL^\dagger = \mL$ implies $\alpha^* = \alpha$, $\delta^* = \delta$ and $\gamma^* = \beta$.
+Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}$ that Hermiticity $\mL^\dagger = \mL$ implies $\alpha^* = \alpha$, $\delta^* = \delta$, $\gamma^* = \beta$ and $\beta^* = \gamma$.
 
-\begin{answer}[Mathematical interlude on complete sets of commuting variables]
-	Any $2 \times 2$ Hermitian matrix $\mL$ has the form
+\begin{answer}[Observables for spin 1/2]
+	To show that any $2 \times 2$ Hermitian matrix $\mL$ can be written as a sum of four terms $\mL = a \sigma_x + b \sigma_y + c \sigma_z + dI$ with real $a,b,c,d \in \R$, let $\vec{n} = \trans{\begin{pmatrix} a & b & c \end{pmatrix}}$.
+	Recall that $\sigma_{\vec{n}} = \vec{n} \cdot \sigma$ and $\mL$ can be expressed as follows:
 	\begin{align}
-		\mL & =
+		\sigma_{\vec{n}} & =
 		\begin{pmatrix}
-			s   & w \\
-			w^* & r
+			c       & a - i b \\
+			a + i b & -c
+		\end{pmatrix}
+		                 &
+		\mL              & =
+		\begin{pmatrix}
+			s      & \omega^* \\
+			\omega & r
 		\end{pmatrix}
 	\end{align}
-	for complex $w \in \C$ and real numbers $s, r \in \R$.
+	for some complex number $\omega \in \C$ and real numbers $s, r \in \R$.
+	Consider the equality of $\mL$ and $\sigma_{\vec{n}} + dI$ expressed below.
+	\begin{align*}
+		\begin{pmatrix}
+			d + c   & a - i b \\
+			a + i b & d -c
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			s      & \omega^* \\
+			\omega & r
+		\end{pmatrix}
+	\end{align*}
+	Let $c = \frac{s-r}{2}$, $d = \frac{s + r}{2}$, $a = \Re \omega$ be the real component of $\omega$ and $b$ be the imaginary component of $\omega$.
+	It solves $\mL = \sigma_{\vec{n}} + dI$.
+\end{answer}
+
+\begin{answer}
+	For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, let $\braket{\mA}$ be the expectation of $\mA$ and denote the probability distribution of $\bar{\mA} = \mA - \braket{\mA} I$ by $P_{\bar{\mA}}$.
+	Recall the probability distribution $P_{\bar{\mA}}$ for $\bar{\mA}$ is the same as $P_{\mA}$ except that $\braket{\bar{\mA}} = 0$.
+	It follows that the eigenvalues of $\bar{\mA}$ are $\left\{\bar{a}_j \mid \bar{a}_j = a_j - \braket{\mA} \right\}$.
+	Observe for each eigenvalue $a_j$ of $\mA$ that the eigenvalue of $\overline{\bar{\mA}}$ corresponding to $\bar{a}_j$ is $\overline{\bar{a}_j} = \bar{a}_j$ itself and the corresponding eigenvalue of $\bar{\mA}^2$ is $\lambda_j = \bar{a}_j^2$.
+	Let $P_{\bar{\mA}^2}$ be the probability distribution of $\bar{\mA}^2$.
+	For any state $\Psi$, the expectation value $\dsp \braket{\Psi \mid \bar{\mA}^2 \mid \Psi} = \sum_{\lambda} \lambda P_{\bar{\mA}^2}(\lambda)$ is $\dsp \sum_{\lambda} \lambda \left(\sum_{\bar{a_j}^2 = \lambda} P_{\mA}(a_j)\right) = \left(\Delta \mA\right)^2$.
 \end{answer}
 

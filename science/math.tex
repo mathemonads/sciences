@@ -1,0 +1,26 @@
+
+% /science/math.tex
+
+\section*{Interlude on the mathematical sciences}
+\addcontentsline{toc}{section}{Interlude on the mathematical sciences}
+
+A few classical results needed for Section \ref{sec:quantum} are reviewed.
+
+\subsection*{Units}
+
+\begin{lemma}[Units of derivative of function on phase space]
+	For any function $F(q, p)$ of a generalized coordinate $q$ and momentum $p$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left[\frac{\partial F(q,p)}{\partial q}\right] = \frac{\left[F\right]}{\left[q\right]}$.
+\end{lemma}
+\begin{proof}
+	The result follows from the limit definition of the partial derivative.
+\end{proof}
+
+\subsection*{Pure mathematics}
+
+For any operator $\mA$ on a finite-dimensional Hilbert space, recall the exponential of $\mA$ is the operator $\exp\p{\mA} = e^{\mA}$ defined by $\dsp \sum_{k=0}^\infty \frac{1}{k!} \p{\mA}^k$.
+
+Recall that the rotation $r_{\hat{n}}^\theta$ of $\R^3$ about the axis spanned by any unit vector $\hat{n}$ by $\theta$ can be expressed by Rodrigues's rotation formula below.
+\begin{align}\label{eqn:Rodrigues}
+	r_{\hat{n}}^\theta \vec{m} & = \vec{m} \cos \theta + \left(\hat{n} \times \vec{m} \right) \sin \theta + \hat{n} \left(\hat{n} \cdot \vec{m}\right)\left(1 - \cos \theta\right)
+\end{align}
+

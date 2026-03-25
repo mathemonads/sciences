@@ -407,7 +407,7 @@ There are no exercises in this lecture concerning systems of particles.
 
 Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Pure and applied mathematics} Consider a vector space with identity $\vzero$ under addition.
+\paragraph{Pure mathematics} Consider a vector space with identity $\vzero$ under addition.
 
 For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is its distance from the origin defined by $r(t) = \left\|\vr(t)\right\|$.
 
@@ -446,8 +446,8 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
 	If $\vr_0 = \vv_0 = \vzero$, then the particle remains at rest at the origin.
-	Suppose at least one is not zero.
 	The kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
+	Suppose at least one is not zero.
 
 	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\bF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
 	The equation of motion $m \ddot{\vr} = - k \vr$ is expressed in components $m \ddot{x} = -kx$ and $m \ddot{y} = -ky$.
@@ -477,18 +477,19 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 \end{answer}
 
 \begin{proposition}\label{prop:potential}
-	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the potential energy is $V\p{\vr} = - \frac{k}{r^2}$.
+	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the derivative $\frac{dV}{dr}$ of potential energy with respect to the radial coordinate $r$ for $r > 0$ is $-\frac{k}{r^3}$.
 \end{proposition}
 \begin{proof}
 	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$ and the potential is given by $V\p{\vr} = \frac{k}{2 r^2}$.
+	By the power rule, the derivative of the potential energy $\frac{dV}{dr} = \frac{d}{dr}\p{\frac{k}{2} r^{-2}}$ with respect to the radial coordinate is $- \frac{k}{r^3}$.
 \end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
-	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V = \frac{k}{2(x^2+y^2)}$.
+	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
-	By Proposition \ref{prop:potential}, it is given in terms of the radial coordinate $r = \sqrt{\vr \cdot \vr}$ by $V = \frac{k}{2 r^2}$.
-	The chain rule yields the gradient below.
+	By Proposition \ref{prop:potential}, the gradient of the potential energy is $\nabla V = - \frac{k}{r^4} \vr$.
+	It is expressed in components as follows.
 	\begin{align*}
 		\nabla V & = \begin{pmatrix} \frac{\partial V}{\partial x} \\ \frac{\partial V}{\partial y}\end{pmatrix}
 		=
@@ -497,7 +498,6 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 			-\frac{x}{(x^2+y^2)^2} \\
 			-\frac{y}{(x^2+y^2)^2}
 		\end{pmatrix}
-		= -\frac{k}{r^4} \vr
 		         &
 		F        & = -\nabla V = k
 		\begin{pmatrix}
@@ -722,6 +722,8 @@ For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}
 	\end{align}
 \end{answer}
 
+For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\dsp \left[p\right] = \frac{\left[L\right]\left[t\right]}{\left[q\right]}$ and its reciprocal $\frac{1}{p}$ (where defined) has units $\left[\frac{1}{p}\right] = \frac{\left[q\right]}{\left[L\right] \left[t\right]}$.
+
 % solve for \dot{q}
 \begin{answer}[Hamiltonian of harmonic oscillator]
 	The conjugate momentum $p$ associated with the Lagrangian in Equation \eqref{eqn:Lcharm} is given by $\frac{\partial L}{\partial \dot{q}} = \frac{1}{\omega} \dot{q}$.
@@ -940,31 +942,22 @@ There are no exercises in this lecture on phase space.
 
 % norm
 \begin{answer}[Acceleration of an object moving in a circular orbit]
-	Recall that the acceleration of an object moving in a circular orbit $\vr(t) = \begin{bmatrix} r \cos \omega t \\ r \sin \omega t \end{bmatrix}$ is given below.
+	Recall that the trajectory of an object moving counterclockwise in a circular orbit about the origin with initial position $\vr_0 = \begin{pmatrix} r_0 \\ 0 \end{pmatrix}$ is on the left-hand side below.
 	\begin{align}
+		\vr(t) & =
+		\begin{bmatrix}
+			r_0 \cos \omega t \\
+			r_0 \sin \omega t
+		\end{bmatrix}
+		       &
 		\va(t) & =
 		\omega^2
 		\begin{bmatrix}
-			- r \cos \omega t \\
-			- r \sin \omega t
+			- r_0 \cos \omega t \\
+			- r_0 \sin \omega t
 		\end{bmatrix}
-		=
-		-\omega^2 \vr(t)
 	\end{align}
-	Therefore, the norm $a = \left\|\va\right\|$ of the acceleration is $a = \omega^2 r$.
+	The radial function is a constant $r(t) = r_0$, and the acceleration is given by $\va(t) = - \omega^2 \vr(t)$.
+	Therefore, the magnitude $a = \left\|\va\right\|$ of the acceleration is $\omega^2 \left\|\vr(t)\right\| = \omega^2 r_0$.
 \end{answer}
-
-\section*{Interlude on the mathematical sciences}
-\addcontentsline{toc}{section}{Interlude on the mathematical sciences}
-
-For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\dsp \frac{\left[E\right]}{\left[\frac{dq}{dt}\right]} = \frac{\left[E\right]\left[t\right]}{\left[q\right]}$.
-
-\subsection*{Units}
-
-\begin{lemma}[Units of derivative of function on phase space]
-	For any function $F(q, p)$ of a generalized coordinate $q$ and momentum $p$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left[\frac{\partial F(q,p)}{\partial q}\right] = \frac{\left[F\right]}{\left[q\right]}$.
-\end{lemma}
-\begin{proof}
-	The result follows from the limit definition of the partial derivative.
-\end{proof}
 

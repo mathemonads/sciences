@@ -310,8 +310,9 @@ For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in
 	\end{pmatrix}
 \end{equation}
 by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \sigma$.
+The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real.
 
-\begin{proposition}[Product of Pauli operators]
+\begin{proposition}[Product of Pauli operators]\label{prop:Pauli}
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
 		\left(\vec{m} \cdot \sigma\right) (\vec{n} \cdot \sigma) & =
@@ -326,21 +327,7 @@ by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \sigma$.
 	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma$.
 \end{proof}
 
-The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real.
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is shown to be unitary below.
-\begin{align*}
-	\sigma_{\hat{n}}^2 & =
-	\begin{pmatrix}
-		\hat{n}_z                   & \p{\hat{n}_x - i \hat{n}_y} \\
-		\p{\hat{n}_x + i \hat{n}_y} & - \hat{n}_z
-	\end{pmatrix}^2
-	=
-	\begin{pmatrix}
-		\hat{n}_x^2 + \hat{n}_y^2 + \hat{n}_z^2 & 0                                       \\
-		0                                       & \hat{n}_x^2 + \hat{n}_y^2 + \hat{n}_z^2
-	\end{pmatrix}
-	= I
-\end{align*}
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is unitary since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and $\sigma_{\hat{n}}^\dagger = \sigma_{\hat{n}}$.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -431,19 +418,37 @@ For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p
 Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
 \begin{lemma}
-	For any unit vector $\hat{n} \in S^2$ and angle $\theta \in \R$, the following hold:
-	\begin{enumerate}
-		\item there is a rotation $r_n^\theta$ of $\R^3$ about $\hat{n}$ by $\theta$; and
-		\item the unitary operator $\dsp R_{n}^\theta = \exp\p{-i \frac{\theta}{2} \hat{n} \cdot \sigma}$ given by
-		      \begin{align*}
-			      \p{\cosh \frac{-i \theta}{2}} I + \p{\sinh \frac{-i \theta}{2}} \hat{n} \cdot \sigma = \p{\cos \frac{\theta}{2}} I - i \p{\sin \frac{\theta}{2}} \hat{n} \cdot \sigma
-		      \end{align*}
-		      satisfies the following condition:
-		      \begin{align*}
-			      R_{n}^\theta\p{\sigma \cdot q}\p{R_n^\theta}^\dagger & = \sigma \cdot \p{r_n^\theta q} & \text{ for all } q \in \R^3.
-		      \end{align*}
-	\end{enumerate}
+	For every rotation $r$ of $\R^3$, there is a unitary operator $R$ on $\C^2$ satisfying
+	\begin{align*}
+		\forall \hat{m} & \in S^2, & R \left(\hat{m} \cdot \sigma\right) R^\dagger & = \left(r \hat{m}\right) \cdot \sigma
+	\end{align*}
+	and any operator $R'$ satisfying the above condition is of the form $R' = e^{i \phi} R$.
 \end{lemma}
+\begin{proof}
+	Consider any rotation $r$ of $\R^3$.
+	Denote its axis by $\hat{n}$ and angle by $\theta$.
+
+	Observe $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$ is given by $R = \left(\cosh \frac{-i\theta}{2} \right) I + \left(\sinh \frac{-i\theta}{2}\right) \hat{n} \cdot \sigma$.
+	Let $c = \cos \frac{\theta}{2}$, $s = \sin \frac{\theta}{2}$, $N = \hat{n} \cdot \sigma$, and $M = \hat{m} \cdot \sigma$.
+	Calculation yields $R = c I - i s N$ and $R^\dagger = c I + i s N$.
+	Substitution yields the equations below.
+	\begin{align*}
+		R M R^\dagger    & = c^2 M + ics(M N - N M) + s^2 N M N                                                                                                                                                                        \\
+		MN               & = \left(\hat{m} \cdot \hat{n}\right) I + i \left(\hat{m} \times \hat{n}\right) \cdot \sigma                                                                                                                 \\
+		NM               & = \left(\hat{n} \cdot \hat{m}\right) I -  i \left(\hat{m} \times \hat{n}\right) \cdot \sigma                                                                                                                \\
+		MN - NM          & = 2 i \left(\hat{m} \times \hat{n}\right) \cdot \sigma                                                                                                                                                      \\
+		\left(NM\right)N & = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right)  - i \Big(\big((\hat{m} \times \hat{n}) \cdot \hat{n}\big) I + i \big((\hat{m} \times \hat{n}) \times \hat{n}\big) \cdot \sigma\Big)
+	\end{align*}
+	Recall $\left(\hat{m} \times \hat{n}\right) \cdot \hat{n} = 0$ and $\left(\hat{m} \times \hat{n}\right) \times \hat{n} = \left(\hat{m} \cdot \hat{n}\right) \hat{n} - \hat{m}$.
+	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M - 2 c s \left(\hat{m} \times \hat{n}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
+	Subtraction yields the equation below.
+	\begin{align}
+		R M R^\dagger & = \left((c^2 - s^2) \hat{m} - 2 c s (\hat{m} \times \hat{n}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma
+	\end{align}
+	This yields the desired condition.
+	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
+	The rest follows.
+\end{proof}
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
 
@@ -517,7 +522,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 		\hat{n} & = \left(\sin \theta \cos \phi, \sin \theta \sin \phi, \cos \theta\right)
 	\end{align}
 	Let $w = \frac{\hbar \omega}{2}$.
-	Since the eigenvalues of $\sigma_n = \sigma \cdot \hat{n}$ are $+1$ and $-1$, it follows that the eigenvalues of $\bH$ are $+w$ and $-w$.
+	Since the eigenvalues of $\sigma_n = \sigma \cdot \hat{n}$ are $+1$ and $-1$, it follows that the eigenvalues of $\bH$ are $E_+ = +w$ and $E_- = -w$.
 	The eigenvectors of $\sigma_n$ are given below.
 	\begin{align*}
 		\ket{n^+} & =
@@ -541,7 +546,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 
 	Suppose the initial state is given as the $+1$ eigenstate $\ket{\Psi(0)} = \ket{u}$ of $\sigma_z$.
 	Let $w = \frac{\omega \hbar}{2}$.
-	Solving the time-independent Schr\"{o}dinger equation $\bH \ket{E} = E \ket{E}$ yields the eigenvectors $\ket{E_+} = \ket{u}$ and $\ket{E_-} = \ket{d}$ with eigenvalues $+w$ and $-w$.
+	Solving the time-independent Schr\"{o}dinger equation $\bH \ket{E} = E \ket{E}$ yields the eigenvectors $\ket{E_+} = \ket{u}$ and $\ket{E_-} = \ket{d}$ with eigenvalues $E_+ = +w$ and $E_- = -w$.
 	The initial coefficients are $\alpha_+(0) = \braket{E_+ \mid \Psi(0)} = 1$ and $\alpha_-(0) = \braket{E_- \mid \Psi(0)} = 0$.
 	The initial state can be expressed in terms of the eigenvectors and initial coefficients by $\ket{\Psi(0)} = \alpha_+(0) \ket{E_+} + \alpha_-(0) \ket{E_-}$.
 	The state at time $t$ is then given by $\ket{\Psi(t)} = \alpha_+(t) \ket{E_+} + \alpha_-(t) \ket{E_-} = \alpha_+(0) \exp\p{-\frac{i}{\hbar} E_+ t} \ket{E_+} + \alpha_-(0) \exp\p{-\frac{i}{\hbar} E_- t} \ket{E_-}$.
@@ -555,7 +560,7 @@ If an operator annihilates every member of a basis, then it annihilates every ve
 Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}$ that Hermiticity $\mL^\dagger = \mL$ implies $\alpha^* = \alpha$, $\delta^* = \delta$, $\gamma^* = \beta$ and $\beta^* = \gamma$.
 
 \begin{answer}[Observables for spin 1/2]
-	To show that any $2 \times 2$ Hermitian matrix $\mL$ can be written as a sum of four terms $\mL = a \sigma_x + b \sigma_y + c \sigma_z + dI$ with real $a,b,c,d \in \R$, let $\vec{n} = \trans{\begin{pmatrix} a & b & c \end{pmatrix}}$.
+	To show that any $2 \times 2$ Hermitian matrix $\mL$ can be written as a sum of four terms $\mL = a \sigma_x + b \sigma_y + c \sigma_z + dI$ with real $a,b,c,d \in \R$, it suffices to exhibit a vector $\vec{n} = \trans{\begin{pmatrix} a & b & c \end{pmatrix}}$ and $d \in \R$ such that $\mL = \vec{n} \cdot \sigma + d I$.
 	Recall that $\sigma_{\vec{n}} = \vec{n} \cdot \sigma$ and $\mL$ can be expressed as follows:
 	\begin{align}
 		\sigma_{\vec{n}} & =
@@ -583,16 +588,32 @@ Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gam
 			\omega & r
 		\end{pmatrix}
 	\end{align*}
-	Let $c = \frac{s-r}{2}$, $d = \frac{s + r}{2}$, $a = \Re \omega$ be the real component of $\omega$ and $b$ be the imaginary component of $\omega$.
+	Let $c = \frac{s-r}{2}$, $d = \frac{s + r}{2}$, $a = \Re \omega$ be the real component of $\omega$ and $b = \Im \omega$ be the imaginary component of $\omega$.
 	It solves $\mL = \sigma_{\vec{n}} + dI$.
+
+	Therefore, $\mL = a \sigma_x + b \sigma_y + c \sigma_z + d I$.
 \end{answer}
 
+For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, recall that the eigenvalues of $\bar{\mA} = \mA - \braket{\mA} I$ are $\left\{\bar{a}_j \mid \bar{a}_j = a_j - \braket{\mA}\right\}$ and that the probability distribution $P_{\bar{\mA}}$ of $\bar{\mA}$ is the same as that $P_{\mA}$ of $\mA$ except that $\braket{\bar{\mA}} = 0$.
+Since $\braket{\bar{\mA}} = 0$, it follows that $\overline{\bar{\mA}} = \bar{\mA} - \braket{\bar{\mA}} I$ is $\bar{\mA}$.
+Thus, the eigenvalues of $\overline{\bar{\mA}}$ are $\left\{\overline{\bar{a}_j} \mid \overline{\bar{a}_j} = \bar{a}_j\right\}$ and the probability distribution $P_{\overline{\bar{\mA}}}$ of $\overline{\bar{\mA}}$ is the same as $P_{\bar{\mA}}$.
+
+\begin{answer}[Uncertainty]
+	Consider any Hermitian operators $\mA$ and $\mB$ on the same Hilbert space.
+	\begin{enumerate}
+		\item For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, let $\braket{\mA}$ be the expectation of $\mA$ and denote the probability distribution of $\bar{\mA} = \mA - \braket{\mA} I$ by $P_{\bar{\mA}}$.
+		      The eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_j^2\right\}$.
+		      Let $P_{\bar{\mA}^2}$ be the probability distribution of $\bar{\mA}^2$.
+		      For any state $\Psi$, the expectation value $\dsp \braket{\Psi \mid \bar{\mA}^2 \mid \Psi} = \sum_{\lambda} \lambda P_{\bar{\mA}^2}(\lambda)$ is $\dsp \sum_{\lambda} \lambda \left(\sum_{\bar{a_j}^2 = \lambda} P_{\mA}(a_j)\right) = \left(\Delta \mA\right)^2$. For any operator $\mB$, it follows similarly that $\left(\Delta \mB\right)^2 = \braket{\bar{\mB}^2}$.
+		\item The commutator $\left[\bar{\mA}, \bar{\mB}\right] = (\mA - \braket{\mA} I) (\mB - \braket{\mB} I) - (\mB - \braket{\mB} I) (\mA - \braket{\mA} I)$ satisfies $\left[\bar{\mA}, \bar{\mB}\right] = \left[\mA, \mB\right]$.
+		\item It follows from the first part of this exercise that $\left(\Delta \mA\right) \left(\Delta \mB\right) = \sqrt{\braket{\bar{\mA}^2} \braket{\bar{\mB}^2}}$ and from the general uncertainty principle that $\left(\Delta \mA\right) \left(\Delta \mB\right) \geq \frac{1}{2} \left|\braket{\Psi \mid \left[\bar{\mA}, \bar{\mB}\right] \mid \Psi}\right|$.
+		      The second part of this exercise yields $\left(\Delta \mA\right) \left(\Delta \mB\right) \geq \frac{1}{2} \left|\braket{\Psi \mid \left[\mA, \mB\right] \mid \Psi}\right|$.
+	\end{enumerate}
+\end{answer}
+
+\subsection{Combining Systems: Entaglement}
+
 \begin{answer}
-	For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, let $\braket{\mA}$ be the expectation of $\mA$ and denote the probability distribution of $\bar{\mA} = \mA - \braket{\mA} I$ by $P_{\bar{\mA}}$.
-	Recall the probability distribution $P_{\bar{\mA}}$ for $\bar{\mA}$ is the same as $P_{\mA}$ except that $\braket{\bar{\mA}} = 0$.
-	It follows that the eigenvalues of $\bar{\mA}$ are $\left\{\bar{a}_j \mid \bar{a}_j = a_j - \braket{\mA} \right\}$.
-	Observe for each eigenvalue $a_j$ of $\mA$ that the eigenvalue of $\overline{\bar{\mA}}$ corresponding to $\bar{a}_j$ is $\overline{\bar{a}_j} = \bar{a}_j$ itself and the corresponding eigenvalue of $\bar{\mA}^2$ is $\lambda_j = \bar{a}_j^2$.
-	Let $P_{\bar{\mA}^2}$ be the probability distribution of $\bar{\mA}^2$.
-	For any state $\Psi$, the expectation value $\dsp \braket{\Psi \mid \bar{\mA}^2 \mid \Psi} = \sum_{\lambda} \lambda P_{\bar{\mA}^2}(\lambda)$ is $\dsp \sum_{\lambda} \lambda \left(\sum_{\bar{a_j}^2 = \lambda} P_{\mA}(a_j)\right) = \left(\Delta \mA\right)^2$.
+	Suppose there is a factorization $P(a, b) = P_A(a) P_B(b)$ for all eigenvalues $a$ of $L$ and $b$ of $M$.
 \end{answer}
 

@@ -407,7 +407,7 @@ There are no exercises in this lecture concerning systems of particles.
 
 Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Pure mathematics} Consider a vector space with identity $\vzero$ under addition.
+\paragraph{Mathematics} Consider a vector space with identity $\vzero$ under addition.
 
 For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is its distance from the origin defined by $r(t) = \left\|\vr(t)\right\|$.
 
@@ -435,7 +435,7 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 		\frac{d \vv^2(t)}{dt} & = \vv(t) \cdot \frac{d \vv(t)}{dt} + \frac{d \vv(t)}{dt} \cdot \vv(t)
 	\end{align}
 	Thus, $\frac{d \vv^2(t)}{dt} = 2 \vv(t) \cdot \dot{\vv}(t)$.
-	It follows for a particle with velocity $v(t)$ in one dimension that $\frac{d v^2(t)}{dt} = 2 v(t) \cdot \dot{v}(t)$.
+	It follows for a particle with velocity $v(t)$ in one dimension that $\frac{d v^2(t)}{dt} = 2 v(t) \dot{v}(t)$.
 \end{answer}
 
 % differentiation
@@ -477,11 +477,12 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 \end{answer}
 
 \begin{proposition}\label{prop:potential}
-	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the derivative $\frac{dV}{dr}$ of potential energy with respect to the radial coordinate $r$ for $r > 0$ is $-\frac{k}{r^3}$.
+	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the gradient of potential energy is $\nabla V = -\frac{k}{r^4} \vr$.
 \end{proposition}
 \begin{proof}
 	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$ and the potential is given by $V\p{\vr} = \frac{k}{2 r^2}$.
-	By the power rule, the derivative of the potential energy $\frac{dV}{dr} = \frac{d}{dr}\p{\frac{k}{2} r^{-2}}$ with respect to the radial coordinate is $- \frac{k}{r^3}$.
+	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
+	Since $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it therefore follows that $\nabla V = - \frac{k}{r^4} \vr$.
 \end{proof}
 
 % chain rule

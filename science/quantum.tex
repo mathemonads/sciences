@@ -327,7 +327,7 @@ The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermit
 	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma$.
 \end{proof}
 
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is unitary since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and $\sigma_{\hat{n}}^\dagger = \sigma_{\hat{n}}$.
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is a unitary involution since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and it is Hermitian.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -413,9 +413,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
 
-For any scalar $z \in \C$ and any vector $\vec{n} \in \R^3$, recall $\dsp \exp\p{z \vec{n} \cdot \sigma} = \sum_{k=0}^\infty \frac{1}{k!} \p{z \vec{n} \cdot \sigma}^k$.
-
-Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
+Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
 
 \begin{lemma}
 	For every rotation $r$ of $\R^3$, there is a unitary operator $R$ on $\C^2$ satisfying
@@ -441,12 +439,16 @@ Any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z
 	\end{align*}
 	Recall $\left(\hat{m} \times \hat{n}\right) \cdot \hat{n} = 0$ and $\left(\hat{m} \times \hat{n}\right) \times \hat{n} = \left(\hat{m} \cdot \hat{n}\right) \hat{n} - \hat{m}$.
 	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M - 2 c s \left(\hat{m} \times \hat{n}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
-	Subtraction yields the equation below.
+	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} - 2 c s (\hat{m} \times \hat{n}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
 	\begin{align}
-		R M R^\dagger & = \left((c^2 - s^2) \hat{m} - 2 c s (\hat{m} \times \hat{n}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma
+		R M R^\dagger & = \left(\hat{m} \cos \theta - (\hat{m} \times \hat{n}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
 	\end{align}
-	This yields the desired condition.
+	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \sigma$.
 	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
+
+	Suppose $R'$ also satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
+	Consider any unit vector $\hat{m} \in S^2$, and let $U = R^\dagger R'$.
+	Since $R' \left(\hat{m} \cdot \sigma\right) {R'}^\dagger = R \left(\hat{m} \cdot \sigma\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \sigma\right) = \left(\hat{m} \cdot \sigma\right) U$.
 	The rest follows.
 \end{proof}
 
@@ -559,6 +561,7 @@ If an operator annihilates every member of a basis, then it annihilates every ve
 
 Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}$ that Hermiticity $\mL^\dagger = \mL$ implies $\alpha^* = \alpha$, $\delta^* = \delta$, $\gamma^* = \beta$ and $\beta^* = \gamma$.
 
+% Hermitian
 \begin{answer}[Observables for spin 1/2]
 	To show that any $2 \times 2$ Hermitian matrix $\mL$ can be written as a sum of four terms $\mL = a \sigma_x + b \sigma_y + c \sigma_z + dI$ with real $a,b,c,d \in \R$, it suffices to exhibit a vector $\vec{n} = \trans{\begin{pmatrix} a & b & c \end{pmatrix}}$ and $d \in \R$ such that $\mL = \vec{n} \cdot \sigma + d I$.
 	Recall that $\sigma_{\vec{n}} = \vec{n} \cdot \sigma$ and $\mL$ can be expressed as follows:
@@ -597,12 +600,13 @@ Recall for any $2 \times 2$ matrix $\mL = \begin{pmatrix} \alpha & \beta \\ \gam
 For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, recall that the eigenvalues of $\bar{\mA} = \mA - \braket{\mA} I$ are $\left\{\bar{a}_j \mid \bar{a}_j = a_j - \braket{\mA}\right\}$ and that the probability distribution $P_{\bar{\mA}}$ of $\bar{\mA}$ is the same as that $P_{\mA}$ of $\mA$ except that $\braket{\bar{\mA}} = 0$.
 Since $\braket{\bar{\mA}} = 0$, it follows that $\overline{\bar{\mA}} = \bar{\mA} - \braket{\bar{\mA}} I$ is $\bar{\mA}$.
 Thus, the eigenvalues of $\overline{\bar{\mA}}$ are $\left\{\overline{\bar{a}_j} \mid \overline{\bar{a}_j} = \bar{a}_j\right\}$ and the probability distribution $P_{\overline{\bar{\mA}}}$ of $\overline{\bar{\mA}}$ is the same as $P_{\bar{\mA}}$.
+The eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_j^2\right\}$.
 
+% general uncertainty
 \begin{answer}[Uncertainty]
 	Consider any Hermitian operators $\mA$ and $\mB$ on the same Hilbert space.
 	\begin{enumerate}
 		\item For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, let $\braket{\mA}$ be the expectation of $\mA$ and denote the probability distribution of $\bar{\mA} = \mA - \braket{\mA} I$ by $P_{\bar{\mA}}$.
-		      The eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_j^2\right\}$.
 		      Let $P_{\bar{\mA}^2}$ be the probability distribution of $\bar{\mA}^2$.
 		      For any state $\Psi$, the expectation value $\dsp \braket{\Psi \mid \bar{\mA}^2 \mid \Psi} = \sum_{\lambda} \lambda P_{\bar{\mA}^2}(\lambda)$ is $\dsp \sum_{\lambda} \lambda \left(\sum_{\bar{a_j}^2 = \lambda} P_{\mA}(a_j)\right) = \left(\Delta \mA\right)^2$. For any operator $\mB$, it follows similarly that $\left(\Delta \mB\right)^2 = \braket{\bar{\mB}^2}$.
 		\item The commutator $\left[\bar{\mA}, \bar{\mB}\right] = (\mA - \braket{\mA} I) (\mB - \braket{\mB} I) - (\mB - \braket{\mB} I) (\mA - \braket{\mA} I)$ satisfies $\left[\bar{\mA}, \bar{\mB}\right] = \left[\mA, \mB\right]$.
@@ -613,7 +617,53 @@ Thus, the eigenvalues of $\overline{\bar{\mA}}$ are $\left\{\overline{\bar{a}_j}
 
 \subsection{Combining Systems: Entaglement}
 
-\begin{answer}
-	Suppose there is a factorization $P(a, b) = P_A(a) P_B(b)$ for all eigenvalues $a$ of $L$ and $b$ of $M$.
+\begin{answer}[Factorization]
+	Suppose there is a factorization
+	\begin{align}
+		P(a, b) & = P_A(a) P_B(b)
+	\end{align}
+	for all eigenvalues $a$ of $\mL$ and $b$ of $\mM$.
+
+	Summing their products with eigenvalues yields the following equations.
+	\begin{align*}
+		\sum_{a, b} a b P(a, b) & = \sum_{a, b} a P_A(a) b P_B(b) = \left(\sum_a a P_A(a)\right) \left(\sum_b b P_B(b)\right)
+	\end{align*}
+	Subtraction thus yields $\braket{\mL \mM} - \braket{\mL} \braket{\mM} = 0$.
+	Therefore, the correlation between $a$ and $b$ is zero.
+\end{answer}
+
+Consider the pair of states $\left|\alpha\right\}$ and $\ket{\beta}$ given below.
+\begin{align}\label{eqn:states}
+	\left|\alpha\right\} & = \alpha_u \left|u\right\} + \alpha_d \left|d\right\}
+	                     &
+	\ket{\beta}          & = \beta_u \ket{u} + \beta_d \ket{d}
+\end{align}
+Their norms are given below.
+\begin{align}\label{eqn:norm}
+	\left\||\alpha\}\right\|   & = \sqrt{\alpha_u^* \alpha_u + \alpha_d^* \alpha_d}
+	                           &
+	\left\|\ket{\beta}\right\| & = \sqrt{\beta_u^* \beta_u + \beta_d^* \beta_d}
+\end{align}
+Their product state $\left|\alpha\right\} \otimes \ket{\beta}$
+is given below.
+\begin{align}\label{eqn:product}
+	\left|\alpha\right\} \otimes \ket{\beta} & = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}
+\end{align}
+Its norm is calculated below.
+\begin{align}\label{eqn:pnorm}
+	 & \left\||\alpha\} \otimes \ket{\beta}\right\| \nonumber                                                                                                                                                                                                                           \\
+	 & = \sqrt{\left(\alpha_u \beta_u\right)^* \left(\alpha_u \beta_u\right) + \left(\alpha_u \beta_d\right)^* \left(\alpha_u \beta_d\right) + \left(\alpha_d \beta_u\right)^* \left(\alpha_d \beta_u\right) + \left(\alpha_d \beta_d\right)^* \left(\alpha_d \beta_d\right)} \nonumber \\
+	 & = \sqrt{\beta_u^* \left(\alpha_u^* \alpha_u + \alpha_d^* \alpha_d \right) \beta_u + \beta_d^* \left(\alpha_u^* \alpha_u + \alpha_d^* \alpha_d\right)\beta_d} \nonumber                                                                                                           \\
+	 & = \sqrt{\beta_u^* \left\||\alpha\}\right\|^2 \beta_u + \beta_d^* \left\||\alpha\}\right\|^2 \beta_d} \nonumber                                                                                                                                                                   \\
+	 & = \sqrt{\left\||\alpha\}\right\|^2} \sqrt{\beta_u^* \beta_u + \beta_d^* \beta_d} \nonumber                                                                                                                                                                                       \\
+	 & = \left\||\alpha\}\right\| \left\|\ket{\beta}\right\|
+\end{align}
+
+\begin{answer}[Normalized product of normalized states]
+	Consider the states $\left|\alpha\right\}$ and $\ket{\beta}$ given by Equation \eqref{eqn:states}.
+	Assume the normalization conditions $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1$ and $\beta_u^* \beta_u + \beta_d^* \beta_d = 1$.
+
+	By Equations \eqref{eqn:norm}-\eqref{eqn:pnorm}, the norm $\left\||\alpha\} \otimes \ket{\beta}\right\|$ of the product state $\left|\alpha\!\right\} \otimes \ket{\beta}$ is $\left\||\alpha\}\right\| \left\|\ket{\beta}\right\|$.
+	Applying the hypothesis yields $\left\||\alpha\} \otimes \ket{\beta}\right\| = 1 \cdot 1$.
 \end{answer}
 

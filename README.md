@@ -5,7 +5,7 @@ proposed solutions to exercises selected from the series on the *Theoretical Min
 
 ## Mechanics
 
-answers to the exercises from the *Theoretical Minimum* book on mechanics by
+answers to the exercises from the *Theoretical Minimum* book on mechanics by Leonard
 
 `mechanics.tex`
 

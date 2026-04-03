@@ -407,9 +407,12 @@ There are no exercises in this lecture concerning systems of particles.
 
 Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Mathematics} Consider a vector space with identity $\vzero$ under addition.
+\paragraph{Mathematical analysis} Consider a vector space with identity $\vzero$ under addition.
 
-For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is its distance from the origin defined by $r(t) = \left\|\vr(t)\right\|$.
+For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the distance defined by $r(t) = \left\|\vr(t)\right\|$ and its \emph{square} is the function $\vr^2(t)$ defined below.
+\begin{align}
+	\vr^2(t) = \left|\vr(t)\right|^2
+\end{align}
 
 \begin{definition}[Angular curve, tangential curve]
 	For a nonvanishing curve $\vr(t)$ in a normed vector space with radial function $r(t)$, its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
@@ -421,21 +424,32 @@ Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
 If $\vr(t)$ is nonvanishing, then there exists an angular curve for it but it is not unique.
 
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane and any angular function $\theta(t)$, the unit curves of $\vr(t)$ and $\vth(t)$ satisfy $\dot{\widehat{\vr}}(t) = \dot{\theta}(t) \widehat{\vth}(t)$ and $\dot{\widehat{\vth}}(t) = - \dot{\theta}(t) \widehat{\vr}(t)$.
+	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any angular function $\theta(t)$ satisfies the equations below.
+	\begin{align}
+		\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
+		                        &
+		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t)                                                                \\
+		\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
+		                        &
+		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t)                                       \\
+		\ddot{\vr}(t)           & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t)
+	\end{align}
 \end{remark}
 
-For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr(t) \neq \vzero$, the product rule yields $\dot{\vr}(t) = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)$ and the above remark yields $\dot{\vr}(t) = r(t) \dot{\theta}(t) \widehat{\vth}(t) + \dot{r}(t) \widehat{\vr}(t)$.
+For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr(t) \neq \vzero$, the derivative of the square $\vr^2(t) = \vr(t) \cdot \vr(t)$ is given by the product rule below.
+\begin{align*}
+	\frac{d \vr^2(t)}{dt} & = \vr(t) \cdot \frac{d \vr(t)}{dt} + \frac{d \vr(t)}{dt} \cdot \vr(t) = 2 \vr(t) \cdot \dot{\vr}(t)
+\end{align*}
+In particular, the velocity $\vv(t)$ of any particle satisfies the equation below.
+\begin{align}\label{eqn:square}
+	\frac{d \vv^2(t)}{dt} & = 2 \vv(t) \cdot \dot{\vv}(t)
+\end{align}
 
 \subsection{Energy}
 
 % chain rule
 \begin{answer}[Rate of change of kinetic energy]
-	For a particle with velocity $\vv(t)$, the derivative of $\vv^2(t) = \vv(t) \cdot \vv(t)$ is calculated by the product rule below.
-	\begin{align}
-		\frac{d \vv^2(t)}{dt} & = \vv(t) \cdot \frac{d \vv(t)}{dt} + \frac{d \vv(t)}{dt} \cdot \vv(t)
-	\end{align}
-	Thus, $\frac{d \vv^2(t)}{dt} = 2 \vv(t) \cdot \dot{\vv}(t)$.
-	It follows for a particle with velocity $v(t)$ in one dimension that $\frac{d v^2(t)}{dt} = 2 v(t) \dot{v}(t)$.
+	For a particle with velocity $v(t)$ in one dimension, it follows from Equation \eqref{eqn:square} that the derivative of $v^2(t) = v(t)^2$ with respect to time is $\frac{d v^2(t)}{dt} = 2 v(t) \dot{v}(t)$.
 \end{answer}
 
 % differentiation
@@ -445,15 +459,14 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 			x_0 \\
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
-	If $\vr_0 = \vv_0 = \vzero$, then the particle remains at rest at the origin.
 	The kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
-	Suppose at least one is not zero.
+	Suppose $\left(\vr_0, \vv_0\right) \neq \left(\vzero, \vzero\right)$.
 
-	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\bF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
+	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $F = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
 	The equation of motion $m \ddot{\vr} = - k \vr$ is expressed in components $m \ddot{x} = -kx$ and $m \ddot{y} = -ky$.
 	Let $\omega = \sqrt{\frac{k}{m}}$ and $\vb = \frac{1}{\omega} \vv_0$.
 	Consider the following trajectory.
-	\begin{align}\label{eqn:square}
+	\begin{align}\label{eqn:circle}
 		\vr(t) & = \vr_0 \cos \omega t + \vb \sin \omega t
 	\end{align}
 	Its derivatives are calculated below.
@@ -467,7 +480,7 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 	\end{align*}
 	The trajectory satisfies the equations of motion.
 	The motion is periodic with angular frequency $\omega$ and period $2 \pi \sqrt{\frac{m}{k}}$.
-	The orbit defined by Equation \eqref{eqn:square} is the image of the unit circle under the linear map whose columns are $\vr_0$ and $\vb$.
+	The orbit defined by Equation \eqref{eqn:circle} is the image of the unit circle under the linear map whose columns are $\vr_0$ and $\vb$.
 	If $\vr_0$ and $\vb$ are linearly dependent, then the orbit is a line segment.
 	Otherwise, the orbit is an ellipse centered at the origin.
 	In the latter case, it is a circle if $\left\|\vv_0\right\| = \omega \left\|\vr_0\right\|$ and $\vr_0 \cdot \vv_0 = 0$.
@@ -477,36 +490,20 @@ For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr
 \end{answer}
 
 \begin{proposition}\label{prop:potential}
-	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the gradient of potential energy is $\nabla V = -\frac{k}{r^4} \vr$.
+	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the corresponding force is $F = \frac{k}{r^4} \vr$.
 \end{proposition}
 \begin{proof}
 	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$ and the potential is given by $V\p{\vr} = \frac{k}{2 r^2}$.
 	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
-	Since $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it therefore follows that $\nabla V = - \frac{k}{r^4} \vr$.
+	Since $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it follows that $\nabla V = - \frac{k}{r^4} \vr$.
+	Therefore, the force is $F = \frac{k}{r^4} \vr$.
 \end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
 	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
-	By Proposition \ref{prop:potential}, the gradient of the potential energy is $\nabla V = - \frac{k}{r^4} \vr$.
-	It is expressed in components as follows.
-	\begin{align*}
-		\nabla V & = \begin{pmatrix} \frac{\partial V}{\partial x} \\ \frac{\partial V}{\partial y}\end{pmatrix}
-		=
-		k
-		\begin{pmatrix}
-			-\frac{x}{(x^2+y^2)^2} \\
-			-\frac{y}{(x^2+y^2)^2}
-		\end{pmatrix}
-		         &
-		F        & = -\nabla V = k
-		\begin{pmatrix}
-			\frac{x}{(x^2+y^2)^2} \\
-			\frac{y}{(x^2+y^2)^2}
-		\end{pmatrix}
-		= \frac{k}{r^4}\vr
-	\end{align*}
+	By Proposition \ref{prop:potential}, the force is $F = \frac{k}{r^4} \vr$.
 	The equation of motion $m \ddot{\vr} = \frac{k}{r^4} \vr$ is expressed in components below.
 	\begin{align*}
 		m \ddot{x} & = k\frac{x}{(x^2+y^2)^2}

@@ -17,6 +17,11 @@ Let $L$ denote a Lagrangian.
 	The result follows from the limit definition of the partial derivative.
 \end{proof}
 
+For any functions $F(q, p)$ and $G(q, p)$, the product of partial derivatives has the units below.
+\begin{align*}
+	\left[\frac{\partial F}{\partial q_i} \frac{\partial G}{\partial p_i}\right] & = \frac{\left[F\right] \left[G\right]}{\left[q_i\right] \left[p_i\right]}
+\end{align*}
+
 \subsection*{Mathematics}
 
 Given the axis spanned by any unit vector $\hat{n}$, the rotation $r_{\hat{n}}^\theta$ of $\R^3$ about the axis by $\theta$ can be expressed by Rodrigues's rotation formula below.
@@ -28,10 +33,10 @@ Let $\mA$ denote an operator on a finite-dimensional Hilbert space.
 
 Recall the \emph{exponential} of $\mA$ is the operator $\exp\p{\mA} = e^{\mA}$ defined by $\dsp \sum_{k=0}^\infty \frac{1}{k!} \mA^k$.
 
-\subsubsection*{Pure mathematics}
+\subsubsection*{Mathematical analysis}
 
 Recall \emph{involutivity} of $\mA$ is the condition that $\mA^2 = I$.
-If $\mA$ is an involution, then it holds for any natural $k \in \N$ that $\mA^k = I$.
+If $\mA$ is an involution, then it holds for any natural $k \in \N$ that $\mA^{2 k} = I$ and $\mA^{2 k + 1} = \mA$.
 
 For any scalar $z \in \C$ and involution $\mA$ on a finite-dimensional Hilbert space, the exponential $\dsp \exp\p{z \mA} = \sum_{k=0}^\infty \left(\frac{z^{2k}}{(2k)!} \mA^{2k} + \frac{z^{2k+1}}{(2k+1)!} \mA^{2k+1}\right)$ of $z \mA$ is given by $\exp\p{z \mA} = \left(\cosh z\right) I + \left(\sinh z\right) \mA$.
 

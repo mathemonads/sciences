@@ -327,7 +327,7 @@ The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermit
 	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma$.
 \end{proof}
 
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is a unitary involution since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and it is Hermitian.
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is a Hermitian involution since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and it is thus unitary.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -441,7 +441,7 @@ Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{
 	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M - 2 c s \left(\hat{m} \times \hat{n}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
 	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} - 2 c s (\hat{m} \times \hat{n}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
 	\begin{align}
-		R M R^\dagger & = \left(\hat{m} \cos \theta - (\hat{m} \times \hat{n}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
+		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{m} \times \hat{n}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
 	\end{align}
 	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \sigma$.
 	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
@@ -449,6 +449,8 @@ Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{
 	Suppose $R'$ also satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
 	Consider any unit vector $\hat{m} \in S^2$, and let $U = R^\dagger R'$.
 	Since $R' \left(\hat{m} \cdot \sigma\right) {R'}^\dagger = R \left(\hat{m} \cdot \sigma\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \sigma\right) = \left(\hat{m} \cdot \sigma\right) U$.
+	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
+	Commutativity of $U$ with $\sigma_x$ implies that $U$ is diagonal.
 	The rest follows.
 \end{proof}
 
@@ -606,17 +608,19 @@ The eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_
 \begin{answer}[Uncertainty]
 	Consider any Hermitian operators $\mA$ and $\mB$ on the same Hilbert space.
 	\begin{enumerate}
-		\item For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, let $\braket{\mA}$ be the expectation of $\mA$ and denote the probability distribution of $\bar{\mA} = \mA - \braket{\mA} I$ by $P_{\bar{\mA}}$.
-		      Let $P_{\bar{\mA}^2}$ be the probability distribution of $\bar{\mA}^2$.
-		      For any state $\Psi$, the expectation value $\dsp \braket{\Psi \mid \bar{\mA}^2 \mid \Psi} = \sum_{\lambda} \lambda P_{\bar{\mA}^2}(\lambda)$ is $\dsp \sum_{\lambda} \lambda \left(\sum_{\bar{a_j}^2 = \lambda} P_{\mA}(a_j)\right) = \left(\Delta \mA\right)^2$. For any operator $\mB$, it follows similarly that $\left(\Delta \mB\right)^2 = \braket{\bar{\mB}^2}$.
+		\item For any operator $\mA$ with eigenvalues $\left\{a_j\right\}$ and probability distribution $P_{\mA}$, denote the eigenvalues of $\bar{\mA} = \mA - \braket{\mA} I$ by $\left\{\bar{a}_j \mid \bar{a}_j = a_j - \braket{\mA} \right\}$.
+		      Recall that the eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_j^2\right\}$.
+		      Thus, the expectation $\dsp \braket{\bar{\mA}^2} = \sum_{j} \lambda_j P_{\bar{\mA}^2}\p{\lambda_j}$ is $\dsp \sum_j \left(a_j - \braket{\mA}\right)^2 P_{\mA}\p{a_j} = \left(\Delta \mA\right)^2$.
+		      For any operator $\mB$, it follows similarly that $\left(\Delta \mB\right)^2 = \braket{\bar{\mB}^2}$.
 		\item The commutator $\left[\bar{\mA}, \bar{\mB}\right] = (\mA - \braket{\mA} I) (\mB - \braket{\mB} I) - (\mB - \braket{\mB} I) (\mA - \braket{\mA} I)$ satisfies $\left[\bar{\mA}, \bar{\mB}\right] = \left[\mA, \mB\right]$.
 		\item It follows from the first part of this exercise that $\left(\Delta \mA\right) \left(\Delta \mB\right) = \sqrt{\braket{\bar{\mA}^2} \braket{\bar{\mB}^2}}$ and from the general uncertainty principle that $\left(\Delta \mA\right) \left(\Delta \mB\right) \geq \frac{1}{2} \left|\braket{\Psi \mid \left[\bar{\mA}, \bar{\mB}\right] \mid \Psi}\right|$.
 		      The second part of this exercise yields $\left(\Delta \mA\right) \left(\Delta \mB\right) \geq \frac{1}{2} \left|\braket{\Psi \mid \left[\mA, \mB\right] \mid \Psi}\right|$.
 	\end{enumerate}
 \end{answer}
 
-\subsection{Combining Systems: Entaglement}
+\subsection{Combining Systems: Entanglement}
 
+% multiply probabilities by eigenvalues
 \begin{answer}[Factorization]
 	Suppose there is a factorization
 	\begin{align}
@@ -624,7 +628,7 @@ The eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_
 	\end{align}
 	for all eigenvalues $a$ of $\mL$ and $b$ of $\mM$.
 
-	Summing their products with eigenvalues yields the following equations.
+	Summing over all eigenvalues yields the following equations.
 	\begin{align*}
 		\sum_{a, b} a b P(a, b) & = \sum_{a, b} a P_A(a) b P_B(b) = \left(\sum_a a P_A(a)\right) \left(\sum_b b P_B(b)\right)
 	\end{align*}
@@ -659,11 +663,19 @@ Its norm is calculated below.
 	 & = \left\||\alpha\}\right\| \left\|\ket{\beta}\right\|
 \end{align}
 
+% conjugate of product is swapped product of conjugates
 \begin{answer}[Normalized product of normalized states]
 	Consider the states $\left|\alpha\right\}$ and $\ket{\beta}$ given by Equation \eqref{eqn:states}.
 	Assume the normalization conditions $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1$ and $\beta_u^* \beta_u + \beta_d^* \beta_d = 1$.
 
 	By Equations \eqref{eqn:norm}-\eqref{eqn:pnorm}, the norm $\left\||\alpha\} \otimes \ket{\beta}\right\|$ of the product state $\left|\alpha\!\right\} \otimes \ket{\beta}$ is $\left\||\alpha\}\right\| \left\|\ket{\beta}\right\|$.
-	Applying the hypothesis yields $\left\||\alpha\} \otimes \ket{\beta}\right\| = 1 \cdot 1$.
+	Applying the hypothesis yields $\left\||\alpha\} \otimes \ket{\beta}\right\| = 1$.
+\end{answer}
+
+\begin{answer}[Singlet]
+	To show that the singlet state $\ket{s} = \frac{1}{\sqrt{2}} \left(\ket{u d} - \ket{d u}\right)$ cannot be written as a product state, suppose for the sake of contradiction that it can be written as a product state $\ket{s} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$.
+	The coefficients must satisfy $\alpha_u \beta_u = 0$, $\alpha_u \beta_d = \frac{1}{\sqrt{2}}$, $\alpha_d \beta_u = \frac{-1}{\sqrt{2}}$, and $\alpha_d \beta_d = 0$.
+	It follows from the second equation that $\alpha_u \neq 0$ and $\beta_d \neq 0$.
+	The coefficient $\beta_u$ must be non-zero so that $\alpha_d \beta_u \neq 0$ and zero so that $\alpha_u \beta_u = 0$.
 \end{answer}
 

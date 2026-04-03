@@ -10,33 +10,36 @@ A few classical results needed for Section \ref{sec:quantum} are reviewed.
 
 Let $L$ denote a Lagrangian.
 
-\begin{lemma}[Units of derivative of function on phase space]
+\begin{remark}[Units of derivative of function on phase space]
 	For any function $F(q, p)$ of a generalized coordinate $q$ and canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left[\frac{\partial F(q,p)}{\partial q}\right] = \frac{\left[F\right]}{\left[q\right]}$ and the partial derivative $\frac{\partial F(q,p)}{\partial p}$ with respect to the canonical momentum has units $\left[\frac{\partial F(q,p)}{\partial p}\right] = \frac{\left[F\right]}{\left[p\right]}$.
-\end{lemma}
-\begin{proof}
-	The result follows from the limit definition of the partial derivative.
-\end{proof}
+\end{remark}
 
 For any functions $F(q, p)$ and $G(q, p)$, the product of partial derivatives has the units below.
 \begin{align*}
 	\left[\frac{\partial F}{\partial q_i} \frac{\partial G}{\partial p_i}\right] & = \frac{\left[F\right] \left[G\right]}{\left[q_i\right] \left[p_i\right]}
 \end{align*}
 
-\subsection*{Mathematics}
+\subsection*{Algebra}
 
 Given the axis spanned by any unit vector $\hat{n}$, the rotation $r_{\hat{n}}^\theta$ of $\R^3$ about the axis by $\theta$ can be expressed by Rodrigues's rotation formula below.
 \begin{align}\label{eqn:Rodrigues}
 	r_{\hat{n}}^\theta \vec{m} & = \vec{m} \cos \theta + \left(\hat{n} \times \vec{m} \right) \sin \theta + \hat{n} \left(\hat{n} \cdot \vec{m}\right)\left(1 - \cos \theta\right)
 \end{align}
 
-Let $\mA$ denote an operator on a finite-dimensional Hilbert space.
+Let $\mA$ denote an operator on a finite-dimensional vector space.
 
 Recall the \emph{exponential} of $\mA$ is the operator $\exp\p{\mA} = e^{\mA}$ defined by $\dsp \sum_{k=0}^\infty \frac{1}{k!} \mA^k$.
 
-\subsubsection*{Mathematical analysis}
+\subsubsection*{Linear algebra}
 
 Recall \emph{involutivity} of $\mA$ is the condition that $\mA^2 = I$.
 If $\mA$ is an involution, then it holds for any natural $k \in \N$ that $\mA^{2 k} = I$ and $\mA^{2 k + 1} = \mA$.
 
-For any scalar $z \in \C$ and involution $\mA$ on a finite-dimensional Hilbert space, the exponential $\dsp \exp\p{z \mA} = \sum_{k=0}^\infty \left(\frac{z^{2k}}{(2k)!} \mA^{2k} + \frac{z^{2k+1}}{(2k+1)!} \mA^{2k+1}\right)$ of $z \mA$ is given by $\exp\p{z \mA} = \left(\cosh z\right) I + \left(\sinh z\right) \mA$.
+Let $\mA$ be an involution on a finite-dimensional Hilbert space.
+If the involution $\mA$ is Hermitian, then it is also unitary.
+For any complex $z \in \C$, the exponential $\dsp \exp\p{z \mA} = \sum_{k=0}^\infty \left(\frac{z^{2k}}{(2k)!} \mA^{2k} + \frac{z^{2k+1}}{(2k+1)!} \mA^{2k+1}\right)$ of $z \mA$ is given by $\exp\p{z \mA} = \left(\cosh z\right) I + \left(\sinh z\right) \mA$.
+For any real $\theta \in \R$, the exponential $\dsp \exp\p{i\theta \mA} = \left(\cosh i \theta\right) I + \left(\sinh i \theta\right) \mA$ is given below.
+\begin{align}
+	\exp\p{i \theta \mA} = \left(\cos \theta\right) I + i \left(\sin \theta\right) \mA
+\end{align}
 

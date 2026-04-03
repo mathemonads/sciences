@@ -1,6 +1,9 @@
-%!/usr/bin/env latex
 
 \section{Quantum Mechanics}\label{sec:quantum}
+
+Solutions are proposed in this section to a selection of exercises from the lectures of \cite{QM} included in the table below.
+
+\localtableofcontents
 
 \subsection{Systems and experiments}
 
@@ -413,8 +416,6 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	Each normalized eigenvector of $\sigma_n$ is unique up to a complex phase.
 \end{answer}
 
-Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{\cosh z} I + \p{\sinh z} \hat{n} \cdot \sigma$.
-
 \begin{lemma}
 	For every rotation $r$ of $\R^3$, there is a unitary operator $R$ on $\C^2$ satisfying
 	\begin{align*}
@@ -426,7 +427,8 @@ Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{
 	Consider any rotation $r$ of $\R^3$.
 	Denote its axis by $\hat{n}$ and angle by $\theta$.
 
-	Observe $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$ is given by $R = \left(\cosh \frac{-i\theta}{2} \right) I + \left(\sinh \frac{-i\theta}{2}\right) \hat{n} \cdot \sigma$.
+	Let $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$.
+	It is given by $R = \left(\cos \frac{\theta}{2} \right) I - i \left(\sin \frac{\theta}{2}\right) \hat{n} \cdot \sigma$.
 	Let $c = \cos \frac{\theta}{2}$, $s = \sin \frac{\theta}{2}$, $N = \hat{n} \cdot \sigma$, and $M = \hat{m} \cdot \sigma$.
 	Calculation yields $R = c I - i s N$ and $R^\dagger = c I + i s N$.
 	Substitution yields the equations below.
@@ -441,7 +443,7 @@ Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{
 	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M - 2 c s \left(\hat{m} \times \hat{n}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
 	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} - 2 c s (\hat{m} \times \hat{n}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
 	\begin{align}
-		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{m} \times \hat{n}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
+		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{n} \times \hat{m}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
 	\end{align}
 	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \sigma$.
 	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
@@ -450,7 +452,8 @@ Recall any unit vector $\hat{n}$ satisfies $\exp\p{z \hat{n} \cdot \sigma} = \p{
 	Consider any unit vector $\hat{m} \in S^2$, and let $U = R^\dagger R'$.
 	Since $R' \left(\hat{m} \cdot \sigma\right) {R'}^\dagger = R \left(\hat{m} \cdot \sigma\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \sigma\right) = \left(\hat{m} \cdot \sigma\right) U$.
 	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
-	Commutativity of $U$ with $\sigma_x$ implies that $U$ is diagonal.
+	Commutativity of $U$ with $\sigma_z$ implies that $U$ is diagonal, and commutativity of $U$ with $\sigma_x$ then implies $U = a I$ for some $a \in \C$.
+	Unitarity of $U$ implies $\left|a\right|=1$ and thus that $a = e^{i \phi}$.
 	The rest follows.
 \end{proof}
 
@@ -618,7 +621,7 @@ The eigenvalues of $\bar{\mA}^2$ are $\left\{\lambda_j \mid \lambda_j = \bar{a}_
 	\end{enumerate}
 \end{answer}
 
-\subsection{Combining Systems: Entanglement}
+\subsection{Combining systems: entanglement}
 
 % multiply probabilities by eigenvalues
 \begin{answer}[Factorization]
@@ -677,5 +680,98 @@ Its norm is calculated below.
 	The coefficients must satisfy $\alpha_u \beta_u = 0$, $\alpha_u \beta_d = \frac{1}{\sqrt{2}}$, $\alpha_d \beta_u = \frac{-1}{\sqrt{2}}$, and $\alpha_d \beta_d = 0$.
 	It follows from the second equation that $\alpha_u \neq 0$ and $\beta_d \neq 0$.
 	The coefficient $\beta_u$ must be non-zero so that $\alpha_d \beta_u \neq 0$ and zero so that $\alpha_u \beta_u = 0$.
+	This is a contradiction.
+	Therefore, the singlet state cannot be written as a product state.
+\end{answer}
+
+\begin{answer}[Pauli matrices on product basis]
+	The Pauli matrices satisfy the relations below.
+	\begin{align*}
+		\begin{pmatrix}
+			1 & 0  \\
+			0 & -1
+		\end{pmatrix}
+		\begin{pmatrix}
+			1 \\ 0
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			1 \\ 0
+		\end{pmatrix}
+		 &
+		\begin{pmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+			1 \\ 0
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			0 \\ 1
+		\end{pmatrix}
+		 &
+		\begin{pmatrix}
+			0 & -i \\
+			i & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+			1 \\ 0
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			0 \\ i
+		\end{pmatrix}
+		\\
+		\begin{pmatrix}
+			1 & 0  \\
+			0 & -1
+		\end{pmatrix}
+		\begin{pmatrix}
+			0 \\ 1
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			0 \\ -1
+		\end{pmatrix}
+		 &
+		\begin{pmatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+			0 \\ 1
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			1 \\ 0
+		\end{pmatrix}
+		 &
+		\begin{pmatrix}
+			0 & -i \\
+			i & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+			0 \\ 1
+		\end{pmatrix}
+		 & =
+		\begin{pmatrix}
+			-i \\ 0
+		\end{pmatrix}
+	\end{align*}
+	They also act as follows.
+	\begin{align}
+		\sigma_z \ket{u d} & = \ket{u d}
+		                   &
+		\sigma_z \ket{d d} & = - \ket{d d}
+		\\
+		\sigma_x \ket{u u} & = \ket{d u}
+		                   &
+		\sigma_x \ket{d u} & = \ket{u u}
+		\\
+		\sigma_y \ket{u d} & = i \ket{d d}
+		                   &
+		\sigma_y \ket{d d} & = - i \ket{u d}
+	\end{align}
 \end{answer}
 

@@ -84,15 +84,23 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 % calculation
 \begin{answer}[Vector magnitude]
-	For any vector $\vec{A}$, the magnitude $\left| \vec{A} \right| = \sqrt{A_x^2 + A_y^2 + A_z^2}$ of $\vec{A}$ satisfies the following equations:
+	For any vector $\vec{A} = \begin{pmatrix} A_x \\ A_y \\ A_z \end{pmatrix}$, the magnitude $\left| \vec{A} \right| = \sqrt{A_x^2 + A_y^2 + A_z^2}$ of $\vec{A}$ is related to $\vec{A} \cdot \vec{A} = A_x A_x + A_y A_y + A_z A_z$ as follows.
 	\begin{align}
-		\vec{A} \cdot \vec{A} & = A_x A_x + A_y A_y + A_z A_z & = \left| \vec{A} \right|^2.
+		\left| \overrightarrow{A} \right|^2 & = \overrightarrow{A} \cdot \overrightarrow{A}
 	\end{align}
+	That is, the square of its magnitude is the dot product with itself.
 \end{answer}
+
+In any normed vector space, define the square of a vector to be its dot product with itself.
 
 % calculation
 \begin{answer}[Magnitudes]
-	Let $\left(A_x = 2, A_y = -3, A_z = 1\right)$ and $\left(B_x=-4, B_y=-3, B_z=2\right)$.
+	Consider the vectors given below.
+	\begin{align}
+		\vec{A} & = \left(A_x = 2, A_y = -3, A_z = 1\right)
+		        &
+		\vec{B} & = \left(B_x=-4, B_y=-3, B_z=2\right)
+	\end{align}
 
 	The magnitude $\left|\vec{A}\right| = \sqrt{2^2 + (-3)^2 + 1^2}$ of $\vec{A}$ is $\left|\vec{A}\right| = \sqrt{4+9+1} = \sqrt{14}$, and the magnitude $\left|\vec{B}\right| = \sqrt{(-4)^2 + (-3)^2 + 2^2}$ of $\vec{B}$ is $\left|\vec{B}\right| = \sqrt{29}$.
 	The dot product $\vec{A} \cdot \vec{B} = 2(-4) + (-3)(-3) + 1(2)$ of $\vec{A}$ and $\vec{B}$ is $\vec{A} \cdot \vec{B} = 3$.
@@ -407,11 +415,11 @@ There are no exercises in this lecture concerning systems of particles.
 
 Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Mathematical analysis} Consider a vector space with identity $\vzero$ under addition.
+\paragraph{Geometry} Consider a vector space with identity $\vzero$ under addition.
 
-For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the distance defined by $r(t) = \left\|\vr(t)\right\|$ and its \emph{square} is the function $\vr^2(t)$ defined below.
+For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the distance defined by $r(t) = \left\|\vr(t)\right\|$ and its \emph{square} is the function $\vr^2$ defined below.
 \begin{align}
-	\vr^2(t) = \left|\vr(t)\right|^2
+	\vr^2(t) = r(t)^2
 \end{align}
 
 \begin{definition}[Angular curve, tangential curve]
@@ -434,9 +442,13 @@ If $\vr(t)$ is nonvanishing, then there exists an angular curve for it but it is
 		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t)                                       \\
 		\ddot{\vr}(t)           & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t)
 	\end{align}
+	The \emph{velocity} $\vv(t) = \dot{\vr}(t)$ is given below.
+	\begin{align}\label{eqn:velocity}
+		\dot{\vr}(t) = \dot{r}(t) \widehat{\vr}(t) + r (t) \dot{\theta}(t) \widehat{\vth}(t)
+	\end{align}
 \end{remark}
 
-For any differentiable curve $\vr$ in the Euclidean plane and $t$ such that $\vr(t) \neq \vzero$, the derivative of the square $\vr^2(t) = \vr(t) \cdot \vr(t)$ is given by the product rule below.
+The derivative of the square $\vr^2(t) = \vr(t) \cdot \vr(t)$ is given by the product rule below.
 \begin{align*}
 	\frac{d \vr^2(t)}{dt} & = \vr(t) \cdot \frac{d \vr(t)}{dt} + \frac{d \vr(t)}{dt} \cdot \vr(t) = 2 \vr(t) \cdot \dot{\vr}(t)
 \end{align*}
@@ -448,9 +460,21 @@ In particular, the velocity $\vv(t)$ of any particle satisfies the equation belo
 \subsection{Energy}
 
 % chain rule
-\begin{answer}[Rate of change of kinetic energy]
+\begin{answer}[Rate of change of square of velocity]
 	For a particle with velocity $v(t)$ in one dimension, it follows from Equation \eqref{eqn:square} that the derivative of $v^2(t) = v(t)^2$ with respect to time is $\frac{d v^2(t)}{dt} = 2 v(t) \dot{v}(t)$.
 \end{answer}
+
+For a particle in the punctured Euclidean plane, the square $\dot{\vr}^2(t) = \dot{\vr}(t) \cdot \dot{\vr}(t)$ of the velocity $\dot{\vr}$ is given below.
+\begin{align}\label{eqn:vsquare}
+	\dot{\vr}^2(t) = \dot{r}^2(t) + r^2(t) \dot{\theta}^2(t)
+\end{align}
+
+\begin{proposition}[Kinetic energy in the punctured Euclidean plane]\label{prop:kinetic}
+	For a particle in the punctured Euclidean plane, the kinetic energy $T = \frac{m}{2} \dot{\vr}^2$ is given by $T = \frac{m}{2} \left(\dot{r}^2 + r^2 \dot{\theta}^2\right)$.
+\end{proposition}
+\begin{proof}
+	The result follows from Equation \eqref{eqn:vsquare}.
+\end{proof}
 
 % differentiation
 \begin{answer}[Potential energy proportional to the square of the distance]
@@ -489,21 +513,22 @@ In particular, the velocity $\vv(t)$ of any particle satisfies the equation belo
 	Therefore, the total energy is conserved.
 \end{answer}
 
-\begin{proposition}\label{prop:potential}
-	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the corresponding force is $F = \frac{k}{r^4} \vr$.
-\end{proposition}
+\begin{lemma}\label{lem:isq}
+	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the gradient of the potential energy is $\nabla V = - \frac{k}{r^4} \vr$.
+\end{lemma}
 \begin{proof}
 	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$ and the potential is given by $V\p{\vr} = \frac{k}{2 r^2}$.
 	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
-	Since $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it follows that $\nabla V = - \frac{k}{r^4} \vr$.
-	Therefore, the force is $F = \frac{k}{r^4} \vr$.
+	Since $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it therefore follows that $\nabla V = - \frac{k}{r^4} \vr$.
 \end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
 	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
-	By Proposition \ref{prop:potential}, the force is $F = \frac{k}{r^4} \vr$.
+	By Lemma \ref{lem:isq}, the gradient of potential energy is $\nabla V = - \frac{k}{r^4} \vr$.
+	Thus, the force is $\vF = \frac{k}{r^4} \vr$.
+
 	The equation of motion $m \ddot{\vr} = \frac{k}{r^4} \vr$ is expressed in components below.
 	\begin{align*}
 		m \ddot{x} & = k\frac{x}{(x^2+y^2)^2}
@@ -937,6 +962,15 @@ There are no exercises in this lecture on phase space.
 \end{answer}
 
 \subsection{Central forces and planetary orbits}
+
+Recall that gravity is a central force $\vF = f\p{\vr} \widehat{\vr}$ defined by $f\p{\vr} = - \frac{G M m}{r^2}$.
+
+\begin{definition}[gravitational potential energy]
+	The \emph{gravitational potential energy} is given below.
+	\begin{align*}
+		V\p{\vr} & = - \frac{G M m}{r}
+	\end{align*}
+\end{definition}
 
 % norm
 \begin{answer}[Acceleration of an object moving in a circular orbit]

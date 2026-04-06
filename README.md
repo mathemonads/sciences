@@ -5,7 +5,7 @@ proposed solutions to exercises selected from the series on the *Theoretical Min
 
 ## Mechanics
 
-answers to the exercises from the *Theoretical Minimum* book on mechanics by Leonard Susskind
+answers to the exercises from the *Theoretical Minimum* book on mechanics by Leonard Susskind and
 
 `mechanics.tex`
 

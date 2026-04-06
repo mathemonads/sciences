@@ -441,19 +441,19 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	\end{align*}
 	Recall $\left(\hat{m} \times \hat{n}\right) \cdot \hat{n} = 0$ and $\left(\hat{m} \times \hat{n}\right) \times \hat{n} = \left(\hat{m} \cdot \hat{n}\right) \hat{n} - \hat{m}$.
 	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M - 2 c s \left(\hat{m} \times \hat{n}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
-	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} - 2 c s (\hat{m} \times \hat{n}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
+	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} + 2 c s (\hat{n} \times \hat{m}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
 	\begin{align}
 		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{n} \times \hat{m}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
 	\end{align}
 	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \sigma$.
 	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
 
-	Suppose $R'$ also satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
+	Suppose $R'$ is also a linear operator that satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
 	Consider any unit vector $\hat{m} \in S^2$, and let $U = R^\dagger R'$.
 	Since $R' \left(\hat{m} \cdot \sigma\right) {R'}^\dagger = R \left(\hat{m} \cdot \sigma\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \sigma\right) = \left(\hat{m} \cdot \sigma\right) U$.
 	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
 	Commutativity of $U$ with $\sigma_z$ implies that $U$ is diagonal, and commutativity of $U$ with $\sigma_x$ then implies $U = a I$ for some $a \in \C$.
-	Unitarity of $U$ implies $\left|a\right|=1$ and thus that $a = e^{i \phi}$.
+	Unitarity of $U$ implies $\left|a\right|=1$ and thus that $a = e^{i \phi}$ for some real $\phi \in \R$.
 	The rest follows.
 \end{proof}
 
@@ -675,6 +675,7 @@ Its norm is calculated below.
 	Applying the hypothesis yields $\left\||\alpha\} \otimes \ket{\beta}\right\| = 1$.
 \end{answer}
 
+% express as product for the sake of contradiction
 \begin{answer}[Singlet]
 	To show that the singlet state $\ket{s} = \frac{1}{\sqrt{2}} \left(\ket{u d} - \ket{d u}\right)$ cannot be written as a product state, suppose for the sake of contradiction that it can be written as a product state $\ket{s} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$.
 	The coefficients must satisfy $\alpha_u \beta_u = 0$, $\alpha_u \beta_d = \frac{1}{\sqrt{2}}$, $\alpha_d \beta_u = \frac{-1}{\sqrt{2}}$, and $\alpha_d \beta_d = 0$.
@@ -684,6 +685,7 @@ Its norm is calculated below.
 	Therefore, the singlet state cannot be written as a product state.
 \end{answer}
 
+% calculation
 \begin{answer}[Pauli matrices on product basis]
 	The Pauli matrices satisfy the relations below.
 	\begin{align*}
@@ -759,19 +761,37 @@ Its norm is calculated below.
 			-i \\ 0
 		\end{pmatrix}
 	\end{align*}
-	They also act as follows.
+	Suppose the components of $\sigma$ act on the left factor of product states and that the components of $\tau$ act on the right factor of product states.
 	\begin{align}
 		\sigma_z \ket{u d} & = \ket{u d}
 		                   &
 		\sigma_z \ket{d d} & = - \ket{d d}
+		                   &
+		\tau_z \ket{u d}   & = - \ket{u d}
+		                   &
+		\tau_z \ket{d d}   & = - \ket{d d}
 		\\
 		\sigma_x \ket{u u} & = \ket{d u}
 		                   &
 		\sigma_x \ket{d u} & = \ket{u u}
+		                   &
+		\tau_x \ket{u u}   & = \ket{u d}
+		                   &
+		\tau_x \ket{d d}   & = \ket{d u}
 		\\
 		\sigma_y \ket{u d} & = i \ket{d d}
 		                   &
 		\sigma_y \ket{d d} & = - i \ket{u d}
+		                   &
+		\tau_y \ket{d u}   & = i \ket{d d}
+		                   &
+		\tau_y \ket{u d}   & = -i \ket{u u}
 	\end{align}
+\end{answer}
+
+\begin{answer}[Preservation by spin operators of products]
+	Consider the action of any spin operator $\sigma_{n} = \vec{n} \cdot \sigma$ of Alice on the product state $\ket{\alpha \beta} = \ket{\alpha} \otimes \ket{\beta}$ of $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ and $\ket{\beta} = \beta_u \ket{u} + \beta_d \ket{d}$.
+	Since Alice's operator acts on Alice's state while acting as the identity on Bob's state, it follows that $\sigma_n \left(\ket{\alpha} \otimes \ket{\beta}\right) = \left(\sigma_n \ket{\alpha} \right) \otimes \ket{\beta}$.
+	Hence, Alice's operator sends product states to product states.
 \end{answer}
 

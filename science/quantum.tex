@@ -231,7 +231,7 @@ Their conjugate transposes are given below.
 	\end{pmatrix}
 	= \sigma_z
 \end{align*}
-Hence, they are Hermitian.
+Hence, each is Hermitian.
 
 \begin{remark}[Multiplication of the standard Pauli matrices]\label{rem:Pauli}
 	The standard Pauli matrices satisfy the relations below.
@@ -421,7 +421,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	\begin{align*}
 		\forall \hat{m} & \in S^2, & R \left(\hat{m} \cdot \sigma\right) R^\dagger & = \left(r \hat{m}\right) \cdot \sigma
 	\end{align*}
-	and any operator $R'$ satisfying the above condition is of the form $R' = e^{i \phi} R$.
+	and any unitary operator $R'$ satisfying the above condition is of the form $R' = e^{i \phi} R$.
 \end{lemma}
 \begin{proof}
 	Consider any rotation $r$ of $\R^3$.
@@ -792,6 +792,15 @@ Its norm is calculated below.
 \begin{answer}[Preservation by spin operators of products]
 	Consider the action of any spin operator $\sigma_{n} = \vec{n} \cdot \sigma$ of Alice on the product state $\ket{\alpha \beta} = \ket{\alpha} \otimes \ket{\beta}$ of $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ and $\ket{\beta} = \beta_u \ket{u} + \beta_d \ket{d}$.
 	Since Alice's operator acts on Alice's state while acting as the identity on Bob's state, it follows that $\sigma_n \left(\ket{\alpha} \otimes \ket{\beta}\right) = \left(\sigma_n \ket{\alpha} \right) \otimes \ket{\beta}$.
-	Hence, Alice's operator sends product states to product states.
+	Hence, Alice's spin operators send product states to product states.
+	Similarly, Bob's spin operators send product states to product states.
+
+	For any product state $\ket{\alpha} \otimes \ket{\beta}$, the expectation value of any component $\sigma_i$ of $\sigma$ is $\braket{\alpha \beta \mid \sigma_i \mid \alpha \beta} =  \braket{\alpha \mid \sigma_i \mid \alpha} \braket{\beta \mid \beta}$; if the state $\ket{\beta}$ is normalized, then $\braket{\alpha \beta \mid \sigma_i \mid \alpha \beta} = \braket{\alpha \mid \sigma_i \mid \alpha}$.
+	Similarly, the expectation value of any component of $\tau$ in any product state is exactly the same as it would be in the individual single-spin states.
+\end{answer}
+
+\begin{answer}[Expectation]
+	Assume after Charlie has prepared the two spins in the singlet that Bob measures $\tau_y$ and Alice measures $\sigma_x$.
+	The expectation value of $\sigma_x \tau_y$ in the singlet state $\ket{s} = \frac{1}{\sqrt{2}} \left(\ket{ud} - \ket{d u}\right)$ is $\braket{s \mid \sigma_x \tau_y \mid s}$.
 \end{answer}
 

@@ -9,8 +9,9 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
 % measurement
 \begin{answer}[Closed system]
-	Closed systems can actually exist if the collection of objects under investigation do not interact with anything outside of the system.
+	Recall that a \emph{system} is defined in \cite[Lecture 1]{TM} as a ``collection of objects''.
 
+	Closed systems can actually exist if the collection of objects under investigation do not interact with anything outside of the system.
 	Consider the empty system $\emptyset$, an empty collection that contains no objects.
 	The empty system is a closed system that actually exists.
 
@@ -415,7 +416,7 @@ There are no exercises in this lecture concerning systems of particles.
 
 Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Classical mathematics} Consider a vector space with identity $\vzero$ under addition.
+\paragraph{Analysis} Consider a vector space with identity $\vzero$ under addition.
 
 For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the distance defined by $r(t) = \left\|\vr(t)\right\|$ and its \emph{square} is the function $\vr^2$ defined below.
 \begin{align}
@@ -432,17 +433,18 @@ Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
 If $\vr(t)$ is nonvanishing, then there exists an angular curve for it but it is not unique.
 
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any angular function $\theta(t)$ satisfies the equations below.
+	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any differentiable angular function $\theta(t)$ satisfies the equations below.
 	\begin{align}
 		\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
 		                        &
-		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t)                                                                \\
+		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t)
+		\\
 		\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
 		                        &
 		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t)                                       \\
 		\ddot{\vr}(t)           & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t)
 	\end{align}
-	The \emph{velocity} $\vv(t) = \dot{\vr}(t)$ is given below.
+	The \emph{velocity} $\vv(t) = \dot{\vr}(t)$ is given in terms of the \emph{radial velocity $\dot{r}(t)$} and \emph{angular velocity $\dot{\theta}(t)$} below.
 	\begin{align}\label{eqn:velocity}
 		\dot{\vr}(t) = \dot{r}(t) \widehat{\vr}(t) + r (t) \dot{\theta}(t) \widehat{\vth}(t)
 	\end{align}
@@ -475,8 +477,13 @@ For a particle in the punctured Euclidean plane, the square $\dot{\vr}^2(t) = \d
 \begin{proof}
 	Recall that kinetic energy of a particle with mass $m$ and velocity $\dot{\vr}$ is defined to be $T = \frac{m}{2} \dot{\vr}^2$.
 	The norm in the Euclidean plane yields $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
-	Equation \eqref{eqn:vsquare} yields $T = \frac{m}{2} \left(\dot{r}^2 + r^2 \dot{\theta}^2\right)$.
+	Therefore, Equation \eqref{eqn:vsquare} yields $T = \frac{m}{2} \left(\dot{r}^2 + r^2 \dot{\theta}^2\right)$.
 \end{proof}
+
+The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\frac{\partial}{\partial \dot{r}} \dot{r}^2 + \frac{\partial}{\partial \dot{r}}(r^2 \dot{\theta}^2)\right)$ of kinetic energy with respect to the radial velocity $\dot{r}$ is $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2} 2 \dot{r}$ since $\frac{\partial}{\partial \dot{r}} \left(r^2 \dot{\theta}^2\right) = 0$ and thus given by Equation \eqref{eqn:momentum} below.
+\begin{align}\label{eqn:momentum}
+	\frac{\partial T}{\partial \dot{r}} & = m \dot{r}
+\end{align}
 
 % differentiation
 \begin{answer}[Potential energy proportional to the square of the distance]
@@ -485,7 +492,7 @@ For a particle in the punctured Euclidean plane, the square $\dot{\vr}^2(t) = \d
 			x_0 \\
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
-	The kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
+	By Proposition \ref{prop:kinetic}, the kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
 	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\vF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
 	Suppose $\left(\vr_0, \vv_0\right) \neq \left(\vzero, \vzero\right)$.
 
@@ -516,18 +523,20 @@ For a particle in the punctured Euclidean plane, the square $\dot{\vr}^2(t) = \d
 \end{answer}
 
 \begin{lemma}\label{lem:isq}
-	For a particle in the punctured Euclidean plane with constant mass $m$ and potential energy $V$ defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V\p{\vr} = \frac{k}{2(x^2 + y^2)}$, the derivative of the potential energy with respect to the radial coordinate is $\frac{d V}{d r} = - \frac{k}{r^3}$.
+	For a particle in the punctured Euclidean plane with constant mass $m$ and potential $V\p{\vr} = \frac{k}{2 \left(x^2+y^2\right)}$, the potential energy can be written as $V\p{\vr} = \frac{k}{2 r^2}$.
 \end{lemma}
 \begin{proof}
-	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$ and the potential is given by $V\p{\vr} = \frac{k}{2 r^2}$.
-	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
+	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$.
+	Therefore, substitution yields the potential energy $V\p{\vr} = \frac{k}{2 r^2}$.
 \end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
 	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
-	By Lemma \ref{lem:isq}, the derivative of potential energy with respect to the radial coordinate is $\frac{d V}{d r} = - \frac{k}{r^3}$.
+	By Lemma \ref{lem:isq}, the potential energy is $V\p{\vr} = \frac{k}{2 r^2}$.
+	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
+	the derivative of potential energy with respect to the radial coordinate is $\frac{d V}{d r} = - \frac{k}{r^3}$.
 	Since the chain rule yields $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it therefore follows that $\nabla V = - \frac{k}{r^4} \vr$.
 	Thus, the force is $\vF = \frac{k}{r^4} \vr$.
 
@@ -549,10 +558,9 @@ For a particle in the punctured Euclidean plane, the square $\dot{\vr}^2(t) = \d
 	Suppose $L \neq 0$.
 	Equating them yields $\dsp u'' + \alpha^2 u = 0$ where $\dsp \alpha = \sqrt{1 + \frac{mk}{L^2}}$.
 	If $\alpha^2 = 0$, then $u = A(\theta-\theta_0)$ and the trajectories are not closed.
-	If $\alpha^2 < 0$ and $\beta >0$ satisfies $\alpha = i \beta$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
+	If $\alpha^2 < 0$ and $\beta > 0$ satisfies $\alpha = i \beta$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
 	Suppose $\alpha^2 > 0$.
-	The solution is given by $u(\theta) = A \cos\!\left(\alpha(\theta-\theta_0)\right)$ in terms of the initial data.
-	It is the general solution and determined up to phase.
+	The solution is given by $u(\theta) = A \cos\p{\alpha \theta} + B \sin\p{\alpha \theta}$ in terms of the initial data.
 	If $A = 0$, then $u(\theta) = 0$ and $r(\theta)$ is not well-defined.
 	Assume $A \neq 0$.
 	This yields $\dsp r(\theta) = \frac{1}{A \cos\!\left(\alpha(\theta - \theta_0)\right)}$.
@@ -981,11 +989,13 @@ The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eq
 	L = \frac{m}{2}\left(\dot{r}^2 + r^2 \dot{\theta}^2\right) + \frac{G M m}{r}
 \end{align}
 
+The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to the radial coordinate $r$ with respect to the gravitational Lagrangian is $p_r = m \dot{r}$.
+
 \begin{theorem}
-	The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to the radial coordinate $r$ with respect to the gravitational Lagrangian is $p_r = m \dot{r}$.
+	The derivative of the canonical momentum $p_r$ with respect to time is $\dot{p}_r = m \ddot{r}$.
 \end{theorem}
 \begin{proof}
-	The result follows from the power rule of partial differentiation.
+	The result follows from the constancy of mass and linearity of the derivative.
 \end{proof}
 
 % norm

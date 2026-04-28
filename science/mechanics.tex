@@ -416,7 +416,7 @@ There are no exercises in this lecture concerning systems of particles.
 
 Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to the identity $\vzero$ of addition.
 
-\paragraph{Analysis} Consider a vector space with identity $\vzero$ under addition.
+\paragraph{Mathematical analysis} Consider a vector space with identity $\vzero$ under addition.
 
 For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the distance defined by $r(t) = \left\|\vr(t)\right\|$ and its \emph{square} is the function $\vr^2$ defined below.
 \begin{align}
@@ -494,9 +494,9 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
 	By Proposition \ref{prop:kinetic}, the kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
 	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\vF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
-	Suppose $\left(\vr_0, \vv_0\right) \neq \left(\vzero, \vzero\right)$.
 
 	The equation of motion $m \ddot{\vr} = - k \vr$ is expressed in components $m \ddot{x} = -kx$ and $m \ddot{y} = -ky$.
+	Suppose $\left(\vr_0, \vv_0\right) \neq \left(\vzero, \vzero\right)$.
 	Let $\omega = \sqrt{\frac{k}{m}}$ and $\vb = \frac{1}{\omega} \vv_0$.
 	Consider the following trajectory.
 	\begin{align}\label{eqn:circle}
@@ -523,18 +523,18 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 \end{answer}
 
 \begin{lemma}\label{lem:isq}
-	For a particle in the punctured Euclidean plane with constant mass $m$ and potential $V\p{\vr} = \frac{k}{2 \left(x^2+y^2\right)}$, the potential energy can be written as $V\p{\vr} = \frac{k}{2 r^2}$.
+	The radial coordinate $r = \left|\vr\right\|$ of $\vr = \begin{pmatrix} x  \\ y \end{pmatrix}$ is given by $r = \sqrt{x^2 + y^2}$.
 \end{lemma}
 \begin{proof}
-	For any point $\vr$, its radial coordinate $r = \sqrt{\vr^2}$ is given in Cartesian coordinates by $r = \sqrt{x^2 + y^2}$.
-	Therefore, substitution yields the potential energy $V\p{\vr} = \frac{k}{2 r^2}$.
+	The result follows from the calculation $\vr^2 = x^2 + y^2$.
 \end{proof}
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
 	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
-	By Lemma \ref{lem:isq}, the potential energy is $V\p{\vr} = \frac{k}{2 r^2}$.
+	By Lemma \ref{lem:isq}, the radial coordinate $r = \left\|\vr\right\|$ is given by $r = \sqrt{x^2 + y^2}$.
+	The potential energy is given in terms of the radial coordinate $r = \sqrt{x^2 + y^2}$ by $V\p{\vr} = \frac{k}{2 r^2}$.
 	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
 	the derivative of potential energy with respect to the radial coordinate is $\frac{d V}{d r} = - \frac{k}{r^3}$.
 	Since the chain rule yields $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it therefore follows that $\nabla V = - \frac{k}{r^4} \vr$.
@@ -975,7 +975,7 @@ There are no exercises in this lecture on phase space.
 
 Let $m$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
 
-Recall that Newtonian gravity is a central force $\vF = f\p{\vr} \widehat{\vr}$ defined by $f\p{\vr} = - \frac{G M m}{r^2}$.
+Recall that Newtonian gravity is a central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
 
 \begin{definition}[gravitational potential energy]
 	The \emph{gravitational potential energy} is given below.
@@ -997,6 +997,10 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 \begin{proof}
 	The result follows from the constancy of mass and linearity of the derivative.
 \end{proof}
+
+Recall that the canonical momentum conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
+
+\subsubsection*{Kepler's Laws}
 
 % norm
 \begin{answer}[Acceleration of an object moving in a circular orbit]

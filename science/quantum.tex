@@ -440,7 +440,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 		\left(NM\right)N & = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right)  - i \Big(\big((\hat{m} \times \hat{n}) \cdot \hat{n}\big) I + i \big((\hat{m} \times \hat{n}) \times \hat{n}\big) \cdot \sigma\Big)
 	\end{align*}
 	Recall $\left(\hat{m} \times \hat{n}\right) \cdot \hat{n} = 0$ and $\left(\hat{m} \times \hat{n}\right) \times \hat{n} = \left(\hat{m} \cdot \hat{n}\right) \hat{n} - \hat{m}$.
-	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M - 2 c s \left(\hat{m} \times \hat{n}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
+	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M + 2 c s \left(\hat{n} \times \hat{m}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
 	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} + 2 c s (\hat{n} \times \hat{m}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
 	\begin{align}
 		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{n} \times \hat{m}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
@@ -789,6 +789,7 @@ Its norm is calculated below.
 	\end{align}
 \end{answer}
 
+% normalization
 \begin{answer}[Preservation by spin operators of products]
 	Consider the action of any spin operator $\sigma_{n} = \vec{n} \cdot \sigma$ of Alice on the product state $\ket{\alpha \beta} = \ket{\alpha} \otimes \ket{\beta}$ of $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ and $\ket{\beta} = \beta_u \ket{u} + \beta_d \ket{d}$.
 	Since Alice's operator acts on Alice's state while acting as the identity on Bob's state, it follows that $\sigma_n \left(\ket{\alpha} \otimes \ket{\beta}\right) = \left(\sigma_n \ket{\alpha} \right) \otimes \ket{\beta}$.
@@ -799,8 +800,25 @@ Its norm is calculated below.
 	Similarly, the expectation value of any component of $\tau$ in any product state is exactly the same as it would be in the individual single-spin states.
 \end{answer}
 
-\begin{answer}[Expectation]
+\begin{answer}[Uncorrelated measurements on singlet]
 	Assume after Charlie has prepared the two spins in the singlet that Bob measures $\tau_y$ and Alice measures $\sigma_x$.
-	The expectation value of $\sigma_x \tau_y$ in the singlet state $\ket{s} = \frac{1}{\sqrt{2}} \left(\ket{ud} - \ket{d u}\right)$ is $\braket{s \mid \sigma_x \tau_y \mid s}$.
+
+	The action of $\sigma_x \tau_y$ on the singlet state $\ket{s} = \frac{1}{\sqrt{2}} \left(\ket{u d} - \ket{d u}\right)$ is calculated below.
+	\begin{align}
+		\sigma_x \tau_y \ket{s} = \frac{-i}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right)
+	\end{align}
+	The expectation $\braket{s \mid \sigma_x \tau_y \mid s} = \frac{-i}{2} \left(\braket{u d \mid d u} + \braket{u d \mid u d} - \braket{d u \mid d u} - \braket{d u \mid u d}\right)$ is $\braket{s \mid \sigma_x \tau_y \mid s} = 0$.
+	Therefore, the outcomes of measurements in the singlet state of $\sigma_x$ and $\tau_y$ are not correlated.
+\end{answer}
+
+\begin{answer}
+	Assume Charlie prepares the spins in the state $\ket{T_1} = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)$.
+	The measurement on it of $\sigma_z \tau_z$ is given by $\sigma_z \tau_z \ket{T_1} = \frac{-1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right) = - \ket{T_1}$.
+	The expectation is calculated below.
+	\begin{align*}
+		\braket{T_1 \mid \sigma_z \tau_z \mid T_1} & = \frac{-1}{2} \left(\braket{u d \mid u d + d u} + \braket{d u \mid u d + d u }\right) = -1 \\
+		\braket{T_1 \mid \sigma_x \tau_x \mid T_1} & = \braket{T_1 \mid T_1} = 1
+	\end{align*}
+	Thus, the measurements in $y$ are perfectly correlated, while the corresponding measurements in $z$ is perfectly anti-correlated.
 \end{answer}
 

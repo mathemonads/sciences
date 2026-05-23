@@ -11,7 +11,7 @@ answers to the exercises from the *Theoretical Minimum* book on mechanics by Leo
 
 ## Quantum
 
-answers to exercises selected
+answers to exercises selected from
 
 `quantum.tex`
 

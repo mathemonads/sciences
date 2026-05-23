@@ -301,7 +301,7 @@ Hence, each is Hermitian.
 
 The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
 
-Denote the vector of Pauli matrices by $\sigma = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
+Denote the vector of Pauli matrices by $\vsig = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
 
 For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in the direction of $\vec{n}$}
 \begin{equation}\label{eqn:Pauli}
@@ -425,7 +425,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 \end{lemma}
 \begin{proof}
 	Consider any rotation $r$ of $\R^3$.
-	Denote its axis by $\hat{n}$ and angle by $\theta$.
+	Choose an axis $\hat{n}$ and angle $\theta$ representing $r$.
 
 	Let $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$.
 	It is given by $R = \left(\cos \frac{\theta}{2} \right) I - i \left(\sin \frac{\theta}{2}\right) \hat{n} \cdot \sigma$.
@@ -448,7 +448,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \sigma$.
 	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
 
-	Suppose $R'$ is also a linear operator that satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
+	Suppose $R'$ is also a unitary operator that satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
 	Consider any unit vector $\hat{m} \in S^2$, and let $U = R^\dagger R'$.
 	Since $R' \left(\hat{m} \cdot \sigma\right) {R'}^\dagger = R \left(\hat{m} \cdot \sigma\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \sigma\right) = \left(\hat{m} \cdot \sigma\right) U$.
 	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
@@ -790,7 +790,7 @@ Its norm is calculated below.
 \end{answer}
 
 % normalization
-\begin{answer}[Preservation by spin operators of products]
+\begin{answer}[Spin operators preserve product structure]
 	Consider the action of any spin operator $\sigma_{n} = \vec{n} \cdot \sigma$ of Alice on the product state $\ket{\alpha \beta} = \ket{\alpha} \otimes \ket{\beta}$ of $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ and $\ket{\beta} = \beta_u \ket{u} + \beta_d \ket{d}$.
 	Since Alice's operator acts on Alice's state while acting as the identity on Bob's state, it follows that $\sigma_n \left(\ket{\alpha} \otimes \ket{\beta}\right) = \left(\sigma_n \ket{\alpha} \right) \otimes \ket{\beta}$.
 	Hence, Alice's spin operators send product states to product states.
@@ -800,6 +800,7 @@ Its norm is calculated below.
 	Similarly, the expectation value of any component of $\tau$ in any product state is exactly the same as it would be in the individual single-spin states.
 \end{answer}
 
+% linearity
 \begin{answer}[Uncorrelated measurements on singlet]
 	Assume after Charlie has prepared the two spins in the singlet that Bob measures $\tau_y$ and Alice measures $\sigma_x$.
 
@@ -811,14 +812,37 @@ Its norm is calculated below.
 	Therefore, the outcomes of measurements in the singlet state of $\sigma_x$ and $\tau_y$ are not correlated.
 \end{answer}
 
-\begin{answer}
-	Assume Charlie prepares the spins in the state $\ket{T_1} = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)$.
-	The measurement on it of $\sigma_z \tau_z$ is given by $\sigma_z \tau_z \ket{T_1} = \frac{-1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right) = - \ket{T_1}$.
-	The expectation is calculated below.
+\begin{answer}[Expectation values of first triplet state]
+	Assume Charlie prepares the spins in the state $\ket{T_1}$ defined below.
+	\begin{align}
+		\ket{T_1} & = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)
+	\end{align}
+	The measurements on it are given by $\sigma_z \tau_z \ket{T_1} = \frac{-1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right) = - \ket{T_1}$, $\sigma_x \tau_x \ket{T_1} = \frac{1}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right) = \ket{T_1}$, and $\sigma_y \tau_y \ket{T_1} = \frac{1}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right) = \ket{T_1}$.
+	The expectation values are calculated below.
 	\begin{align*}
-		\braket{T_1 \mid \sigma_z \tau_z \mid T_1} & = \frac{-1}{2} \left(\braket{u d \mid u d + d u} + \braket{d u \mid u d + d u }\right) = -1 \\
-		\braket{T_1 \mid \sigma_x \tau_x \mid T_1} & = \braket{T_1 \mid T_1} = 1
+		\braket{T_1 \mid \sigma_z \tau_z \mid T_1} & = \braket{T_1 \mid -T_1} = -1 \\
+		\braket{T_1 \mid \sigma_x \tau_x \mid T_1} & = \braket{T_1 \mid T_1} = 1   \\
+		\braket{T_1 \mid \sigma_y \tau_y \mid T_1} & = \braket{T_1 \mid T_1} = 1
 	\end{align*}
-	Thus, the measurements in $y$ are perfectly correlated, while the corresponding measurements in $z$ is perfectly anti-correlated.
+	The measurements in $y$ and $x$ are thus perfectly correlated, while the corresponding measurements in $z$ are perfectly anti-correlated.
+\end{answer}
+
+\begin{answer}[Expectation values of second triplet state]
+	Consider the following entangled state.
+	\begin{align}
+		\ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right)
+	\end{align}
+	The measurements are given below.
+	\begin{align*}
+		\sigma_z \tau_z \ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right) = \ket{T_2}    \\
+		\sigma_x \tau_x \ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{d d} + \ket{u u}\right) = \ket{T_2}    \\
+		\sigma_y \tau_y \ket{T_2} & = \frac{1}{\sqrt{2}} \left(-\ket{d d} - \ket{u u}\right) = - \ket{T_2}
+	\end{align*}
+	The expectation values are calculated below.
+	\begin{align*}
+		\braket{T_2 \mid \sigma_z \tau_z \mid T_2} = \braket{T_2 \mid T_2} = 1 \\
+		\braket{T_2 \mid \sigma_x \tau_x \mid T_2} = \braket{T_2 \mid T_2} = 1 \\
+		\braket{T_2 \mid \sigma_y \tau_y \mid T_2} = \braket{T_2 \mid -T_2} = -1
+	\end{align*}
 \end{answer}
 

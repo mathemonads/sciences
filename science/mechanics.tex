@@ -92,7 +92,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 	That is, the square of its magnitude is the dot product with itself.
 \end{answer}
 
-In any normed vector space, define the square of a vector to be its dot product with itself.
+In any inner product space, define the square of a vector to be its inner product with itself.
 
 % calculation
 \begin{answer}[Magnitudes]
@@ -418,9 +418,10 @@ Recall that a curve in a module is \emph{nonvanishing} if it is nowhere equal to
 
 \paragraph{Mathematical analysis} Consider a vector space with identity $\vzero$ under addition.
 
-For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the distance defined by $r(t) = \left\|\vr(t)\right\|$ and its \emph{square} is the function $\vr^2$ defined below.
+For a curve $\vr(t)$ in such a space with norm $\left\|\bullet\right\|$, its \emph{radial function} is the function defined by $r(t) = \left\|\vr(t)\right\|$.
+In any such space with inner product $\braket{\bullet, \star}$, the \emph{square} of the curve $\vr$ is the function $\vr^2$ defined below.
 \begin{align}
-	\vr^2(t) = r(t)^2
+	\vr^2(t) = \braket{\vr(t), \vr(t)}
 \end{align}
 
 \begin{definition}[Angular curve, tangential curve]
@@ -492,6 +493,7 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 			x_0 \\
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
+	Assume $k \neq 0$.
 	By Proposition \ref{prop:kinetic}, the kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
 	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\vF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
 
@@ -522,21 +524,14 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 	Therefore, the total energy is conserved.
 \end{answer}
 
-\begin{lemma}\label{lem:isq}
-	The radial coordinate $r = \left|\vr\right\|$ of $\vr = \begin{pmatrix} x  \\ y \end{pmatrix}$ is given by $r = \sqrt{x^2 + y^2}$.
-\end{lemma}
-\begin{proof}
-	The result follows from the calculation $\vr^2 = x^2 + y^2$.
-\end{proof}
-
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
 	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
-	By Lemma \ref{lem:isq}, the radial coordinate $r = \left\|\vr\right\|$ is given by $r = \sqrt{x^2 + y^2}$.
+	The radial coordinate $r = \left\|\vr\right\|$ is given by $r = \sqrt{x^2 + y^2}$.
 	The potential energy is given in terms of the radial coordinate $r = \sqrt{x^2 + y^2}$ by $V\p{\vr} = \frac{k}{2 r^2}$.
 	Viewing the potential energy as a function $V\p{r} = \frac{k}{2} r^{-2}$ of the radial coordinate $r$, the power rule yields $\frac{dV}{dr} = - \frac{k}{r^3}$.
-	the derivative of potential energy with respect to the radial coordinate is $\frac{d V}{d r} = - \frac{k}{r^3}$.
+	The derivative of potential energy with respect to the radial coordinate is $\frac{d V}{d r} = - \frac{k}{r^3}$.
 	Since the chain rule yields $\nabla V = \frac{dV}{dr} \nabla r$ and $\nabla r = \frac{1}{r} \vr$, it therefore follows that $\nabla V = - \frac{k}{r^4} \vr$.
 	Thus, the force is $\vF = \frac{k}{r^4} \vr$.
 
@@ -561,7 +556,7 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 	If $\alpha^2 < 0$ and $\beta > 0$ satisfies $\alpha = i \beta$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
 	Suppose $\alpha^2 > 0$.
 	The solution is given by $u(\theta) = A \cos\p{\alpha \theta} + B \sin\p{\alpha \theta}$ in terms of the initial data.
-	If $A = 0$, then $u(\theta) = 0$ and $r(\theta)$ is not well-defined.
+	If $A = 0$ and $B=0$, then $u(\theta) = 0$ and $r(\theta)$ is not well-defined.
 	Assume $A \neq 0$.
 	This yields $\dsp r(\theta) = \frac{1}{A \cos\!\left(\alpha(\theta - \theta_0)\right)}$.
 
@@ -975,7 +970,7 @@ There are no exercises in this lecture on phase space.
 
 Let $m$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
 
-Recall that Newtonian gravity is a central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
+Recall that Newtonian gravity determines a central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
 
 \begin{definition}[gravitational potential energy]
 	The \emph{gravitational potential energy} is given below.
@@ -984,27 +979,28 @@ Recall that Newtonian gravity is a central force $\vF = f\p{r} \widehat{\vr}$ de
 	\end{align}
 \end{definition}
 
-The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eqn:gravipotential} and Proposition \eqref{prop:kinetic} below.
+The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eqn:gravipotential} and Proposition \ref{prop:kinetic} below.
 \begin{align}
 	L = \frac{m}{2}\left(\dot{r}^2 + r^2 \dot{\theta}^2\right) + \frac{G M m}{r}
 \end{align}
 
 The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to the radial coordinate $r$ with respect to the gravitational Lagrangian is $p_r = m \dot{r}$.
 
-\begin{theorem}
+\begin{lemma}
 	The derivative of the canonical momentum $p_r$ with respect to time is $\dot{p}_r = m \ddot{r}$.
-\end{theorem}
+\end{lemma}
 \begin{proof}
-	The result follows from the constancy of mass and linearity of the derivative.
+	This follows from the constancy of mass and linearity of the derivative.
 \end{proof}
 
 Recall that the canonical momentum conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
+Observe that $\theta$ is a cyclic coordinate of the gravitational Lagrangian.
 
 \subsubsection*{Kepler's Laws}
 
 % norm
 \begin{answer}[Acceleration of an object moving in a circular orbit]
-	Recall that the trajectory of an object moving counterclockwise in a circular orbit about the origin with initial position $\vr_0 = \begin{pmatrix} r_0 \\ 0 \end{pmatrix}$ is on the left-hand side below.
+	Recall that the trajectory of an object moving counterclockwise in a circular orbit about the origin with initial position $\vr_0 = \begin{bmatrix} r_0 \\ 0 \end{bmatrix}$ is on the left-hand side below.
 	\begin{align}
 		\vr(t) & =
 		\begin{bmatrix}

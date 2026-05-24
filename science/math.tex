@@ -14,15 +14,15 @@ Let $L$ denote a Lagrangian.
 	For any function $F(q, p)$ of a generalized coordinate $q$ and canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left[\frac{\partial F(q,p)}{\partial q}\right] = \frac{\left[F\right]}{\left[q\right]}$ and the partial derivative $\frac{\partial F(q,p)}{\partial p}$ with respect to the canonical momentum has units $\left[\frac{\partial F(q,p)}{\partial p}\right] = \frac{\left[F\right]}{\left[p\right]}$.
 \end{remark}
 
-\begin{proposition}\label{prop:derivatives}
+\begin{proposition}\label{prop:action}
 	For any generalized coordinate $q$ and canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$, the units of the product $p q$ are $\left|p q\right| = \left|L\right| \left|t\right|$.
 \end{proposition}
 \begin{proof}
 	The result follows from Remark \ref{rem:derivative}.
 \end{proof}
 
-\begin{lemma}
-	For any functions $F\left(\vq, \vp\right)$ and $G\left(\vq, \vp\right)$, the product of partial derivatives has the dimensions below.
+\begin{lemma}\label{lem:derivatives}
+	For any functions $F\left(\vq, \vp\right)$ and $G\left(\vq, \vp\right)$, the products of partial derivatives have the dimensions below.
 	\begin{align*}
 		\left|\frac{\partial F}{\partial q_i} \frac{\partial G}{\partial p_i}\right| & = \frac{\left|F\right| \left|G\right|}{\left|L\right| \left|t\right|}
 		                                                                             &
@@ -30,9 +30,16 @@ Let $L$ denote a Lagrangian.
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	The result follows from Remark \ref{rem:derivative} and Proposition \ref{prop:derivatives}.
+	The result follows from Remark \ref{rem:derivative} and Proposition \ref{prop:action}.
 \end{proof}
-Observe they have the same units.
+Observe the two products have the same dimensions.
+
+\begin{theorem}
+	For any functions $F\left(\vq, \vp\right)$ and $G\left(\vq, \vp\right)$, the dimensions of the Poisson bracket $\left\{F, G\right\}$ are $\left|\{F,G\}\right| = \frac{\left|F\right| \left|G\right|}{\left|L\right| \left|t\right|}$.
+\end{theorem}
+\begin{proof}
+	The result follows from Lemma \ref{lem:derivatives}.
+\end{proof}
 
 \subsection*{Algebra}
 

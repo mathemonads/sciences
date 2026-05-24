@@ -318,19 +318,20 @@ The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermit
 \begin{proposition}[Product of Pauli operators]\label{prop:Pauli}
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
-		\left(\vec{m} \cdot \sigma\right) (\vec{n} \cdot \vsig) & =
+		\left(\vec{m} \cdot \vsig\right) (\vec{n} \cdot \vsig) & =
 		\left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \vsig
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \vsig) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
+	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \vsig) (\vec{n} \cdot \vsig) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
 	\begin{align*}
 		S & = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
-	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \vsig$.
+	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$.
+	Therefore, $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \vsig$.
 \end{proof}
 
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \vsig$ is a Hermitian involution since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and it is thus unitary.
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \vsig$ is a Hermitian involution since $\left(\hat{n} \cdot \vsig\right)^2 = I$ and it is thus unitary.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -417,19 +418,19 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 \end{answer}
 
 \begin{lemma}
-	For every rotation $r$ of $\R^3$, there is a unitary operator $R$ on $\C^2$ satisfying
+	For every rotation $r \in \SO{3}$, there is a unitary operator $R$ on $\C^2$ satisfying
 	\begin{align*}
 		\forall \hat{m} & \in S^2, & R \left(\hat{m} \cdot \sigma\right) R^\dagger & = \left(r \hat{m}\right) \cdot \sigma
 	\end{align*}
-	and any unitary operator $R'$ satisfying the above condition is of the form $R' = e^{i \phi} R$.
+	and any unitary operator $R'$ satisfying the above condition has a phase $\phi$ such that $R' = e^{i \phi} R$.
 \end{lemma}
 \begin{proof}
-	Consider any rotation $r$ of $\R^3$.
-	Choose an axis $\hat{n}$ and angle $\theta$ representing $r$.
+	Consider any rotation $r \in \SO{3}$.
+	Choose an axis $\hat{n}$ and angle $\theta$ for $r$.
 
-	Let $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$.
-	It is given by $R = \left(\cos \frac{\theta}{2} \right) I - i \left(\sin \frac{\theta}{2}\right) \hat{n} \cdot \sigma$.
-	Let $c = \cos \frac{\theta}{2}$, $s = \sin \frac{\theta}{2}$, $N = \hat{n} \cdot \sigma$, and $M = \hat{m} \cdot \sigma$.
+	Let $c = \cos \frac{\theta}{2}$ and $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$.
+	Since $\left(\hat{n} \cdot \vsig\right)^2 = I$, it follows that $R = c I - i \left(\sin \frac{\theta}{2}\right) \hat{n} \cdot \sigma$.
+	Let $s = \sin \frac{\theta}{2}$, $N = \hat{n} \cdot \sigma$, and $M = \hat{m} \cdot \sigma$.
 	Calculation yields $R = c I - i s N$ and $R^\dagger = c I + i s N$.
 	Substitution yields the equations below.
 	\begin{align*}
@@ -454,7 +455,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
 	Commutativity of $U$ with $\sigma_z$ implies that $U$ is diagonal, and commutativity of $U$ with $\sigma_x$ then implies $U = a I$ for some $a \in \C$.
 	Unitarity of $U$ implies $\left|a\right|=1$ and thus that $a = e^{i \phi}$ for some real $\phi \in \R$.
-	The rest follows.
+	It thus follows that $R' = R U$.
 \end{proof}
 
 The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
@@ -833,6 +834,7 @@ Its norm is calculated below.
 	The measurements in $y$ and $x$ are thus perfectly correlated, while the corresponding measurements in $z$ are perfectly anti-correlated.
 \end{answer}
 
+% linearity
 \begin{answer}[Expectation values of a couple of triplet states]
 	Consider the following entangled state.
 	\begin{align}
@@ -859,10 +861,25 @@ Its norm is calculated below.
 	Thus, there are three triplet states.
 \end{answer}
 
+% linearity
 \begin{answer}[Dot product of observables]
+	Let $\vsig \cdot \vtau = \sigma_x \tau_x + \sigma_y \tau_y + \sigma_z \tau_z$.
+
 	The measurements on the singlet state $\ket{S} = \frac{-i}{\sqrt{2}} \left(\ket{d u} - \ket{u d}\right)$ are given by $\sigma_z \tau_z \ket{S} = \frac{-i}{\sqrt{2}}\left(-\ket{d u} + \ket{u d}\right) = - \ket{S}$, $\sigma_x \tau_x \ket{S} = \frac{-i}{\sqrt{2}}\left(\ket{u d} - \ket{d u}\right) = -\ket{S}$, and $\sigma_y \tau_y \ket{S} = \frac{-i}{\sqrt{2}} \left(\ket{u d} - \ket{d u}\right) = - \ket{S}$.
 	Since $\vsig \cdot \vtau \ket{S} = - 3 \ket{S}$, it follows that the singlet state is an eigenvector of $\vsig \cdot \vtau$ with eigenvalue $-3$.
 	The measurements on the triplet states are $\vsig \cdot \vtau \ket{T_1} = \ket{T_1}$, $\vsig \cdot \vtau \ket{T_2} = \ket{T_2}$, and $\vsig \cdot \vtau \ket{T_3} = \ket{T_3}$.
-	Thus, each triplet state is an eigenvector of $\vsig \cdot \vtau$.
+
+	Thus, each triplet state is an eigenvector of $\vsig \cdot \vtau$ with eigenvalue $1$.
+\end{answer}
+
+\begin{answer}[Evolution of two-spin system]
+	Consider a system of two spins with the Hamiltonian $\bH$ given below.
+	\begin{align}
+		\bH & = \frac{\omega}{2} \vsig \cdot \vtau
+	\end{align}
+	The possible energies of the system are $\frac{\omega}{2}$ and $-3 \frac{\omega}{2}$.
+	The singlet state $\ket{S}$ is an eigenvector with eigenvalue $-3 \frac{\omega}{2}$, and each triplet state is an eigenvector with eigenvalue $\frac{\omega}{2}$.
+
+	Since $\bH \ket{u u} = \frac{\omega}{2} \ket{u u} + 0$, the state at any later time $t$ beginning from $\ket{u u}$ is given by $\exp{-i \frac{\omega}{2}t } \ket{u u}$.
 \end{answer}
 

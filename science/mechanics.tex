@@ -503,7 +503,7 @@ It is called the \emph{radial generalized momentum}.
 	Suppose $\left(\vr_0, \vv_0\right) \neq \left(\vzero, \vzero\right)$.
 	Let $\omega = \sqrt{\frac{k}{m}}$ and $\vb = \frac{1}{\omega} \vv_0$.
 	Consider the following trajectory.
-	\begin{align}\label{eqn:circle}
+	\begin{align}\label{eqn:ellipse}
 		\vr(t) & = \vr_0 \cos \omega t + \vb \sin \omega t
 	\end{align}
 	Its derivatives are calculated below.
@@ -517,7 +517,7 @@ It is called the \emph{radial generalized momentum}.
 	\end{align*}
 	The trajectory satisfies the equations of motion.
 	The motion is periodic with angular frequency $\omega$ and period $2 \pi \sqrt{\frac{m}{k}}$.
-	The orbit defined by Equation \eqref{eqn:circle} is the image of the unit circle under the linear map whose columns are $\vr_0$ and $\vb$.
+	The orbit defined by Equation \eqref{eqn:ellipse} is the image of the unit circle under the linear map whose columns are $\vr_0$ and $\vb$.
 	If $\vr_0$ and $\vb$ are linearly dependent, then the orbit is a line segment.
 	Otherwise, the orbit is an ellipse centered at the origin.
 	In the latter case, it is a circle if $\left\|\vv_0\right\| = \omega \left\|\vr_0\right\|$ and $\vr_0 \cdot \vv_0 = 0$.
@@ -554,7 +554,7 @@ It is called the \emph{radial generalized momentum}.
 	This yields $F_r = - \frac{L^2}{m} u^2 u'' - \frac{L^2}{m} u^3 = -\frac{L^2}{m} u^2 \left(u'' + u\right)$ and $F_r = \frac{k}{r^3} = ku^3$.
 	Suppose $L \neq 0$.
 	Equating them yields $\dsp u'' + \lambda u = 0$ where $\dsp \lambda = 1 + \frac{mk}{L^2}$.
-	If $\lambda = 0$, then $u(\theta) = A \theta + B$ and the trajectories are not closed.
+	If $\lambda = 0$, then $u(\theta) = A \theta + B$ and the trajectories are not closed if $A \neq 0$.
 	If $\lambda < 0$ and $\beta = \sqrt{- \lambda}$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
 	Suppose $\lambda > 0$ and let $\alpha = \sqrt{\lambda}$.
 	The solution is given by $u(\theta) = A \cos\p{\alpha \theta} + B \sin\p{\alpha \theta}$ in terms of the initial data.
@@ -573,7 +573,7 @@ It is called the \emph{radial generalized momentum}.
 
 \subsection{Principle of least action}
 
-Recall that the values of a Lagrangian $L$ are expressed in units $\left[L\right]$ of energy.
+Recall that the values of a Lagrangian $L$ are expressed in units $\left|L\right|$ of energy.
 
 % calculation
 \begin{answer}[Euler-Lagrange equation for a particle in one dimension]
@@ -995,8 +995,8 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 	This follows from the constancy of mass and linearity of the derivative.
 \end{proof}
 
-Recall that the canonical momentum conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
-Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$.
+Recall that the canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
+Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$ and from the Euler-Lagrange equation $\frac{\partial L}{\partial \theta} = \frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}$ that $\frac{d}{dt} p_\theta = 0$.
 
 \subsubsection*{Kepler's Laws}
 

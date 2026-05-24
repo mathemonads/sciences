@@ -14,17 +14,25 @@ Let $L$ denote a Lagrangian.
 	For any function $F(q, p)$ of a generalized coordinate $q$ and canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left[\frac{\partial F(q,p)}{\partial q}\right] = \frac{\left[F\right]}{\left[q\right]}$ and the partial derivative $\frac{\partial F(q,p)}{\partial p}$ with respect to the canonical momentum has units $\left[\frac{\partial F(q,p)}{\partial p}\right] = \frac{\left[F\right]}{\left[p\right]}$.
 \end{remark}
 
-\begin{proposition}
-	For any functions $F\left(\vq, \vp\right)$ and $G\left(\vq, \vp\right)$, the product of partial derivatives has the dimensions below.
-	\begin{align*}
-		\left[\frac{\partial F}{\partial q_i} \frac{\partial G}{\partial p_i}\right] & = \frac{\left[F\right] \left[G\right]}{\left[q_i\right] \left[p_i\right]}
-		                                                                             &
-		\left[\frac{\partial G}{\partial q_i} \frac{\partial F}{\partial p_i}\right] & = \frac{\left[G\right] \left[F\right]}{\left[q_i\right] \left[p_i\right]}
-	\end{align*}
+\begin{proposition}\label{prop:derivatives}
+	For any generalized coordinate $q$ and canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$, the units of the product $p q$ are $\left|p q\right| = \left|L\right| \left|t\right|$.
 \end{proposition}
 \begin{proof}
 	The result follows from Remark \ref{rem:derivative}.
 \end{proof}
+
+\begin{lemma}
+	For any functions $F\left(\vq, \vp\right)$ and $G\left(\vq, \vp\right)$, the product of partial derivatives has the dimensions below.
+	\begin{align*}
+		\left|\frac{\partial F}{\partial q_i} \frac{\partial G}{\partial p_i}\right| & = \frac{\left|F\right| \left|G\right|}{\left|L\right| \left|t\right|}
+		                                                                             &
+		\left|\frac{\partial G}{\partial q_i} \frac{\partial F}{\partial p_i}\right| & = \frac{\left|G\right| \left|F\right|}{\left|L\right| \left|t\right|}
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	The result follows from Remark \ref{rem:derivative} and Proposition \ref{prop:derivatives}.
+\end{proof}
+Observe they have the same units.
 
 \subsection*{Algebra}
 

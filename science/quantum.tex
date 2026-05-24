@@ -312,25 +312,25 @@ For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in
 		\p{n_x + i n_y} & - n_z
 	\end{pmatrix}
 \end{equation}
-by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \sigma$.
+by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \vsig$.
 The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real.
 
 \begin{proposition}[Product of Pauli operators]\label{prop:Pauli}
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
 	\begin{align*}
-		\left(\vec{m} \cdot \sigma\right) (\vec{n} \cdot \sigma) & =
-		\left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma
+		\left(\vec{m} \cdot \sigma\right) (\vec{n} \cdot \vsig) & =
+		\left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \vsig
 	\end{align*}
 \end{proposition}
 \begin{proof}
-	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \sigma) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
+	By Remark \ref{rem:Pauli}, $\dsp S = (\vec{m} \cdot \sigma) (\vec{n} \cdot \vsig) = \sum_{i,j} m_i n_j \sigma_i \sigma_j$ is calculated below.
 	\begin{align*}
 		S & = \sum_{i, j} m_i n_j \p{\delta_{ij} I + i \sum_k \varepsilon_{ijk} \sigma_k} = \sum_{i, j} \delta_{ij} m_i n_j I + i \sum_{k} \p{\sum_{i,j} \varepsilon_{ijk} m_i n_j} \sigma_k
 	\end{align*}
-	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \sigma$.
+	This yields $\dsp S = \sum_{k} (m_k n_k) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k = \left(\sum_{k} m_k n_k\right) I + i \sum_{k} (\vec{m} \times \vec{n})_k \sigma_k$ and therefore $\dsp S  = \left(\vec{m} \cdot \vec{n}\right) I + i \left(\vec{m} \times \vec{n}\right) \cdot \vsig$.
 \end{proof}
 
-For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \sigma$ is a Hermitian involution since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and it is thus unitary.
+For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} \cdot \vsig$ is a Hermitian involution since $\left(\hat{n} \cdot \sigma\right)^2 = I$ and it is thus unitary.
 
 % one parameter for each eigenvector 
 \begin{answer}[Spin along direction in $x$-$z$ plane after measurement in $z$]
@@ -812,12 +812,18 @@ Its norm is calculated below.
 	Therefore, the outcomes of measurements in the singlet state of $\sigma_x$ and $\tau_y$ are not correlated.
 \end{answer}
 
+% linearity
 \begin{answer}[Expectation values of first triplet state]
 	Assume Charlie prepares the spins in the state $\ket{T_1}$ defined below.
 	\begin{align}
 		\ket{T_1} & = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)
 	\end{align}
-	The measurements on it are given by $\sigma_z \tau_z \ket{T_1} = \frac{-1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right) = - \ket{T_1}$, $\sigma_x \tau_x \ket{T_1} = \frac{1}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right) = \ket{T_1}$, and $\sigma_y \tau_y \ket{T_1} = \frac{1}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right) = \ket{T_1}$.
+	The measurements on it are given below.
+	\begin{align*}
+		\sigma_z \tau_z \ket{T_1} & = \frac{-1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right) = - \ket{T_1} \\
+		\sigma_x \tau_x \ket{T_1} & = \frac{1}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right) = \ket{T_1}    \\
+		\sigma_y \tau_y \ket{T_1} & = \frac{1}{\sqrt{2}} \left(\ket{d u} + \ket{u d}\right) = \ket{T_1}
+	\end{align*}
 	The expectation values are calculated below.
 	\begin{align*}
 		\braket{T_1 \mid \sigma_z \tau_z \mid T_1} & = \braket{T_1 \mid -T_1} = -1 \\
@@ -827,22 +833,36 @@ Its norm is calculated below.
 	The measurements in $y$ and $x$ are thus perfectly correlated, while the corresponding measurements in $z$ are perfectly anti-correlated.
 \end{answer}
 
-\begin{answer}[Expectation values of second triplet state]
+\begin{answer}[Expectation values of a couple of triplet states]
 	Consider the following entangled state.
 	\begin{align}
 		\ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right)
+		          &
+		\ket{T_3} & = \frac{1}{\sqrt{2}} \left(\ket{u u} - \ket{d d}\right)
 	\end{align}
 	The measurements are given below.
 	\begin{align*}
-		\sigma_z \tau_z \ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right) = \ket{T_2}    \\
-		\sigma_x \tau_x \ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{d d} + \ket{u u}\right) = \ket{T_2}    \\
-		\sigma_y \tau_y \ket{T_2} & = \frac{1}{\sqrt{2}} \left(-\ket{d d} - \ket{u u}\right) = - \ket{T_2}
+		\sigma_z \tau_z \ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right) = \ket{T_2}    &
+		\sigma_z \tau_z \ket{T_3} & = \frac{1}{\sqrt{2}} \left(\ket{u u} - \ket{d d}\right) = \ket{T_3}                                                                                                        \\
+		\sigma_x \tau_x \ket{T_2} & = \frac{1}{\sqrt{2}} \left(\ket{d d} + \ket{u u}\right) = \ket{T_2}    & \sigma_x \tau_x \ket{T_3} & = \frac{1}{\sqrt{2}} \left(\ket{d d} - \ket{u u}\right) = - \ket{T_3} \\
+		\sigma_y \tau_y \ket{T_2} & = \frac{1}{\sqrt{2}} \left(-\ket{d d} - \ket{u u}\right) = - \ket{T_2} & \sigma_y \tau_y \ket{T_3} & = \frac{1}{\sqrt{2}} \left(-\ket{d d} + \ket{u u}\right) = \ket{T_3}
 	\end{align*}
 	The expectation values are calculated below.
 	\begin{align*}
-		\braket{T_2 \mid \sigma_z \tau_z \mid T_2} = \braket{T_2 \mid T_2} = 1 \\
-		\braket{T_2 \mid \sigma_x \tau_x \mid T_2} = \braket{T_2 \mid T_2} = 1 \\
-		\braket{T_2 \mid \sigma_y \tau_y \mid T_2} = \braket{T_2 \mid -T_2} = -1
+		\braket{T_2 \mid \sigma_z \tau_z \mid T_2} & = \braket{T_2 \mid T_2} = 1   &
+		\braket{T_3 \mid \sigma_z \tau_z \mid T_3} & = \braket{T_3 \mid T_3} = 1     \\
+		\braket{T_2 \mid \sigma_x \tau_x \mid T_2} & = \braket{T_2 \mid T_2} = 1   &
+		\braket{T_3 \mid \sigma_x \tau_x \mid T_3} & = \braket{T_3 \mid -T_3} = -1   \\
+		\braket{T_2 \mid \sigma_y \tau_y \mid T_2} & = \braket{T_2 \mid -T_2} = -1 &
+		\braket{T_3 \mid \sigma_y \tau_y \mid T_3} & = \braket{T_3 \mid T_3} = 1
 	\end{align*}
+	Thus, there are three triplet states.
+\end{answer}
+
+\begin{answer}[Dot product of observables]
+	The measurements on the singlet state $\ket{S} = \frac{-i}{\sqrt{2}} \left(\ket{d u} - \ket{u d}\right)$ are given by $\sigma_z \tau_z \ket{S} = \frac{-i}{\sqrt{2}}\left(-\ket{d u} + \ket{u d}\right) = - \ket{S}$, $\sigma_x \tau_x \ket{S} = \frac{-i}{\sqrt{2}}\left(\ket{u d} - \ket{d u}\right) = -\ket{S}$, and $\sigma_y \tau_y \ket{S} = \frac{-i}{\sqrt{2}} \left(\ket{u d} - \ket{d u}\right) = - \ket{S}$.
+	Since $\vsig \cdot \vtau \ket{S} = - 3 \ket{S}$, it follows that the singlet state is an eigenvector of $\vsig \cdot \vtau$ with eigenvalue $-3$.
+	The measurements on the triplet states are $\vsig \cdot \vtau \ket{T_1} = \ket{T_1}$, $\vsig \cdot \vtau \ket{T_2} = \ket{T_2}$, and $\vsig \cdot \vtau \ket{T_3} = \ket{T_3}$.
+	Thus, each triplet state is an eigenvector of $\vsig \cdot \vtau$.
 \end{answer}
 

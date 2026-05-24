@@ -1,4 +1,5 @@
 
+
 \section{Mechanics}\label{sec:mechanics}
 
 Solutions are proposed in this section to all of the exercises in \cite{TM}.
@@ -155,12 +156,12 @@ In any inner product space, define the square of a vector to be its inner produc
 
 % chain rule
 \begin{answer}[Chain rule]
-	Consider the functions $g,\theta,x$ defined by $g(t) = \sin t^2 - \cos t^2$, $\theta(\alpha) = e^{3 \alpha} + 3 \alpha \ln 3 \alpha$, and $x(t) = \sin^2 t^2 - \cos t^2$.
+	Consider the functions $g,\theta,x$ defined by $g(t) = \sin t^2 - \cos t^2$, $\theta(\alpha) = e^{3 \alpha} + 3 \alpha \ln \left(3 \alpha\right)$, and $x(t) = \sin^2 t^2 - \cos t^2$.
 
 	The chain rule yields the following derivatives.
 	\begin{align*}
-		\frac{dg}{dt}           & = 2t \cos t^2 + 2t \sin t^2          \\
-		\frac{d\theta}{d\alpha} & = 3e^{3\alpha} + 3 + 3\ln 3\alpha    \\
+		\frac{dg}{dt}           & = 2t \cos t^2 + 2t \sin t^2                      \\
+		\frac{d\theta}{d\alpha} & = 3 e^{3\alpha} + 3 + 3\ln \left(3 \alpha\right) \\
 		\frac{dx}{dt}           & = 4t(\sin t^2)\cos t^2 + 2t \sin t^2
 	\end{align*}
 \end{answer}
@@ -485,15 +486,16 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 \begin{align}\label{eqn:momentum}
 	\frac{\partial T}{\partial \dot{r}} & = m \dot{r}
 \end{align}
+It is called the \emph{radial generalized momentum}.
 
 % differentiation
 \begin{answer}[Potential energy proportional to the square of the distance]
-	Consider a particle with mass $m$ in the Cartesian plane with potential energy defined at any point $\vr = \begin{bmatrix} x \\ y \end{bmatrix}$ by $V\p{\vr} = \frac{1}{2} k \left(x^2+y^2\right)$, initial position $\vr_0 =
+	Consider a particle with mass $m>0$ in the Cartesian plane with potential energy defined at any point $\vr = \begin{bmatrix} x \\ y \end{bmatrix}$ by $V\p{\vr} = \frac{1}{2} k \left(x^2+y^2\right)$, initial position $\vr_0 =
 		\begin{bmatrix}
 			x_0 \\
 			y_0
 		\end{bmatrix}$, and an initial velocity $\vv_0$.
-	Assume $k \neq 0$.
+	Assume $k > 0$.
 	By Proposition \ref{prop:kinetic}, the kinetic energy is $T = \frac{m}{2} \dot{\vr} \cdot \dot{\vr}$.
 	The potential energy is $V = \frac{k}{2} \vr \cdot \vr$, and the force $\vF = - \nabla V$ is given by $\dsp - \begin{bmatrix} \tfrac{\partial V}{\partial x} \\ \tfrac{\partial V}{\partial y} \end{bmatrix} = \begin{bmatrix} -kx \\ -ky \end{bmatrix}$.
 
@@ -544,29 +546,29 @@ The partial derivative $\frac{\partial T}{\partial \dot{r}} = \frac{m}{2}\left(\
 	Observe $\ddot{\vr} = \left(\ddot{r} - r \dot{\theta}^2\right) \widehat{\vr} + \left(r \ddot{\theta} + 2 \dot{r} \dot{\theta}\right) \widehat{\vth}$.
 	The equivalent equations of motion are $m\left(\ddot{r} - r\dot{\theta}^2\right) = F_r = \frac{k}{r^3}$ and $m\left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right) = F_\theta = 0$.
 
-	Let $\dsp L = mr^2 \dot{\theta}$, $\dsp T = \frac{m}{2}\left(\dot{\vr} \cdot \dot{\vr}\right)$, $\dsp u(\theta) = \frac{1}{r(\theta)}$, $\dsp r' = \frac{dr}{d\theta}$, and $\dsp r'' = \frac{d^2r}{d\theta^2}$.
+	Let $\dsp L = mr^2 \dot{\theta}$, $\dsp T = \frac{m}{2}\left(\dot{\vr} \cdot \dot{\vr}\right)$, $\dsp u(\theta) = \frac{1}{r(\theta)}$, and $\dsp r' = \frac{dr}{d\theta}$.
 	Note $\dsp \dot{L} = mr^2\ddot{\theta} + 2mr\dot{r} \dot{\theta} = r F_\theta = 0$ and $\dsp \dot{\theta} = \frac{L}{mr^2}$.
 	Substitution yields $\dsp F_r = m \ddot{r} - \frac{L^2}{mr^3}$.
 	Observe that $\dsp u' = \frac{du}{d\theta} = \frac{-r'}{r^2}$ and $\dsp u'' = \frac{d^2u}{d\theta^2}$.
 	Then, $\dot{r} = -\frac{L}{m} u'$ and $\ddot{r} = - \frac{L^2}{m^2} u^2 u''$.
 	This yields $F_r = - \frac{L^2}{m} u^2 u'' - \frac{L^2}{m} u^3 = -\frac{L^2}{m} u^2 \left(u'' + u\right)$ and $F_r = \frac{k}{r^3} = ku^3$.
 	Suppose $L \neq 0$.
-	Equating them yields $\dsp u'' + \alpha^2 u = 0$ where $\dsp \alpha = \sqrt{1 + \frac{mk}{L^2}}$.
-	If $\alpha^2 = 0$, then $u = A(\theta-\theta_0)$ and the trajectories are not closed.
-	If $\alpha^2 < 0$ and $\beta > 0$ satisfies $\alpha = i \beta$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
-	Suppose $\alpha^2 > 0$.
+	Equating them yields $\dsp u'' + \lambda u = 0$ where $\dsp \lambda = 1 + \frac{mk}{L^2}$.
+	If $\lambda = 0$, then $u(\theta) = A \theta + B$ and the trajectories are not closed.
+	If $\lambda < 0$ and $\beta = \sqrt{- \lambda}$, then the solution is given by $u(\theta) = C \cosh\p{\beta(\theta - \theta_0)} + D \sinh\p{\beta(\theta-\theta_0)}$ and its aperiodicity implies that trajectories are not closed.
+	Suppose $\lambda > 0$ and let $\alpha = \sqrt{\lambda}$.
 	The solution is given by $u(\theta) = A \cos\p{\alpha \theta} + B \sin\p{\alpha \theta}$ in terms of the initial data.
 	If $A = 0$ and $B=0$, then $u(\theta) = 0$ and $r(\theta)$ is not well-defined.
-	Assume $A \neq 0$.
-	This yields $\dsp r(\theta) = \frac{1}{A \cos\!\left(\alpha(\theta - \theta_0)\right)}$.
+	Assume $\left(A, B\right) \neq \left(0, 0\right)$.
+	Then, there are constants $\theta_0$ and $C>0$ satisfying $\dsp r(\theta) = \frac{1}{C \cos\!\left(\alpha(\theta - \theta_0)\right)}$.
 
 	Let $E = T + V$.
 	Recall $\dsp \dot{T} = m \dot{\vr} \cdot \ddot{\vr}$ and observe that $\dsp \dot{E} = \dot{T} + \dot{V} = \dot{T} + \nabla V \cdot \dot{\vr} = \dot{\vr} \cdot \left(m\ddot{\vr} + \nabla V\right) = \dot{\vr} \cdot 0 = 0$.
 	Thus, total energy is conserved.
 
-	Assuming $r(t) = R$ for some constant $R$ and all $t$ yields $\dsp -mR \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
-	If $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ for some constant $R$, then the orbit is circular with a period $\frac{2 \pi}{\dot{\theta}} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ that depends on the radius $R$ of the circle.
-	For any other $k$, the trajectory $r(\theta) = \frac{1}{u(\theta)}$ has poles where $u(\theta) = A \cos\p{\alpha(\theta-\theta_0)}=0$ and thus does not form a closed bounded curve.
+	Assuming $r(t) = R$ for some constant $R$ and all $t$ yields $\dsp -m R \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
+	If $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ for some constant $R$, then the orbit is circular with a period $\frac{2 \pi}{\left|\dot{\theta}\right|} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ that depends on the radius $R$ of the circle.
+	For any other $k$, the trajectory $r(\theta) = \frac{1}{u(\theta)}$ has poles where $u(\theta) = C \cos\p{\alpha(\theta-\theta_0)}=0$ and thus does not form a closed bounded curve.
 \end{answer}
 
 \subsection{Principle of least action}
@@ -732,7 +734,7 @@ Recall that the values of a Lagrangian $L$ are expressed in units $\left[L\right
 
 \subsection{Hamiltonian mechanics and time-translation invariance}
 
-For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}$ has units $\left[\dot{q}\right] = \frac{\left[q\right]}{\left[t\right]}$ and its reciprocal $\frac{1}{\dot{q}}$ (where defined) has units $\left[\frac{1}{\dot{q}}\right] = \frac{\left[t\right]}{\left[q\right]}$.
+For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}$ has units $\left|\dot{q}\right| = \frac{\left|q\right|}{\left|t\right|}$ and its reciprocal $\frac{1}{\dot{q}}$ (where defined) has units $\left|\frac{1}{\dot{q}}\right| = \frac{\left|t\right|}{\left|q\right|}$.
 
 % solve for x
 \begin{answer}[Change of variables in Lagrangian of harmonic oscillator]
@@ -750,7 +752,7 @@ For any generalized coordinate $q$, the time derivative $\dot{q} = \frac{dq}{dt}
 	\end{align}
 \end{answer}
 
-For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\dsp \left[p\right] = \frac{\left[L\right]\left[t\right]}{\left[q\right]}$ and its reciprocal $\frac{1}{p}$ (where defined) has units $\left[\frac{1}{p}\right] = \frac{\left[q\right]}{\left[L\right] \left[t\right]}$.
+For any generalized coordinate $q$ and Lagrangian $L$, the canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$ of $q$ has units $\dsp \left|p\right| = \frac{\left|L\right| \left|t\right|}{\left|q\right|}$ and its reciprocal $\frac{1}{p}$ (where defined) has units $\left|\frac{1}{p}\right| = \frac{\left|q\right|}{\left|L\right| \left|t\right|}$.
 
 % solve for \dot{q}
 \begin{answer}[Hamiltonian of harmonic oscillator]
@@ -994,7 +996,7 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 \end{proof}
 
 Recall that the canonical momentum conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
-Observe that $\theta$ is a cyclic coordinate of the gravitational Lagrangian.
+Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$.
 
 \subsubsection*{Kepler's Laws}
 

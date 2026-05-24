@@ -301,7 +301,7 @@ Hence, each is Hermitian.
 
 The above remark yields $[\sigma_x, \sigma_x] = [\sigma_y, \sigma_y] = [\sigma_z, \sigma_z] = 0$.
 
-Denote the vector of Pauli matrices by $\vsig = \begin{pmatrix} \sigma_x, & \sigma_y, & \sigma_z \end{pmatrix}$.
+Denote the vector of Pauli matrices by $\vsig = \left(\sigma_x, \sigma_y, \sigma_z\right)$.
 
 For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in the direction of $\vec{n}$}
 \begin{equation}\label{eqn:Pauli}
@@ -426,32 +426,32 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 \end{lemma}
 \begin{proof}
 	Consider any rotation $r \in \SO{3}$.
-	Choose an axis $\hat{n}$ and angle $\theta$ for $r$.
+	Choose an axis-angle representation $\left(\hat{n}, \theta\right)$ for $r$.
 
-	Let $c = \cos \frac{\theta}{2}$ and $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \sigma}$.
-	Since $\left(\hat{n} \cdot \vsig\right)^2 = I$, it follows that $R = c I - i \left(\sin \frac{\theta}{2}\right) \hat{n} \cdot \sigma$.
-	Let $s = \sin \frac{\theta}{2}$, $N = \hat{n} \cdot \sigma$, and $M = \hat{m} \cdot \sigma$.
+	Let $c = \cos \frac{\theta}{2}$ and $R = \exp\p{- i \frac{\theta}{2} \hat{n} \cdot \vsig}$.
+	Since $\left(\hat{n} \cdot \vsig\right)^2 = I$, it follows that $R = c I - i \left(\sin \frac{\theta}{2}\right) \hat{n} \cdot \vsig$.
+	Let $s = \sin \frac{\theta}{2}$, $N = \hat{n} \cdot \vsig$, and $M = \hat{m} \cdot \vsig$.
 	Calculation yields $R = c I - i s N$ and $R^\dagger = c I + i s N$.
 	Substitution yields the equations below.
 	\begin{align*}
-		R M R^\dagger    & = c^2 M + ics(M N - N M) + s^2 N M N                                                                                                                                                                        \\
-		MN               & = \left(\hat{m} \cdot \hat{n}\right) I + i \left(\hat{m} \times \hat{n}\right) \cdot \sigma                                                                                                                 \\
-		NM               & = \left(\hat{n} \cdot \hat{m}\right) I -  i \left(\hat{m} \times \hat{n}\right) \cdot \sigma                                                                                                                \\
-		MN - NM          & = 2 i \left(\hat{m} \times \hat{n}\right) \cdot \sigma                                                                                                                                                      \\
-		\left(NM\right)N & = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right)  - i \Big(\big((\hat{m} \times \hat{n}) \cdot \hat{n}\big) I + i \big((\hat{m} \times \hat{n}) \times \hat{n}\big) \cdot \sigma\Big)
+		R M R^\dagger    & = c^2 M + ics(M N - N M) + s^2 N M N                                                                                                                                                                      \\
+		MN               & = \left(\hat{m} \cdot \hat{n}\right) I + i \left(\hat{m} \times \hat{n}\right) \cdot \vsig                                                                                                                \\
+		NM               & = \left(\hat{n} \cdot \hat{m}\right) I -  i \left(\hat{m} \times \hat{n}\right) \cdot \vsig                                                                                                               \\
+		MN - NM          & = 2 i \left(\hat{m} \times \hat{n}\right) \cdot \vsig                                                                                                                                                     \\
+		\left(NM\right)N & = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \vsig\right)  - i \Big(\big((\hat{m} \times \hat{n}) \cdot \hat{n}\big) I + i \big((\hat{m} \times \hat{n}) \times \hat{n}\big) \cdot \vsig\Big)
 	\end{align*}
 	Recall $\left(\hat{m} \times \hat{n}\right) \cdot \hat{n} = 0$ and $\left(\hat{m} \times \hat{n}\right) \times \hat{n} = \left(\hat{m} \cdot \hat{n}\right) \hat{n} - \hat{m}$.
-	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \sigma\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$ and also $R M R^\dagger = c^2 M + 2 c s \left(\hat{n} \times \hat{m}\right) \cdot \sigma + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \sigma$.
-	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} + 2 c s (\hat{n} \times \hat{m}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \sigma$ and the equation below.
+	Substitution yields $\left(NM\right)N = \left(\hat{n} \cdot \hat{m}\right) \left(\hat{n} \cdot \vsig\right) + \left((\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \vsig = \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \vsig$ and also $R M R^\dagger = c^2 M + 2 c s \left(\hat{n} \times \hat{m}\right) \cdot \vsig + s^2 \left(2(\hat{n} \cdot \hat{m}) \hat{n} - \hat{m}\right) \cdot \vsig$.
+	Subtraction yields $R M R^\dagger = \left((c^2 - s^2) \hat{m} + 2 c s (\hat{n} \times \hat{m}) + 2 s^2 (\hat{n} \cdot \hat{m}) \hat{n} \right) \cdot \vsig$ and the equation below.
 	\begin{align}
-		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{n} \times \hat{m}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \sigma
+		R M R^\dagger & = \left(\hat{m} \cos \theta + (\hat{n} \times \hat{m}) \sin \theta + \hat{n} (\hat{n} \cdot \hat{m}) (1 - \cos \theta) \right) \cdot \vsig
 	\end{align}
-	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \sigma$.
-	Since $\hat{n} \cdot \sigma$ is Hermitian, the operator $R$ is unitary.
+	Applying Rodrigues's formula yields $R M R^\dagger = \left(r\hat{m} \right) \cdot \vsig$.
+	Since $\hat{n} \cdot \vsig$ is Hermitian, the operator $R$ is unitary.
 
-	Suppose $R'$ is also a unitary operator that satisfies $R' \left(\hat{m} \cdot \sigma\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \sigma$ for all $\hat{m} \in S^2$.
+	Suppose $R'$ is also a unitary operator that satisfies $R' \left(\hat{m} \cdot \vsig\right) {R'}^{\dagger} = \left(r \hat{m}\right) \cdot \vsig$ for all $\hat{m} \in S^2$.
 	Consider any unit vector $\hat{m} \in S^2$, and let $U = R^\dagger R'$.
-	Since $R' \left(\hat{m} \cdot \sigma\right) {R'}^\dagger = R \left(\hat{m} \cdot \sigma\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \sigma\right) = \left(\hat{m} \cdot \sigma\right) U$.
+	Since $R' \left(\hat{m} \cdot \vsig\right) {R'}^\dagger = R \left(\hat{m} \cdot \vsig\right) R^\dagger$, it follows from multiplication that $U \left(\hat{m} \cdot \vsig\right) = \left(\hat{m} \cdot \vsig\right) U$.
 	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
 	Commutativity of $U$ with $\sigma_z$ implies that $U$ is diagonal, and commutativity of $U$ with $\sigma_x$ then implies $U = a I$ for some $a \in \C$.
 	Unitarity of $U$ implies $\left|a\right|=1$ and thus that $a = e^{i \phi}$ for some real $\phi \in \R$.
@@ -501,8 +501,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 % Planck units are energy x time
 \begin{answer}[Units of commutator]
 	Let $L$ denote a Lagrangian and $E = \left|L\right|$ denote the unit of $L$.
-	Recall for any generalized coordinate $q$ that the unit of its derivative $\dot{q} = \frac{dq}{dt}$ with respect to time is $\left|\dot{q}\right| = \frac{|q|}{|t|}$.
-	Recall that the unit of its conjugate momentum $p = \frac{\partial L}{\partial \dot{q}}$ is $|p| = \frac{E}{|q|/|t|}$, and that the unit of the reduced Planck constant $\hbar$ is $\left|\hbar\right| = E |t|$.
+	Recall that the units of the Poisson bracket are $\left|\{F, G\}\right| = \frac{|F| |G|}{E |t|}$.
 	The units of $i \hbar \left\{F, G\right\}$ are calculated below.
 	\begin{align}
 		\left|i \hbar \{F, G\}\right| & = E |t| \frac{|F| |G|}{|q|} \frac{|q|/|t|}{E} = |F| |G|
@@ -880,6 +879,24 @@ Its norm is calculated below.
 	The possible energies of the system are $\frac{\omega}{2}$ and $-3 \frac{\omega}{2}$.
 	The singlet state $\ket{S}$ is an eigenvector with eigenvalue $-3 \frac{\omega}{2}$, and each triplet state is an eigenvector with eigenvalue $\frac{\omega}{2}$.
 
-	Since $\bH \ket{u u} = \frac{\omega}{2} \ket{u u} + 0$, the state at any later time $t$ beginning from $\ket{u u}$ is given by $\exp{-i \frac{\omega}{2}t } \ket{u u}$.
+	Since $\bH \ket{u u} = \frac{\omega}{2} \ket{u u}$, the state at any later time $t$ beginning from $\ket{u u}$ is given by $e^{-\frac{i}{\hbar} \frac{\omega}{2} t} \ket{u u}$.
+	Since $\bH \ket{d d} = \frac{\omega}{2} \ket{d d}$, the state at any later time $t$ beginning from $\ket{d d}$ is given by $e^{- \frac{i}{\hbar} \frac{\omega}{2} t} \ket{d d}$.
+	Since $\ket{u d} = \frac{\ket{T_1} - i \ket{S}}{\sqrt{2}}$, the state at any later time $t$ beginning from $\ket{u d}$ is given by $\frac{1}{\sqrt{2}} \left(e^{-\frac{i}{\hbar} \frac{\omega}{2} t} \ket{T_1} - i  e^{3\frac{i}{\hbar} \frac{\omega}{2} t}\ket{S}\right)$.
+	Since $\ket{d u} = \frac{\ket{T_1} + i \ket{S}}{\sqrt{2}}$, the state at any later time $t$ beginning from $\ket{d u}$ is given by $\frac{1}{\sqrt{2}} \left(e^{-\frac{i}{\hbar} \frac{\omega}{2} t} \ket{T_1} + i  e^{3\frac{i}{\hbar} \frac{\omega}{2} t}\ket{S}\right)$.
+\end{answer}
+
+\subsection{On entanglement}
+
+\begin{answer}
+	The tensor product $I \otimes \tau_x$ is written as a matrix below.
+	\begin{align}
+		I \otimes \tau_x
+		 & = \begin{pmatrix}
+			     0 & 1 & 0 & 0 \\
+			     1 & 0 & 0 & 0 \\
+			     0 & 0 & 0 & 1 \\
+			     0 & 0 & 1 & 0
+		     \end{pmatrix}
+	\end{align}
 \end{answer}
 

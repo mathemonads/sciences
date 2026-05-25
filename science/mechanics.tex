@@ -19,7 +19,7 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 	Implicit in establishing a closed system are the assumptions that all interactions with its objects are known and can be definitively measured.
 	An open system is a system that interacts with objects outside the system.
 
-	As a matter of logic, a system should be presumed closed and shown to be open.
+	As a matter of logic, a system should be presumed closed and shown to be open since it is generically impossible to establish that a non-trivial system is closed.
 	However, the failure to establish a system to be open does not suffice to definitively conclude the system is closed.
 \end{answer}
 
@@ -463,7 +463,7 @@ For any particle with twice differentiable trajectory $\vr$, the velocity $\vv =
 \end{align}
 
 % chain rule
-\begin{answer}[Rate of change of square of velocity]
+\begin{answer}[Rate of change of square of velocity in one dimension]
 	For a particle with velocity $v(t)$ in one dimension, it follows from Equation \eqref{eqn:squeed} that the derivative of $v^2(t) = v(t)^2$ with respect to time is $\frac{d v^2(t)}{dt} = 2 v(t) \dot{v}(t)$.
 \end{answer}
 
@@ -567,7 +567,6 @@ It is called the \emph{radial generalized momentum}.
 
 	Assuming $r(t) = R$ for some constant $R > 0$ and all $t$ yields $\dsp -m R \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
 	If $\lambda = 0$, then the orbit is circular if and only if $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ and the period $\frac{2 \pi}{\left|\dot{\theta}\right|} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ depends on the radius $R$ of the circle.
-	For any other choice of $\lambda$, the trajectory does not form a closed bounded curve.
 \end{answer}
 
 \subsection{Principle of least action}
@@ -970,9 +969,11 @@ There are no exercises in this lecture on phase space.
 \subsection{Central forces and planetary orbits}
 
 Let $m$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
-Fix a coordinate system with the Sun at the origin and let $\vr(t)$ denote the position of the Earth at time $t$.
-Assume that the Sun remains fixed at the origin and that the position $\vr(t)$ of the Earth satisfies $\vr(t) \neq \vzero$.
-Let $r = \left\|\vr\right\|$.
+Considering the Sun to be at the origin of a Cartesian coordinate system on $\R^3$, let $\vr(t)$ denote the position of the Earth at time $t \geq 0$.
+Since $M \gg m$, assume that the Sun remains fixed at the origin and that the Earth moves under the gravitational attraction of the Sun.
+Let $r = \left\|\vr\right\|$ denote the distance from the Sun to the Earth.
+Observe that $\vr(t)$ is nonvanishing if and only if $r(t)$ is nonvanishing.
+Assume this condition holds.
 
 Recall that Newtonian gravity determines a central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
 
@@ -1024,5 +1025,5 @@ That is, the angular momentum $p_\theta$ is conserved.
 	Therefore, the magnitude $a = \left\|\va\right\|$ of the acceleration is $\omega^2 \left\|\vr(t)\right\| = \omega^2 r_0$.
 \end{answer}
 
-In what follows, consider the radial distance $r(\theta)$ of the Earth from the Sun as a function of the polar angle.
+In what follows, consider the radial distance $r(\theta)$ of the Earth from the Sun as a function of the polar angle and recall that $\vr(t)$ is nonvanishing by assumption.
 

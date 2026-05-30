@@ -1,4 +1,5 @@
 
+
 \section{Quantum Mechanics}\label{sec:quantum}
 
 Solutions are proposed in this section to a selection of exercises from the lectures of \cite{QM} included in the table below.
@@ -313,7 +314,7 @@ For any vector $\vec{n} \in \R^3$, denote the \emph{(standard) Pauli operator in
 	\end{pmatrix}
 \end{equation}
 by $\sigma_{\vec{n}}$ or, equivalently, by $\vec{n} \cdot \vsig$.
-The operator $\sigma_{\vec{n}}$ is Hermitian since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real.
+Since the Pauli matrices are Hermitian and the components of $\vec{n}$ are real, the operator $\sigma_{\vec{n}}$ is Hermitian.
 
 \begin{proposition}[Product of Pauli operators]\label{prop:Pauli}
 	For any vectors $\vec{m}$ and $\vec{n}$ in $\R^3$, the following equation holds.
@@ -987,6 +988,7 @@ Its norm is calculated below.
 	\end{align*}
 \end{answer}
 
+% component
 \begin{answer}[Action of tensor product on tensor product]
 	Consider the equation $\left(A \otimes B\right) \left(a \otimes b\right) = \left(Aa \otimes Bb\right)$ in terms of the components given below.
 	\begin{align*}
@@ -1116,8 +1118,45 @@ Its norm is calculated below.
 	\end{enumerate}
 \end{answer}
 
-\begin{answer}[Complex conjugation]
+\begin{answer}[Density operator]
 	Consider $\ket{\Phi} = \alpha \ket{u} + \beta \ket{d}$.
 	The complex conjugates of the coefficients $\Phi(u) = \braket{u \mid \Phi} = \alpha$ and $\Phi(d) = \braket{d \mid \Phi} = \beta$ are $\Phi^*(u) = \braket{\Phi \mid u} = \alpha^*$ and $\Phi^*(d) = \braket{\Phi \mid d} = \beta^*$.
+	The ket is expressed in this basis by $\ket{\Phi} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ and the bra by $\bra{\Phi} = \begin{pmatrix} \alpha^* & \beta^* \end{pmatrix}$.
+	Thus, the density matrix is calculated below.
+	\begin{align}
+		\ket{\Phi} \bra{\Phi} =
+		\begin{pmatrix}
+			\alpha \alpha^* & \alpha \beta^* \\
+			\beta \alpha^*  & \beta \beta^*
+		\end{pmatrix}
+	\end{align}
+\end{answer}
+
+\begin{answer}[Square]
+	\begin{enumerate}
+		\item Observe the following.
+		      \begin{align}\label{eqn:square}
+			      \begin{pmatrix}
+				      a & 0 \\
+				      0 & b
+			      \end{pmatrix}^2
+			       & =
+			      \begin{pmatrix}
+				      a & 0 \\
+				      0 & b
+			      \end{pmatrix}
+			      \begin{pmatrix}
+				      a & 0 \\
+				      0 & b
+			      \end{pmatrix}
+			      =
+			      \begin{pmatrix}
+				      a^2 + 0^2 & 0 + 0     \\
+				      0 + 0     & 0^2 + b^2
+			      \end{pmatrix}
+		      \end{align}
+		\item Let $a = \frac{1}{3}$, $b = \frac{2}{3}$, and $\rho = \begin{pmatrix} \frac{1}{3} & 0 \\ 0 & \frac{2}{3} \end{pmatrix}$.
+		      Substitution into Equation \eqref{eqn:square} yields $\rho^2 = \begin{pmatrix} \frac{1}{9} & 0 \\ 0 & \frac{4}{9} \end{pmatrix}$.
+	\end{enumerate}
 \end{answer}
 

@@ -1,5 +1,6 @@
 
 
+
 \section{Mechanics}\label{sec:mechanics}
 
 Solutions are proposed in this section to all of the exercises in \cite{TM}.
@@ -228,7 +229,6 @@ In any inner product space, define the square of a vector to be its inner produc
 	\end{align}
 \end{answer}
 
-Recall that a \emph{curve} in a topological space $X$ is a continuous function from an interval in $\R$ to $X$.
 Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivative $\dot{\vr}(t)$ with respect to time.
 
 % calculation
@@ -567,7 +567,7 @@ It is called the \emph{radial generalized momentum}.
 	Thus, total energy is conserved.
 
 	Assuming $r(t) = R$ for some constant $R > 0$ and all $t$ yields $\dsp -m R \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
-	If $k > 0$, then the orbit is circular if and only if $\lambda = 0$, equivalently $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$, and the period $\frac{2 \pi}{\left|\dot{\theta}\right|} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ depends on the radius $R$ of the circle.
+	If $k < 0$, then the orbit is circular if and only if $\lambda = 0$, equivalently $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$, and the period $\frac{2 \pi}{\left|\dot{\theta}\right|} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ depends on the radius $R$ of the circle.
 \end{answer}
 
 \subsection{Principle of least action}
@@ -969,10 +969,9 @@ There are no exercises in this lecture on phase space.
 
 \subsection{Central forces and planetary orbits}
 
-
 Let $m > 0$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
 
-\subsubsection{The Central Force of Gravity}
+\subsubsection{The central force of gravity}
 
 Considering the Sun to be at the origin of a Cartesian coordinate system on $\R^3$, let $\vr(t)$ denote the position of the Earth at time $t \geq 0$.
 Since $M \gg m$, assume that the Sun remains fixed at the origin and that the Earth moves under the gravitational attraction of the Sun.
@@ -1007,6 +1006,7 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 Recall that the canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
 Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$ and from the Euler-Lagrange equation $\frac{\partial L}{\partial \theta} = \frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}$ that $\frac{d}{dt} p_\theta = 0$.
 That is, the angular momentum $p_\theta$ is conserved.
+If $p_\theta = 0$, then $\dot{\theta} = 0$.
 
 \subsubsection*{Kepler's Laws}
 

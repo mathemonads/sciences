@@ -923,6 +923,7 @@ Its norm is calculated below.
 	In each case, Alice's half of the state-vector is unchanged.
 \end{answer}
 
+% calculation
 \begin{answer}[Tensor product]
 	The tensor product $\sigma_z \otimes \tau_x$ is given below.
 	\begin{align*}
@@ -989,49 +990,134 @@ Its norm is calculated below.
 \begin{answer}[Action of tensor product on tensor product]
 	Consider the equation $\left(A \otimes B\right) \left(a \otimes b\right) = \left(Aa \otimes Bb\right)$ in terms of the components given below.
 	\begin{align*}
-		A  & =
+		A & =
 		\begin{pmatrix}
 			A_{11} & A_{12} \\
 			A_{21} & A_{22}
 		\end{pmatrix}
-		   &
-		B  & =
+		  &
+		B & =
 		\begin{pmatrix}
 			B_{11} & B_{12} \\
 			B_{21} & B_{22}
 		\end{pmatrix}
-		   &
-		a  & =
+		  &
+		a & =
 		\begin{pmatrix}
 			a_{11} \\ a_{21}
 		\end{pmatrix}
-		   &
-		b  & =
+		  &
+		b & =
 		\begin{pmatrix}
 			b_{11} \\ b_{21}
 		\end{pmatrix}
-		\\
-		Aa & =
-		\begin{pmatrix}
-			A_{11} a_{11} + A_{12} a_{21} \\
-			A_{21} a_{11} + A_{22} a_{21}
-		\end{pmatrix}
-		   &
-		Bb & =
-		\begin{pmatrix}
-			B_{11} b_{11} + B_{12} b_{21} \\
-			B_{21} b_{11} + B_{22} b_{21}
-		\end{pmatrix}
 	\end{align*}
-	The left-hand side is given below.
-	\begin{align}
-		\left(A \otimes B\right) \left(a \otimes b\right) & =
-		\begin{pmatrix}
-			A_{11} B_{11} a_{11} b_{11} + A_{11} B_{12} a_{11} b_{21} + A_{12} B_{11} a_{21} b_{11} + A_{12} B_{12} a_{21} b_{21} \\
-			A_{11} B_{21} a_{11} b_{11} + A_{11} B_{22} a_{11} b_{21} + A_{12} B_{21} a_{21} b_{11} + A_{12} B_{22} a_{21} b_{21} \\
-			A_{21} B_{11} a_{11} b_{11} + A_{21} B_{12} a_{11} b_{21} + A_{22} B_{11} a_{21} b_{11} + A_{22} B_{12} a_{21} b_{21} \\
-			A_{21} B_{21} a_{11} b_{11} + A_{21} B_{22} a_{11} b_{21} + A_{22} B_{21} a_{21} b_{11} + A_{22} B_{22} a_{21} b_{21} \\
-		\end{pmatrix}
-	\end{align}
+	\begin{enumerate}
+		\item The equation is given in terms of the components below.
+		      \begin{align*}
+			      \left(
+			      \begin{pmatrix}
+				      A_{11} & A_{12} \\
+				      A_{21} & A_{22}
+			      \end{pmatrix}
+			      \otimes
+			      \begin{pmatrix}
+				      B_{11} & B_{12} \\
+				      B_{21} & B_{22}
+			      \end{pmatrix}
+			      \right) & \left(
+			      \begin{pmatrix}
+				      a_{11} \\ a_{21}
+			      \end{pmatrix}
+			      \otimes
+			      \begin{pmatrix}
+				      b_{11} \\ b_{21}
+			      \end{pmatrix}
+			      \right)           \\
+			      = \left(
+			      \begin{pmatrix}
+				      A_{11} & A_{12} \\
+				      A_{21} & A_{22}
+			      \end{pmatrix}
+			      \begin{pmatrix}
+				      a_{11} \\ a_{21}
+			      \end{pmatrix}
+			      \right)
+			              & \otimes
+			      \left(
+			      \begin{pmatrix}
+				      B_{11} & B_{12} \\
+				      B_{21} & B_{22}
+			      \end{pmatrix}
+			      \begin{pmatrix}
+				      b_{11} \\ b_{21}
+			      \end{pmatrix}
+			      \right)
+		      \end{align*}
+		\item The matrix multiplications on the right-hand side are calculated below.
+		      \begin{align*}
+			      Aa & =
+			      \begin{pmatrix}
+				      A_{11} a_{11} + A_{12} a_{21} \\
+				      A_{21} a_{11} + A_{22} a_{21}
+			      \end{pmatrix}
+			         &
+			      Bb & =
+			      \begin{pmatrix}
+				      B_{11} b_{11} + B_{12} b_{21} \\
+				      B_{21} b_{11} + B_{22} b_{21}
+			      \end{pmatrix}
+		      \end{align*}
+		      Each is a $2 \times 1$ matrix, and their tensor product is a $4 \times 1$ matrix.
+		\item The three Kronecker products are calculated below.
+		      \begin{align*}
+			      A \otimes B & =
+			      \begin{pmatrix}
+				      A_{11} B_{11} & A_{11} B_{12} & A_{12} B_{11} & A_{12} B_{12} \\
+				      A_{11} B_{21} & A_{11} B_{22} & A_{12} B_{21} & A_{12} B_{22} \\
+				      A_{21} B_{11} & A_{21} B_{12} & A_{22} B_{11} & A_{22} B_{12} \\
+				      A_{21} B_{21} & A_{21} B_{22} & A_{22} B_{21} & A_{22} B_{22}
+			      \end{pmatrix}
+			                  &
+			      a \otimes b & =
+			      \begin{pmatrix}
+				      a_{11} b_{11} \\
+				      a_{11} b_{21} \\
+				      a_{21} b_{11} \\
+				      a_{21} b_{21}
+			      \end{pmatrix}
+			      \\ Aa \otimes Bb & =
+			      \begin{pmatrix}
+				      \left( A_{11} a_{11} + A_{12} a_{21} \right)
+				      \left( B_{11} b_{11} + B_{12} b_{21} \right) \\
+				      \left( A_{11} a_{11} + A_{12} a_{21} \right)
+				      \left( B_{21} b_{11} + B_{22} b_{21} \right) \\
+				      \left( A_{21} a_{11} + A_{22} a_{21} \right)
+				      \left( B_{11} b_{11} + B_{12} b_{21} \right) \\
+				      \left( A_{21} a_{11} + A_{22} a_{21} \right)
+				      \left( B_{21} b_{11} + B_{22} b_{21} \right)
+			      \end{pmatrix}
+			                  &
+		      \end{align*}
+		\item Observe that $A \otimes B$ is $4 \times 4$ while the other two are $4 \times 1$.
+		\item
+		      The vector $c = \left(A \otimes B\right) \left(a \otimes b\right)$ on the left-hand side is calculated below.
+		      \begin{align*}
+			      c & =
+			      \begin{pmatrix}
+				      A_{11} B_{11} a_{11} b_{11} + A_{11} B_{12} a_{11} b_{21} + A_{12} B_{11} a_{21} b_{11} + A_{12} B_{12} a_{21} b_{21} \\
+				      A_{11} B_{21} a_{11} b_{11} + A_{11} B_{22} a_{11} b_{21} + A_{12} B_{21} a_{21} b_{11} + A_{12} B_{22} a_{21} b_{21} \\
+				      A_{21} B_{11} a_{11} b_{11} + A_{21} B_{12} a_{11} b_{21} + A_{22} B_{11} a_{21} b_{11} + A_{22} B_{12} a_{21} b_{21} \\
+				      A_{21} B_{21} a_{11} b_{11} + A_{21} B_{22} a_{11} b_{21} + A_{22} B_{21} a_{21} b_{11} + A_{22} B_{22} a_{21} b_{21} \\
+			      \end{pmatrix}
+		      \end{align*}
+		      Observe it is a $4 \times 1$ column vector.
+		\item Note that $c = Aa \otimes Bb$.
+	\end{enumerate}
+\end{answer}
+
+\begin{answer}[Complex conjugation]
+	Consider $\ket{\Phi} = \alpha \ket{u} + \beta \ket{d}$.
+	The complex conjugates of the coefficients $\Phi(u) = \braket{u \mid \Phi} = \alpha$ and $\Phi(d) = \braket{d \mid \Phi} = \beta$ are $\Phi^*(u) = \braket{\Phi \mid u} = \alpha^*$ and $\Phi^*(d) = \braket{\Phi \mid d} = \beta^*$.
 \end{answer}
 

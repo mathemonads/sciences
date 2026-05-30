@@ -420,7 +420,7 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 \begin{lemma}
 	For every rotation $r \in \SO{3}$, there is a unitary operator $R$ on $\C^2$ satisfying
 	\begin{align*}
-		\forall \hat{m} & \in S^2, & R \left(\hat{m} \cdot \sigma\right) R^\dagger & = \left(r \hat{m}\right) \cdot \sigma
+		\forall \hat{m} & \in S^2, & R \left(\hat{m} \cdot \vsig\right) R^\dagger & = \left(r \hat{m}\right) \cdot \vsig
 	\end{align*}
 	and any unitary operator $R'$ satisfying the above condition has a phase $\phi$ such that $R' = e^{i \phi} R$.
 \end{lemma}
@@ -883,8 +883,9 @@ Its norm is calculated below.
 
 \subsection{More on entanglement}
 
-\begin{answer}[Tensor product]
-	The tensor product $I \otimes \tau_x =
+% calculation
+\begin{answer}[Tensor product with identity]
+	The product $I \otimes \tau_x =
 		\begin{pmatrix}
 			0 & 1 & 0 & 0 \\
 			1 & 0 & 0 & 0 \\
@@ -922,9 +923,10 @@ Its norm is calculated below.
 	In each case, Alice's half of the state-vector is unchanged.
 \end{answer}
 
-\begin{answer}
+\begin{answer}[Tensor product]
 	The tensor product $\sigma_z \otimes \tau_x$ is given below.
 	\begin{align*}
+		 &
 		\begin{pmatrix}
 			\braket{u u \mid \sigma_z \otimes \tau_x \mid u u } &
 			\braket{u u \mid \sigma_z \otimes \tau_x \mid u d } &
@@ -943,6 +945,93 @@ Its norm is calculated below.
 			\braket{d d \mid \sigma_z \otimes \tau_x \mid d u } &
 			\braket{d d \mid \sigma_z \otimes \tau_x \mid d d }   \\
 		\end{pmatrix}
+		\\ & =
+		\begin{pmatrix}
+			\braket{u u \mid   u d } &
+			\braket{u u \mid   u u } &
+			\braket{u u \mid - d d } &
+			\braket{u u \mid - d u }   \\
+			\braket{u d \mid   u d } &
+			\braket{u d \mid   u u } &
+			\braket{u d \mid - d d } &
+			\braket{u d \mid - d u }   \\
+			\braket{d u \mid   u d } &
+			\braket{d u \mid   u u } &
+			\braket{d u \mid - d d } &
+			\braket{d u \mid - d u }   \\
+			\braket{d d \mid   u d } &
+			\braket{d d \mid   u u } &
+			\braket{d d \mid - d d } &
+			\braket{d d \mid - d u }   \\
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+			0  &
+			1  &
+			0  &
+			0    \\
+			1  &
+			0  &
+			0  &
+			0    \\
+			0  &
+			0  &
+			0  &
+			-1   \\
+			0  &
+			0  &
+			-1 &
+			0    \\
+		\end{pmatrix}
 	\end{align*}
+\end{answer}
+
+\begin{answer}[Action of tensor product on tensor product]
+	Consider the equation $\left(A \otimes B\right) \left(a \otimes b\right) = \left(Aa \otimes Bb\right)$ in terms of the components given below.
+	\begin{align*}
+		A  & =
+		\begin{pmatrix}
+			A_{11} & A_{12} \\
+			A_{21} & A_{22}
+		\end{pmatrix}
+		   &
+		B  & =
+		\begin{pmatrix}
+			B_{11} & B_{12} \\
+			B_{21} & B_{22}
+		\end{pmatrix}
+		   &
+		a  & =
+		\begin{pmatrix}
+			a_{11} \\ a_{21}
+		\end{pmatrix}
+		   &
+		b  & =
+		\begin{pmatrix}
+			b_{11} \\ b_{21}
+		\end{pmatrix}
+		\\
+		Aa & =
+		\begin{pmatrix}
+			A_{11} a_{11} + A_{12} a_{21} \\
+			A_{21} a_{11} + A_{22} a_{21}
+		\end{pmatrix}
+		   &
+		Bb & =
+		\begin{pmatrix}
+			B_{11} b_{11} + B_{12} b_{21} \\
+			B_{21} b_{11} + B_{22} b_{21}
+		\end{pmatrix}
+	\end{align*}
+	The left-hand side is given below.
+	\begin{align}
+		\left(A \otimes B\right) \left(a \otimes b\right) & =
+		\begin{pmatrix}
+			A_{11} B_{11} a_{11} b_{11} + A_{11} B_{12} a_{11} b_{21} + A_{12} B_{11} a_{21} b_{11} + A_{12} B_{12} a_{21} b_{21} \\
+			A_{11} B_{21} a_{11} b_{11} + A_{11} B_{22} a_{11} b_{21} + A_{12} B_{21} a_{21} b_{11} + A_{12} B_{22} a_{21} b_{21} \\
+			A_{21} B_{11} a_{11} b_{11} + A_{21} B_{12} a_{11} b_{21} + A_{22} B_{11} a_{21} b_{11} + A_{22} B_{12} a_{21} b_{21} \\
+			A_{21} B_{21} a_{11} b_{11} + A_{21} B_{22} a_{11} b_{21} + A_{22} B_{21} a_{21} b_{11} + A_{22} B_{22} a_{21} b_{21} \\
+		\end{pmatrix}
+	\end{align}
 \end{answer}
 

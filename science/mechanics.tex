@@ -282,7 +282,8 @@ Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivati
 
 % direct integration
 \begin{answer}[Trajectories of velocities]
-	The velocities $\dsp v_1(t) = \int_0^t {t'}^4~dt'$, $\dsp v_2(t) = \int_0^t \cos t' ~dt'$, $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ have trajectories $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30} - 0$, $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$, and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$.
+	The velocity $\dsp v_1(t) = \int_0^t {t'}^4~dt'$ has trajectory $\dsp \int_0^T \left(\frac{t^5}{5} - \frac{0}{5}\right) ~dt = \frac{T^6}{30}$.
+	The velocities $\dsp v_2(t) = \int_0^t \cos t' ~dt'$ and $\dsp v_3(t) = \int_0^t \left({t'}^2-2\right) ~dt'$ have trajectories $\dsp \int_0^T \sin t - 0 ~dt = - \cos T + 1$ and $\dsp \int_0^T \frac{t^3}{3}-2t ~dt = \frac{T^4}{12}-T^2$, respectively.
 \end{answer}
 
 % parts
@@ -426,7 +427,7 @@ In any such space with inner product $\braket{\bullet, \star}$ and norm $\left\|
 \begin{definition}[Unit curve, angular curve, tangential curve]
 	For a nonvanishing curve $\vr(t)$ in a normed vector space with radial function $r(t)$, its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
 	For a nonvanishing curve in the Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a curve $\theta(t)$ for which any value $\theta(t_0)$ is a polar angle of $\vr(t_0)$.
-	For any angular curve $\theta(t)$, the \emph{tangential curve} is the curve $\vth(t)$ such that $\vth(t_0)$ is perpendicular to $\vr(t_0)$ with the standard orientation and norm $\left\|\vth(t_0)\right\| = \left\|\vr(t_0)\right\|$; the \emph{tangential unit curve} is the unit curve $\widehat{\vth}(t)$ associated with the tangential curve.
+	For any angular curve $\theta(t)$, the \emph{tangential curve} is the curve $\vth(t)$ such that $\vth(t_0)$ is perpendicular to $\vr(t_0)$ with the standard orientation and norm $\left\|\vth(t_0)\right\| = \left\|\vr(t_0)\right\|$; the \emph{tangential unit curve} is the unit curve $\widehat{\vth}(t)$ associated with it.
 \end{definition}
 
 Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
@@ -440,7 +441,7 @@ If $\vr(t)$ is a nonvanishing curve defined on an interval, then there exists a 
 		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}                                                                    \\
 		\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
 		                        &
-		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t)                                                                \\
+		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:derivatives}                                        \\
 		\ddot{\vr}(t)           & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t) \label{eqn:acceleration}
 	\end{align}
 	Equation \eqref{eqn:acceleration} requires that the nonvanishing curve $\vr$ be twice differentiable.
@@ -527,7 +528,7 @@ It is called the \emph{radial generalized momentum}.
 
 % chain rule
 \begin{answer}[Potential energy proportional to inverse squared distance]
-	Consider a particle with mass $m$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
+	Consider a particle with mass $m > 0$ in the punctured Euclidean plane and potential energy defined at any point $\vr = \begin{pmatrix} x \\ y \end{pmatrix}$ by $V(\vr) = \frac{k}{2(x^2+y^2)}$.
 
 	The radial coordinate $r = \left\|\vr\right\|$ is given by $r = \sqrt{x^2 + y^2}$.
 	The potential energy is given in terms of the radial coordinate $r = \sqrt{x^2 + y^2}$ by $V\p{\vr} = \frac{k}{2 r^2}$.
@@ -566,7 +567,7 @@ It is called the \emph{radial generalized momentum}.
 	Thus, total energy is conserved.
 
 	Assuming $r(t) = R$ for some constant $R > 0$ and all $t$ yields $\dsp -m R \dot{\theta}^2 = \frac{k}{R^3}$ and $\dsp \dot{\theta}^2 = - \frac{k}{mR^4}$.
-	If $\lambda = 0$, then the orbit is circular if and only if $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$ and the period $\frac{2 \pi}{\left|\dot{\theta}\right|} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ depends on the radius $R$ of the circle.
+	If $k > 0$, then the orbit is circular if and only if $\lambda = 0$, equivalently $k = -\frac{L^2}{m} = - m R^4 \dot{\theta}^2$, and the period $\frac{2 \pi}{\left|\dot{\theta}\right|} = 2 \pi R^2\sqrt{\frac{m}{-k}}$ depends on the radius $R$ of the circle.
 \end{answer}
 
 \subsection{Principle of least action}
@@ -968,7 +969,11 @@ There are no exercises in this lecture on phase space.
 
 \subsection{Central forces and planetary orbits}
 
-Let $m$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
+
+Let $m > 0$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
+
+\subsubsection{The Central Force of Gravity}
+
 Considering the Sun to be at the origin of a Cartesian coordinate system on $\R^3$, let $\vr(t)$ denote the position of the Earth at time $t \geq 0$.
 Since $M \gg m$, assume that the Sun remains fixed at the origin and that the Earth moves under the gravitational attraction of the Sun.
 Let $r = \left\|\vr\right\|$ denote the distance from the Sun to the Earth.
@@ -976,6 +981,7 @@ Observe that $\vr(t)$ is nonvanishing if and only if $r(t)$ is nonvanishing.
 Assume this condition holds.
 
 Recall that Newtonian gravity determines a central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
+Recall that the Earth moves in a plane.
 
 \begin{definition}[gravitational potential energy]
 	The \emph{gravitational potential energy} is given below.
@@ -1025,5 +1031,6 @@ That is, the angular momentum $p_\theta$ is conserved.
 	Therefore, the magnitude $a = \left\|\va\right\|$ of the acceleration is $\omega^2 \left\|\vr(t)\right\| = \omega^2 r_0$.
 \end{answer}
 
-In what follows, consider the radial distance $r(\theta)$ of the Earth from the Sun as a function of the polar angle and recall that $\vr(t)$ is nonvanishing by assumption.
+In what follows, consider the radial distance $r(\theta)$ of the Earth from the Sun as a function of the polar angle.
+Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing.
 

@@ -8,10 +8,10 @@ A few classical results needed for Section \ref{sec:quantum} are reviewed.
 
 \subsection*{Units}
 
-Let $L$ denote a Lagrangian.
+Let $\vq = \begin{pmatrix} q_1 \\ \vdots \\ q_i \\ \vdots \\ q_n \end{pmatrix}$ denote a vector of $n \in \N$ generalized coordinates, $\vp = \begin{pmatrix} p_1 \\ \vdots \\ p_i \\ \vdots \\ p_n \end{pmatrix}$ denote a vector of their canonical momenta, and let $L$ denote a Lagrangian.
 
-\begin{remark}[Units of derivative of function on phase space]\label{rem:derivative}
-	For any function $F(q, p)$ of a generalized coordinate $q$ and canonical momentum $p = \frac{\partial L}{\partial \dot{q}}$, the partial derivative $\frac{\partial F(q,p)}{\partial q}$ with respect to the generalized coordinate has units $\left|\frac{\partial F(q,p)}{\partial q}\right| = \frac{\left|F\right|}{\left|q\right|}$ and the partial derivative $\frac{\partial F(q,p)}{\partial p}$ with respect to the canonical momentum has units $\left|\frac{\partial F(q,p)}{\partial p}\right| = \frac{\left|F\right|}{\left|p\right|}$.
+\begin{remark}[Units of derivatives of function on phase space]\label{rem:derivative}
+	For any function $F\p{\vq, \vp}$ of generalized coordinates $\vq$ and canonical momenta $\vp = \frac{\partial L}{\partial \dot{\vq}}$, the partial derivative $\frac{\partial F\p{\vq, \vp}}{\partial q_i}$ with respect to any generalized coordinate $q_i$ has units $\left|\frac{\partial F\p{\vq, \vp}}{\partial q_i}\right| = \frac{\left|F\right|}{\left|q_i\right|}$ and the partial derivative $\frac{\partial F\p{\vq, \vp}}{\partial p_i}$ with respect to the canonical momentum $p_i$ conjugate to $q_i$ has units $\left|\frac{\partial F\p{\vq, \vp}}{\partial p_i}\right| = \frac{\left|F\right|}{\left|p_i\right|}$.
 \end{remark}
 
 \begin{proposition}\label{prop:action}

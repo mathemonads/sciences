@@ -1,5 +1,5 @@
 
-
+% /science/mechanics.tex
 
 \section{Mechanics}\label{sec:mechanics}
 
@@ -417,10 +417,10 @@ Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivati
 
 There are no exercises in this lecture concerning systems of particles.
 
-\paragraph{Mathematical analysis} Consider any normed vector space with norm $\left\|\bullet\right\|$.
+\paragraph{Mathematical analysis}
 
-For any curve $\vr(t)$ in such a space, its \emph{radial function} $r$ is defined pointwise by $r(t) = \left\|\vr(t)\right\|$.
-In any such space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product, the \emph{square} $\vr^2 = \braket{\vr, \vr}$ of the curve $\vr$ satisfies $\vr^2(t) = \left\|\vr(t)\right\|^2$.
+Consider any inner product space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product.
+The \emph{square} $\vr^2 = \braket{\vr, \vr}$ of the curve $\vr$ satisfies $\vr^2(t) = \left\|\vr(t)\right\|^2$.
 
 \begin{definition}[Unit curve, angular curve, tangential curve]
 	For a nonvanishing curve $\vr(t)$ in a normed vector space with radial function $r(t)$, its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
@@ -1001,9 +1001,10 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 	This follows from the constancy of mass and linearity of the derivative.
 \end{proof}
 
-The radial Euler-Lagrange equation $\dot{p}_r = \frac{\partial L}{\partial r}$ is given below.
+The radial Euler-Lagrange equation $\dot{p}_r = \frac{\partial L}{\partial r}$ is $m \ddot{r} = m r \dot{\theta}^2 - \frac{G M m}{r^2}$
+Dividing both sides by $m$ yields the radial acceleration below.
 \begin{align}\label{eqn:radial}
-	m \ddot{r} = m r \dot{\theta}^2 - \frac{G M m}{r^2}
+	\ddot{r} & = r \dot{\theta}^2 - \frac{G M}{r^2}
 \end{align}
 
 Recall that the canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
@@ -1035,7 +1036,7 @@ That is, the angular momentum $p_\theta$ is conserved.
 
 If $p_\theta = 0$, then $\dot{\theta} = 0$.
 Assume that $p_\theta \neq 0$.
-It follows that $\dot{\theta} \neq 0$.
+Since $m>0$ and $r>0$, it follows that $\dot{\theta} \neq 0$.
 
 Consider the radial distance $r$ of the Earth from the Sun as a function of the polar angle $\theta$.
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing and thus that the reciprocal $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined.

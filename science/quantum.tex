@@ -1118,21 +1118,36 @@ Its norm is calculated below.
 	\end{enumerate}
 \end{answer}
 
-\begin{answer}[Density operator]
+% transpose
+\begin{answer}[Density matrix]
 	Consider $\ket{\Phi} = \alpha \ket{u} + \beta \ket{d}$.
 	The complex conjugates of the coefficients $\Phi(u) = \braket{u \mid \Phi} = \alpha$ and $\Phi(d) = \braket{d \mid \Phi} = \beta$ are $\Phi^*(u) = \braket{\Phi \mid u} = \alpha^*$ and $\Phi^*(d) = \braket{\Phi \mid d} = \beta^*$.
 	The ket is expressed in this basis by $\ket{\Phi} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ and the bra by $\bra{\Phi} = \begin{pmatrix} \alpha^* & \beta^* \end{pmatrix}$.
 	Thus, the density matrix is calculated below.
 	\begin{align}
-		\ket{\Phi} \bra{\Phi} =
+		\left(\rho_{a a'}\right) & =
+		\begin{pmatrix}
+			\rho_{uu} & \rho_{u d} \\
+			\rho_{du} & \rho_{dd}
+		\end{pmatrix}
+		=
 		\begin{pmatrix}
 			\alpha \alpha^* & \alpha \beta^* \\
 			\beta \alpha^*  & \beta \beta^*
 		\end{pmatrix}
 	\end{align}
+	The same density operator can be represented with reversed indices as follows.
+	\begin{align*}
+		\left(\rho_{a' a}\right) & =
+		\begin{pmatrix}
+			\alpha \alpha^* & \beta \alpha^* \\
+			\alpha \beta^*  & \beta \beta^*
+		\end{pmatrix}
+	\end{align*}
 \end{answer}
 
-\begin{answer}[Square]
+\begin{answer}[State purity]
+	Recall the density matrix $\rho$ of a pure state satisfies $\rho^2 = \rho$ and $\Tr \rho^2 = 1$.
 	\begin{enumerate}
 		\item Observe the following.
 		      \begin{align}\label{eqn:square}
@@ -1154,9 +1169,22 @@ Its norm is calculated below.
 				      a^2 + 0^2 & 0 + 0     \\
 				      0 + 0     & 0^2 + b^2
 			      \end{pmatrix}
+			      =
+			      \begin{pmatrix}
+				      a^2 & 0   \\
+				      0   & b^2
+			      \end{pmatrix}
 		      \end{align}
 		\item Let $a = \frac{1}{3}$, $b = \frac{2}{3}$, and $\rho = \begin{pmatrix} \frac{1}{3} & 0 \\ 0 & \frac{2}{3} \end{pmatrix}$.
 		      Substitution into Equation \eqref{eqn:square} yields $\rho^2 = \begin{pmatrix} \frac{1}{9} & 0 \\ 0 & \frac{4}{9} \end{pmatrix}$.
+		      The traces are $\Tr \rho = 1$ and $\Tr \rho^2 = \frac{5}{9}$.
+		\item The density matrix $\rho$ represents a mixed state since $\rho^2 \neq \rho$.
 	\end{enumerate}
+\end{answer}
+
+\begin{answer}[Matrix density]
+	Let $\dsp \rho = \sum_j P_j \ket{\phi_j} \bra{\phi_j}$ be a density matrix represented in an orthonormal basis $\left\{\ket{a}\right\}$ by $\rho_{a' a} = \braket{a' \mid \rho \mid a}$.
+	Substitution yields $\dsp \rho_{a' a} = \sum_j P_j \bra{a'} \ket{\phi_j} \bra{\phi_j} \ket{a}$.
+	Identification yields the diagonal entries $\rho_{a a} = \sum_j P_j \bra{a} \ket{\phi_j} \bra{\phi_j} \ket{a}$.
 \end{answer}
 

@@ -417,8 +417,6 @@ Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivati
 
 There are no exercises in this lecture concerning systems of particles.
 
-Recall that a curve in a topological module is \emph{nonvanishing} if it is nowhere equal to the additive identity $\vzero$.
-
 \paragraph{Mathematical analysis} Consider any normed vector space with norm $\left\|\bullet\right\|$.
 
 For any curve $\vr(t)$ in such a space, its \emph{radial function} $r$ is defined pointwise by $r(t) = \left\|\vr(t)\right\|$.
@@ -1003,6 +1001,11 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 	This follows from the constancy of mass and linearity of the derivative.
 \end{proof}
 
+The radial Euler-Lagrange equation $\dot{p}_r = \frac{\partial L}{\partial r}$ is given below.
+\begin{align}\label{eqn:radial}
+	m \ddot{r} = m r \dot{\theta}^2 - \frac{G M m}{r^2}
+\end{align}
+
 Recall that the canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
 Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$ and from the Euler-Lagrange equation $\frac{\partial L}{\partial \theta} = \frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}$ that $\frac{d}{dt} p_\theta = 0$.
 That is, the angular momentum $p_\theta$ is conserved.
@@ -1031,7 +1034,8 @@ That is, the angular momentum $p_\theta$ is conserved.
 \end{answer}
 
 If $p_\theta = 0$, then $\dot{\theta} = 0$.
-In what follows, assume that $p_\theta \neq 0$.
+Assume that $p_\theta \neq 0$.
+It follows that $\dot{\theta} \neq 0$.
 
 Consider the radial distance $r$ of the Earth from the Sun as a function of the polar angle $\theta$.
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing and thus that the reciprocal $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined.

@@ -1,4 +1,5 @@
 
+% /science/quantum.tex
 
 \section{Quantum Mechanics}\label{sec:quantum}
 
@@ -456,10 +457,10 @@ For any unit vector $\hat{n} \in S^2$, the operator $\sigma_{\hat{n}} = \hat{n} 
 	This implies $U \sigma_x = \sigma_x U$, $U \sigma_y = \sigma_y U$, and $U \sigma_z = \sigma_z U$.
 	Commutativity of $U$ with $\sigma_z$ implies that $U$ is diagonal, and commutativity of $U$ with $\sigma_x$ then implies $U = a I$ for some $a \in \C$.
 	Unitarity of $U$ implies $\left|a\right|=1$ and thus that $a = e^{i \phi}$ for some real $\phi \in \R$.
-	It thus follows that $R' = R U$.
+	It thus follows that $R' = R U = e^{i \phi} R$.
 \end{proof}
 
-The above proposition follows from the fact that Pauli matrices transform like ordinary vectors under rotations.
+The above lemma shows that Pauli matrices transform like ordinary vectors under rotations.
 
 % rotate m onto z
 \begin{answer}[Arbitrary spin after arbitrary measurement]
@@ -499,7 +500,7 @@ The above proposition follows from the fact that Pauli matrices transform like o
 	Therefore, the operator $i [M, L]$ is Hermitian.
 \end{answer}
 
-% Planck units are energy x time
+% i is dimension-less 
 \begin{answer}[Units of commutator]
 	By Corollary \ref{corl:Poisson}, the units of the Poisson bracket are $\left|i \hbar \{F, G\}\right| = \left|F\right| \left|G\right|$.
 	The units of the commutator $\left[F, G\right]$ are $\left|[F, G]\right| = |F| |G| = \left|i \hbar \{F, G\}\right|$.
@@ -886,14 +887,7 @@ Its norm is calculated below.
 
 % calculation
 \begin{answer}[Tensor product with identity]
-	The product $I \otimes \tau_x =
-		\begin{pmatrix}
-			0 & 1 & 0 & 0 \\
-			1 & 0 & 0 & 0 \\
-			0 & 0 & 0 & 1 \\
-			0 & 0 & 1 & 0
-		\end{pmatrix}$
-	is calculated from the matrix below.
+	The product $I \otimes \tau_x$ is given in terms of the ordered basis $\mc{B} = \left(\ket{u u}, \ket{u d}, \ket{d u}, \ket{d d}\right)$ by the matrix below.
 	\begin{align*}
 		\begin{pmatrix}
 			\braket{u u \mid I \otimes \tau_x \mid u u } &
@@ -914,6 +908,38 @@ Its norm is calculated below.
 			\braket{d d \mid I \otimes \tau_x \mid d d }   \\
 		\end{pmatrix}
 	\end{align*}
+	Since $\tau_x \ket{u} = \ket{d}$ and $\tau_x \ket{d} = \ket{u}$, the tensor product can be represented with the matrix below.
+	\begin{align}
+		\left[I \otimes \tau_x\right]_{\mc{B}} & =
+		\begin{pmatrix}
+			\braket{u u \mid u d } &
+			\braket{u u \mid u u } &
+			\braket{u u \mid d d } &
+			\braket{u u \mid d u }   \\
+			\braket{u d \mid u d } &
+			\braket{u d \mid u u } &
+			\braket{u d \mid d d } &
+			\braket{u d \mid d u }   \\
+			\braket{d u \mid u d } &
+			\braket{d u \mid u u } &
+			\braket{d u \mid d d } &
+			\braket{d u \mid d u }   \\
+			\braket{d d \mid u d } &
+			\braket{d d \mid u u } &
+			\braket{d d \mid d d } &
+			\braket{d d \mid d u }   \\
+		\end{pmatrix}
+	\end{align}
+	The orthonormal basis yields the calculation below.
+	\begin{align*}
+		\left[I \otimes \tau_x\right]_{\mc{B}} & =
+		\begin{pmatrix}
+			0 & 1 & 0 & 0 \\
+			1 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 1 \\
+			0 & 0 & 1 & 0
+		\end{pmatrix}
+	\end{align*}
 	Its action on the basis is given below.
 	\begin{align*}
 		I \otimes \tau_x \ket{u u} & = \ket{u d} &
@@ -926,7 +952,7 @@ Its norm is calculated below.
 
 % calculation
 \begin{answer}[Tensor product]
-	The tensor product $\sigma_z \otimes \tau_x$ is given below.
+	The tensor product $\sigma_z \otimes \tau_x$ is given in terms of the ordered basis $\left(\ket{u u}, \ket{u d}, \ket{d u}, \ket{d d}\right)$ by the matrix below.
 	\begin{align*}
 		 &
 		\begin{pmatrix}
@@ -1120,28 +1146,22 @@ Its norm is calculated below.
 
 % transpose
 \begin{answer}[Density matrix]
-	Consider $\ket{\Phi} = \alpha \ket{u} + \beta \ket{d}$.
-	The complex conjugates of the coefficients $\Phi(u) = \braket{u \mid \Phi} = \alpha$ and $\Phi(d) = \braket{d \mid \Phi} = \beta$ are $\Phi^*(u) = \braket{\Phi \mid u} = \alpha^*$ and $\Phi^*(d) = \braket{\Phi \mid d} = \beta^*$.
-	The ket is expressed in this basis by $\ket{\Phi} = \begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ and the bra by $\bra{\Phi} = \begin{pmatrix} \alpha^* & \beta^* \end{pmatrix}$.
-	Thus, the density matrix is calculated below.
+	Consider $\ket{\Psi} = \alpha \ket{u} + \beta \ket{d}$.
+	The complex conjugates of the coefficients $\psi(u) = \braket{u \mid \Psi} = \alpha$ and $\psi(d) = \braket{d \mid \Psi} = \beta$ are $\psi^*(u) = \braket{\Psi \mid u} = \alpha^*$ and $\psi^*(d) = \braket{\Psi \mid d} = \beta^*$.
+	The density matrix with entries $\rho_{a a'} = \psi^*(a') \psi(a)$ is calculated below.
 	\begin{align}
-		\left(\rho_{a a'}\right) & =
+		\left( \rho_{a a'} \right) & =
 		\begin{pmatrix}
-			\rho_{uu} & \rho_{u d} \\
-			\rho_{du} & \rho_{dd}
-		\end{pmatrix}
-		=
-		\begin{pmatrix}
-			\alpha \alpha^* & \alpha \beta^* \\
-			\beta \alpha^*  & \beta \beta^*
+			\alpha^* \alpha & \beta^* \alpha \\
+			\alpha^* \beta  & \beta^* \beta
 		\end{pmatrix}
 	\end{align}
-	The same density operator can be represented with reversed indices as follows.
+	Re-indexing yields $\rho_{a' a} = \psi^*(a) \psi(a')$ and the density matrix below.
 	\begin{align*}
-		\left(\rho_{a' a}\right) & =
+		\left( \rho_{a' a} \right) & =
 		\begin{pmatrix}
-			\alpha \alpha^* & \beta \alpha^* \\
-			\alpha \beta^*  & \beta \beta^*
+			\alpha^* \alpha & \alpha^* \beta \\
+			\beta^* \alpha  & \beta^* \beta
 		\end{pmatrix}
 	\end{align*}
 \end{answer}
@@ -1183,6 +1203,7 @@ Its norm is calculated below.
 	\end{enumerate}
 \end{answer}
 
+% scalars commute
 \begin{answer}[Trace of density matrix]
 	Let $\dsp \rho = \sum_j P_j \ket{\phi_j} \bra{\phi_j}$ be a density matrix represented in an orthonormal basis $\left\{\ket{a}\right\}$ by $\rho_{a' a} = \braket{a' \mid \rho \mid a}$ for normalized $\ket{\phi_j}$ and probabilities $P_j$.
 
@@ -1197,7 +1218,7 @@ Its norm is calculated below.
 	Notably, this does not make use of the fact that the probabilities are non-negative.
 \end{answer}
 
-\begin{answer}[Square]
+\begin{answer}[Entanglement]
 	The square of the matrix $\rho = \begin{pmatrix} \frac{1}{2} & 0 \\ 0 & \frac{1}{2} \end{pmatrix}$ is calculated below.
 	\begin{align}
 		\rho^2 & =
@@ -1215,5 +1236,38 @@ Its norm is calculated below.
 			0           & \frac{1}{4}
 		\end{pmatrix}
 	\end{align}
+	Since $\rho^2 \neq \rho$, Alice's reduced state is mixed.
+	Since the Alice-Bob state $\ket{\Psi} = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)$ is pure, it therefore follows that the Alice-Bob state is entangled.
+\end{answer}
+
+\begin{answer}[Reduced density matrices]
+	Consider the state below.
+	\begin{align*}
+		\ket{\Psi_1} & = \frac{1}{2} \left(\ket{u u} + \ket{u d} + \ket{d u} + \ket{d d}\right)
+	\end{align*}
+	The density matrices $\dsp \rho_{a' a} = \sum_b \psi^*(a, b) \psi(a', b)$ of Alice and $\rho_{b' b} = \sum_a \psi^*(a, b) \psi(a, b')$ of Bob are given below.
+	\begin{align*}
+		\left(\rho_{a' a}\right) & =
+		\left(\rho_{b' b}\right) =
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		                         &
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		                         & =
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+	\end{align*}
+	Since both reduced density matrices satisfy $\rho^2 = \rho$ and are thus pure, the composite state $\ket{\Psi_1}$ is not entangled.
 \end{answer}
 

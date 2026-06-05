@@ -20,7 +20,8 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 	Implicit in establishing a closed system are the assumptions that all interactions with its objects are known and can be definitively measured.
 	An open system is a system that interacts with objects outside the system.
 
-	As a matter of logic, a system should be presumed closed and shown to be open since it is generically impossible to establish that a non-trivial system is closed.
+	In practice, a system should be presumed closed unless it is relevant to consider its interaction with the environment.
+	It is generically impossible to prove it is closed, but it can be shown to be open.
 	However, the failure to establish a system to be open does not suffice to definitively conclude the system is closed.
 \end{answer}
 
@@ -978,7 +979,10 @@ Observe that $\vr(t)$ is nonvanishing if and only if $r(t)$ is nonvanishing.
 Assume this condition holds.
 
 Recall that Newtonian gravity determines a central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
-Recall that the Earth moves in a plane.
+
+\subsubsection{Gravitational potential energy}
+
+The force of gravity is conservative and determined by the potential energy defined below.
 
 \begin{definition}[gravitational potential energy]
 	The \emph{gravitational potential energy} is given below.
@@ -986,6 +990,8 @@ Recall that the Earth moves in a plane.
 		V\p{\vr} & = - \frac{G M m}{\left\|\vr\right\|}
 	\end{align}
 \end{definition}
+
+Recall that the Earth moves in a plane.
 
 The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eqn:gravipotential} and Proposition \ref{prop:kinetic} below.
 \begin{align}
@@ -1001,13 +1007,16 @@ The canonical momentum $p_r = \frac{\partial L}{\partial \dot{r}}$ conjugate to 
 	This follows from the constancy of mass and linearity of the derivative.
 \end{proof}
 
-The radial Euler-Lagrange equation $\dot{p}_r = \frac{\partial L}{\partial r}$ is $m \ddot{r} = m r \dot{\theta}^2 - \frac{G M m}{r^2}$
+The radial Euler-Lagrange equation $\dot{p}_r = \frac{\partial L}{\partial r}$ is $m \ddot{r} = m r \dot{\theta}^2 - \frac{G M m}{r^2}$.
 Dividing both sides by $m$ yields the radial acceleration below.
 \begin{align}\label{eqn:radial}
 	\ddot{r} & = r \dot{\theta}^2 - \frac{G M}{r^2}
 \end{align}
 
-Recall that the canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to $\theta$ is $p_\theta = m r^2 \dot{\theta}$.
+The canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to the angular coordinate $\theta$ is given below.
+\begin{equation}\label{eqn:grangle}
+	p_\theta = m r^2 \dot{\theta}
+\end{equation}
 Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$ and from the Euler-Lagrange equation $\frac{\partial L}{\partial \theta} = \frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}$ that $\frac{d}{dt} p_\theta = 0$.
 That is, the angular momentum $p_\theta$ is conserved.
 

@@ -1218,6 +1218,7 @@ Its norm is calculated below.
 	Notably, this does not make use of the fact that the probabilities are non-negative.
 \end{answer}
 
+% square
 \begin{answer}[Entanglement]
 	The square of the matrix $\rho = \begin{pmatrix} \frac{1}{2} & 0 \\ 0 & \frac{1}{2} \end{pmatrix}$ is calculated below.
 	\begin{align}
@@ -1237,37 +1238,96 @@ Its norm is calculated below.
 		\end{pmatrix}
 	\end{align}
 	Since $\rho^2 \neq \rho$, Alice's reduced state is mixed.
+
 	Since the Alice-Bob state $\ket{\Psi} = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)$ is pure, it therefore follows that the Alice-Bob state is entangled.
 \end{answer}
 
-\begin{answer}[Reduced density matrices]
-	Consider the state below.
+\begin{answer}[Density matrices]
+	Consider the states below.
 	\begin{align*}
-		\ket{\Psi_1} & = \frac{1}{2} \left(\ket{u u} + \ket{u d} + \ket{d u} + \ket{d d}\right)
+		\ket{\Psi_1} & = \frac{1}{2} \left(\ket{u u} + \ket{u d} + \ket{d u} + \ket{d d}\right) \\
+		\ket{\Psi_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right)                  \\
+		\ket{\Psi_3} & = \frac{1}{5} \left(3 \ket{u u} + 4 \ket{u d}\right)
 	\end{align*}
-	The density matrices $\dsp \rho_{a' a} = \sum_b \psi^*(a, b) \psi(a', b)$ of Alice and $\rho_{b' b} = \sum_a \psi^*(a, b) \psi(a, b')$ of Bob are given below.
+	The density matrices $\dsp \rho_{a' a} = \sum_b \psi^*(a, b) \psi(a', b)$ and $\dsp \rho_{b' b} = \sum_a \psi^*(a, b) \psi(a, b')$ are given below.
 	\begin{align*}
-		\left(\rho_{a' a}\right) & =
-		\left(\rho_{b' b}\right) =
+		\rho_{a' a} & =
 		\begin{pmatrix}
-			\frac{1}{2} & \frac{1}{2} \\
-			\frac{1}{2} & \frac{1}{2}
+			\psi^*(u, u) \psi(u, u) + \psi^*(u, d) \psi(u, d) &
+			\psi^*(u, u) \psi(d, u) + \psi^*(u, d) \psi(d, d)   \\
+			\psi^*(d, u) \psi(u, u) + \psi^*(d, d) \psi(u, d) &
+			\psi^*(d, u) \psi(d, u) + \psi^*(d, d) \psi(d, d)
 		\end{pmatrix}
-		                         &
+		\\ \rho_{b' b} &=
 		\begin{pmatrix}
-			\frac{1}{2} & \frac{1}{2} \\
-			\frac{1}{2} & \frac{1}{2}
-		\end{pmatrix}
-		\begin{pmatrix}
-			\frac{1}{2} & \frac{1}{2} \\
-			\frac{1}{2} & \frac{1}{2}
-		\end{pmatrix}
-		                         & =
-		\begin{pmatrix}
-			\frac{1}{2} & \frac{1}{2} \\
-			\frac{1}{2} & \frac{1}{2}
+			\psi^*(u, u) \psi(u, u) + \psi^*(d, u) \psi(d, u) &
+			\psi^*(u, u) \psi(u, d) + \psi^*(d, u) \psi(d, d)   \\
+			\psi^*(u, d) \psi(u, u) + \psi^*(d, d) \psi(d, u) &
+			\psi^*(u, d) \psi(u, d) + \psi^*(d, d) \psi(d, d)
 		\end{pmatrix}
 	\end{align*}
-	Since both reduced density matrices satisfy $\rho^2 = \rho$ and are thus pure, the composite state $\ket{\Psi_1}$ is not entangled.
+	Calculation yields the results below.
+	\begin{align*}
+		\left(\rho^1_{a' a}\right) & =
+		\left(\rho^1_{b' b}\right) =
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		                           &
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		                           & =
+		\begin{pmatrix}
+			\frac{1}{2} & \frac{1}{2} \\
+			\frac{1}{2} & \frac{1}{2}
+		\end{pmatrix}
+		\\ \left(\rho^2_{a' a}\right) & =
+		\left(\rho^2_{b' b}\right) =
+		\begin{pmatrix}
+			\frac{1}{2} & 0           \\
+			0           & \frac{1}{2}
+		\end{pmatrix}
+		                           &
+		\begin{pmatrix}
+			\frac{1}{2} & 0           \\
+			0           & \frac{1}{2}
+		\end{pmatrix}
+		\begin{pmatrix}
+			\frac{1}{2} & 0           \\
+			0           & \frac{1}{2}
+		\end{pmatrix}
+		                           & =
+		\begin{pmatrix}
+			\frac{1}{4} & 0           \\
+			0           & \frac{1}{4}
+		\end{pmatrix}
+		\\ \left(\rho^3_{a' a}\right) &=
+		\begin{pmatrix}
+			1 & 0 \\
+			0 & 0
+		\end{pmatrix}
+		                           &
+		\left(\rho^3_{b' b}\right) & =
+		\begin{pmatrix}
+			\frac{9}{25}  & \frac{12}{25} \\
+			\frac{12}{25} & \frac{16}{25}
+		\end{pmatrix}
+	\end{align*}
+	Since both reduced density matrices of the first state are pure, the composite state $\ket{\Psi_1}$ is not entangled.
+	Similarly, the composite state $\ket{\Psi_3}$ is not entangled.
+	On the other hand, the composite state $\ket{\Psi_2}$ is entangled.
 \end{answer}
+
+\begin{answer}[Correlation in product state]
+	Consider any observables $\mA$ of Alice and $\mB$ of Bob.
+	For any product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation is $C(A,B) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$.
+\end{answer}
+
 

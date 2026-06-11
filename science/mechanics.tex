@@ -1,7 +1,7 @@
 
 % /science/mechanics.tex
 
-\section{Mechanics}\label{sec:mechanics}
+\section{Mechanics}\label{chap:mechanics}
 
 Solutions are proposed in this section to all of the exercises in \cite{TM}.
 
@@ -94,8 +94,6 @@ Solutions are proposed in this section to all of the exercises in \cite{TM}.
 	\end{align}
 	That is, the square of its magnitude is the dot product with itself.
 \end{answer}
-
-In any inner product space, define the square of a vector to be its inner product with itself.
 
 % calculation
 \begin{answer}[Magnitudes]
@@ -991,7 +989,9 @@ The force of gravity is conservative and determined by the potential energy defi
 	\end{align}
 \end{definition}
 
-Recall that the Earth moves in a plane.
+\subsubsection{The Earth moves in a plane}
+
+Recall that motion of the Earth is confined to a plane.
 
 The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eqn:gravipotential} and Proposition \ref{prop:kinetic} below.
 \begin{align}
@@ -1014,9 +1014,11 @@ Dividing both sides by $m$ yields the radial acceleration below.
 \end{align}
 
 The canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ conjugate to the angular coordinate $\theta$ is given below.
-\begin{equation}\label{eqn:grangle}
-	p_\theta = m r^2 \dot{\theta}
-\end{equation}
+\begin{align}\label{eqn:grangle}
+	p_\theta     & = m r^2 \dot{\theta}
+	             &
+	\dot{\theta} & = \frac{p_\theta}{m r^2}
+\end{align}
 Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$ and from the Euler-Lagrange equation $\frac{\partial L}{\partial \theta} = \frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}$ that $\frac{d}{dt} p_\theta = 0$.
 That is, the angular momentum $p_\theta$ is conserved.
 

@@ -1,7 +1,7 @@
 
 # sciences
 
-proposed solutions to exercises selected from the series by Susskind et al. on the *Theoretical Minimum: What You Need to Know to Start Doing Physics*
+proposed solutions to exercises selected from the series by Susskind et al. on *The Theoretical Minimum: What You Need to Know to Start Doing Physics*
 
 
 ## Mechanics

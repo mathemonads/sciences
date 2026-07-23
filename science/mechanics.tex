@@ -419,7 +419,6 @@ There are no exercises in this lecture concerning systems of particles.
 \paragraph{Mathematical analysis}
 
 Consider any inner product space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product.
-The \emph{square} $\vr^2 = \braket{\vr, \vr}$ of the curve $\vr$ satisfies $\vr^2(t) = \left\|\vr(t)\right\|^2$.
 
 \begin{definition}[Unit curve, angular curve, tangential curve]
 	For a nonvanishing curve $\vr(t)$ in a normed vector space with radial function $r(t)$, its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
@@ -991,7 +990,11 @@ The force of gravity is conservative and determined by the potential energy defi
 
 \subsubsection{The Earth moves in a plane}
 
-Recall that motion of the Earth is confined to a plane.
+Recall the following law.
+
+\begin{law}[Kepler's $0$th law]
+	Gravity is a central force and, consequently, the motion of the Earth is confined to a fixed plane.
+\end{law}
 
 The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eqn:gravipotential} and Proposition \ref{prop:kinetic} below.
 \begin{align}
@@ -1051,4 +1054,5 @@ Since $m>0$ and $r>0$, it follows that $\dot{\theta} \neq 0$.
 
 Consider the radial distance $r$ of the Earth from the Sun as a function of the polar angle $\theta$.
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing and thus that the reciprocal $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined.
+The derivative $\dot{r} = \frac{dr}{dt}$ is $\dot{r} = \frac{d r}{d u} \frac{d u}{d t}$.
 

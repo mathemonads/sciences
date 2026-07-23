@@ -42,7 +42,7 @@ Solutions are proposed in this section to a selection of exercises from the lect
 			\cdots       \\
 			\alpha_{n-1} \\
 			\alpha_n
-		\end{pmatrix}                                                                                                           \\
+		\end{pmatrix}                                                                                                          \\
 		                  & = \beta_1^* \alpha_1 + \beta_2^* \alpha_2 + \cdots + \beta_{n-1}^* \alpha_{n-1} + \beta_n^* \alpha_n
 	\end{align*}
 	is an inner product, observe that it is sesquilinear
@@ -94,7 +94,7 @@ Solutions are proposed in this section to a selection of exercises from the lect
 \end{answer}
 
 % calculation
-\begin{answer}[Canonicity of $i$ and $o$]
+\begin{answer}[Representation of $i$ and $o$]
 	Let $\ket{u}$ and $\ket{d}$ be an orthonormal basis of a single spin-$\frac{1}{2}$ system.
 	Let $\ket{i} = \alpha \ket{u} + \beta \ket{d}$ and $\ket{o} = \gamma \ket{u} + \delta \ket{d}$ be given in terms of unknown components $\alpha$, $\beta$, $\gamma$, and $\delta$.
 	Suppose they are a pair of orthonormal vectors satisfying the equations of the previous exercise.
@@ -102,7 +102,7 @@ Solutions are proposed in this section to a selection of exercises from the lect
 	Their complex conjugates are $\braket{i \mid u} = \alpha^*$, $\braket{i \mid d} = \beta^*$, $\braket{o \mid u} = \gamma^*$, and $\braket{o \mid d} = \delta^*$.
 	\begin{enumerate}
 		\item Calculation yields $\alpha^* \alpha = \braket{i \mid u} \braket{u \mid i} = \frac{1}{2}$ and $\beta^* \beta = \braket{i \mid d} \braket{d \mid i} = \frac{1}{2}$.
-		      Similarly, it follows that $\gamma^* \gamma = \braket{o \mid u} \braket{u \mid o} = \frac{1}{2}$ and $\delta^* \delta = \braket{o \mid d} \braket{d \mid o} = \frac{1}{2}$.
+		      It follows similarly that $\gamma^* \gamma = \braket{o \mid u} \braket{u \mid o} = \frac{1}{2}$ and $\delta^* \delta = \braket{o \mid d} \braket{d \mid o} = \frac{1}{2}$.
 		      Thus, there is a set $\left\{\theta_j \in \R \mid 1 \leq j \leq 4 \right\}$ of phases such that $\alpha = \frac{1}{\sqrt{2}} e^{i \theta_1}$, $\beta = \frac{1}{\sqrt{2}} e^{i \theta_2}$, $\gamma = \frac{1}{\sqrt{2}} e^{i \theta_3}$, and $\delta = \frac{1}{\sqrt{2}} e^{i \theta_4}$.
 		\item Recall $\ket{r} = \frac{1}{\sqrt{2}}\left(\ket{u} + \ket{d}\right)$.
 
@@ -1254,27 +1254,27 @@ Its norm is calculated below.
 		\rho_{a' a} & =
 		\begin{pmatrix}
 			\psi^*(u, u) \psi(u, u) + \psi^*(u, d) \psi(u, d) &
-			\psi^*(u, u) \psi(d, u) + \psi^*(u, d) \psi(d, d)   \\
-			\psi^*(d, u) \psi(u, u) + \psi^*(d, d) \psi(u, d) &
+			\psi^*(d, u) \psi(u, u) + \psi^*(d, d) \psi(u, d)   \\
+			\psi^*(u, u) \psi(d, u) + \psi^*(u, d) \psi(d, d) &
 			\psi^*(d, u) \psi(d, u) + \psi^*(d, d) \psi(d, d)
 		\end{pmatrix}
 		\\ \rho_{b' b} &=
 		\begin{pmatrix}
 			\psi^*(u, u) \psi(u, u) + \psi^*(d, u) \psi(d, u) &
-			\psi^*(u, u) \psi(u, d) + \psi^*(d, u) \psi(d, d)   \\
-			\psi^*(u, d) \psi(u, u) + \psi^*(d, d) \psi(d, u) &
+			\psi^*(u, d) \psi(u, u) + \psi^*(d, d) \psi(d, u)   \\
+			\psi^*(u, u) \psi(u, d) + \psi^*(d, u) \psi(d, d) &
 			\psi^*(u, d) \psi(u, d) + \psi^*(d, d) \psi(d, d)
 		\end{pmatrix}
 	\end{align*}
 	Calculation yields the results below.
 	\begin{align*}
-		\left(\rho^1_{a' a}\right) & =
-		\left(\rho^1_{b' b}\right) =
+		\left(\rho^{(1)}_{a' a}\right) & =
+		\left(\rho^{(1)}_{b' b}\right) =
 		\begin{pmatrix}
 			\frac{1}{2} & \frac{1}{2} \\
 			\frac{1}{2} & \frac{1}{2}
 		\end{pmatrix}
-		                           &
+		                               &
 		\begin{pmatrix}
 			\frac{1}{2} & \frac{1}{2} \\
 			\frac{1}{2} & \frac{1}{2}
@@ -1283,18 +1283,18 @@ Its norm is calculated below.
 			\frac{1}{2} & \frac{1}{2} \\
 			\frac{1}{2} & \frac{1}{2}
 		\end{pmatrix}
-		                           & =
+		                               & =
 		\begin{pmatrix}
 			\frac{1}{2} & \frac{1}{2} \\
 			\frac{1}{2} & \frac{1}{2}
 		\end{pmatrix}
-		\\ \left(\rho^2_{a' a}\right) & =
-		\left(\rho^2_{b' b}\right) =
+		\\ \left(\rho^{(2)}_{a' a}\right) & =
+		\left(\rho^{(2)}_{b' b}\right) =
 		\begin{pmatrix}
 			\frac{1}{2} & 0           \\
 			0           & \frac{1}{2}
 		\end{pmatrix}
-		                           &
+		                               &
 		\begin{pmatrix}
 			\frac{1}{2} & 0           \\
 			0           & \frac{1}{2}
@@ -1303,18 +1303,18 @@ Its norm is calculated below.
 			\frac{1}{2} & 0           \\
 			0           & \frac{1}{2}
 		\end{pmatrix}
-		                           & =
+		                               & =
 		\begin{pmatrix}
 			\frac{1}{4} & 0           \\
 			0           & \frac{1}{4}
 		\end{pmatrix}
-		\\ \left(\rho^3_{a' a}\right) &=
+		\\ \left(\rho^{(3)}_{a' a}\right) &=
 		\begin{pmatrix}
 			1 & 0 \\
 			0 & 0
 		\end{pmatrix}
-		                           &
-		\left(\rho^3_{b' b}\right) & =
+		                               &
+		\left(\rho^{(3)}_{b' b}\right) & =
 		\begin{pmatrix}
 			\frac{9}{25}  & \frac{12}{25} \\
 			\frac{12}{25} & \frac{16}{25}
@@ -1326,8 +1326,14 @@ Its norm is calculated below.
 \end{answer}
 
 \begin{answer}[Correlation in product state]
-	Consider any observables $\mA$ of Alice and $\mB$ of Bob.
-	For any product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation is $C(A,B) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$.
+	Consider any pair of observables $\mA$ of Alice and $\mB$ of Bob.
+	For any product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation $C(A,B) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$ is calculated below.
+	\begin{align}
+		C(A, B) & = \bra{\Psi \otimes \Phi} \p{\mA \ket{\Psi} \otimes \mB \ket{\Phi}} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi} = 0
+	\end{align}
 \end{answer}
 
+\begin{answer}[Product of apparatus and system]
+	The state $\alpha_u \ket{u, b} + \alpha_d \ket{d, b}$ is completely unentangled, since it is a product state.
+\end{answer}
 

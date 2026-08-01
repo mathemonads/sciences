@@ -1242,6 +1242,7 @@ Its norm is calculated below.
 	Since the Alice-Bob state $\ket{\Psi} = \frac{1}{\sqrt{2}} \left(\ket{u d} + \ket{d u}\right)$ is pure, it therefore follows that the Alice-Bob state is entangled.
 \end{answer}
 
+% square
 \begin{answer}[Density matrices]
 	Consider the states below.
 	\begin{align*}
@@ -1249,7 +1250,7 @@ Its norm is calculated below.
 		\ket{\Psi_2} & = \frac{1}{\sqrt{2}} \left(\ket{u u} + \ket{d d}\right)                  \\
 		\ket{\Psi_3} & = \frac{1}{5} \left(3 \ket{u u} + 4 \ket{u d}\right)
 	\end{align*}
-	The density matrices $\dsp \rho_{a' a} = \sum_b \psi^*(a, b) \psi(a', b)$ and $\dsp \rho_{b' b} = \sum_a \psi^*(a, b) \psi(a, b')$ are given below.
+	The density matrices $\dsp \rho_{a' a} = \sum_b \braket{a',b \mid \Psi} \braket{\Psi \mid a,b}$ and $\dsp \rho_{b' b} = \sum_a \braket{a,b' \mid \Psi} \braket{\Psi \mid a,b}$ are given below.
 	\begin{align*}
 		\rho_{a' a} & =
 		\begin{pmatrix}
@@ -1325,15 +1326,20 @@ Its norm is calculated below.
 	On the other hand, the composite state $\ket{\Psi_2}$ is entangled.
 \end{answer}
 
+% tensor
 \begin{answer}[Correlation in product state]
 	Consider any pair of observables $\mA$ of Alice and $\mB$ of Bob.
-	For any product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation $C(A,B) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$ is calculated below.
+	For any product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation $C(A,B) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$ is shown to vanish by calculating the first term below.
 	\begin{align}
-		C(A, B) & = \bra{\Psi \otimes \Phi} \p{\mA \ket{\Psi} \otimes \mB \ket{\Phi}} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi} = 0
+		\bra{\Psi \otimes \Phi} \p{\mA \ket{\Psi} \otimes \mB \ket{\Phi}} = \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}
 	\end{align}
 \end{answer}
 
 \begin{answer}[Product of apparatus and system]
-	The state $\alpha_u \ket{u, b} + \alpha_d \ket{d, b}$ is completely unentangled, since it is a product state.
+	The state $\ket{\Psi} = \alpha_u \ket{u, b} + \alpha_d \ket{d, b}$ is completely unentangled, since it is the product state $\ket{\Psi} = \p{\alpha_u \ket{u} + \alpha_d \ket{d}} \otimes \ket{b}$.
+\end{answer}
+
+\begin{answer}
+	The bra of the near singlet state $\ket{\Psi} = \sqrt{0.6} \ket{u d} + \sqrt{0.4} \ket{d u}$ is the Hermitian conjugate $\bra{\Psi} = \sqrt{0.6} \bra{u d} + \sqrt{0.4} \bra{d u}$ of $\ket{\Psi}$.
 \end{answer}
 

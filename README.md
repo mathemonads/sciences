@@ -3,6 +3,7 @@
 
 proposed solutions to exercises selected from the series by Susskind et al. on *The Theoretical Minimum: What You Need to Know to Start Doing Physics*
 
+## Structure
 
 ## Mechanics
 

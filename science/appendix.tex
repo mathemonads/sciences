@@ -4,6 +4,7 @@
 \chapter{Mathematics}\label{app:math}
 
 Notation and terminology are reviewed in Sections \ref{sec:notation}--\ref{sec:terminology}, respectively.
+Finally, the definition of an angular curve is presented in Section \ref{sec:geo}.
 
 \section{Notation}\label{sec:notation}
 
@@ -15,15 +16,22 @@ and the field of complex numbers by
 \begin{align*}
 	\left\langle \C, \C \times \C \xrightarrow{+, \cdot} \C, 0, 1, \C \xrightarrow{*} \C \right\rangle
 \end{align*}
-with involution $z \to z^*$ given by complex conjugation.
+with involution $z \xmapsto{*} z^*$ given by complex conjugation.
+The subset $\R_{\geq 0} = [0, +\infty)$ of non-negative real numbers forms a totally ordered commutative subsemiring of $\R$.
 
 \section{Terminology}\label{sec:terminology}
 
 A \emph{curve} in a topological space $X$ is a continuous map from an interval in $\R$ to $X$.
-A curve in a topological module is called \emph{nonvanishing} if it is nowhere equal to the identity of addition.
-For any curve $\vr(t)$ in a vector space with norm $\left\|\bullet\right\|$, the \emph{radius} of $\vr$ is the function $r$ defined pointwise by $r(t) = \left\|\vr(t)\right\|$; if $\vr(t)$ is nonvanishing, then its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
+A curve in a topological module is called \emph{nonvanishing} if it is nowhere equal to the additive identity.
 
-Consider a vector space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product.
-Define the \emph{square} of a vector $\vr$ to be its inner product $\braket{\vr, \vr}$ with itself and denote it by $\vr^2$.
-The square of a curve $\vr$ is the scalar function $\vr^2 = \braket{\vr, \vr}$ defined pointwise by $\vr^2(t) = r^2(t)$.
+Consider a vector space with norm $\left\|\bullet\right\|$.
+Define the \emph{square} of a vector $\vr$ to be the square $\vr^2 = \left\|\vr\right\|^2$ of its norm.
+For any curve $\vr(t)$ in a vector space with norm $\left\|\bullet\right\|$, the \emph{norm} of $\vr(t)$ is the function $r(t)$ defined pointwise by $r(t) = \left\|\vr(t)\right\|$; if $\vr(t)$ is nonvanishing, then its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
+
+Suppose the norm is induced by an inner product $\braket{\bullet, \star}$.
+The square of a curve $\vr(t)$ is the real-valued function $\vr^2(t) = \braket{\vr(t), \vr(t)}$ defined pointwise by $\vr^2(t) = r(t)^2$.
+
+\section{Angular curve}\label{sec:geo}
+
+For a nonvanishing curve $\vr(t)$ in the oriented Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a continuous real-valued function $\theta(t)$ on the domain of $\vr(t)$ for which the angle $\theta(t_0)$ at any time $t_0$ is a polar angle of $\vr(t_0)$.
 

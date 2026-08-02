@@ -1,7 +1,7 @@
 
 % /science/quantum.tex
 
-\section{Quantum Mechanics}\label{sec:quantum}
+\chapter{Quantum Mechanics}\label{chap:quantum}
 
 Solutions are proposed in this section to a selection of exercises from the lectures of \cite{QM} included in the table below.
 
@@ -9,7 +9,7 @@ Solutions are proposed in this section to a selection of exercises from the lect
 
 \subsection{Systems and experiments}
 
-% ket linearity
+% additivity
 \begin{answer}[Inner product]
 	Consider any ket $\ket{C}$ and bra $\bra{A}$.
 	\begin{enumerate}
@@ -21,7 +21,7 @@ Solutions are proposed in this section to a selection of exercises from the lect
 		      \begin{align}\label{eqn:interchange}
 			      \braket{D \mid C} = \braket{C \mid D}^* = \left(\braket{C \mid A} + \braket{C \mid B}\right)^* = \braket{C \mid A}^* + \braket{C \mid B}^*
 		      \end{align}
-		      The final equation follows from linearity of complex conjugation.
+		      The final equation follows from additivity of complex conjugation.
 		      Complex conjugation of each term in the right-hand expression in Equation \eqref{eqn:interchange} yields $\braket{D \mid C} = \braket{A \mid C} + \braket{B \mid C}$.
 		\item To show that the complex number $\braket{A \mid A}$ is a real number for any ket-vector $\ket{A}$, recall that interchanging bras and kets yields a complex number $\braket{A \mid A} = \braket{A \mid A}^*$ that is its own complex conjugate.
 		      It follows that its imaginary component is zero and thus that it is real.
@@ -1329,17 +1329,61 @@ Its norm is calculated below.
 % tensor
 \begin{answer}[Correlation in product state]
 	Consider any pair of observables $\mA$ of Alice and $\mB$ of Bob.
-	For any product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation $C(A,B) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$ is shown to vanish by calculating the first term below.
+	For any normalized product state $\ket{\Psi} \otimes \ket{\Phi}$, the correlation $C(\mA, \mB) = \braket{\Psi \otimes \Phi \mid \mA \otimes \mB \mid \Psi \otimes \Phi} - \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}$ is shown to vanish by evaluating the first term below.
 	\begin{align}
 		\bra{\Psi \otimes \Phi} \p{\mA \ket{\Psi} \otimes \mB \ket{\Phi}} = \braket{\Psi \mid \mA \mid \Psi} \braket{\Phi \mid \mB \mid \Phi}
 	\end{align}
 \end{answer}
 
+% factorize
 \begin{answer}[Product of apparatus and system]
-	The state $\ket{\Psi} = \alpha_u \ket{u, b} + \alpha_d \ket{d, b}$ is completely unentangled, since it is the product state $\ket{\Psi} = \p{\alpha_u \ket{u} + \alpha_d \ket{d}} \otimes \ket{b}$.
+	The state $\ket{\Psi} = \alpha_u \ket{u, b} + \alpha_d \ket{d, b}$ is completely unentangled, since it is the product state below.
+	\begin{align}
+		\ket{\Psi} & = \p{\alpha_u \ket{u} + \alpha_d \ket{d}} \otimes \ket{b}
+	\end{align}
 \end{answer}
 
-\begin{answer}
-	The bra of the near singlet state $\ket{\Psi} = \sqrt{0.6} \ket{u d} + \sqrt{0.4} \ket{d u}$ is the Hermitian conjugate $\bra{\Psi} = \sqrt{0.6} \bra{u d} + \sqrt{0.4} \bra{d u}$ of $\ket{\Psi}$.
+Let $B_{A} = \left(\ket{u}, \ket{d}\right)$ and $B = \left(\ket{u u}, \ket{u d}, \ket{d u}, \ket{d d}\right)$.
+
+\begin{answer}[Density matrix for $\sigma_z$]
+	To calculate Alice's density matrix for $\sigma_z$ for the ``near-singlet'' state $\ket{\Psi} = \sqrt{0.6} \ket{u d} + \sqrt{0.4} \ket{d u}$, recall that the ordered eigenbasis of $\sigma_z$ is $B_{\sigma_z} = \left(\ket{u}, \ket{d}\right)$.
+
+	The bra $\bra{\Psi} = \sqrt{0.6} \bra{u d} + \sqrt{0.4} \bra{d u}$ of the near-singlet state is given by $[\bra{\Psi}]_B = \begin{pmatrix} 0 & \sqrt{0.6} & \sqrt{0.4} & 0 \end{pmatrix}$, and its density matrix $\rho^{AB} = \ket{\Psi} \bra{\Psi}$ is the projection given below.
+	\begin{align}
+		[\rho^{AB}]_B & =
+		\begin{pmatrix}
+			0 & 0           & 0           & 0 \\
+			0 & 0.6         & \sqrt{0.24} & 0 \\
+			0 & \sqrt{0.24} & 0.4         & 0 \\
+			0 & 0           & 0           & 0
+		\end{pmatrix}
+		              &
+		\sigma_z      & =
+		\begin{pmatrix}
+			1 & 0  \\
+			0 & -1
+		\end{pmatrix}
+	\end{align}
+	Alice's reduced density matrix is given by $[\rho^{A}]_{B_{\sigma_z}} =
+		\begin{pmatrix}
+			0.6 & 0   \\
+			0   & 0.4
+		\end{pmatrix}$.
+	Therefore, the expectation $\braket{\sigma_z} = \Tr \rho^A \sigma_z$ is given by $\Tr \begin{pmatrix} 0.6 & 0 \\ 0 & -0.4 \end{pmatrix} = 0.2$.
+\end{answer}
+
+For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$ given by $\left[\ket{\Psi}\right]_B = \begin{pmatrix} \alpha_u \beta_u \\ \alpha_u \beta_d \\ \alpha_d \beta_u \\ \alpha_d \beta_d \end{pmatrix}$, its $\bra{\Psi} = \alpha_u^* \beta_u^* \bra{u u} + \alpha_u^* \beta_d^* \bra{u d} + \alpha_d^* \beta_u^* \bra{d u} + \alpha_d^* \beta_d^* \bra{d d}$ can be represented by $\left[\bra{\Psi}\right]_B = \begin{pmatrix} \alpha_u^* \beta_u^* & \alpha_u^* \beta_d^* & \alpha_d^* \beta_u^* & \alpha_d^* \beta_d^* \end{pmatrix}$ and its density matrix $\rho = \ket{\Psi} \bra{\Psi}$ can be represented as follows.
+\begin{align*}
+	\begin{pmatrix}
+		|\alpha_u|^2 |\beta_u|^2 & |\alpha_u|^2 \beta_u \beta_d^* & \alpha_u \alpha_d^* |\beta_u|^2 & \alpha_u \alpha_d^* \beta_u \beta_d^* \\ |\alpha_u|^2 \beta_u^* \beta_d & |\alpha_u|^2 |\beta_d|^2 & \alpha_u \alpha_d^* \beta_u^* \beta_d & \alpha_u \alpha_d^* |\beta_d|^2 \\ \alpha_u^* \alpha_d |\beta_u|^2 & \alpha_u^* \alpha_d \beta_u \beta_d^* & |\alpha_d|^2 |\beta_u|^2 & |\alpha_d|^2 \beta_u \beta_d^* \\ \alpha_u^* \alpha_d \beta_u^* \beta_d & \alpha_u^* \alpha_d |\beta_d|^2 & |\alpha_d|^2 \beta_u^* \beta_d & |\alpha_d|^2 |\beta_d|^2
+	\end{pmatrix}
+\end{align*}
+
+\begin{answer}[Rap]
+	For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$ subject to $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1 = \beta_u^* \beta_u + \beta_d^* \beta_d$, Alice's density matrix is given by $\left[\rho^A\right]_{B_A} = \begin{pmatrix} |\alpha_u|^2 & \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & |\alpha_d|^2 \end{pmatrix}$ and the characteristic polynomial $p(\lambda) = \det\p{\rho^A - \lambda I}$ is given by $p(\lambda) = \left(|\alpha_u|^2 - \lambda\right)\left(|\alpha_d|^2 - \lambda\right) - |\alpha_u|^2 |\alpha_d|^2$.
+	The eigenvalues of $\rho^A$ given by the roots of the characteristic polynomial $\lambda^2 - \lambda \left(|\alpha_u|^2 + |\alpha_d|^2\right) = \lambda(\lambda - 1)$ are $0$ and $1$, and the normalized ket $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ is the eigenvector of $\rho^A$ with eigenvalue $1$ since $\rho^A \ket{\alpha} = \ket{\alpha} \braket{\alpha \mid \alpha} = \ket{\alpha}$.
+	Note that $\braket{\sigma_z} = \Tr \begin{pmatrix} |\alpha_u|^2 & - \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & - |\alpha_d|^2\end{pmatrix}$ and $\braket{\sigma_x}^2 + \braket{\sigma_y}^2 + \braket{\sigma_z}^2 = \Tr^2 \begin{pmatrix} \alpha_u \alpha_d^* & |\alpha_u|^2 \\ |\alpha_d|^2 & \alpha_u^* \alpha_d \end{pmatrix} + \Tr^2 i\begin{pmatrix} \alpha_u \alpha_d^* & - |\alpha_u|^2 \\ |\alpha_d|^2 & - \alpha_u^* \alpha_d \end{pmatrix} + \left(|\alpha_u|^2 - |\alpha_d|^2\right)^2 = 1$.
+	It follows similarly that $\braket{\tau_x}^2 + \braket{\tau_y}^2 + \braket{\tau_z}^2 = 1$.
+	The correlation $\braket{\sigma_z \tau_z} - \braket{\sigma_z} \braket{\tau_z} = 0$ follows as a special case of correlations on product states.
 \end{answer}
 

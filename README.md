@@ -5,7 +5,7 @@ proposed solutions to exercises selected from the series by Susskind et al. on *
 
 ## Structure
 
-## Mechanics
+### Mechanics
 
 answers to the exercises from the *Theoretical Minimum* book on mechanics by Leonard Susskind and George Hrabovsky
 

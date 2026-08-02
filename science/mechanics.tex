@@ -419,8 +419,7 @@ There are no exercises in this lecture concerning systems of particles.
 
 Consider any inner product space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product.
 
-\begin{definition}[Angular curve, tangential curve]
-	For a nonvanishing curve in the Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a curve $\theta(t)$ for which any value $\theta(t_0)$ is a polar angle of $\vr(t_0)$.
+\begin{definition}[Tangential curve]
 	For any angular curve $\theta(t)$, the \emph{tangential curve} is the curve $\vth(t)$ such that $\vth(t_0)$ is perpendicular to $\vr(t_0)$ with the standard orientation and norm $\left\|\vth(t_0)\right\| = \left\|\vr(t_0)\right\|$; the \emph{tangential unit curve} is the unit curve $\widehat{\vth}(t)$ associated with it.
 \end{definition}
 
@@ -975,6 +974,7 @@ Assume this condition holds.
 
 \begin{law}[Gravity]\label{law:grav}
 	Newtonian gravity determines the central force $\vF = f\p{r} \widehat{\vr}$ defined by $f\p{r} = - \frac{G M m}{r^2}$.
+	This central force is rotationally symmetric about the origin.
 \end{law}
 
 \subsubsection{Gravitational potential energy}
@@ -990,7 +990,7 @@ The force of gravity is conservative and is determined by the potential energy d
 
 \subsubsection{The Earth moves in a plane}
 
-It follows from Law \ref{law:grav} that the motion of the Earth is confined to a fixed plane.
+By Law \ref{law:grav} and the resulting conservation of angular momentum, the motion of the Earth is confined to a fixed plane.
 
 The gravitational Lagrangian $L = T - V$ is given in terms of Equation \eqref{eqn:gravipotential} and Proposition \ref{prop:kinetic} below.
 \begin{align}
@@ -1051,5 +1051,5 @@ Since $m>0$ and $r>0$, it follows that $\dot{\theta} \neq 0$.
 Consider the radial distance $r$ of the Earth from the Sun as a function of the polar angle $\theta$.
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing.
 Then, the reciprocal $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined and nonvanishing.
-The derivative $\dot{r} = \frac{dr}{dt}$ is $\dot{r} = \frac{d r}{d u} \frac{d u}{d t}$.
+Since $r = \frac{1}{u}$, the power rule yields $\frac{d r}{d u} = - \frac{1}{u^2}$.
 

@@ -1343,19 +1343,20 @@ Its norm is calculated below.
 	\end{align}
 \end{answer}
 
-Let $B_{A} = \left(\ket{u}, \ket{d}\right)$ and $B = \left(\ket{u u}, \ket{u d}, \ket{d u}, \ket{d d}\right)$.
+Let $B_{A} = B_B = \left(\ket{u}, \ket{d}\right)$ and $B = \left(\ket{u u}, \ket{u d}, \ket{d u}, \ket{d d}\right)$.
 
+% density
 \begin{answer}[Density matrix for $\sigma_z$]
-	To calculate Alice's density matrix for $\sigma_z$ for the ``near-singlet'' state $\ket{\Psi} = \sqrt{0.6} \ket{u d} + \sqrt{0.4} \ket{d u}$, recall that the ordered eigenbasis of $\sigma_z$ is $B_{\sigma_z} = \left(\ket{u}, \ket{d}\right)$.
+	To calculate Alice's density matrix for $\sigma_z$ for the ``near-singlet'' state $\ket{\Psi} = \sqrt{0.6} \ket{u d} - \sqrt{0.4} \ket{d u}$, recall that the ordered eigenbasis of $\sigma_z$ is $B_{\sigma_z} = \left(\ket{u}, \ket{d}\right)$.
 
-	The bra $\bra{\Psi} = \sqrt{0.6} \bra{u d} + \sqrt{0.4} \bra{d u}$ of the near-singlet state is given by $[\bra{\Psi}]_B = \begin{pmatrix} 0 & \sqrt{0.6} & \sqrt{0.4} & 0 \end{pmatrix}$, and its density matrix $\rho^{AB} = \ket{\Psi} \bra{\Psi}$ is the projection given below.
+	The bra $\bra{\Psi} = \sqrt{0.6} \bra{u d} - \sqrt{0.4} \bra{d u}$ of the near-singlet state is given by $[\bra{\Psi}]_B = \begin{pmatrix} 0 & \sqrt{0.6} & -\sqrt{0.4} & 0 \end{pmatrix}$, and its density matrix $\rho^{AB} = \ket{\Psi} \bra{\Psi}$ is the projection given below.
 	\begin{align}
 		[\rho^{AB}]_B & =
 		\begin{pmatrix}
-			0 & 0           & 0           & 0 \\
-			0 & 0.6         & \sqrt{0.24} & 0 \\
-			0 & \sqrt{0.24} & 0.4         & 0 \\
-			0 & 0           & 0           & 0
+			0 & 0            & 0            & 0 \\
+			0 & 0.6          & -\sqrt{0.24} & 0 \\
+			0 & -\sqrt{0.24} & 0.4          & 0 \\
+			0 & 0            & 0            & 0
 		\end{pmatrix}
 		              &
 		\sigma_z      & =
@@ -1379,11 +1380,44 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	\end{pmatrix}
 \end{align*}
 
-\begin{answer}[Rap]
+\begin{answer}[Verifying rap sheets]
 	For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$ subject to $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1 = \beta_u^* \beta_u + \beta_d^* \beta_d$, Alice's density matrix is given by $\left[\rho^A\right]_{B_A} = \begin{pmatrix} |\alpha_u|^2 & \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & |\alpha_d|^2 \end{pmatrix}$ and the characteristic polynomial $p(\lambda) = \det\p{\rho^A - \lambda I}$ is given by $p(\lambda) = \left(|\alpha_u|^2 - \lambda\right)\left(|\alpha_d|^2 - \lambda\right) - |\alpha_u|^2 |\alpha_d|^2$.
 	The eigenvalues of $\rho^A$ given by the roots of the characteristic polynomial $\lambda^2 - \lambda \left(|\alpha_u|^2 + |\alpha_d|^2\right) = \lambda(\lambda - 1)$ are $0$ and $1$, and the normalized ket $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ is the eigenvector of $\rho^A$ with eigenvalue $1$ since $\rho^A \ket{\alpha} = \ket{\alpha} \braket{\alpha \mid \alpha} = \ket{\alpha}$.
-	Note that $\braket{\sigma_z} = \Tr \begin{pmatrix} |\alpha_u|^2 & - \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & - |\alpha_d|^2\end{pmatrix}$ and $\braket{\sigma_x}^2 + \braket{\sigma_y}^2 + \braket{\sigma_z}^2 = \Tr^2 \begin{pmatrix} \alpha_u \alpha_d^* & |\alpha_u|^2 \\ |\alpha_d|^2 & \alpha_u^* \alpha_d \end{pmatrix} + \Tr^2 i\begin{pmatrix} \alpha_u \alpha_d^* & - |\alpha_u|^2 \\ |\alpha_d|^2 & - \alpha_u^* \alpha_d \end{pmatrix} + \left(|\alpha_u|^2 - |\alpha_d|^2\right)^2 = 1$.
+	Note that $\braket{\sigma_z} = \Tr \begin{pmatrix} |\alpha_u|^2 & - \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & - |\alpha_d|^2\end{pmatrix}$ and $\braket{\sigma_x}^2 + \braket{\sigma_y}^2 + \braket{\sigma_z}^2 = \left(\Tr \begin{pmatrix} \alpha_u \alpha_d^* & |\alpha_u|^2 \\ |\alpha_d|^2 & \alpha_u^* \alpha_d \end{pmatrix}\right)^2 + \left(\Tr i\begin{pmatrix} \alpha_u \alpha_d^* & - |\alpha_u|^2 \\ |\alpha_d|^2 & - \alpha_u^* \alpha_d \end{pmatrix}\right)^2 + \left(|\alpha_u|^2 - |\alpha_d|^2\right)^2 = 1$.
 	It follows similarly that $\braket{\tau_x}^2 + \braket{\tau_y}^2 + \braket{\tau_z}^2 = 1$.
 	The correlation $\braket{\sigma_z \tau_z} - \braket{\sigma_z} \braket{\tau_z} = 0$ follows as a special case of correlations on product states.
+
+	The singlet $\ket{S} = \frac{1}{\sqrt{2}}\left(\ket{u d} - \ket{d u}\right)$ given by $\left[\ket{S}\right]_B = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ -1 \\ 0 \end{pmatrix}$ has bra $\bra{S} = \frac{1}{\sqrt{2}} \left(\bra{u d} - \bra{d u}\right)$ given by $\left[\bra{S}\right]_B = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 & 1 & -1 & 0 \end{pmatrix}$ and density matrix $\rho = \ket{S} \bra{S}$ given below.
+	\begin{align}
+		\left[\rho\right]_B   & = \frac{1}{2}
+		\begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+		                      &
+		\left[\rho^2\right]_B & = \frac{1}{2}
+		\begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 1 & -1 & 0 \\ 0 & -1 & 1 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+	\end{align}
+	It satisfies $\rho^2 = \rho$ and $\Tr \rho^2 = 1$.
+	Alice's reduced density matrix $\rho^A = \frac{1}{2} \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ is proportional to the unit matrix and has two eigenvalues equal to $\frac{1}{2}$ which add up to $1$; note that $\left(\rho^A\right)^2 \neq \rho^{A}$ and $\Tr \left(\rho^A\right)^2 < 1$.
+	The expectation values are given by $\braket{\sigma_z} = \Tr \rho^A \sigma_z = 0$, $\braket{\sigma_x} = \Tr \rho^A \sigma_x = 0$, and $\braket{\sigma_y} = \Tr \rho^A \sigma_y = 0$.
+	Similarly, the expectation values for Bob are zero.
+	Since it was previously shown that $\sigma_z \tau_z \ket{S} = \sigma_x \tau_x \ket{S} = \sigma_y \tau_y\ket{S} = - \ket{S}$, it follows that $\braket{\sigma_z \tau_z} = \braket{\sigma_x \tau_x} = \braket{\sigma_y \tau_y} = -1$.
+	This yields $\braket{\sigma_z \tau_z} - \braket{\sigma_z} \braket{\tau_z} = -1$.
+
+	Observe that the density matrix $\rho^{AB}$ for the near-singlet state of the previous exercise satisfies $\left(\rho^{AB}\right)^2 = \rho^{AB}$ and $\Tr \left(\rho^{A B}\right)^2 = 1$.
+	However, the square $\left[(\rho^{A})^2\right]_{B_A} = \begin{pmatrix} 0.6^2 & 0 \\ 0 & 0.4^2 \end{pmatrix}$ of Alice's reduced density matrix satisfies $\left(\rho^A\right)^2 \neq \rho^A$ and $\Tr \left(\rho^A\right)^2 < 1$.
+	It is clear from representation in the usual basis that $\braket{\sigma_x} = \braket{\sigma_y} = \braket{\tau_x} = \braket{\tau_y} = 0$.
+	Bob's reduced density matrix $\left[\rho^{B}\right]_{B_B} = \begin{pmatrix} 0.4 & 0 \\ 0 & 0.6 \end{pmatrix}$ yields $\braket{\tau_z} = \Tr \rho^B \tau_z = -0.2$.
+	Note $\braket{\sigma_z \tau_z} = \Tr \rho^{AB}\left(\sigma_z \otimes \tau_z\right) = -1$ and $\braket{\sigma_x \tau_x} = \Tr \rho^{AB}\left(\sigma_x \otimes \tau_x\right) = -2 \sqrt{0.24}$.
+	The first yields $\braket{\sigma_z \tau_z} - \braket{\sigma_z} \braket{\tau_z} = -0.96$.
+\end{answer}
+
+\section{Particles and waves}
+
+\begin{answer}[Linearity of position]
+	To show that $\mX$ is a linear operator, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the domain of $\mX$.
+	The following hold for all $x$.
+	\begin{align*}
+		\left(\mX (w \psi + z \phi)\right)(x) = x \left(w \psi(x) + z \phi(x)\right) = w \left(\mX \psi \right)(x) + z \left(\mX \phi \right)(x)
+	\end{align*}
+	Thus, the operator $\mX$ is linear.
 \end{answer}
 

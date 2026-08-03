@@ -1380,8 +1380,9 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	\end{pmatrix}
 \end{align*}
 
-\begin{answer}[Verifying rap sheets]
-	For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$ subject to $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1 = \beta_u^* \beta_u + \beta_d^* \beta_d$, Alice's density matrix is given by $\left[\rho^A\right]_{B_A} = \begin{pmatrix} |\alpha_u|^2 & \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & |\alpha_d|^2 \end{pmatrix}$ and the characteristic polynomial $p(\lambda) = \det\p{\rho^A - \lambda I}$ is given by $p(\lambda) = \left(|\alpha_u|^2 - \lambda\right)\left(|\alpha_d|^2 - \lambda\right) - |\alpha_u|^2 |\alpha_d|^2$.
+\begin{answer}[Verification of rap sheet values]
+	Consider any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$ subject to the conditions $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1 = \beta_u^* \beta_u + \beta_d^* \beta_d$.
+	Alice's reduced density matrix is given by $\left[\rho^A\right]_{B_A} = \begin{pmatrix} |\alpha_u|^2 & \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & |\alpha_d|^2 \end{pmatrix}$ and the characteristic polynomial $p(\lambda) = \det\p{\rho^A - \lambda I}$ is given by $p(\lambda) = \left(|\alpha_u|^2 - \lambda\right)\left(|\alpha_d|^2 - \lambda\right) - |\alpha_u|^2 |\alpha_d|^2$.
 	The eigenvalues of $\rho^A$ given by the roots of the characteristic polynomial $\lambda^2 - \lambda \left(|\alpha_u|^2 + |\alpha_d|^2\right) = \lambda(\lambda - 1)$ are $0$ and $1$, and the normalized ket $\ket{\alpha} = \alpha_u \ket{u} + \alpha_d \ket{d}$ is the eigenvector of $\rho^A$ with eigenvalue $1$ since $\rho^A \ket{\alpha} = \ket{\alpha} \braket{\alpha \mid \alpha} = \ket{\alpha}$.
 	Note that $\braket{\sigma_z} = \Tr \begin{pmatrix} |\alpha_u|^2 & - \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & - |\alpha_d|^2\end{pmatrix}$ and $\braket{\sigma_x}^2 + \braket{\sigma_y}^2 + \braket{\sigma_z}^2 = \left(\Tr \begin{pmatrix} \alpha_u \alpha_d^* & |\alpha_u|^2 \\ |\alpha_d|^2 & \alpha_u^* \alpha_d \end{pmatrix}\right)^2 + \left(\Tr i\begin{pmatrix} \alpha_u \alpha_d^* & - |\alpha_u|^2 \\ |\alpha_d|^2 & - \alpha_u^* \alpha_d \end{pmatrix}\right)^2 + \left(|\alpha_u|^2 - |\alpha_d|^2\right)^2 = 1$.
 	It follows similarly that $\braket{\tau_x}^2 + \braket{\tau_y}^2 + \braket{\tau_z}^2 = 1$.
@@ -1412,12 +1413,21 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 
 \section{Particles and waves}
 
-\begin{answer}[Linearity of position]
-	To show that $\mX$ is a linear operator, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the domain of $\mX$.
-	The following hold for all $x$.
+\begin{answer}[Linearity of position and differentiation]
+	To show that $\mX$ and $\mD$ are linear operators, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the common domain of $\mX$ and $\mD$.
+	The following hold for all $x$ in the common domain of $\psi$ and $\phi$.
+	\begin{align}
+		\left(\mX (w \psi + z \phi)\right)(x) & = x \left(w \psi(x) + z \phi(x)\right) = w \left(\mX \psi \right)(x) + z \left(\mX \phi \right)(x)
+	\end{align}
+	The first equation follows from the definition of $\mX$, whereas the second equation also uses the distributivity of multiplication over addition.
+	Since the above hold for all $x$, it follows that $\mX$ is a linear operator.
+	Similarly, the following holds for all $x$ in the common domain.
 	\begin{align*}
-		\left(\mX (w \psi + z \phi)\right)(x) = x \left(w \psi(x) + z \phi(x)\right) = w \left(\mX \psi \right)(x) + z \left(\mX \phi \right)(x)
+		\left(\mD (w \psi + z \phi)\right)(x) & = \frac{d}{dx} \left(w \psi(x) + z \phi(x)\right) = w \left(\mD \psi \right)(x) + z \left(\mD \phi \right)(x)
 	\end{align*}
-	Thus, the operator $\mX$ is linear.
+	This establishes that $\mD$ is a linear operator.
 \end{answer}
 
+\begin{answer}[Energy]
+	Plugging $\psi(x) = \exp\p{\frac{i p x}{\hbar}}$ into $- \frac{\hbar^2}{2 m} \frac{\partial^2 \psi(x)}{\partial x^2} = E \psi(x)$ yields $- \frac{\hbar^2}{2 m} \frac{\partial^2}{\partial x^2} \exp\p{\frac{i p x}{\hbar}} = E \exp\p{\frac{i p x}{\hbar}}$.
+\end{answer}

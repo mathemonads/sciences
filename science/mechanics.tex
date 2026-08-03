@@ -9,20 +9,22 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 
 \subsection{Nature of classical physics}
 
-% 1 definition 
+% 1.1 definition 
 \begin{answer}[Closed system]
 	Recall that a \emph{system} is defined in \cite[Lecture 1]{TM} as a ``collection of objects'', and that a system is \emph{closed} if it ``is either the entire universe or is so isolated from everything else that it behaves as if nothing else exists.''
 
-	This definition formally admits the entire universe and the empty system that consists of no objects.
+	This definition formally admits the entire universe and, taken literally, the empty system that consists of no objects.
 	A more exotic example is a universe with a component that is dynamically uncoupled from the other components; the first component is a closed system because it is impossible for it to interact with the other components.
 	In this example, processes within one component of the universe can neither reveal the existence of uncoupled components nor rule them out.
 	Thus, it is not always possible to establish whether a system is the entire universe.
+	An assumption implicit in establishing a closed system is that it is possible to establish whether it is the entire universe or establish the absence of interactions with the external environment.
 
 	An \emph{open} system is a system that is not the entire universe and that is \emph{not} ``so isolated from everything else that it behaves as if nothing else exists''; that is, an open system has an external environment and interacts with it.
 	An open system can be identified by such interactions if they exist.
 	However, the absence of evidence of interactions is not positive evidence of their absence.
 	It is then generally impossible to establish that a given system is closed, although this hypothesis is falsifiable.
 \end{answer}
+% empty
 
 % functions of states 
 \begin{answer}[Laws for six-state system]
@@ -418,10 +420,6 @@ There are no exercises in this lecture concerning systems of particles.
 \paragraph{Mathematical analysis}
 
 Consider any inner product space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product.
-
-\begin{definition}[Tangential unit curve]
-	The \emph{tangential unit curve} is the unit curve $\widehat{\vth}(t)$ associated with a tangential curve $\vth(t)$.
-\end{definition}
 
 Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
 If $\vr(t)$ is a nonvanishing curve defined on an interval, then there exists a differentiable angular curve for it but it is not unique.
@@ -1052,4 +1050,5 @@ Consider the radial distance $r$ of the Earth from the Sun as a function of the 
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing.
 Then, the reciprocal function $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined and nonvanishing.
 Since $r = \frac{1}{u}$, the power rule yields $\frac{d r}{d u} = - \frac{1}{u^2}$ and the chain rule therefore yields $\frac{d r}{d \theta} = - \frac{1}{u^2} \frac{d u}{d \theta}$.
+Substitution into Equation \ref{eqn:grangle} yields $\dot{\theta} = \frac{p_\theta}{m} u^2$.
 

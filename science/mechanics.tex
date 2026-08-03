@@ -14,7 +14,7 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 	Recall that a \emph{system} is defined in \cite[Lecture 1]{TM} as a ``collection of objects'', and that a system is \emph{closed} if it ``is either the entire universe or is so isolated from everything else that it behaves as if nothing else exists.''
 
 	This definition formally admits the entire universe and, taken literally, the empty system that consists of no objects.
-	A more exotic example is a universe with a component that is dynamically uncoupled from the other components; the first component is a closed system because it is impossible for it to interact with the other components.
+	A hypothetical example is a universe with a component that is dynamically uncoupled from the other components; the first component is a closed system because it is impossible for it to interact with the other components.
 	In this example, processes within one component of the universe can neither reveal the existence of uncoupled components nor rule them out.
 	Thus, it is not always possible to establish whether a system is the entire universe.
 	An assumption implicit in establishing a closed system is that it is possible to determine whether it is the entire universe or whether it has no interactions with the external environment.
@@ -429,9 +429,6 @@ Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
 	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any differentiable angular function $\theta(t)$ satisfies the equation below.
 	\begin{align}
-		\dot{\vr}(t)  & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
-		              &
-		\dot{\vth}(t) & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:derivatives}                                        \\
 		\ddot{\vr}(t) & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t) \label{eqn:acceleration}
 	\end{align}
 	Equation \eqref{eqn:acceleration} requires that the nonvanishing curve $\vr$ be twice differentiable.
@@ -1044,12 +1041,12 @@ Since $m > 0$ and $r(t) > 0$, it follows that $\dot{\theta}(t)$ has the same sig
 
 If $p_\theta = 0$, then $\dot{\theta} = 0$.
 Assume that $p_\theta \neq 0$.
-Since $m>0$ and $r>0$, it follows that $\dot{\theta} \neq 0$.
+Since $\dot{\theta}$ has the same nonzero sign as the constant $p_\theta$, the function $\theta(t)$ is strictly monotone.
 
 Consider the radial distance $r$ of the Earth from the Sun as a function of the polar angle $\theta$.
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing.
 Then, the reciprocal function $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined and nonvanishing.
 Since $r = \frac{1}{u}$, the power rule yields $\frac{d r}{d u} = - \frac{1}{u^2}$ and the chain rule therefore yields $\frac{d r}{d \theta} = - \frac{1}{u^2} \frac{d u}{d \theta}$.
 Substitution into Equation \ref{eqn:grangle} yields $\dot{\theta} = \frac{p_\theta}{m} u^2$ and the chain rule $\dot{r} = \frac{dr}{d\theta} \dot{\theta}$ yields $\dot{r} = - \frac{p_\theta}{m} \frac{d u}{d \theta}$.
-The chain rule yields $\frac{d}{dt} \frac{du}{d\theta} = \frac{d^2u}{d\theta^2} \dot{\theta}$.
+The chain rule yields $\frac{d}{dt} \frac{du}{d\theta} = \frac{d^2u}{d\theta^2} \dot{\theta}$ and $\ddot{r} = - \frac{p_\theta^2 u^2}{m^2} \frac{d^2u}{d\theta^2}$.
 

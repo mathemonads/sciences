@@ -1,3 +1,3 @@
 
 clean:
-	find . -path ./.git
+	find . -path ./.git -prune

@@ -7,7 +7,7 @@ proposed solutions to exercises selected from the series by Professor Susskind e
 
 ### Mechanics
 
-answers to the exercises from the *Theoretical Minimum* book on mechanics by Leonard Susskind and George Hrabovsky
+answers to the exercises from *The Theoretical Minimum* book on mechanics by Leonard Susskind and George Hrabovsky
 
 `science/mechanics.tex`
 

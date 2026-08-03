@@ -37,15 +37,19 @@ For any curve $\vr(t)$ in a vector space with norm $\left\|\bullet\right\|$, the
 \subsection{Curves in the Euclidean plane}\label{sec:geo}
 
 For a nonvanishing curve $\vr(t)$ in the oriented Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a continuous real-valued function $\theta(t)$ on the domain of $\vr(t)$ for which the angle $\theta(t_0)$ at any time $t_0$ is a polar angle of $\vr(t_0)$.
+The \emph{velocity} of a differentiable curve $\vr(t)$ is its derivative $\dot{\vr}(t)$ with respect to time.
 
-\begin{remark}[Tangent]
+\begin{remark}[Frames]
 	If $\vr(t)$ is a nonvanishing differentiable curve in the Euclidean plane, then there exists a differentiable angular curve for it and such an angular curve is not unique.
-	For any such differentiable angular curve $\theta(t)$, let $\vth(t)$ be the differentiable curve with norm $\|\vth(t)\| = \|\vr(t)\|$ such that $\vth(t)$ is the result of rotating $\vr(t)$ by $+\frac{\pi}{2}$ for all $t$ in $\dom \vr = \dom \vth$ and let $\widehat{\vth}(t)$ be the unit curve associated with it.
-	The unit curves satisfy Equation \ref{eqn:unicurve} below.
+	For any such differentiable angular curve $\theta(t)$, let $\vth(t)$ be the differentiable curve with norm $\|\vth(t)\| = \|\vr(t)\|$ such that $\vth(t)$ is the result of rotating $\vr(t)$ by $+\frac{\pi}{2}$ for all $t$ in $\dom \vr = \dom \vth$ and let $\widehat{\vth}(t)$ denote its associated unit curve.
+	These curves satisfy Equations \ref{eqn:unicurve}--\ref{eqn:tancurve} below.
 	\begin{align}
 		\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
 		                        &
-		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}
+		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}                          \\
+		\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
+		                        &
+		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:tancurve}
 	\end{align}
 \end{remark}
 

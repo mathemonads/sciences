@@ -1437,6 +1437,7 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	Plugging $\psi(x) = \exp\p{\frac{i p x}{\hbar}}$ into the equation $- \frac{\hbar^2}{2 m} \frac{\partial^2 \psi(x)}{\partial x^2} = E \psi(x)$ yields $E \psi(x) = - \frac{\hbar^2}{2 m} \left(\frac{i p}{\hbar}\right)^2 \psi(x)$ and therefore $E = \frac{p^2}{2m}$.
 \end{answer}
 
+% calculate
 \begin{answer}[Commutators with momentum]
 	For any $\psi$ in the relevant domain, observe that $\left([\mP, \mX] \psi\right)(x) = -i \hbar \psi(x)$ and that $\left([\mP^2, \mX] \psi\right) (x) = - 2 \hbar^2 \frac{d \psi(x)}{dx}$ is equal to the following sum.
 	\begin{align}
@@ -1447,7 +1448,18 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	\end{align}
 \end{answer}
 
-\begin{answer}[Potential]
-	For any differentiable functions $\psi(x)$ and $V(x)$, the product rule yields $-i \hbar \frac{d}{dx}\p{V(x) \psi(x)} = -i \hbar \frac{dV(x)}{dx} \psi(x) + V(x) \left(-i \hbar \frac{d}{dx}\right)\psi(x)$.
+\begin{answer}[Commutator of potential energy and momentum]
+	For any differentiable functions $\psi(x)$ and $V(x)$, the product rule yields $-i \hbar \frac{d}{dx}\p{V(x) \psi(x)} = -i \hbar \frac{dV(x)}{dx} \psi(x) + V(x) \left(-i \hbar \frac{d}{dx}\right)\psi(x)$ and subtraction gives the equation below.
+	\begin{align}
+		\left([\mV(x), \mP] \psi\right)(x) & = i \hbar \frac{dV(x)}{dx} \psi(x)
+	\end{align}
+	Therefore, the commutator is $\left[\mV(x), \mP\right] = i \hbar \frac{dV(x)}{dx}$.
+\end{answer}
+
+\begin{answer}[Sinusoid]
+	Consider the equation below.
+	\begin{align}
+		x(t) & = A \cos\p{\omega t} + B \sin\p{\omega t}
+	\end{align}
 \end{answer}
 

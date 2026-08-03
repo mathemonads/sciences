@@ -1380,6 +1380,7 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	\end{pmatrix}
 \end{align*}
 
+% density
 \begin{answer}[Verification of rap sheet values]
 	Consider any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_d \ket{u d} + \alpha_d \beta_u \ket{d u} + \alpha_d \beta_d \ket{d d}$ subject to the conditions $\alpha_u^* \alpha_u + \alpha_d^* \alpha_d = 1 = \beta_u^* \beta_u + \beta_d^* \beta_d$.
 	Alice's reduced density matrix is given by $\left[\rho^A\right]_{B_A} = \begin{pmatrix} |\alpha_u|^2 & \alpha_u \alpha_d^* \\ \alpha_u^* \alpha_d & |\alpha_d|^2 \end{pmatrix}$ and the characteristic polynomial $p(\lambda) = \det\p{\rho^A - \lambda I}$ is given by $p(\lambda) = \left(|\alpha_u|^2 - \lambda\right)\left(|\alpha_d|^2 - \lambda\right) - |\alpha_u|^2 |\alpha_d|^2$.
@@ -1413,6 +1414,7 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 
 \section{Particles and waves}
 
+% linear combination 
 \begin{answer}[Linearity of position and differentiation]
 	To show that $\mX$ and $\mD$ are linear operators, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the common domain of $\mX$ and $\mD$.
 	The following hold for all $x$ in the common domain of $\psi$ and $\phi$.
@@ -1428,6 +1430,13 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	This establishes that $\mD$ is a linear operator.
 \end{answer}
 
-\begin{answer}[Energy]
-	Plugging $\psi(x) = \exp\p{\frac{i p x}{\hbar}}$ into $- \frac{\hbar^2}{2 m} \frac{\partial^2 \psi(x)}{\partial x^2} = E \psi(x)$ yields $- \frac{\hbar^2}{2 m} \frac{\partial^2}{\partial x^2} \exp\p{\frac{i p x}{\hbar}} = E \exp\p{\frac{i p x}{\hbar}}$.
+\section{Particle dynamics}
+
+\begin{answer}[Kinetic energy]
+	Plugging $\psi(x) = \exp\p{\frac{i p x}{\hbar}}$ into the equation $- \frac{\hbar^2}{2 m} \frac{\partial^2 \psi(x)}{\partial x^2} = E \psi(x)$ yields $E \psi(x) = - \frac{\hbar^2}{2 m} \left(\frac{i p}{\hbar}\right)^2 \psi(x)$ and therefore $E = \frac{p^2}{2m}$.
 \end{answer}
+
+\begin{answer}[Commutator of squared momentum with position]
+	For any $\psi$ in the common domain of $\mP^2 \mX$ and $\mX \mP^2$, observe that $\left([\mP^2, \mX] \psi\right) (x) = - 2 \hbar^2 \frac{d}{dx} \psi(x)$.
+\end{answer}
+

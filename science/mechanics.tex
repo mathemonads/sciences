@@ -17,7 +17,7 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 	A more exotic example is a universe with a component that is dynamically uncoupled from the other components; the first component is a closed system because it is impossible for it to interact with the other components.
 	In this example, processes within one component of the universe can neither reveal the existence of uncoupled components nor rule them out.
 	Thus, it is not always possible to establish whether a system is the entire universe.
-	An assumption implicit in establishing a closed system is that it is possible to establish whether it is the entire universe or establish the absence of interactions with the external environment.
+	An assumption implicit in establishing a closed system is that it is possible to determine whether it is the entire universe or whether it has no interactions with the external environment.
 
 	An \emph{open} system is a system that is not the entire universe and that is \emph{not} ``so isolated from everything else that it behaves as if nothing else exists''; that is, an open system has an external environment and interacts with it.
 	An open system can be identified by such interactions if they exist.
@@ -26,7 +26,7 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 \end{answer}
 % empty
 
-% functions of states 
+% 1.2 functions of states 
 \begin{answer}[Laws for six-state system]
 	Consider a system consisting of six states $S = \left\{1, 2, 3, 4, 5, 6\right\}$.
 
@@ -38,12 +38,13 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 	\begin{align}
 		C & = \left\{ f : S \to S \mid \forall y \in S, \exists!\ x \in S. f(x) = y \right\}
 	\end{align}
-	where each function has the property that each element in its codomain has a corresponding, unique element in the domain that is mapped to it and thus each such function in $C$ is a bijection.
+	where each function has the property that each element in its codomain has a unique preimage and thus each such function in $C$ is a bijection.
 	The number of such laws, given by the size $\left|C\right| = 6!$ of $C$, is $6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720$.
-	This is because any function $S \xrightarrow{f} S$ in $C$ can be defined by sampling from the space $S$ of outcomes six times without replacement.
+	This is because any function $S \xrightarrow{f} S$ in $C$ is a permutation of $S$ and there are $6!$ such permutations.
 \end{answer}
+% permutation
 
-% bijection
+% 1.3 bijection
 \begin{answer}[Allowable laws]
 	Consider the infinite system $\left\{\cdots, -1, 0, +1, +2, \cdots\right\}$.
 
@@ -422,7 +423,6 @@ There are no exercises in this lecture concerning systems of particles.
 Consider any inner product space with inner product $\braket{\bullet, \star}$ and norm $\left\|\bullet\right\|$ induced by the inner product.
 
 Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
-If $\vr(t)$ is a nonvanishing curve defined on an interval, then there exists a differentiable angular curve for it but it is not unique.
 
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
 	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any differentiable angular function $\theta(t)$ satisfies Equation \eqref{eqn:unicurve}.
@@ -1050,5 +1050,5 @@ Consider the radial distance $r$ of the Earth from the Sun as a function of the 
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing.
 Then, the reciprocal function $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined and nonvanishing.
 Since $r = \frac{1}{u}$, the power rule yields $\frac{d r}{d u} = - \frac{1}{u^2}$ and the chain rule therefore yields $\frac{d r}{d \theta} = - \frac{1}{u^2} \frac{d u}{d \theta}$.
-Substitution into Equation \ref{eqn:grangle} yields $\dot{\theta} = \frac{p_\theta}{m} u^2$.
+Substitution into Equation \ref{eqn:grangle} yields $\dot{\theta} = \frac{p_\theta}{m} u^2$ and the chain rule $\dot{r} = \frac{dr}{d\theta} \dot{\theta}$ yields $\dot{r} = - \frac{p_\theta}{m} \frac{d u}{d \theta}$.
 

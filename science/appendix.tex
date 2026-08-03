@@ -17,6 +17,11 @@ and the field of complex numbers by
 \end{align*}
 with involution $z \xmapsto{*} z^*$ given by complex conjugation.
 Let $\Z \subseteq \R$ denote the totally ordered commutative subring of integers, $\R_{\geq 0} = [0, +\infty)$ denote the totally ordered commutative subsemiring of non-negative real numbers, $\N$ denote the totally ordered commutative subsemiring $\N \subseteq \R_{\geq 0}$ of natural numbers, and $\Z_+ \subseteq \N$ denote the totally ordered subsemigroup of positive integers.
+For each natural number $n \in \N$, the standard $n$-dimensional complex Hilbert space
+\begin{align*}
+	\left\langle \C^n, \C^n \times \C^n \xrightarrow{+} \C^n, \vzero, \C \times \C^n \xrightarrow{\cdot} \C^n, \C^n \times \C^n \xrightarrow{\braket{\bullet \mid \star}} \C, \C^n \xrightarrow{\|\bullet\|} \R_{\geq 0} \right\rangle
+\end{align*}
+is equipped with the standard inner product that is linear in the ket and conjugate-linear in the bra.
 
 Terminology is reviewed in Section \ref{sec:terminology} below.
 
@@ -33,9 +38,14 @@ For any curve $\vr(t)$ in a vector space with norm $\left\|\bullet\right\|$, the
 
 For a nonvanishing curve $\vr(t)$ in the oriented Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a continuous real-valued function $\theta(t)$ on the domain of $\vr(t)$ for which the angle $\theta(t_0)$ at any time $t_0$ is a polar angle of $\vr(t_0)$.
 
-\begin{remark}
+\begin{remark}[Tangent]
 	If $\vr(t)$ is a nonvanishing differentiable curve in the Euclidean plane, then there exists a differentiable angular curve for it and such an angular curve is not unique.
+	For any such differentiable angular curve $\theta(t)$, let $\vth(t)$ be the differentiable curve with norm $\|\vth(t)\| = \|\vr(t)\|$ such that $\vth(t)$ is the result of rotating $\vr(t)$ by $+\frac{\pi}{2}$ for all $t$ in $\dom \vr = \dom \vth$ and let $\widehat{\vth}(t)$ be the unit curve associated with it.
+	The unit curves satisfy Equation \ref{eqn:unicurve} below.
+	\begin{align}
+		\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
+		                        &
+		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}
+	\end{align}
 \end{remark}
-
-For any angular curve $\theta(t)$ for $\vr(t)$, the \emph{tangential curve} is the curve $\vth(t)$ such that $\vth(t_0)$ is perpendicular to $\vr(t_0)$ with the standard orientation and norm $\|\vth(t_0)\| = \|\vr(t_0)\|$ and the \emph{tangential unit curve} is the unit curve $\widehat{\vth}(t)$ associated with it.
 

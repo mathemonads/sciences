@@ -1416,14 +1416,14 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 
 % linear combination 
 \begin{answer}[Linearity of position and differentiation]
-	To show that $\mX$ and $\mD$ are linear operators, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the common domain of $\mX$ and $\mD$.
-	The following hold for all $x$ in the common domain of $\psi$ and $\phi$.
+	To show that $\mX$ and $\mD$ are linear operators, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the common domain $\dom \mX = \dom \mD$ of $\mX$ and $\mD$.
+	The following hold for all $x$ in the common domain $\dom \psi = \dom \phi$ of $\psi$ and $\phi$.
 	\begin{align}
 		\left(\mX (w \psi + z \phi)\right)(x) & = x \left(w \psi(x) + z \phi(x)\right) = w \left(\mX \psi \right)(x) + z \left(\mX \phi \right)(x)
 	\end{align}
 	The first equation follows from the definition of $\mX$, whereas the second equation also uses the distributivity of multiplication over addition.
 	Since the above hold for all $x$, it follows that $\mX$ is a linear operator.
-	Similarly, the following holds for all $x$ in the common domain.
+	Similarly, the following holds for all $x$ in the common domain $\dom \psi = \dom \phi$.
 	\begin{align*}
 		\left(\mD (w \psi + z \phi)\right)(x) & = \frac{d}{dx} \left(w \psi(x) + z \phi(x)\right) = w \left(\mD \psi \right)(x) + z \left(\mD \phi \right)(x)
 	\end{align*}
@@ -1432,11 +1432,22 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 
 \section{Particle dynamics}
 
+% substitution
 \begin{answer}[Kinetic energy]
 	Plugging $\psi(x) = \exp\p{\frac{i p x}{\hbar}}$ into the equation $- \frac{\hbar^2}{2 m} \frac{\partial^2 \psi(x)}{\partial x^2} = E \psi(x)$ yields $E \psi(x) = - \frac{\hbar^2}{2 m} \left(\frac{i p}{\hbar}\right)^2 \psi(x)$ and therefore $E = \frac{p^2}{2m}$.
 \end{answer}
 
-\begin{answer}[Commutator of squared momentum with position]
-	For any $\psi$ in the common domain of $\mP^2 \mX$ and $\mX \mP^2$, observe that $\left([\mP^2, \mX] \psi\right) (x) = - 2 \hbar^2 \frac{d}{dx} \psi(x)$.
+\begin{answer}[Commutators with momentum]
+	For any $\psi$ in the relevant domain, observe that $\left([\mP, \mX] \psi\right)(x) = -i \hbar \psi(x)$ and that $\left([\mP^2, \mX] \psi\right) (x) = - 2 \hbar^2 \frac{d \psi(x)}{dx}$ is equal to the following sum.
+	\begin{align}
+		\left((\mP[\mP, \mX] + [\mP, \mX] \mP) \psi \right)(x)
+		 & =
+		- \hbar^2 \frac{d \psi(x)}{dx} - \hbar^2 \frac{d \psi(x)}{dx}
+		= - 2 \hbar^2 \frac{d \psi(x)}{dx}
+	\end{align}
+\end{answer}
+
+\begin{answer}[Potential]
+	For any differentiable functions $\psi(x)$ and $V(x)$, the product rule yields $-i \hbar \frac{d}{dx}\p{V(x) \psi(x)} = -i \hbar \frac{dV(x)}{dx} \psi(x) + V(x) \left(-i \hbar \frac{d}{dx}\right)\psi(x)$.
 \end{answer}
 

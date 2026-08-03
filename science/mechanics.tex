@@ -7,7 +7,7 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 
 \localtableofcontents
 
-\subsection{Nature of classical physics}
+\section{Nature of classical physics}
 
 % 1.1 definition 
 \begin{answer}[Closed system]
@@ -31,7 +31,6 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 	Consider a system consisting of six states $S = \left\{1, 2, 3, 4, 5, 6\right\}$.
 
 	A law is given by a function $S \xrightarrow{f} S$ that assigns each state in $S$ to the state that results from evolution under the law.
-
 	If any law is allowed, then the set of laws is given by the set of all functions from $S$ to $S$.
 
 	If a law must satisfy the conservation of information, then the set of laws that are possible for a six-state system can be classified by the set of functions
@@ -46,21 +45,24 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 
 % 1.3 bijection
 \begin{answer}[Allowable laws]
-	Consider the infinite system $\left\{\cdots, -1, 0, +1, +2, \cdots\right\}$.
+	Consider the infinite system given below.
+	\begin{align}
+		\left\{\cdots, -1, 0, +1, +2, \cdots\right\}
+	\end{align}
 
 	Examples of dynamical laws that are allowable include those given by the following equations.
-	\begin{align}
+	\begin{align*}
 		N(n+1) = N(n) - 1 \quad
 		N(n+1) = N(n) + 2 \quad
 		N(n+1) = \p{-1}^{N(n)} N(n)
-	\end{align}
+	\end{align*}
 	On the other hand, the dynamical law given by the equation $N(n+1) = N(n)^2$ is not allowed because it does not satisfy the conservation of information.
 \end{answer}
 
 \subsubsection{Spaces, trigonometry, and vectors}
 \setcounter{answer}{0}
 
-% tikzpicture 
+% I1.1 tikzpicture 
 \begin{answer}[Plots]
 	Consider the functions $f,g,\theta,t$ defined below.
 	\begin{align}
@@ -425,15 +427,12 @@ Consider any inner product space with inner product $\braket{\bullet, \star}$ an
 Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
 
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any differentiable angular function $\theta(t)$ satisfies Equation \eqref{eqn:unicurve}.
+	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any differentiable angular function $\theta(t)$ satisfies the equation below.
 	\begin{align}
-		\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
-		                        &
-		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}                                                                    \\
-		\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
-		                        &
-		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:derivatives}                                        \\
-		\ddot{\vr}(t)           & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t) \label{eqn:acceleration}
+		\dot{\vr}(t)  & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
+		              &
+		\dot{\vth}(t) & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:derivatives}                                        \\
+		\ddot{\vr}(t) & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t) \label{eqn:acceleration}
 	\end{align}
 	Equation \eqref{eqn:acceleration} requires that the nonvanishing curve $\vr$ be twice differentiable.
 	The \emph{velocity} $\vv(t) = \dot{\vr}(t)$ is given in terms of the \emph{radial velocity $\dot{r}(t)$} and \emph{angular velocity $\dot{\theta}(t)$} below.
@@ -1018,6 +1017,7 @@ The canonical momentum $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$ con
 \end{align}
 Since $\theta$ is a cyclic coordinate of the gravitational Lagrangian, it follows that $\frac{\partial L}{\partial \theta} = 0$ and from the Euler-Lagrange equation $\frac{\partial L}{\partial \theta} = \frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}}$ that $\frac{d}{dt} p_\theta = 0$.
 That is, the angular momentum $p_\theta$ is conserved.
+Since $m > 0$ and $r(t) > 0$, it follows that $\dot{\theta}(t)$ has the same sign as the constant $p_\theta$.
 
 \subsubsection*{Kepler's Laws}
 
@@ -1051,4 +1051,5 @@ Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is non
 Then, the reciprocal function $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined and nonvanishing.
 Since $r = \frac{1}{u}$, the power rule yields $\frac{d r}{d u} = - \frac{1}{u^2}$ and the chain rule therefore yields $\frac{d r}{d \theta} = - \frac{1}{u^2} \frac{d u}{d \theta}$.
 Substitution into Equation \ref{eqn:grangle} yields $\dot{\theta} = \frac{p_\theta}{m} u^2$ and the chain rule $\dot{r} = \frac{dr}{d\theta} \dot{\theta}$ yields $\dot{r} = - \frac{p_\theta}{m} \frac{d u}{d \theta}$.
+The chain rule yields $\frac{d}{dt} \frac{du}{d\theta} = \frac{d^2u}{d\theta^2} \dot{\theta}$.
 

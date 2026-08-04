@@ -13,7 +13,7 @@ answers to the exercises from *The Theoretical Minimum* book on mechanics by Leo
 
 ### Quantum Mechanics
 
-answers to exercises selected from *Quantum Mechanics* by Leonard Susskind and Art Friedman
+answers to the exercises selected from *Quantum Mechanics* by Leonard Susskind and Art Friedman
 
-`science/quantum.tex`
+`/science/quantum.tex`
 

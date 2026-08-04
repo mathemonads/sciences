@@ -1,7 +1,7 @@
 
-% sciences/science/prelude.tex
+% /science/prelude.tex
 
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amssymb, amsthm, appendix}
 \usepackage[backend=biber, style=alphabetic]{biblatex}
 
 \usepackage{braket, bm, etoc, mathtools}
@@ -11,7 +11,8 @@
 \usepackage{subcaption, thmtools}
 \usepackage{hyperref}
 
-\declaretheorem[numberwithin=subsection]{answer}
+\declaretheorem[style=definition, numberwithin=chapter]{answer}
+\declaretheorem{theorem}
 \declaretheorem{corollary}
 \declaretheorem[style=definition, numberwithin=section]{definition}
 \declaretheorem{law}
@@ -19,7 +20,6 @@
 \declaretheorem{lemma}
 \declaretheorem[numberwithin=section]{proposition}
 \declaretheorem[numberwithin=section]{remark}
-\declaretheorem{theorem}
 
 \DeclareMathOperator{\dom}{dom}
 
@@ -67,5 +67,5 @@
 \newcommand{\vx}{\mbf{x}}
 \newcommand{\vy}{\mbf{y}}
 
-\newcommand{\SO}[1]{\op{SO}_\R\p{#1}}
+\newcommand{\SO}[1]{\op{SO}_{\R}\p{#1}}
 

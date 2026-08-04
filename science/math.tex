@@ -1,14 +1,18 @@
 
 % /science/math.tex
 
-\chapter*{Interlude on the mathematical sciences}
-\addcontentsline{toc}{chapter}{Interlude on the mathematical sciences}
+\chapter{Interlude on the mathematical sciences}
 
-A few classical results needed for Chapter \ref{chap:quantum} are reviewed.
+This interlude reviews the mechanics developed in the previous Chapter \ref{chap:mechanics} and introduces a couple of topics from the mathematical sciences needed for Chapter \ref{chap:quantum}.
 
-\subsection*{Units}
+By Newton's second law of motion, the net force $F$ acting on a body with constant mass $m \geq 0$ and mechanical momentum $p = m \dot{x}$ satisfies $F = \frac{dp}{dt}$.
+If $m > 0$, then $\frac{dp}{dt} = m \frac{d}{dt}\p{\dot{x}}$ and Newton's second law yields $F = m \ddot{x}$.
+If $m = 0$, then the mechanical momentum is $p = 0$ and the net force on the body is $F = 0$; Newton's second law then fails to determine the motion of the body.
+For Newton's second law to determine the motion of a body, its mass must be strictly positive.
 
-Let $\vq = \begin{pmatrix} q_1 \\ \vdots \\ q_i \\ \vdots \\ q_n \end{pmatrix}$ denote a vector of $n \in \N$ generalized coordinates, $\vp = \begin{pmatrix} p_1 \\ \vdots \\ p_i \\ \vdots \\ p_n \end{pmatrix}$ denote a vector of their canonical momenta, and let $L$ denote a Lagrangian.
+\section{Units}\label{sec:units}
+
+Let $\vq = \begin{pmatrix} q_1 \\ \vdots \\ q_i \\ \vdots \\ q_n \end{pmatrix}$ denote a vector of $n$ generalized coordinates and $\vp = \begin{pmatrix} p_1 \\ \vdots \\ p_i \\ \vdots \\ p_n \end{pmatrix}$ denote their canonical momenta with respect to some Lagrangian $L$.
 
 \begin{remark}[Units of derivatives of function on phase space]\label{rem:derivative}
 	For any function $F\p{\vq, \vp}$ of generalized coordinates $\vq$ and canonical momenta $\vp = \frac{\partial L}{\partial \dot{\vq}}$, the partial derivative $\frac{\partial F\p{\vq, \vp}}{\partial q_i}$ with respect to any generalized coordinate $q_i$ has units $\left|\frac{\partial F\p{\vq, \vp}}{\partial q_i}\right| = \frac{\left|F\right|}{\left|q_i\right|}$ and the partial derivative $\frac{\partial F\p{\vq, \vp}}{\partial p_i}$ with respect to the canonical momentum $p_i$ conjugate to $q_i$ has units $\left|\frac{\partial F\p{\vq, \vp}}{\partial p_i}\right| = \frac{\left|F\right|}{\left|p_i\right|}$.
@@ -32,7 +36,8 @@ Let $\vq = \begin{pmatrix} q_1 \\ \vdots \\ q_i \\ \vdots \\ q_n \end{pmatrix}$ 
 \begin{proof}
 	The result follows from Remark \ref{rem:derivative} and Proposition \ref{prop:action}.
 \end{proof}
-Observe the two products have the same dimensions.
+
+The two products have the same dimensions.
 
 \begin{theorem}\label{thm:Poisson}
 	For any functions $F\left(\vq, \vp\right)$ and $G\left(\vq, \vp\right)$, the dimensions of the Poisson bracket $\left\{F, G\right\}$ are $\left|\{F,G\}\right| = \frac{\left|F\right| \left|G\right|}{\left|L\right| \left|t\right|}$.
@@ -50,7 +55,7 @@ The units of the reduced Planck constant $\hbar$ are $\left|\hbar\right| = \left
 	The result follows from Theorem \ref{thm:Poisson}.
 \end{proof}
 
-\subsection*{Algebra}
+\section{Algebra}
 
 Given the axis spanned by any unit vector $\hat{n}$, the rotation $r_{\hat{n}}^\theta$ of $\R^3$ about the axis by $\theta$ can be expressed by Rodrigues's rotation formula below.
 \begin{align}\label{eqn:Rodrigues}

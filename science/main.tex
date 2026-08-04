@@ -8,14 +8,14 @@
 
 \addbibresource{main.bib}
 
-\title{Solutions to selected exercises from the Theoretical Minimum}
+\title{Solutions to selected exercises from The Theoretical Minimum}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-	Solutions are presented for a selection of exercises from the first two books \cite{TM, QM} in the series by Professor Leonard Susskind et al. on the \emph{Theoretical Minimum: What You Need to Know to Start Doing Physics}.
+	Proposed solutions are presented for the exercises from the first two books \cite{TM, QM} in the series by Professor Leonard Susskind et al. on the \emph{Theoretical Minimum: What You Need to Know to Start Doing Physics}.
 \end{abstract}
 
 \etocsettocdepth{section}
@@ -24,15 +24,17 @@
 
 \input{intro}
 \input{mechanics}
-\input{math}
+\begin{appendices}
+	\input{math}
+\end{appendices}
 \input{quantum}
 
 \appendix
 \input{appendix}
 
-\printbibliography[heading=bibintoc]
-
 \listoftheorems[title={List of Exercises and Results}, onlynamed={answer, definition, remark, proposition, law, lemma, theorem, corollary}]
+
+\printbibliography[heading=bibintoc]
 
 \end{document}
 

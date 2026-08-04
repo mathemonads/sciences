@@ -13,11 +13,11 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 \begin{answer}[Closed system]
 	Recall that a \emph{system} is defined in \cite[Lecture 1]{TM} as a ``collection of objects'', and that a system is \emph{closed} if it ``is either the entire universe or is so isolated from everything else that it behaves as if nothing else exists.''
 
-	This definition formally admits the entire universe and, taken literally, the empty system that consists of no objects.
-	A hypothetical example is a universe with a component that is dynamically uncoupled from the other components; the first component is a closed system because it is impossible for it to interact with the other components.
+	The definition includes both the entire universe and, taken literally, the empty system that consists of no objects.
+	For another example, consider a hypothetical universe with a component that is dynamically uncoupled from the other components; the first component is a closed system because it is impossible for it to interact with the other components.
 	In this example, processes within one component of the universe can neither reveal the existence of uncoupled components nor rule them out.
-	Thus, it is not always possible to establish whether a system is the entire universe.
-	An assumption implicit in establishing a closed system is that it is possible to determine whether it is the entire universe or whether it has no interactions with the external environment.
+	Thus, it is not always possible to establish whether a given system is the entire universe.
+	An assumption implicit in establishing that a system is closed is then that one can determine whether it interacts with the external environment.
 
 	An \emph{open} system is a system that is not the entire universe and that is \emph{not} ``so isolated from everything else that it behaves as if nothing else exists''; that is, an open system has an external environment and interacts with it.
 	An open system can be identified by such interactions if they exist.
@@ -39,7 +39,7 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 	\end{align}
 	where each function has the property that each element in its codomain has a unique preimage and thus each such function in $C$ is a bijection.
 	The number of such laws, given by the size $\left|C\right| = 6!$ of $C$, is $6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720$.
-	This is because any function $S \xrightarrow{f} S$ in $C$ is a permutation of $S$ and there are $6!$ such permutations.
+	This is because any function $S \xrightarrow{f} S$ in $C$ is a permutation of $S$.
 \end{answer}
 % permutation
 
@@ -232,8 +232,6 @@ Solutions are proposed in this chapter to all of the exercises in \cite{TM}.
 	\end{align}
 \end{answer}
 
-Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivative $\dot{\vr}(t)$ with respect to time.
-
 % calculation
 \begin{answer}[Orthogonality of sinusoidal position and velocity]
 	The dot product of the position and velocity vectors is given below.
@@ -314,7 +312,7 @@ Define the \emph{velocity} of a differentiable curve $\vr(t)$ to be its derivati
 
 % power
 \begin{answer}[Solving Newton's equation for position]
-	Consider a constant force on a body with a constant mass $m$.
+	Consider a constant force on a body with a constant mass $m > 0$.
 
 	Differentiating $\dsp z(t) = z_0 + v_z(0)t + \frac{F_z}{2m}t^2$ yields the following velocity.
 	\begin{align}\label{eqn:vel}
@@ -427,11 +425,7 @@ Consider any inner product space with inner product $\braket{\bullet, \star}$ an
 Henceforth, let $\vr(t)$ denote a differentiable curve in the Euclidean plane.
 
 \begin{remark}[Tangent vectors of polar unit vectors]\label{rem:polar}
-	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, any differentiable angular function $\theta(t)$ satisfies the equation below.
-	\begin{align}
-		\ddot{\vr}(t) & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t) \label{eqn:acceleration}
-	\end{align}
-	Equation \eqref{eqn:acceleration} requires that the nonvanishing curve $\vr$ be twice differentiable.
+	For any nonvanishing differentiable curve $\vr(t)$ in the Euclidean plane, Equation \eqref{eqn:acceleration} requires that the nonvanishing curve $\vr$ be twice differentiable.
 	The \emph{velocity} $\vv(t) = \dot{\vr}(t)$ is given in terms of the \emph{radial velocity $\dot{r}(t)$} and \emph{angular velocity $\dot{\theta}(t)$} below.
 	\begin{align}\label{eqn:velocity}
 		\dot{\vr}(t) = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\theta}(t) \widehat{\vth}(t)
@@ -954,7 +948,7 @@ There are no exercises in this lecture on phase space.
 	If $v_0 = 0$, then the radius of this degenerate circle is zero.
 \end{answer}
 
-\subsection{Central forces and planetary orbits}
+\section{Central forces and planetary orbits}
 
 Let $m > 0$ denote the mass of the Earth, $M$ denote the mass of the Sun, and $G$ denote Newton's constant of gravitation.
 
@@ -1041,12 +1035,18 @@ Since $m > 0$ and $r(t) > 0$, it follows that $\dot{\theta}(t)$ has the same sig
 
 If $p_\theta = 0$, then $\dot{\theta} = 0$.
 Assume that $p_\theta \neq 0$.
-Since $\dot{\theta}$ has the same nonzero sign as the constant $p_\theta$, the function $\theta(t)$ is strictly monotone.
+Since $\dot{\theta}$ has the same nonzero sign as the constant $p_\theta$, the function $\theta(t)$ is strictly monotone and hence locally invertible.
 
 Consider the radial distance $r$ of the Earth from the Sun as a function of the polar angle $\theta$.
 Since $\vr(t)$ is nonvanishing by assumption, it follows that $r(\theta)$ is nonvanishing.
 Then, the reciprocal function $u(\theta) = \frac{1}{r(\theta)}$ of $r$ is well-defined and nonvanishing.
 Since $r = \frac{1}{u}$, the power rule yields $\frac{d r}{d u} = - \frac{1}{u^2}$ and the chain rule therefore yields $\frac{d r}{d \theta} = - \frac{1}{u^2} \frac{d u}{d \theta}$.
-Substitution into Equation \ref{eqn:grangle} yields $\dot{\theta} = \frac{p_\theta}{m} u^2$ and the chain rule $\dot{r} = \frac{dr}{d\theta} \dot{\theta}$ yields $\dot{r} = - \frac{p_\theta}{m} \frac{d u}{d \theta}$.
-The chain rule yields $\frac{d}{dt} \frac{du}{d\theta} = \frac{d^2u}{d\theta^2} \dot{\theta}$ and $\ddot{r} = - \frac{p_\theta^2 u^2}{m^2} \frac{d^2u}{d\theta^2}$.
+Substitution into Equation \eqref{eqn:grangle} yields the equation below.
+\begin{align*}
+	\dot{\theta}   & = \frac{p_\theta}{m} u^2
+	               &
+	\dot{\theta}^2 & = \left(\frac{p_\theta}{m} u^2\right)^2
+\end{align*}
+The chain rule $\dot{r} = \frac{d r}{d\theta} \dot{\theta}$ yields $\dot{r} = - \frac{p_\theta}{m} \frac{d u}{d \theta}$.
+The chain rule also yields $\frac{d}{dt} \frac{du}{d\theta} = \frac{d^2u}{d\theta^2} \dot{\theta}$ and $\ddot{r} = - \frac{p_\theta^2 u^2}{m^2} \frac{d^2u}{d\theta^2}$.
 

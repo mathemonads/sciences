@@ -3,11 +3,11 @@
 
 \chapter{Quantum Mechanics}\label{chap:quantum}
 
-Solutions are proposed in this section to a selection of exercises from the lectures of \cite{QM} included in the table below.
+Solutions are proposed in this chapter to exercises from the lectures of \cite{QM} included in the table below.
 
 \localtableofcontents
 
-\subsection{Systems and experiments}
+\section{Systems and experiments}
 
 % additivity
 \begin{answer}[Inner product]
@@ -1414,9 +1414,11 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 
 \section{Particles and waves}
 
+Let $\mD = \frac{d}{dx}$.
+
 % linear combination 
 \begin{answer}[Linearity of position and differentiation]
-	To show that $\mX$ and $\mD$ are linear operators, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in the common domain $\dom \mX = \dom \mD$ of $\mX$ and $\mD$.
+	To show that $\mX$ and $\mD$ are linear operators, consider any scalars $w,z \in \C$ and functions $\psi, \phi$ in a common domain $\dom \mX = \dom \mD$ of $\mX$ and $\mD$.
 	The following hold for all $x$ in the common domain $\dom \psi = \dom \phi$ of $\psi$ and $\phi$.
 	\begin{align}
 		\left(\mX (w \psi + z \phi)\right)(x) & = x \left(w \psi(x) + z \phi(x)\right) = w \left(\mX \psi \right)(x) + z \left(\mX \phi \right)(x)
@@ -1448,18 +1450,34 @@ For any product state $\ket{\Psi} = \alpha_u \beta_u \ket{u u} + \alpha_u \beta_
 	\end{align}
 \end{answer}
 
+% product
 \begin{answer}[Commutator of potential energy and momentum]
-	For any differentiable functions $\psi(x)$ and $V(x)$, the product rule yields $-i \hbar \frac{d}{dx}\p{V(x) \psi(x)} = -i \hbar \frac{dV(x)}{dx} \psi(x) + V(x) \left(-i \hbar \frac{d}{dx}\right)\psi(x)$ and subtraction gives the equation below.
+	For any differentiable functions $\psi(x)$ and $V(x)$, the product rule yields $-i \hbar \frac{d}{dx}\p{V(x) \psi(x)} = -i \hbar \frac{dV(x)}{dx} \psi(x) + V(x) \left(-i \hbar \frac{d}{dx}\right)\psi(x)$ and subtraction yields the equation below.
 	\begin{align}
 		\left([\mV(x), \mP] \psi\right)(x) & = i \hbar \frac{dV(x)}{dx} \psi(x)
 	\end{align}
 	Therefore, the commutator is $\left[\mV(x), \mP\right] = i \hbar \frac{dV(x)}{dx}$.
 \end{answer}
 
-\begin{answer}[Sinusoid]
-	Consider the equation below.
+\section{The harmonic oscillator}
+
+Consider the force $F = -k x$ for some constant $k \in \R$.
+There is an equilibrium point $(x, \dot{x}) = (0, 0)$; if a particle is initially at rest at $x=0$, then it remains there.
+If $k < 0$, then this equilibrium is unstable.
+If $k = 0$, then the force vanishes.
+Henceforth, assume that $k > 0$ so that $F$ is a restoring force.
+
+\subsection{The classical description}
+
+Consider a classical harmonic oscillator with mass $m > 0$.
+
+\begin{answer}[Sinusoidal motion]
+	Consider the solution $x(t)$ proposed below.
 	\begin{align}
-		x(t) & = A \cos\p{\omega t} + B \sin\p{\omega t}
+		x(t)       & = A \cos\p{\omega t} + B \sin\p{\omega t}
+		           &
+		\dot{x}(t) & = - \omega A \sin\p{\omega t} + \omega B \cos\p{\omega t}
 	\end{align}
+	Differentiating the second equation again yields $\ddot{x}(t) = -\omega^2 A \cos\p{\omega t} - \omega^2 B \sin\p{\omega t}$ and thus $\ddot{x}(t) = - \omega^2 x(t)$.
 \end{answer}
 

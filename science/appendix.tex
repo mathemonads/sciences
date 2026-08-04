@@ -1,13 +1,11 @@
 
 % /science/appendix.tex
 
-\chapter{Mathematics}\label{app:math}
+\chapter*{Mathematics}\label{app:math}
 
-Conventions used in Chapter \ref{chap:mechanics} are established in this appendix.
+This appendix establishes the notation and conventions used throughout this text.
 
-\localtableofcontents
-
-Throughout this text, denote the totally ordered field of real numbers by
+Denote the totally ordered field of real numbers by
 \begin{align*}
 	\left\langle \R, \R \times \R \xrightarrow{+, \cdot} \R, 0, 1, \leq \right\rangle
 \end{align*}
@@ -16,40 +14,44 @@ and the field of complex numbers by
 	\left\langle \C, \C \times \C \xrightarrow{+, \cdot} \C, 0, 1, \C \xrightarrow{*} \C \right\rangle
 \end{align*}
 with involution $z \xmapsto{*} z^*$ given by complex conjugation.
-Let $\Z \subseteq \R$ denote the totally ordered commutative subring of integers, $\R_{\geq 0} = [0, +\infty)$ denote the totally ordered commutative subsemiring of non-negative real numbers, $\N$ denote the totally ordered commutative subsemiring $\N \subseteq \R_{\geq 0}$ of natural numbers, and $\Z_+ \subseteq \N$ denote the totally ordered subsemigroup of positive integers.
-For each natural number $n \in \N$, the standard $n$-dimensional complex Hilbert space
+Let $\Z \subseteq \R$ denote the totally ordered commutative subring of integers, $\R_{\geq 0} = [0, +\infty)$ denote the totally ordered commutative subsemiring of non-negative real numbers, $\N \subseteq \Z$ denote the totally ordered commutative subsemiring of natural numbers, and $\Z_+ \subseteq \N$ denote the totally ordered subsemigroup of positive integers.
+Denote an arbitrary natural number by $n \in \N$.
+The standard $n$-dimensional complex Hilbert space
 \begin{align*}
 	\left\langle \C^n, \C^n \times \C^n \xrightarrow{+} \C^n, \vzero, \C \times \C^n \xrightarrow{\cdot} \C^n, \C^n \times \C^n \xrightarrow{\braket{\bullet \mid \star}} \C, \C^n \xrightarrow{\|\bullet\|} \R_{\geq 0} \right\rangle
 \end{align*}
 is equipped with the standard inner product that is linear in the ket and conjugate-linear in the bra.
-
-Terminology is reviewed in Section \ref{sec:terminology} below.
-
-\section{Terminology}\label{sec:terminology}
+The $n$-dimensional real Euclidean Hilbert space
+\begin{align*}
+	\left\langle \R^n, \R^n \times \R^n \xrightarrow{+} \R^n, \vzero, \R \times \R^n \xrightarrow{\cdot} \R^n, \R^n \times \R^n \xrightarrow{\braket{\bullet \mid \star}} \R, \R^n \xrightarrow{\|\bullet\|} \R_{\geq 0} \right\rangle
+\end{align*}
+inherits this inner product as a vector subspace of $\C^n$.
 
 A \emph{curve}\index{curve} in a topological space $X$ is a continuous map from an interval in $\R$ to $X$.
+
+\section*{Terminology}\label{sec:terminology}
+
+The \emph{velocity} of a differentiable curve $\vr(t)$ is its derivative $\dot{\vr}(t)$ with respect to time.
 A curve in a topological module is called \emph{nonvanishing} if it is nowhere equal to the additive identity.
 
 Consider a vector space with norm $\left\|\bullet\right\|$.
 Define the \emph{square} of a vector $\vr$ to be the square $\vr^2 = \left\|\vr\right\|^2$ of its norm.
-For any curve $\vr(t)$ in a vector space with norm $\left\|\bullet\right\|$, the \emph{norm function} of $\vr(t)$ is the function $r(t)$ defined pointwise by $r(t) = \left\|\vr(t)\right\|$ and the \emph{square} of $\vr(t)$ is the function $\vr^2(t) = r(t)^2$; if $\vr(t)$ is nonvanishing, then its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
+For any curve $\vr(t)$ in such a normed vector space, the \emph{norm function} of $\vr(t)$ is the function $r(t)$ defined pointwise by $r(t) = \left\|\vr(t)\right\|$ and the \emph{square} of $\vr(t)$ is the function $\vr^2(t) = r(t)^2$; if $\vr(t)$ is nonvanishing, then its associated \emph{unit curve} is $\widehat{\vr}(t) = \frac{1}{r(t)} \vr(t)$.
 
-\subsection{Curves in the Euclidean plane}\label{sec:geo}
+\subsection*{Curves in the Euclidean plane}\label{sec:geo}
 
-For a nonvanishing curve $\vr(t)$ in the oriented Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a continuous real-valued function $\theta(t)$ on the domain of $\vr(t)$ for which the angle $\theta(t_0)$ at any time $t_0$ is a polar angle of $\vr(t_0)$.
-The \emph{velocity} of a differentiable curve $\vr(t)$ is its derivative $\dot{\vr}(t)$ with respect to time.
+For a nonvanishing curve $\vr(t)$ in the oriented Euclidean plane, an \emph{angular curve} for $\vr(t)$ is a continuous real-valued function $\theta(t)$ such that $\theta(t)$ is a polar angle of $\vr(t)$ for any $t \in \dom \vr$.
 
-\begin{remark}[Frames]
-	If $\vr(t)$ is a nonvanishing differentiable curve in the Euclidean plane, then there exists a differentiable angular curve for it and such an angular curve is not unique.
-	For any such differentiable angular curve $\theta(t)$, let $\vth(t)$ be the differentiable curve with norm $\|\vth(t)\| = \|\vr(t)\|$ such that $\vth(t)$ is the result of rotating $\vr(t)$ by $+\frac{\pi}{2}$ for all $t$ in $\dom \vr = \dom \vth$ and let $\widehat{\vth}(t)$ denote its associated unit curve.
-	These curves satisfy Equations \ref{eqn:unicurve}--\ref{eqn:tancurve} below.
-	\begin{align}
-		\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
-		                        &
-		\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}                          \\
-		\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
-		                        &
-		\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:tancurve}
-	\end{align}
-\end{remark}
+If $\vr(t)$ is a nonvanishing differentiable curve in the Euclidean plane, then there exists a differentiable angular curve for it and such an angular curve is unique up to addition of integer multiples of $2 \pi$..
+For any such differentiable angular curve $\theta(t)$, let $\vth(t)$ be the differentiable curve with norm $\|\vth(t)\| = \|\vr(t)\|$ such that $\vth(t)$ is the result of rotating $\vr(t)$ by $+\frac{\pi}{2}$ for all $t$ in $\dom \vr = \dom \vth$ and let $\widehat{\vth}(t)$ denote its associated unit curve.
+These curves satisfy the Equations \eqref{eqn:unicurve}--\eqref{eqn:velocities} below.
+\begin{align}
+	\dot{\widehat{\vr}}(t)  & = \dot{\theta}(t) \widehat{\vth}(t)
+	                        &
+	\dot{\widehat{\vth}}(t) & = - \dot{\theta}(t) \widehat{\vr}(t) \label{eqn:unicurve}                                                                    \\
+	\dot{\vr}(t)            & = \dot{r}(t) \widehat{\vr}(t) + r(t) \dot{\widehat{\vr}}(t)
+	                        &
+	\dot{\vth}(t)           & = \dot{r}(t) \widehat{\vth}(t) + r(t) \dot{\widehat{\vth}}(t) \label{eqn:velocities}                                         \\
+	\ddot{\vr}(t)           & = \ddot{r}(t) \widehat{\vr}(t) + 2 \dot{r}(t) \dot{\widehat{\vr}}(t) + r(t) \ddot{\widehat{\vr}}(t) \label{eqn:acceleration}
+\end{align}
 
